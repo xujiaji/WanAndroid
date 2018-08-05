@@ -1,0 +1,54 @@
+apply plugin: 'com.android.library'
+
+android {
+    compileSdkVersion 27
+
+
+
+    defaultConfig {
+        minSdkVersion 14
+        targetSdkVersion 27
+        versionCode 1
+        versionName "1.0"
+
+        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+
+    dataBinding {
+        enabled = true
+    }
+}
+
+dependencies {
+    api fileTree(dir: 'libs', include: ['*.jar'])
+    api "com.android.support:appcompat-v7:$support"
+    api "com.android.support:support-v4:$support"
+    api "com.android.support:recyclerview-v7:$support"
+    api "com.android.support:cardview-v7:$support"
+
+    api "com.squareup.okhttp3:logging-interceptor:$okhttp3"
+    api "com.squareup.retrofit2:retrofit:$retrofit"
+    api "com.squareup.retrofit2:converter-gson:$retrofit"
+    api "android.arch.lifecycle:runtime:$arch"
+    api "android.arch.lifecycle:extensions:$arch"
+    annotationProcessor "android.arch.lifecycle:compiler:$arch"
+    api "com.google.dagger:dagger:$dagger"
+    api "com.google.dagger:dagger-android:$dagger"
+    api "com.google.dagger:dagger-android-support:$dagger"
+    annotationProcessor "com.google.dagger:dagger-android-processor:$dagger"
+    annotationProcessor "com.google.dagger:dagger-compiler:$dagger"
+
+    api "com.github.CymChad:BaseRecyclerViewAdapterHelper:$adapterHelper"
+
+    api "com.github.bumptech.glide:glide:$glide"
+    annotationProcessor "com.github.bumptech.glide:compiler:$glide"
+}
+

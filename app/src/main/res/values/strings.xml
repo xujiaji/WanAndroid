@@ -1,0 +1,23 @@
+<resources>
+    <string name="app_name">WanAndroid</string>
+    <string name="blog_post">博文</string>
+    <string name="project">项目</string>
+    <string name="tool">工具</string>
+    <string name="home">首页</string>
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+    <string name="menu">菜单</string>
+    <string name="profile">个人</string>
+    <string name="log_out">登出</string>
+    <string name="system">体系</string>
+    <string name="navigation">导航</string>
+    <string name="project_category">项目分类</string>
+    <string name="set">设置</string>
+    <string name="about">关于</string>
+    <string name="links">友情链接</string>
+    <string name="share_project">分享项目</string>
+    <string name="openapis">OPENAPIS</string>
+    <string name="like">喜欢</string>
+    <string name="login">登录</string>
+    <string name="collect_links">收藏网站</string>
+</resources>

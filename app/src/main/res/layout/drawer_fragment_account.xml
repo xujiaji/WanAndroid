@@ -1,0 +1,172 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <android.support.v4.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@mipmap/profile_bg">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+
+            <FrameLayout
+                android:id="@+id/heart"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="?selectableItemBackground"
+                android:clickable="true"
+                android:focusable="true"
+                android:paddingBottom="@dimen/spacing_xs_large"
+                android:paddingTop="@dimen/spacing_xs_large">
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="start|center"
+                    android:layout_marginStart="@dimen/spacing_xs_large"
+                    android:src="@drawable/ic_nav_heart"
+                    android:tint="@color/search_tab_highlighter" />
+
+                <TextView
+                    style="@style/TextAppearance.AppCompat.Subhead"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="start|center"
+                    android:paddingStart="72dp"
+                    android:text="@string/like"
+                    android:textColor="@color/search_tab_highlighter"
+                    tools:ignore="RtlSymmetry" />
+            </FrameLayout>
+
+            <include layout="@layout/line_full" />
+
+            <FrameLayout
+                android:id="@+id/collect"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="?selectableItemBackground"
+                android:clickable="true"
+                android:focusable="true"
+                android:paddingBottom="@dimen/spacing_xs_large"
+                android:paddingTop="@dimen/spacing_xs_large">
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="start|center"
+                    android:layout_marginStart="@dimen/spacing_xs_large"
+                    android:src="@drawable/ic_nav_collect_links"
+                    android:tint="@color/search_tab_highlighter" />
+
+                <TextView
+                    style="@style/TextAppearance.AppCompat.Subhead"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="start|center"
+                    android:paddingStart="72dp"
+                    android:text="@string/collect_links"
+                    android:textColor="@color/search_tab_highlighter"
+                    tools:ignore="RtlSymmetry" />
+            </FrameLayout>
+
+            <include layout="@layout/line_full" />
+
+            <FrameLayout
+                android:id="@+id/share"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="?selectableItemBackground"
+                android:clickable="true"
+                android:focusable="true"
+                android:paddingBottom="@dimen/spacing_xs_large"
+                android:paddingTop="@dimen/spacing_xs_large">
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="start|center"
+                    android:layout_marginStart="@dimen/spacing_xs_large"
+                    android:src="@drawable/ic_nav_share_project"
+                    android:tint="@color/search_tab_highlighter" />
+
+                <TextView
+                    style="@style/TextAppearance.AppCompat.Subhead"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="start|center"
+                    android:paddingStart="72dp"
+                    android:text="@string/share_project"
+                    android:textColor="@color/search_tab_highlighter"
+                    tools:ignore="RtlSymmetry" />
+            </FrameLayout>
+
+            <include layout="@layout/line_full" />
+
+            <FrameLayout
+                android:id="@+id/logout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="?selectableItemBackground"
+                android:clickable="true"
+                android:focusable="true"
+                android:paddingBottom="@dimen/spacing_xs_large"
+                android:paddingTop="@dimen/spacing_xs_large">
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="start|center"
+                    android:layout_marginStart="@dimen/spacing_xs_large"
+                    android:src="@drawable/ic_nav_login"
+                    android:tint="@color/search_tab_highlighter" />
+
+                <TextView
+                    style="@style/TextAppearance.AppCompat.Subhead"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="start|center"
+                    android:paddingStart="72dp"
+                    android:text="@string/login"
+                    android:textColor="@color/search_tab_highlighter" />
+            </FrameLayout>
+
+            <include layout="@layout/line_full" />
+
+            <FrameLayout
+                android:id="@+id/logout2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="?selectableItemBackground"
+                android:clickable="true"
+                android:focusable="true"
+                android:paddingBottom="@dimen/spacing_xs_large"
+                android:paddingTop="@dimen/spacing_xs_large">
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="start|center"
+                    android:layout_marginStart="@dimen/spacing_xs_large"
+                    android:src="@drawable/ic_nav_logout"
+                    android:tint="@color/search_tab_highlighter" />
+
+                <TextView
+                    style="@style/TextAppearance.AppCompat.Subhead"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="start|center"
+                    android:paddingStart="72dp"
+                    android:text="@string/log_out"
+                    android:textColor="@color/search_tab_highlighter" />
+            </FrameLayout>
+
+        </LinearLayout>
+
+    </android.support.v4.widget.NestedScrollView>
+
+
+</layout>

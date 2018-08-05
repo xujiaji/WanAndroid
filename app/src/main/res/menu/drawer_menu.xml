@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <group android:id="@+id/home_group">
+        <item
+            android:id="@+id/mainView"
+            android:icon="@drawable/ic_nav_home"
+            android:title="@string/home"
+            android:visible="true" />
+    </group>
+
+    <group android:id="@+id/menu_group">
+        <item
+            android:id="@+id/system"
+            android:icon="@drawable/ic_nav_system"
+            android:title="@string/system" />
+        <item
+            android:id="@+id/orgs"
+            android:icon="@drawable/ic_nav_navigation"
+            android:title="@string/navigation" />
+        <item
+            android:id="@+id/notifications"
+            android:icon="@drawable/ic_nav_category_project"
+            android:title="@string/project_category" />
+    </group>
+
+
+    <group
+        android:id="@+id/group_one"
+        android:checkableBehavior="none">
+
+
+        <item
+            android:id="@+id/pinnedMenu333"
+            android:icon="@drawable/ic_nav_links"
+            android:title="@string/links" />
+
+        <item
+            android:id="@+id/gists"
+            android:icon="@drawable/ic_nav_api"
+            android:title="@string/openapis" />
+    </group>
+
+
+    <group
+        android:id="@+id/group_three"
+        android:checkableBehavior="none">
+        <item
+            android:id="@+id/pinnedMenu"
+            android:icon="@drawable/ic_nav_set"
+            android:title="@string/set" />
+
+        <item
+            android:id="@+id/trending"
+            android:icon="@drawable/ic_nav_i"
+            android:title="@string/about" />
+        <!--<item-->
+        <!--android:id="@+id/settings"-->
+        <!--android:icon="@drawable/ic_settings"-->
+        <!--android:title="@string/settings"/>-->
+
+        <!--<item-->
+        <!--android:id="@+id/restorePurchase"-->
+        <!--android:icon="@drawable/ic_money"-->
+        <!--android:title="@string/restore_purchases"/>-->
+
+        <!--<item-->
+        <!--android:id="@+id/about"-->
+        <!--android:icon="@drawable/ic_info"-->
+        <!--android:title="@string/about"/>-->
+    </group>
+
+</menu>
