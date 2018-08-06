@@ -18,14 +18,14 @@ import retrofit2.Call;
  * description:
  */
 @Singleton
-public class NET {
+public class Net {
     public static final int TIME_OUT_READ = 20;
     public static final int TIME_OUT_CONNECT = 5;
 
     private API mApi;
 
     @Inject
-    public NET(API api) {
+    public Net(API api) {
         this.mApi = api;
     }
 

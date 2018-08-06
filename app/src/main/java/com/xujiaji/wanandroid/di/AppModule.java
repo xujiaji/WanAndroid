@@ -21,9 +21,9 @@ import android.arch.lifecycle.ViewModelProvider;
 
 import com.xujiaji.mvvmquick.viewmodel.ProjectViewModelFactory;
 import com.xujiaji.wanandroid.BuildConfig;
-import com.xujiaji.wanandroid.module.main.fragment.MainBlogPostsViewModel;
+import com.xujiaji.wanandroid.module.main.fragment.posts.MainBlogPostsViewModel;
 import com.xujiaji.wanandroid.repository.remote.API;
-import com.xujiaji.wanandroid.repository.remote.NET;
+import com.xujiaji.wanandroid.repository.remote.Net;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -65,8 +65,8 @@ public abstract class AppModule {
     static OkHttpClient provideOkHttpClient(HttpLoggingInterceptor interceptor) {
         return new OkHttpClient.Builder()
                 .addInterceptor(interceptor)
-                .connectTimeout(NET.TIME_OUT_CONNECT, TimeUnit.SECONDS)
-                .readTimeout(NET.TIME_OUT_READ, TimeUnit.SECONDS)
+                .connectTimeout(Net.TIME_OUT_CONNECT, TimeUnit.SECONDS)
+                .readTimeout(Net.TIME_OUT_READ, TimeUnit.SECONDS)
                 .build();
     }
 

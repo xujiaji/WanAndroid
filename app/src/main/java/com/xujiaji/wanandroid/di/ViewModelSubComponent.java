@@ -16,7 +16,7 @@
 
 package com.xujiaji.wanandroid.di;
 
-import com.xujiaji.wanandroid.module.main.fragment.MainBlogPostsViewModel;
+import com.xujiaji.wanandroid.module.main.fragment.posts.MainBlogPostsViewModel;
 
 import dagger.Lazy;
 import dagger.Subcomponent;

@@ -8,54 +8,49 @@ import android.support.v7.app.ActionBar;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
-import android.widget.LinearLayout;
 
-import com.xujiaji.mvvmquick.base.MQActivity;
 import com.xujiaji.mvvmquick.base.MQViewModel;
 import com.xujiaji.mvvmquick.util.ScreenUtils;
 import com.xujiaji.wanandroid.R;
 import com.xujiaji.wanandroid.adapter.FragmentsPagerAdapter;
+import com.xujiaji.wanandroid.base.BaseActivity;
 import com.xujiaji.wanandroid.base.BaseFragment;
 import com.xujiaji.wanandroid.databinding.ActivityMainBinding;
-import com.xujiaji.wanandroid.helper.ViewHelper;
 import com.xujiaji.wanandroid.model.FragmentModel;
 import com.xujiaji.wanandroid.util.StatusBarUtil;
-
-import java.util.List;
 
 import javax.inject.Inject;
 import javax.inject.Named;
 
-public class MainActivity extends MQActivity<ActivityMainBinding, MQViewModel> {
+public class MainActivity extends BaseActivity<ActivityMainBinding, MQViewModel> {
 
     @Inject
     FragmentsPagerAdapter mDrawerPagerAdapter;
 
     @Inject
-    @Named("Blog")
-    FragmentModel mBlogFragment;
+    @Named("Post")
+    FragmentModel mBlogModel;
 
     @Inject
     @Named("Project")
-    FragmentModel mProjectFragment;
+    FragmentModel mProjectModel;
 
     @Inject
     @Named("Tool")
-    FragmentModel mToolFragment;
-
+    FragmentModel mToolModel;
 
     private ActionBar actionBar;
 
     private BottomNavigationView.OnNavigationItemSelectedListener mOnNavigationItemSelectedListener = item -> {
         switch (item.getItemId()) {
             case R.id.navigation_blog_post:
-                showFrag(mBlogFragment.getFragment());
+                showFrag(mBlogModel.getFragment());
                 return true;
             case R.id.navigation_project:
-                showFrag(mProjectFragment.getFragment());
+                showFrag(mProjectModel.getFragment());
                 return true;
             case R.id.navigation_tool:
-                showFrag(mToolFragment.getFragment());
+                showFrag(mToolModel.getFragment());
                 return true;
         }
         return false;
@@ -64,9 +59,9 @@ public class MainActivity extends MQActivity<ActivityMainBinding, MQViewModel> {
     private void showFrag(BaseFragment frag) {
         getSupportFragmentManager()
                 .beginTransaction()
-                .hide(mBlogFragment.getFragment())
-                .hide(mProjectFragment.getFragment())
-                .hide(mToolFragment.getFragment())
+                .hide(mBlogModel.getFragment())
+                .hide(mProjectModel.getFragment())
+                .hide(mToolModel.getFragment())
                 .show(frag)
                 .commit();
 
@@ -80,11 +75,11 @@ public class MainActivity extends MQActivity<ActivityMainBinding, MQViewModel> {
 
         getSupportFragmentManager()
                 .beginTransaction()
-                .add(R.id.container, mBlogFragment.getFragment(), "MainBlogPostsFragment")
-                .add(R.id.container, mProjectFragment.getFragment(), "MainProjectsFragment")
-                .add(R.id.container, mToolFragment.getFragment(), "MainToolsFragment")
-                .hide(mProjectFragment.getFragment())
-                .hide(mToolFragment.getFragment())
+                .add(R.id.container, mBlogModel.getFragment(), "MainBlogPostsFragment")
+                .add(R.id.container, mProjectModel.getFragment(), "MainProjectsFragment")
+                .add(R.id.container, mToolModel.getFragment(), "MainToolsFragment")
+                .hide(mProjectModel.getFragment())
+                .hide(mToolModel.getFragment())
                 .commit();
     }
 

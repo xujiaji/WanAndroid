@@ -5,6 +5,8 @@ import com.xujiaji.mvvmquick.di.ActivityScoped;
 import com.xujiaji.wanandroid.base.BaseFragment;
 import com.xujiaji.wanandroid.databinding.FragmentMainProjectsBinding;
 
+import javax.inject.Inject;
+
 /**
  * author: xujiaji
  * created on: 2018/8/5 21:06
@@ -12,4 +14,7 @@ import com.xujiaji.wanandroid.databinding.FragmentMainProjectsBinding;
  */
 @ActivityScoped
 public class MainProjectsFragment extends BaseFragment<FragmentMainProjectsBinding, MQViewModel> {
+
+    @Inject
+    public MainProjectsFragment() {}
 }

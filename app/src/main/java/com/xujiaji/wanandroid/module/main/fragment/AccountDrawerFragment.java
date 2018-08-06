@@ -5,6 +5,8 @@ import com.xujiaji.mvvmquick.di.ActivityScoped;
 import com.xujiaji.wanandroid.base.BaseFragment;
 import com.xujiaji.wanandroid.databinding.DrawerFragmentAccountBinding;
 
+import javax.inject.Inject;
+
 /**
  * author: xujiaji
  * created on: 2018/8/4 9:54
@@ -12,4 +14,7 @@ import com.xujiaji.wanandroid.databinding.DrawerFragmentAccountBinding;
  */
 @ActivityScoped
 public class AccountDrawerFragment extends BaseFragment<DrawerFragmentAccountBinding, MQViewModel> {
+
+    @Inject
+    public AccountDrawerFragment() {}
 }

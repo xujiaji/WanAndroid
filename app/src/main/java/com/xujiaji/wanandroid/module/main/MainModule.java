@@ -16,18 +16,17 @@
 
 package com.xujiaji.wanandroid.module.main;
 
+import com.annimon.stream.Stream;
 import com.xujiaji.mvvmquick.di.ActivityScoped;
 import com.xujiaji.mvvmquick.di.FragmentScoped;
+import com.xujiaji.wanandroid.R;
 import com.xujiaji.wanandroid.adapter.FragmentsPagerAdapter;
-import com.xujiaji.wanandroid.base.BaseFragment;
 import com.xujiaji.wanandroid.model.FragmentModel;
 import com.xujiaji.wanandroid.module.main.fragment.AccountDrawerFragment;
-import com.xujiaji.wanandroid.module.main.fragment.MainBlogPostsFragment;
+import com.xujiaji.wanandroid.module.main.fragment.posts.MainBlogPostsFragment;
 import com.xujiaji.wanandroid.module.main.fragment.MainProjectsFragment;
 import com.xujiaji.wanandroid.module.main.fragment.MainToolsFragment;
 import com.xujiaji.wanandroid.module.main.fragment.MenuDrawerFragment;
-
-import java.util.List;
 
 import javax.inject.Named;
 
@@ -45,35 +44,36 @@ public abstract class MainModule {
 
     @ActivityScoped
     @Provides
-    public static FragmentsPagerAdapter provideDrawerPagerAdapter(MainActivity context) {
-        return new FragmentsPagerAdapter(context.getSupportFragmentManager(), FragmentModel.buildForDrawer(context));
+    public static FragmentsPagerAdapter provideDrawerPagerAdapter(MainActivity context,
+                                                                  MenuDrawerFragment menuDrawerFragment,
+                                                                  AccountDrawerFragment accountDrawerFragment) {
+        return new FragmentsPagerAdapter(context.getSupportFragmentManager(),
+                Stream.of(new FragmentModel(context.getString(R.string.menu), menuDrawerFragment),
+                        new FragmentModel(context.getString(R.string.profile), accountDrawerFragment))
+                        .toList());
     }
 
     @ActivityScoped
+    @Named("Post")
     @Provides
-    public static List<FragmentModel> provideMainFragment(MainActivity context) {
-        return FragmentModel.buildForMain(context);
+    public static FragmentModel provideBlogModel(MainActivity context,
+                                                    MainBlogPostsFragment blogPostsFragment) {
+        return new FragmentModel(context.getString(R.string.blog_post), blogPostsFragment);
     }
 
-    @ActivityScoped
-    @Named("Blog")
-    @Provides
-    public static FragmentModel provideBlogFragment(List<FragmentModel> list) {
-        return list.get(0);
-    }
 
     @ActivityScoped
     @Named("Project")
     @Provides
-    public static FragmentModel provideProjectFragment(List<FragmentModel> list) {
-        return list.get(1);
+    public static FragmentModel provideProjectModel(MainActivity context, MainProjectsFragment projectsFragment) {
+        return new FragmentModel(context.getString(R.string.project), projectsFragment);
     }
 
     @ActivityScoped
     @Named("Tool")
     @Provides
-    public static FragmentModel provideToolFragment(List<FragmentModel> list) {
-        return list.get(2);
+    public static FragmentModel provideToolModel(MainActivity context, MainToolsFragment toolsFragment) {
+        return new FragmentModel(context.getString(R.string.tool), toolsFragment);
     }
 
     @FragmentScoped

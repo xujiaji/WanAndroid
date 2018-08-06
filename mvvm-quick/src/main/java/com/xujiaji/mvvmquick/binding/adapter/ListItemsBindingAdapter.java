@@ -31,7 +31,7 @@ import java.util.List;
  */
 public class ListItemsBindingAdapter
 {
-    @BindingAdapter("items")
+    @BindingAdapter("app:items")
     public static <T, V extends BaseViewHolder> void setItems(RecyclerView recyclerView, List<T> items)
     {
         RecyclerView.Adapter adapter = recyclerView.getAdapter();
