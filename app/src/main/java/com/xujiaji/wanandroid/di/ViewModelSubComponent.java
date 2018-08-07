@@ -17,6 +17,7 @@
 package com.xujiaji.wanandroid.di;
 
 import com.xujiaji.wanandroid.module.main.fragment.posts.MainBlogPostsViewModel;
+import com.xujiaji.wanandroid.module.main.fragment.projects.MainProjectsViewModel;
 
 import dagger.Lazy;
 import dagger.Subcomponent;
@@ -36,5 +37,5 @@ public interface ViewModelSubComponent
     }
 
     Lazy<MainBlogPostsViewModel> viewModelMainBlogPosts();
-
+    Lazy<MainProjectsViewModel> viewModelMainProjects();
 }

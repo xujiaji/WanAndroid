@@ -201,4 +201,13 @@ public class ViewHelper {
     public static TextView getTabTextView(@NonNull TabLayout tabs, int tabIndex) {
         return (TextView) (((LinearLayout) ((LinearLayout) tabs.getChildAt(0)).getChildAt(tabIndex)).getChildAt(1));
     }
+
+    public static int getSystemActionBarSize(Context context) {
+        TypedValue tv = new TypedValue();
+        if (context.getTheme().resolveAttribute(android.R.attr.actionBarSize, tv, true)) {
+            return TypedValue.complexToDimensionPixelSize(tv.data, context.getResources().getDisplayMetrics());
+        } else {
+            return dpToPx(context, 48);
+        }
+    }
 }

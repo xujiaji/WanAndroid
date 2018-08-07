@@ -1,10 +1,27 @@
 <?xml version="1.0" encoding="utf-8"?>
-<layout xmlns:android="http://schemas.android.com/apk/res/android">
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
 
-    <android.support.v7.widget.RecyclerView
-        android:id="@+id/list"
+    <data>
+
+        <variable
+            name="mainProjectsViewModel"
+            type="com.xujiaji.wanandroid.module.main.fragment.projects.MainProjectsViewModel" />
+    </data>
+
+    <android.support.v4.widget.SwipeRefreshLayout
+        android:id="@+id/refresh"
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        android:onRefresh="@{mainProjectsViewModel}">
 
-    </android.support.v7.widget.RecyclerView>
+        <android.support.v7.widget.RecyclerView
+            android:id="@+id/list"
+            style="@style/scrollbar_style"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            app:items="@{mainProjectsViewModel.items}"
+            app:layoutManager="android.support.v7.widget.LinearLayoutManager" />
+
+    </android.support.v4.widget.SwipeRefreshLayout>
 </layout>

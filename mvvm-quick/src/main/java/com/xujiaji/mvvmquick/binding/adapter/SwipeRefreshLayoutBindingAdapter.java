@@ -20,7 +20,7 @@ import android.databinding.BindingAdapter;
 import android.os.Message;
 import android.support.v4.widget.SwipeRefreshLayout;
 
-import com.xujiaji.mvvmquick.viewmodel.RefreshLoadViewModel;
+import com.xujiaji.mvvmquick.base.MQViewModel;
 
 import java.lang.ref.WeakReference;
 
@@ -59,15 +59,15 @@ public class SwipeRefreshLayoutBindingAdapter
      * Creates the {@code android:onRefresh} for a {@link SwipeRefreshLayout}.
      */
     @BindingAdapter("android:onRefresh")
-    public static <T extends RefreshLoadViewModel> void setSwipeRefreshLayoutOnRefreshListener(final SwipeRefreshLayout view,
-                                                                                               final T viewModel) {
+    public static <T extends MQViewModel> void setSwipeRefreshLayoutOnRefreshListener(final SwipeRefreshLayout view,
+                                                                                      final T viewModel) {
         final Handler handler = new Handler(view);
 
         view.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
             @Override
             public void onRefresh() {
                 handler.removeMessages(CODE);
-                viewModel.toRefresh();
+                viewModel.onListRefresh();
                 handler.sendEmptyMessageDelayed(CODE, viewModel.timeout() * 1000);
             }
         });

@@ -20,4 +20,7 @@
     <string name="like">喜欢</string>
     <string name="login">登录</string>
     <string name="collect_links">收藏网站</string>
+    <string name="chapter">/%s</string>
+    <string name="fresh">『NEW』</string>
+    <string name="empty"/>
 </resources>

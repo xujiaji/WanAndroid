@@ -24,7 +24,7 @@ import com.xujiaji.wanandroid.adapter.FragmentsPagerAdapter;
 import com.xujiaji.wanandroid.model.FragmentModel;
 import com.xujiaji.wanandroid.module.main.fragment.AccountDrawerFragment;
 import com.xujiaji.wanandroid.module.main.fragment.posts.MainBlogPostsFragment;
-import com.xujiaji.wanandroid.module.main.fragment.MainProjectsFragment;
+import com.xujiaji.wanandroid.module.main.fragment.projects.MainProjectsFragment;
 import com.xujiaji.wanandroid.module.main.fragment.MainToolsFragment;
 import com.xujiaji.wanandroid.module.main.fragment.MenuDrawerFragment;
 

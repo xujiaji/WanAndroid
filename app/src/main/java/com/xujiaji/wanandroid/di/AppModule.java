@@ -22,6 +22,7 @@ import android.arch.lifecycle.ViewModelProvider;
 import com.xujiaji.mvvmquick.viewmodel.ProjectViewModelFactory;
 import com.xujiaji.wanandroid.BuildConfig;
 import com.xujiaji.wanandroid.module.main.fragment.posts.MainBlogPostsViewModel;
+import com.xujiaji.wanandroid.module.main.fragment.projects.MainProjectsViewModel;
 import com.xujiaji.wanandroid.repository.remote.API;
 import com.xujiaji.wanandroid.repository.remote.Net;
 
@@ -84,6 +85,7 @@ public abstract class AppModule {
         ViewModelSubComponent vmsc = viewModelSubComponent.build();
         Map<Class<?>, Callable<Lazy<? extends ViewModel>>> creators = new HashMap<>();
         creators.put(MainBlogPostsViewModel.class, vmsc::viewModelMainBlogPosts);
+        creators.put(MainProjectsViewModel.class, vmsc::viewModelMainProjects);
         return creators;
     }
 

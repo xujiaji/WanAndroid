@@ -1,7 +1,6 @@
-package com.xujiaji.wanandroid.module.main.fragment.posts;
+package com.xujiaji.wanandroid.module.main.fragment.projects;
 
 import android.app.Application;
-import android.arch.lifecycle.LiveData;
 import android.arch.lifecycle.MutableLiveData;
 import android.databinding.ObservableArrayList;
 import android.databinding.ObservableList;
@@ -24,30 +23,30 @@ import javax.inject.Singleton;
  * description:
  */
 @Singleton
-public class MainBlogPostsViewModel extends BaseViewModel implements RefreshLoadViewModel<BlogPostBean>{
+public class MainProjectsViewModel extends BaseViewModel implements RefreshLoadViewModel<BlogPostBean>{
 
     public final SingleLiveEvent<BlogPostBean> mClickEvent = new SingleLiveEvent<>();
     public final ObservableList<BlogPostBean> items = new ObservableArrayList<>();
-    public final SingleLiveEvent<RefreshLoadModel<MutableLiveData<Result<PageBean<BlogPostBean>>>>> blogPostsLiveData = new SingleLiveEvent<>();
+    public final SingleLiveEvent<RefreshLoadModel<MutableLiveData<Result<PageBean<BlogPostBean>>>>> projectsLiveData = new SingleLiveEvent<>();
 
     @Inject
-    public MainBlogPostsViewModel(@NonNull Application application) {
+    public MainProjectsViewModel(@NonNull Application application) {
         super(application);
     }
 
-    public SingleLiveEvent<RefreshLoadModel<MutableLiveData<Result<PageBean<BlogPostBean>>>>> getObservableBlogPosts() {
-        blogPostsLiveData.setValue(new RefreshLoadModel<>(net.get().getBlogPosts(UPDATE_INDEX), true));
-        return blogPostsLiveData;
+    public SingleLiveEvent<RefreshLoadModel<MutableLiveData<Result<PageBean<BlogPostBean>>>>> getObservableProjects() {
+        projectsLiveData.setValue(new RefreshLoadModel<>(net.get().getProjects(UPDATE_INDEX), true));
+        return projectsLiveData;
     }
 
     @Override
     public void onListRefresh() {
-        blogPostsLiveData.setValue(new RefreshLoadModel<>(net.get().getBlogPosts(UPDATE_INDEX), true));
+        projectsLiveData.setValue(new RefreshLoadModel<>(net.get().getProjects(UPDATE_INDEX), true));
     }
 
     @Override
     public void onListLoad(int offset) {
-        blogPostsLiveData.postValue(new RefreshLoadModel<>(net.get().getBlogPosts(offset), false));
+        projectsLiveData.postValue(new RefreshLoadModel<>(net.get().getProjects(offset), false));
     }
 
     @Override

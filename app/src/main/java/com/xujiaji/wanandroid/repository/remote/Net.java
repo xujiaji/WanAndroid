@@ -38,4 +38,8 @@ public class Net {
     public MutableLiveData<Result<PageBean<BlogPostBean>>> getBlogPosts(int num) {
         return handle(mApi.getBlogPosts(num));
     }
+
+    public MutableLiveData<Result<PageBean<BlogPostBean>>> getProjects(int num) {
+        return handle(mApi.getPorjects(num));
+    }
 }

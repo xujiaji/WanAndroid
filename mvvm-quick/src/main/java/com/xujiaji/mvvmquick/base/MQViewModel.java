@@ -25,15 +25,35 @@ import android.support.annotation.NonNull;
  * created on: 2018/7/4 16:54
  * description:
  */
-public class MQViewModel extends AndroidViewModel
-{
-    public MQViewModel(@NonNull Application application)
-    {
+public class MQViewModel extends AndroidViewModel {
+    private int loadOffset = initLoadOffset();
+
+    public MQViewModel(@NonNull Application application) {
         super(application);
     }
 
-    public void onDestroy()
-    {
+    public void onDestroy() {
 
+    }
+
+    public void onListRefresh() {
+    }
+
+    public void onListLoad(int offset) {
+    }
+
+    public int getLoadOffset() {
+        return ++loadOffset;
+    }
+
+    /**
+     * 超时时间(单位：s)
+     */
+    public int timeout() {
+        return 20;
+    }
+
+    public int initLoadOffset() {
+        return 0;
     }
 }

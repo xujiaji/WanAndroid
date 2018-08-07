@@ -1,6 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
-<layout xmlns:android="http://schemas.android.com/apk/res/android">
+<layout xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:android="http://schemas.android.com/apk/res/android">
     <data>
+        <import type="android.text.TextUtils"/>
+        <import type="android.view.View"/>
+        <variable
+            name="hideTag"
+            type="boolean"/>
+
         <variable
             name="blogPost"
             type="com.xujiaji.wanandroid.repository.bean.BlogPostBean"/>
@@ -13,7 +20,156 @@
 
     <android.support.constraint.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="wrap_content"
+        android:background="@drawable/item_bg_line"
+        android:foreground="?attr/selectableItemBackground"
+        android:onClick="@{() ->  callback.onClick(blogPost)}"
+        android:paddingBottom="16dp">
+
+        <ImageView
+            android:layout_width="0dp"
+            android:layout_height="48dp"
+            android:src="@drawable/love"
+            android:visibility="@{blogPost.isCollect() ? View.VISIBLE : View.GONE}"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintDimensionRatio="1:1"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <!-- '&amp;&amp;' is '&&' -->
+        <!-- '&gt;' is '>' -->
+        <TextView
+            android:id="@+id/tag"
+            android:layout_width="25dp"
+            android:layout_height="25dp"
+            android:layout_gravity="center"
+            android:gravity="center"
+            android:rotation="45"
+            android:text="@{(blogPost.tags != null &amp;&amp; blogPost.tags.size() &gt; 0 &amp;&amp; !hideTag) ? blogPost.tags.get(0).getName() : @string/empty}"
+            android:textColor="?colorAccent"
+            android:textSize="@dimen/small_font"
+            android:textStyle="bold"
+            android:background="?selectableItemBackgroundBorderless"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+
+        <com.xujiaji.wanandroid.wedgit.AvatarLayout
+            android:id="@+id/avatarLayout"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:layout_marginTop="@dimen/layout_margin"
+            android:layout_marginStart="@dimen/layout_margin"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/author"
+            android:layout_width="wrap_content"
+            android:layout_height="18dp"
+            android:layout_marginStart="@dimen/layout_margin"
+            android:gravity="center_vertical"
+            android:text="@{blogPost.author}"
+            android:textAppearance="@style/TextAppearance.AppCompat.Caption"
+            android:textColor="@color/textSecondary"
+            android:textStyle="bold"
+            app:layout_constraintStart_toEndOf="@+id/avatarLayout"
+            app:layout_constraintTop_toTopOf="@+id/avatarLayout" />
+
+        <TextView
+            android:id="@+id/niceDate"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center_vertical"
+            android:text="@{blogPost.niceDate}"
+            android:textColor="@color/grey_20"
+            android:textSize="@dimen/spacing_middle"
+            app:layout_constraintBottom_toBottomOf="@+id/avatarLayout"
+            app:layout_constraintStart_toStartOf="@+id/author"
+            app:layout_constraintTop_toBottomOf="@+id/author" />
+
+        <TextView
+            android:id="@+id/tag1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@{String.format(@string/chapter, blogPost.chapterName)}"
+            android:textColor="@color/textSecondary"
+            android:textSize="@dimen/secondary_size"
+            android:layout_marginEnd="@dimen/layout_margin"
+            app:layout_constraintBottom_toBottomOf="@+id/avatarLayout"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/avatarLayout" />
+
+        <TextView
+            android:id="@+id/tag2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@{blogPost.superChapterName}"
+            android:textColor="@color/textSecondary"
+            android:textSize="@dimen/secondary_size"
+            app:layout_constraintBottom_toBottomOf="@+id/tag1"
+            app:layout_constraintEnd_toStartOf="@+id/tag1"
+            app:layout_constraintTop_toTopOf="@+id/tag1" />
+
+
+        <TextView
+            android:id="@+id/fresh"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@{blogPost.fresh ? @string/fresh : @string/empty}"
+            android:textAppearance="@style/TextAppearance.AppCompat.Caption"
+            android:textColor="@color/colorAccent"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="@+id/title"
+            app:layout_constraintStart_toStartOf="@+id/avatarLayout"
+            app:layout_constraintTop_toTopOf="@+id/title" />
+
+
+        <TextView
+            android:id="@+id/title"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="16dp"
+            android:layout_marginTop="8dp"
+            android:ellipsize="end"
+            android:gravity="center_vertical"
+            android:maxLines="2"
+            android:text="@{blogPost.title}"
+            android:textAppearance="@style/TextAppearance.AppCompat.Caption"
+            android:textColor="@color/textPrimary"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toStartOf="@+id/thumb"
+            app:layout_constraintStart_toEndOf="@+id/fresh"
+            app:layout_constraintTop_toBottomOf="@+id/avatarLayout" />
+
+        <TextView
+            android:id="@+id/desc"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:ellipsize="end"
+            android:lineSpacingExtra="4dp"
+            android:maxLines="4"
+            android:text="@{blogPost.desc}"
+            android:textColor="@color/textSecondary"
+            android:textSize="@dimen/secondary_size"
+            android:visibility="@{TextUtils.isEmpty(blogPost.desc) ? View.GONE : View.VISIBLE}"
+            app:layout_constraintEnd_toEndOf="@+id/title"
+            app:layout_constraintStart_toStartOf="@+id/avatarLayout"
+            app:layout_constraintTop_toBottomOf="@+id/title" />
+
+        <ImageView
+            android:id="@+id/thumb"
+            android:layout_width="80dp"
+            android:layout_height="80dp"
+            android:layout_marginEnd="@dimen/layout_margin"
+            android:layout_marginTop="8dp"
+            android:visibility="gone"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/avatarLayout"
+            app:itemUrl="@{blogPost.envelopePic}"/>
+
 
     </android.support.constraint.ConstraintLayout>
 </layout>

@@ -17,4 +17,7 @@ public interface API {
 
     @GET("article/list/{num}/json")
     Call<Result<PageBean<BlogPostBean>>> getBlogPosts(@Path("num") int num);
+
+    @GET("article/listproject/{num}/json")
+    Call<Result<PageBean<BlogPostBean>>> getPorjects(@Path("num") int num);
 }

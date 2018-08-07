@@ -9,6 +9,6 @@
         android:layout_height="match_parent"
         android:background="?selectableItemBackgroundBorderless"
         android:scaleType="centerCrop"
-        android:src="?colorPrimaryDark"
+        android:src="@mipmap/ic_default_head"
         app:shape_mode="circle" />
 </merge>

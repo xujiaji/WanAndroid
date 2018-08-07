@@ -17,4 +17,6 @@
     <dimen name="icon_size">24dp</dimen>
     <dimen name="divider_height">1px</dimen>
     <dimen name="fab_margin">16dp</dimen>
+    <dimen name="secondary_size">12sp</dimen>
+    <dimen name="small_font">10sp</dimen>
 </resources>
