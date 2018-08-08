@@ -47,6 +47,7 @@
             android:gravity="center"
             android:rotation="45"
             android:text="@{(blogPost.tags != null &amp;&amp; blogPost.tags.size() &gt; 0 &amp;&amp; !hideTag) ? blogPost.tags.get(0).getName() : @string/empty}"
+            android:visibility="@{(blogPost.tags != null &amp;&amp; blogPost.tags.size() &gt; 0 &amp;&amp; !hideTag) ? View.VISIBLE : View.GONE}"
             android:textColor="?colorAccent"
             android:textSize="@dimen/small_font"
             android:textStyle="bold"

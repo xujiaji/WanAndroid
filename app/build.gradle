@@ -18,6 +18,13 @@ android {
                 cppFlags ""
             }
         }
+        // config the JSON processing library
+        javaCompileOptions {
+            annotationProcessorOptions {
+                arguments = [ serializer : "gson" ]
+            }
+        }
+
         vectorDrawables.useSupportLibrary = true
         buildConfigField "String", "BASE_URL", "$baseUrl"
     }
@@ -61,4 +68,5 @@ dependencies {
     annotationProcessor "com.google.dagger:dagger-compiler:$dagger"
     annotationProcessor "com.github.bumptech.glide:compiler:$glide"
     implementation 'cn.gavinliu.android.lib:ShapedImageView:0.8.5'
+    implementation 'com.just.agentweb:agentweb:4.0.2'
 }

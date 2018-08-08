@@ -20,6 +20,8 @@ package com.xujiaji.wanandroid.di;
 import com.xujiaji.mvvmquick.di.ActivityScoped;
 import com.xujiaji.wanandroid.module.main.MainActivity;
 import com.xujiaji.wanandroid.module.main.MainModule;
+import com.xujiaji.wanandroid.module.read.ReadActivity;
+import com.xujiaji.wanandroid.module.read.ReadModule;
 
 import dagger.Module;
 import dagger.android.ContributesAndroidInjector;
@@ -35,4 +37,8 @@ public abstract class ActivityBindingModule
     @ActivityScoped
     @ContributesAndroidInjector(modules = MainModule.class)
     abstract MainActivity contributeMainActivity();
+
+    @ActivityScoped
+    @ContributesAndroidInjector(modules = ReadModule.class)
+    abstract ReadActivity contributeReadActivity();
 }

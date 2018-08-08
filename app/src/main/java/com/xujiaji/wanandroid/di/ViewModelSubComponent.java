@@ -38,4 +38,5 @@ public interface ViewModelSubComponent
 
     Lazy<MainBlogPostsViewModel> viewModelMainBlogPosts();
     Lazy<MainProjectsViewModel> viewModelMainProjects();
+//    Lazy<ReadViewModel> viewModelRead();
 }

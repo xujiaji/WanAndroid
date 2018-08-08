@@ -22,5 +22,7 @@
     <string name="collect_links">收藏网站</string>
     <string name="chapter">/%s</string>
     <string name="fresh">『NEW』</string>
-    <string name="empty"/>
+    <string name="empty" />
+    <string name="title_activity_read">ReadActivity</string>
+    <string name="system_browse_open">系统浏览器打开</string>
 </resources>

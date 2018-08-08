@@ -86,6 +86,7 @@ public abstract class AppModule {
         Map<Class<?>, Callable<Lazy<? extends ViewModel>>> creators = new HashMap<>();
         creators.put(MainBlogPostsViewModel.class, vmsc::viewModelMainBlogPosts);
         creators.put(MainProjectsViewModel.class, vmsc::viewModelMainProjects);
+//        creators.put(ReadViewModel.class, vmsc::viewModelRead);
         return creators;
     }
 

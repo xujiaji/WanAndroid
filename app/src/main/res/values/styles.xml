@@ -32,4 +32,8 @@
         <item name="android:scrollbarFadeDuration">800</item>
         <item name="android:scrollbarDefaultDelayBeforeFade">500</item>
     </style>
+
+    <style name="AppTheme.NoActionBar.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
+
+    <style name="AppTheme.NoActionBar.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
 </resources>
