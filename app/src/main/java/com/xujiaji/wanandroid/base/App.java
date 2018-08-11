@@ -1,14 +1,17 @@
 package com.xujiaji.wanandroid.base;
 
 import android.support.annotation.NonNull;
+import android.support.v4.content.ContextCompat;
 
 import com.xujiaji.mvvmquick.base.MQApp;
+import com.xujiaji.wanandroid.R;
 import com.xujiaji.wanandroid.di.DaggerAppComponent;
 import com.xujiaji.wanandroid.helper.PrefHelper;
 import com.xujiaji.wanandroid.repository.remote.Net;
 
 import dagger.android.AndroidInjector;
 import dagger.android.support.DaggerApplication;
+import es.dmoral.toasty.Toasty;
 
 /**
  * author: xujiaji
@@ -24,9 +27,9 @@ public class App extends MQApp {
         super.onCreate();
         instance = this;
         Login.isOK = PrefHelper.isExist(Net.SAVE_USER_LOGIN_KEY);
-//        Toasty.Config.getInstance()
-//                .setTextColor(ContextCompat.getColor(this, R.color.textPrimary))
-//                .apply();
+        Toasty.Config.getInstance()
+                .setInfoColor(ContextCompat.getColor(this, R.color.colorAccent))
+                .apply();
     }
 
     @NonNull

@@ -8,6 +8,7 @@ import com.xujiaji.mvvmquick.lifecycle.SingleLiveEvent;
 import com.xujiaji.wanandroid.base.BaseViewModel;
 import com.xujiaji.wanandroid.repository.bean.Result;
 import com.xujiaji.wanandroid.repository.bean.UserBean;
+import com.xujiaji.wanandroid.repository.remote.NetLiveEvent;
 
 import javax.inject.Inject;
 import javax.inject.Singleton;
@@ -20,20 +21,20 @@ import javax.inject.Singleton;
 @Singleton
 public class LoginViewModel extends BaseViewModel {
 
-    private final SingleLiveEvent<MutableLiveData<Result<UserBean>>> mLoginUserBean = new SingleLiveEvent<>();
-    private final SingleLiveEvent<MutableLiveData<Result<UserBean>>> mRegisterUserBean = new SingleLiveEvent<>();
+    private final NetLiveEvent<UserBean> mRegisterUserBean = new NetLiveEvent<>();
+    private final NetLiveEvent<UserBean> mLoginUserBean = new NetLiveEvent<>();
 
     @Inject
     public LoginViewModel(@NonNull Application application) {
         super(application);
     }
 
-    public SingleLiveEvent<MutableLiveData<Result<UserBean>>> postObservableLogin(String username, String password) {
+    public NetLiveEvent<UserBean> postObservableLogin(String username, String password) {
         mLoginUserBean.setValue(net.get().postLogin(username, password));
         return mLoginUserBean;
     }
 
-    public SingleLiveEvent<MutableLiveData<Result<UserBean>>> postObservableRegister(String username, String password) {
+    public NetLiveEvent<UserBean> postObservableRegister(String username, String password) {
         mRegisterUserBean.setValue(net.get().postRegister(username, password));
         return mRegisterUserBean;
     }

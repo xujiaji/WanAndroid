@@ -46,4 +46,7 @@
     <string name="success_login">登录成功</string>
     <string name="success_register">注册成功</string>
     <!--失败提示信息-->
+
+    <!---->
+    <string name="again_touch_exit">再按一次退出</string>
 </resources>

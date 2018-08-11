@@ -15,6 +15,7 @@ import com.xujiaji.wanandroid.repository.bean.BannerBean;
 import com.xujiaji.wanandroid.repository.bean.BlogPostBean;
 import com.xujiaji.wanandroid.repository.bean.PageBean;
 import com.xujiaji.wanandroid.repository.bean.Result;
+import com.xujiaji.wanandroid.repository.remote.NetLiveEvent;
 
 import java.util.List;
 
@@ -31,15 +32,15 @@ public class MainBlogPostsViewModel extends BaseViewModel implements RefreshLoad
 
     public final SingleLiveEvent<BlogPostBean> mClickEvent = new SingleLiveEvent<>();
     public final ObservableList<BlogPostBean> items = new ObservableArrayList<>();
+    private final NetLiveEvent<List<BannerBean>> mBannerData = new NetLiveEvent<>();
     private final SingleLiveEvent<RefreshLoadModel<MutableLiveData<Result<PageBean<BlogPostBean>>>>> mBlogPostsLiveData = new SingleLiveEvent<>();
-    private final SingleLiveEvent<MutableLiveData<Result<List<BannerBean>>>> mBannerData = new SingleLiveEvent<>();
-    
+
     @Inject
     public MainBlogPostsViewModel(@NonNull Application application) {
         super(application);
     }
 
-    public SingleLiveEvent<MutableLiveData<Result<List<BannerBean>>>> getObservableBanners() {
+    public NetLiveEvent<List<BannerBean>> getObservableBanners() {
         mBannerData.setValue(net.get().getBanners());
         return mBannerData;
     }

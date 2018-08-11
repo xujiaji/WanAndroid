@@ -6,15 +6,18 @@ import android.support.design.widget.BottomNavigationView;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.widget.Toolbar;
+import android.view.Gravity;
 import android.view.View;
 
 import com.xujiaji.mvvmquick.base.MQViewModel;
+import com.xujiaji.mvvmquick.util.ActivityUtils;
 import com.xujiaji.wanandroid.R;
 import com.xujiaji.wanandroid.adapter.FragmentsPagerAdapter;
 import com.xujiaji.wanandroid.base.App;
 import com.xujiaji.wanandroid.base.BaseActivity;
 import com.xujiaji.wanandroid.base.BaseFragment;
 import com.xujiaji.wanandroid.databinding.ActivityMainBinding;
+import com.xujiaji.wanandroid.helper.ToastHelper;
 import com.xujiaji.wanandroid.helper.ToolbarHelper;
 import com.xujiaji.wanandroid.model.FragmentModel;
 import com.xujiaji.wanandroid.module.login.LoginActivity;
@@ -109,4 +112,17 @@ public class MainActivity extends BaseActivity<ActivityMainBinding, MQViewModel>
         toggle.syncState();
     }
 
+    @Override
+    public void onBackPressed() {
+        if (binding.drawer.isDrawerOpen(Gravity.START)) {
+            binding.drawer.closeDrawer(Gravity.START);
+            return;
+        }
+        if (ActivityUtils.exitBy2Click()) {
+            super.onBackPressed();
+        } else {
+            ToastHelper.info(getString(R.string.again_touch_exit));
+        }
+
+    }
 }

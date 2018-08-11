@@ -2,9 +2,6 @@ package com.xujiaji.wanandroid.module.login;
 
 import android.animation.Animator;
 import android.animation.AnimatorListenerAdapter;
-import android.arch.lifecycle.MutableLiveData;
-import android.arch.lifecycle.Observer;
-import android.support.annotation.Nullable;
 import android.text.TextUtils;
 import android.view.KeyEvent;
 import android.view.View;
@@ -12,17 +9,14 @@ import android.view.inputmethod.EditorInfo;
 import android.widget.TextView;
 
 import com.xujiaji.mvvmquick.base.MQActivity;
-import com.xujiaji.mvvmquick.base.MQViewModel;
 import com.xujiaji.wanandroid.R;
 import com.xujiaji.wanandroid.base.App;
 import com.xujiaji.wanandroid.databinding.ActivityLoginBinding;
 import com.xujiaji.wanandroid.helper.AnimHelper;
 import com.xujiaji.wanandroid.helper.ToastHelper;
-import com.xujiaji.wanandroid.repository.bean.Result;
 import com.xujiaji.wanandroid.repository.bean.UserBean;
-import com.xujiaji.wanandroid.repository.remote.Net;
-
-import es.dmoral.toasty.Toasty;
+import com.xujiaji.wanandroid.repository.remote.DataCallback;
+import com.xujiaji.wanandroid.repository.remote.DataCallbackImp;
 
 import static com.xujiaji.wanandroid.helper.CheckHelper.isEmailValid;
 import static com.xujiaji.wanandroid.helper.CheckHelper.isPasswordValid;
@@ -76,13 +70,13 @@ public class LoginActivity extends MQActivity<ActivityLoginBinding, LoginViewMod
     @Override
     public void onFocusChange(View v, boolean hasFocus) {
         if (hasFocus) return;
-        switch (v.getId()){
+        switch (v.getId()) {
             case R.id.email:
                 checkGetEmail();
                 break;
             case R.id.password:
                 checkGetPassword();
-            break;
+                break;
             case R.id.againPassword:
                 checkGetAgainPassword();
                 break;
@@ -92,7 +86,7 @@ public class LoginActivity extends MQActivity<ActivityLoginBinding, LoginViewMod
     public void switchLogInUP(boolean isLogIn) {
         if (isLogIn) {
             AnimHelper.showOut(binding.layoutAgainPassword);
-        } else  {
+        } else {
             AnimHelper.showIn(binding.layoutAgainPassword);
         }
         binding.email.setError(null);
@@ -160,43 +154,37 @@ public class LoginActivity extends MQActivity<ActivityLoginBinding, LoginViewMod
         binding.setIsLoading(true);
 
         if (isLogIn) {
-            viewModel.postObservableLogin(email, password).observe(this, new Observer<MutableLiveData<Result<UserBean>>>() {
+            viewModel.postObservableLogin(email, password).observeData(this, new DataCallbackImp<UserBean>() {
                 @Override
-                public void onChanged(@Nullable MutableLiveData<Result<UserBean>> resultMutableLiveData) {
-                    resultMutableLiveData.observe(LoginActivity.this, new Observer<Result<UserBean>>() {
-                        @Override
-                        public void onChanged(@Nullable Result<UserBean> userBeanResult) {
-                            binding.setIsLoading(false);
-                            handleResult(true, userBeanResult);
-                        }
-                    });
+                public void finished() {
+                    binding.setIsLoading(false);
+                }
+
+                @Override
+                public void success(UserBean bean) {
+                    handleResult(true);
                 }
             });
         } else {
-            viewModel.postObservableRegister(email, password).observe(this, new Observer<MutableLiveData<Result<UserBean>>>() {
+            viewModel.postObservableRegister(email, password).observeData(this, new DataCallbackImp<UserBean>() {
                 @Override
-                public void onChanged(@Nullable MutableLiveData<Result<UserBean>> resultMutableLiveData) {
-                    resultMutableLiveData.observe(LoginActivity.this, new Observer<Result<UserBean>>() {
-                        @Override
-                        public void onChanged(@Nullable Result<UserBean> result) {
-                            binding.setIsLoading(false);
-                            handleResult(false, result);
-                        }
-                    });
+                public void finished() {
+                    binding.setIsLoading(false);
                 }
+
+                @Override
+                public void success(UserBean bean) {
+                    handleResult(false);
+                }
+
             });
         }
     }
 
-    private void handleResult(boolean isLogIn, Result<UserBean> result) {
-        if (result == null) return;
-        if (result.getErrorCode() == Net.OK) {
-            App.Login.in();
-            ToastHelper.succuss(isLogIn ? App.getInstance().getString(R.string.success_login) : App.getInstance().getString(R.string.success_register));
-            finish();
-        } else {
-            ToastHelper.error(result.getErrorMsg());
-        }
+    private void handleResult(boolean isLogIn) {
+        App.Login.in();
+        ToastHelper.succuss(isLogIn ? App.getInstance().getString(R.string.success_login) : App.getInstance().getString(R.string.success_register));
+        finish();
     }
 
 }
