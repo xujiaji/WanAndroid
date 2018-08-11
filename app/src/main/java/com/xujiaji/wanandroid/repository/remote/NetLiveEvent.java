@@ -9,14 +9,13 @@ import android.support.annotation.Nullable;
 import com.xujiaji.wanandroid.config.C;
 import com.xujiaji.wanandroid.repository.bean.Result;
 
-import java.util.concurrent.atomic.AtomicBoolean;
-
 public class NetLiveEvent<T> extends MutableLiveData<MutableLiveData<Result<T>>> {
 
-    private static final String TAG = "NetLiveEvent";
 
-    private final AtomicBoolean mPending = new AtomicBoolean(false);
-
+    //抽取观察网络请求数据逻辑
+    /**
+     * 观察数据
+     */
     public void observeData(@NonNull final LifecycleOwner owner, @NonNull final DataCallback<T> callback) {
         observe(owner, new Observer<MutableLiveData<Result<T>>>() {
             @Override
