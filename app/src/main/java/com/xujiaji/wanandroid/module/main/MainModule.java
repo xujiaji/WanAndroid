@@ -16,17 +16,23 @@
 
 package com.xujiaji.wanandroid.module.main;
 
+import android.view.ViewGroup;
+
 import com.annimon.stream.Stream;
 import com.xujiaji.mvvmquick.di.ActivityScoped;
 import com.xujiaji.mvvmquick.di.FragmentScoped;
 import com.xujiaji.wanandroid.R;
 import com.xujiaji.wanandroid.adapter.FragmentsPagerAdapter;
+import com.xujiaji.wanandroid.base.App;
+import com.xujiaji.wanandroid.helper.GlideImageLoader;
+import com.xujiaji.wanandroid.helper.ViewHelper;
 import com.xujiaji.wanandroid.model.FragmentModel;
 import com.xujiaji.wanandroid.module.main.fragment.AccountDrawerFragment;
 import com.xujiaji.wanandroid.module.main.fragment.posts.MainBlogPostsFragment;
 import com.xujiaji.wanandroid.module.main.fragment.projects.MainProjectsFragment;
 import com.xujiaji.wanandroid.module.main.fragment.MainToolsFragment;
 import com.xujiaji.wanandroid.module.main.fragment.MenuDrawerFragment;
+import com.youth.banner.Banner;
 
 import javax.inject.Named;
 
@@ -95,4 +101,15 @@ public abstract class MainModule {
     @FragmentScoped
     @ContributesAndroidInjector
     abstract MainToolsFragment contributeMainToolsFragment();
+
+
+    @Provides
+    static Banner provideBanner(MainActivity activity) {
+        Banner mBanner = new Banner(activity);
+        mBanner.setDelayTime(3000);
+        mBanner.setOffscreenPageLimit(5);
+        mBanner.setLayoutParams(new ViewGroup.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewHelper.dpToPx(App.getInstance(), 120)));
+        mBanner.setImageLoader(new GlideImageLoader());
+        return mBanner;
+    }
 }

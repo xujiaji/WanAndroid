@@ -2,10 +2,13 @@ package com.xujiaji.wanandroid.repository.remote;
 
 import android.arch.lifecycle.MutableLiveData;
 
-import com.xujiaji.mvvmquick.callback.NetCallback;
+import com.xujiaji.wanandroid.repository.bean.BannerBean;
 import com.xujiaji.wanandroid.repository.bean.BlogPostBean;
 import com.xujiaji.wanandroid.repository.bean.PageBean;
 import com.xujiaji.wanandroid.repository.bean.Result;
+import com.xujiaji.wanandroid.repository.bean.UserBean;
+
+import java.util.List;
 
 import javax.inject.Inject;
 import javax.inject.Singleton;
@@ -19,6 +22,16 @@ import retrofit2.Call;
  */
 @Singleton
 public class Net {
+    /**
+     * request result ok
+     */
+    public static final int OK = 0;
+
+    public static final String SAVE_USER_LOGIN_KEY = "user/login";
+    public static final String SAVE_USER_REGISTER_KEY = "user/register";
+    public static final String SET_COOKIE_KEY = "set-cookie";
+    public static final String COOKIE_NAME = "Cookie";
+
     public static final int TIME_OUT_READ = 20;
     public static final int TIME_OUT_CONNECT = 5;
 
@@ -40,6 +53,20 @@ public class Net {
     }
 
     public MutableLiveData<Result<PageBean<BlogPostBean>>> getProjects(int num) {
-        return handle(mApi.getPorjects(num));
+        return handle(mApi.getProjects(num));
     }
+
+    public MutableLiveData<Result<List<BannerBean>>> getBanners() {
+        return handle(mApi.getBanners());
+    }
+
+    public MutableLiveData<Result<UserBean>> postLogin(String username, String password) {
+        return handle(mApi.postLogin(username, password));
+    }
+
+
+    public MutableLiveData<Result<UserBean>> postRegister(String username, String password) {
+        return handle(mApi.postRegister(username, password, password));
+    }
+
 }

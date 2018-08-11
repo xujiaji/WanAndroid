@@ -18,6 +18,8 @@ package com.xujiaji.wanandroid.di;
 
 
 import com.xujiaji.mvvmquick.di.ActivityScoped;
+import com.xujiaji.wanandroid.module.login.LoginActivity;
+import com.xujiaji.wanandroid.module.login.LoginModule;
 import com.xujiaji.wanandroid.module.main.MainActivity;
 import com.xujiaji.wanandroid.module.main.MainModule;
 import com.xujiaji.wanandroid.module.read.ReadActivity;
@@ -41,4 +43,8 @@ public abstract class ActivityBindingModule
     @ActivityScoped
     @ContributesAndroidInjector(modules = ReadModule.class)
     abstract ReadActivity contributeReadActivity();
+
+    @ActivityScoped
+    @ContributesAndroidInjector(modules = LoginModule.class)
+    abstract LoginActivity contributeLoginActivity();
 }

@@ -3,7 +3,7 @@
     package="com.xujiaji.wanandroid">
 
     <uses-permission android:name="android.permission.INTERNET" />
-    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
 
     <application
         android:name=".base.App"
@@ -21,6 +21,7 @@
             </intent-filter>
         </activity>
         <activity android:name=".module.read.ReadActivity" />
+        <activity android:name=".module.login.LoginActivity" />
     </application>
 
 </manifest>

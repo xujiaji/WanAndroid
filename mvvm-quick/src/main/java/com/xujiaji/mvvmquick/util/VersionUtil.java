@@ -28,23 +28,23 @@ import android.content.pm.PackageManager;
 public class VersionUtil
 {
 
-    /**
-     * 当前版本是否改变
-     *
-     * @param context
-     */
-    public static boolean isVersionChange(Context context)
-    {
-        int lastVersion = (int) SPUtil.get(context, "version_value", 0);
-        if (lastVersion == 0 || lastVersion != getVersionCode(context))
-        {
-            SPUtil.putAndApply(context,  "version_value", lastVersion);
-            return true;
-        } else
-        {
-            return false;
-        }
-    }
+//    /**
+//     * 当前版本是否改变
+//     *
+//     * @param context
+//     */
+//    public static boolean isVersionChange(Context context)
+//    {
+//        int lastVersion = (int) SPUtil.get(context, "version_value", 0);
+//        if (lastVersion == 0 || lastVersion != getVersionCode(context))
+//        {
+//            SPUtil.putAndApply(context,  "version_value", lastVersion);
+//            return true;
+//        } else
+//        {
+//            return false;
+//        }
+//    }
 
     /**
      * 获取版本名

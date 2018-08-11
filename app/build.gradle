@@ -5,11 +5,12 @@ apply plugin: 'kotlin-android'
 apply plugin: 'kotlin-android-extensions'
 
 android {
-    compileSdkVersion 27
+
+    compileSdkVersion rootProject.compileSdk
     defaultConfig {
         applicationId "com.xujiaji.wanandroid"
-        minSdkVersion 21
-        targetSdkVersion 27
+        minSdkVersion rootProject.minSdk
+        targetSdkVersion rootProject.targetSdk
         versionCode 1
         versionName "1.0"
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
@@ -62,6 +63,7 @@ dependencies {
     androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.2'
     implementation 'com.annimon:stream:1.1.9'
     implementation project(':mvvm-quick')
+    implementation project(':banner')
 
     annotationProcessor "android.arch.lifecycle:compiler:$arch"
     annotationProcessor "com.google.dagger:dagger-android-processor:$dagger"
@@ -69,4 +71,5 @@ dependencies {
     annotationProcessor "com.github.bumptech.glide:compiler:$glide"
     implementation 'cn.gavinliu.android.lib:ShapedImageView:0.8.5'
     implementation 'com.just.agentweb:agentweb:4.0.2'
+    implementation 'com.github.GrenderG:Toasty:1.3.0'
 }

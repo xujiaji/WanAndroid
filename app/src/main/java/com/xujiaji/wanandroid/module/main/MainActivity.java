@@ -1,5 +1,6 @@
 package com.xujiaji.wanandroid.module.main;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.BottomNavigationView;
 import android.support.v4.widget.DrawerLayout;
@@ -10,11 +11,13 @@ import android.view.View;
 import com.xujiaji.mvvmquick.base.MQViewModel;
 import com.xujiaji.wanandroid.R;
 import com.xujiaji.wanandroid.adapter.FragmentsPagerAdapter;
+import com.xujiaji.wanandroid.base.App;
 import com.xujiaji.wanandroid.base.BaseActivity;
 import com.xujiaji.wanandroid.base.BaseFragment;
 import com.xujiaji.wanandroid.databinding.ActivityMainBinding;
 import com.xujiaji.wanandroid.helper.ToolbarHelper;
 import com.xujiaji.wanandroid.model.FragmentModel;
+import com.xujiaji.wanandroid.module.login.LoginActivity;
 
 import javax.inject.Inject;
 import javax.inject.Named;
@@ -86,6 +89,13 @@ public class MainActivity extends BaseActivity<ActivityMainBinding, MQViewModel>
         binding.navigation.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener);
         binding.navMenu.drawerViewPager.setAdapter(mDrawerPagerAdapter);
         binding.navMenu.drawerTabLayout.setupWithViewPager(binding.navMenu.drawerViewPager);
+        binding.fab.setOnClickListener(v -> {
+            if (App.Login.isOK()) {
+
+            } else {
+                startActivity(new Intent(MainActivity.this, LoginActivity.class));
+            }
+        });
     }
 
     private void initDrawer(DrawerLayout drawer, Toolbar toolbar) {

@@ -31,6 +31,10 @@ task clean(type: Delete) {
 ext{
     baseUrl          = '"http://www.wanandroid.com/"'
 
+    compileSdk       = 27
+    minSdk           = 21
+    targetSdk        = 27
+
     support          = '27.1.1'
     okhttp3          = '3.6.0'
     retrofit         = '2.0.2'

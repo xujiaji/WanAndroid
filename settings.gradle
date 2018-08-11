@@ -1,1 +1,1 @@
-include ':app', ":mvvm-quick"
+include ':app', ":mvvm-quick", "banner"

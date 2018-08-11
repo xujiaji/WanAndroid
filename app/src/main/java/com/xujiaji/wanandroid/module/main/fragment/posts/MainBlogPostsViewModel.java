@@ -11,9 +11,12 @@ import com.xujiaji.mvvmquick.lifecycle.SingleLiveEvent;
 import com.xujiaji.wanandroid.RefreshLoadViewModel;
 import com.xujiaji.wanandroid.base.BaseViewModel;
 import com.xujiaji.wanandroid.model.RefreshLoadModel;
+import com.xujiaji.wanandroid.repository.bean.BannerBean;
 import com.xujiaji.wanandroid.repository.bean.BlogPostBean;
 import com.xujiaji.wanandroid.repository.bean.PageBean;
 import com.xujiaji.wanandroid.repository.bean.Result;
+
+import java.util.List;
 
 import javax.inject.Inject;
 import javax.inject.Singleton;
@@ -28,26 +31,33 @@ public class MainBlogPostsViewModel extends BaseViewModel implements RefreshLoad
 
     public final SingleLiveEvent<BlogPostBean> mClickEvent = new SingleLiveEvent<>();
     public final ObservableList<BlogPostBean> items = new ObservableArrayList<>();
-    public final SingleLiveEvent<RefreshLoadModel<MutableLiveData<Result<PageBean<BlogPostBean>>>>> blogPostsLiveData = new SingleLiveEvent<>();
-
+    private final SingleLiveEvent<RefreshLoadModel<MutableLiveData<Result<PageBean<BlogPostBean>>>>> mBlogPostsLiveData = new SingleLiveEvent<>();
+    private final SingleLiveEvent<MutableLiveData<Result<List<BannerBean>>>> mBannerData = new SingleLiveEvent<>();
+    
     @Inject
     public MainBlogPostsViewModel(@NonNull Application application) {
         super(application);
     }
 
+    public SingleLiveEvent<MutableLiveData<Result<List<BannerBean>>>> getObservableBanners() {
+        mBannerData.setValue(net.get().getBanners());
+        return mBannerData;
+    }
+    
     public SingleLiveEvent<RefreshLoadModel<MutableLiveData<Result<PageBean<BlogPostBean>>>>> getObservableBlogPosts() {
-        blogPostsLiveData.setValue(new RefreshLoadModel<>(net.get().getBlogPosts(UPDATE_INDEX), true));
-        return blogPostsLiveData;
+        mBlogPostsLiveData.setValue(new RefreshLoadModel<>(net.get().getBlogPosts(UPDATE_INDEX), true));
+        return mBlogPostsLiveData;
     }
 
     @Override
     public void onListRefresh() {
-        blogPostsLiveData.setValue(new RefreshLoadModel<>(net.get().getBlogPosts(UPDATE_INDEX), true));
+        mBannerData.setValue(net.get().getBanners());
+        mBlogPostsLiveData.setValue(new RefreshLoadModel<>(net.get().getBlogPosts(UPDATE_INDEX), true));
     }
 
     @Override
     public void onListLoad(int offset) {
-        blogPostsLiveData.postValue(new RefreshLoadModel<>(net.get().getBlogPosts(offset), false));
+        mBlogPostsLiveData.postValue(new RefreshLoadModel<>(net.get().getBlogPosts(offset), false));
     }
 
     @Override

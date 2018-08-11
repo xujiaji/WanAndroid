@@ -4,6 +4,8 @@ import android.support.annotation.NonNull;
 
 import com.xujiaji.mvvmquick.base.MQApp;
 import com.xujiaji.wanandroid.di.DaggerAppComponent;
+import com.xujiaji.wanandroid.helper.PrefHelper;
+import com.xujiaji.wanandroid.repository.remote.Net;
 
 import dagger.android.AndroidInjector;
 import dagger.android.support.DaggerApplication;
@@ -21,6 +23,10 @@ public class App extends MQApp {
     public void onCreate() {
         super.onCreate();
         instance = this;
+        Login.isOK = PrefHelper.isExist(Net.SAVE_USER_LOGIN_KEY);
+//        Toasty.Config.getInstance()
+//                .setTextColor(ContextCompat.getColor(this, R.color.textPrimary))
+//                .apply();
     }
 
     @NonNull
@@ -35,4 +41,33 @@ public class App extends MQApp {
                 .build();
 
     }
+
+    /**
+     * 登录状态
+     */
+    public static class Login {
+        private static boolean isOK;
+        /**
+         *  当前是否登录
+         */
+        public static boolean isOK() {
+            return isOK;
+        }
+
+        /**
+         * 已登录
+         */
+        public static void in() {
+            isOK = true;
+        }
+
+        /**
+         * 登出
+         */
+        public static void out() {
+            PrefHelper.clearKey(Net.SAVE_USER_LOGIN_KEY);
+            isOK = false;
+        }
+    }
+
 }

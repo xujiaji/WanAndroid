@@ -7,36 +7,25 @@ import android.support.annotation.Nullable;
 import android.support.design.widget.AppBarLayout;
 import android.support.design.widget.CoordinatorLayout;
 import android.support.v4.content.ContextCompat;
-import android.text.TextUtils;
-import android.view.KeyEvent;
 import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
-import android.webkit.WebChromeClient;
 import android.webkit.WebView;
-import android.widget.FrameLayout;
 
 import com.just.agentweb.AgentWeb;
-import com.just.agentweb.NestedScrollAgentWebView;
 import com.xujiaji.mvvmquick.base.MQViewModel;
 import com.xujiaji.mvvmquick.util.LogUtil;
-import com.xujiaji.mvvmquick.util.ToastUtil;
 import com.xujiaji.wanandroid.R;
 import com.xujiaji.wanandroid.base.BaseActivity;
 import com.xujiaji.wanandroid.databinding.ActivityReadBinding;
-import com.xujiaji.wanandroid.helper.AnimHelper;
 import com.xujiaji.wanandroid.helper.FabPopLayoutHelper;
 import com.xujiaji.wanandroid.helper.ToolbarHelper;
 import com.xujiaji.wanandroid.repository.bean.BlogPostBean;
-
-import java.util.Arrays;
 
 /**
  * author: xujiaji
  * created on: 2018/8/7 21:58
  * description: read blog post
  */
-public class ReadActivity extends BaseActivity<ActivityReadBinding, MQViewModel> {
+public class ReadActivity extends BaseActivity<ActivityReadBinding, ReadViewModel> {
 
     private BlogPostBean mPostBean;
 
@@ -94,7 +83,7 @@ public class ReadActivity extends BaseActivity<ActivityReadBinding, MQViewModel>
 
     @Override
     public boolean onSupportNavigateUp() {
-        onBackPressed();
+        finish();
         return true;
     }
 

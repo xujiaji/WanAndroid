@@ -43,9 +43,14 @@ public class RefreshLoadHelper {
                     @Override
                     public void onChanged(@Nullable Result<PageBean<T>> pageBeanResult) {
                         refresh.setEnabled(true);
-                        adapter.setEnableLoadMore(true);
                         refresh.setRefreshing(false);
-                        adapter.loadMoreComplete();
+                        if (pageBeanResult == null && adapter.isLoading()) {
+                            adapter.loadMoreFail();
+                        } else {
+                            adapter.setEnableLoadMore(true);
+                            adapter.loadMoreComplete();
+                        }
+
                         if (pageBeanResult == null) return;
                         if (mutableLiveDataRefreshLoadModel.isRefresh) {
                             viewModel.getList().clear();

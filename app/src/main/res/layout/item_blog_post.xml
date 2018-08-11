@@ -30,6 +30,7 @@
             android:layout_width="0dp"
             android:layout_height="48dp"
             android:src="@drawable/love"
+            android:layout_marginTop="16dp"
             android:visibility="@{blogPost.isCollect() ? View.VISIBLE : View.GONE}"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintDimensionRatio="1:1"

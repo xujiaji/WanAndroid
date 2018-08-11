@@ -1,6 +1,5 @@
 package com.xujiaji.wanandroid.helper;
 
-import android.annotation.SuppressLint;
 import android.content.SharedPreferences;
 import android.preference.PreferenceManager;
 import android.support.annotation.NonNull;
@@ -16,14 +15,13 @@ import java.util.Map;
 public class PrefHelper {
 
     /**
-     * @param key
-     *         ( the Key to used to retrieve this data later  )
-     * @param value
-     *         ( any kind of primitive values  )
-     *         <p/>
-     *         non can be null!!!
+     * @param key   ( the Key to used to retrieve this data later  )
+     * @param value ( any kind of primitive values  )
+     *              <p/>
+     *              non can be null!!!
      */
-    @SuppressLint("ApplySharedPref") public static <T> void set(@NonNull String key, @Nullable T value) {
+
+    public static <T> void set(@NonNull String key, @Nullable T value) {
         if (InputHelper.isEmpty(key)) {
             throw new NullPointerException("Key must not be null! (key = " + key + "), (value = " + value + ")");
         }
@@ -45,7 +43,7 @@ public class PrefHelper {
         } else {
             edit.putString(key, value.toString());
         }
-        edit.commit();//apply on UI
+        edit.apply();//apply on UI
     }
 
     @Nullable

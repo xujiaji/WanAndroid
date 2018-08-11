@@ -63,5 +63,17 @@ public class AnimHelper {
                 .start();
     }
 
+    public static void switchUpDown(final View v, boolean change, AnimatorListenerAdapter listener) {
+        v.animate()
+                .setDuration(200)
+                .rotationX(change ? 90 : 0)
+                .setListener(listener)
+                .start();
+    }
 
+    public static void rotateSwitch(final View v, boolean isLogin) {
+        v.animate().setDuration(200)
+                .rotation(isLogin ? 180f : -180f)
+                .start();
+    }
 }

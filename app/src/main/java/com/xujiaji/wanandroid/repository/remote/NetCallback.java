@@ -14,11 +14,12 @@
  *    limitations under the License.
  */
 
-package com.xujiaji.mvvmquick.callback;
+package com.xujiaji.wanandroid.repository.remote;
 
 import android.arch.lifecycle.MutableLiveData;
+import android.widget.Toast;
 
-import com.xujiaji.mvvmquick.util.ToastUtil;
+import com.xujiaji.wanandroid.helper.ToastHelper;
 
 import java.net.UnknownHostException;
 import java.util.concurrent.TimeoutException;
@@ -51,13 +52,13 @@ public class NetCallback<T> implements Callback<T>
     {
         if (t instanceof UnknownHostException)
         {
-            ToastUtil.getInstance().showShort("请检查网络");
+            ToastHelper.warning("请检查网络");
         } else if (t instanceof TimeoutException)
         {
-            ToastUtil.getInstance().showShort("连接超时");
+            ToastHelper.warning("连接超时");
         } else
         {
-            ToastUtil.getInstance().showShort(t.getMessage());
+            ToastHelper.warning(t.getMessage());
         }
         mutableLiveData.setValue(null);
     }
