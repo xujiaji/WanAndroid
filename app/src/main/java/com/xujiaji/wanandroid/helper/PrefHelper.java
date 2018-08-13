@@ -13,6 +13,10 @@ import java.util.Map;
  * Created by kosh20111 on 19 Feb 2017, 2:01 AM
  */
 public class PrefHelper {
+    /**
+     * 用户信息key
+     */
+    public static final String USER_INFO = "user_info";
 
     /**
      * @param key   ( the Key to used to retrieve this data later  )

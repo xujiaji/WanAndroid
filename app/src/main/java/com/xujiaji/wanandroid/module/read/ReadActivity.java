@@ -8,6 +8,7 @@ import android.support.design.widget.AppBarLayout;
 import android.support.design.widget.CoordinatorLayout;
 import android.support.v4.content.ContextCompat;
 import android.view.LayoutInflater;
+import android.view.View;
 import android.webkit.WebView;
 
 import com.just.agentweb.AgentWeb;
@@ -18,7 +19,9 @@ import com.xujiaji.wanandroid.base.BaseActivity;
 import com.xujiaji.wanandroid.databinding.ActivityReadBinding;
 import com.xujiaji.wanandroid.helper.FabPopLayoutHelper;
 import com.xujiaji.wanandroid.helper.ToolbarHelper;
+import com.xujiaji.wanandroid.helper.ViewHelper;
 import com.xujiaji.wanandroid.repository.bean.BlogPostBean;
+import com.xujiaji.wanandroid.util.NetUtil;
 
 /**
  * author: xujiaji
@@ -79,6 +82,9 @@ public class ReadActivity extends BaseActivity<ActivityReadBinding, ReadViewMode
                 .createAgentWeb()
                 .ready()
                 .go(mPostBean.getLink());
+
+        ViewHelper.tintDrawable(binding.fabLike.getDrawable(), mPostBean.isCollect() ? ContextCompat.getColor(this, android.R.color.holo_red_light) : ContextCompat.getColor(this, R.color.grey_400));
+
     }
 
     @Override
@@ -110,5 +116,9 @@ public class ReadActivity extends BaseActivity<ActivityReadBinding, ReadViewMode
     protected void onDestroy() {
         mAgentWeb.getWebLifeCycle().onDestroy();
         super.onDestroy();
+    }
+
+    public void onClickSystemBrowseOpen(View view) {
+        NetUtil.systemBrowserOpen(this, mPostBean.getLink());
     }
 }

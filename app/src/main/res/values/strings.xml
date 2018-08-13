@@ -49,4 +49,5 @@
 
     <!---->
     <string name="again_touch_exit">再按一次退出</string>
+    <string name="not_login">未登录</string>
 </resources>

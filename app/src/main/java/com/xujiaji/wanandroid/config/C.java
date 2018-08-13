@@ -10,11 +10,11 @@ public class C {
     /**
      * 未知错误
      */
-    public static int ERROR_UNKNOWN = -200;
+    public static final int ERROR_UNKNOWN = -200;
 
     /**
      * NULL 数据
      */
-    public static int ERROR_NULL_DATA = -201;
+    public static final int ERROR_NULL_DATA = -201;
 }
 

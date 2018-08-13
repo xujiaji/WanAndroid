@@ -43,14 +43,20 @@ public interface API {
     /**
      * 登录
      */
-    @POST("/user/login")
+    @POST("user/login")
     @FormUrlEncoded
     Call<Result<UserBean>> postLogin(@Field("username") String username, @Field("password") String password);
 
     /**
      * 注册
      */
-    @POST("/user/register")
+    @POST("user/register")
     @FormUrlEncoded
     Call<Result<UserBean>> postRegister(@Field("username") String username, @Field("password") String password, @Field("repassword") String repassword);
+
+    /**
+     * OPENAPIS
+     */
+    @GET("openapis")
+    Call<String> getOpenAPIS();
 }

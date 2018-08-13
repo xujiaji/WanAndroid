@@ -1,14 +1,18 @@
 package com.xujiaji.wanandroid.module.main;
 
+import android.arch.lifecycle.Observer;
 import android.content.Intent;
 import android.os.Bundle;
+import android.support.annotation.Nullable;
 import android.support.design.widget.BottomNavigationView;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.widget.Toolbar;
 import android.view.Gravity;
 import android.view.View;
+import android.widget.TextView;
 
+import com.google.gson.Gson;
 import com.xujiaji.mvvmquick.base.MQViewModel;
 import com.xujiaji.mvvmquick.util.ActivityUtils;
 import com.xujiaji.wanandroid.R;
@@ -17,10 +21,12 @@ import com.xujiaji.wanandroid.base.App;
 import com.xujiaji.wanandroid.base.BaseActivity;
 import com.xujiaji.wanandroid.base.BaseFragment;
 import com.xujiaji.wanandroid.databinding.ActivityMainBinding;
+import com.xujiaji.wanandroid.helper.PrefHelper;
 import com.xujiaji.wanandroid.helper.ToastHelper;
 import com.xujiaji.wanandroid.helper.ToolbarHelper;
 import com.xujiaji.wanandroid.model.FragmentModel;
 import com.xujiaji.wanandroid.module.login.LoginActivity;
+import com.xujiaji.wanandroid.repository.bean.UserBean;
 
 import javax.inject.Inject;
 import javax.inject.Named;
@@ -82,6 +88,9 @@ public class MainActivity extends BaseActivity<ActivityMainBinding, MQViewModel>
                 .hide(mProjectModel.getFragment())
                 .hide(mToolModel.getFragment())
                 .commit();
+
+        changeAccount(new Gson().fromJson(PrefHelper.getString(PrefHelper.USER_INFO), UserBean.class));
+        App.Login.event().observe(this, this::changeAccount);
     }
 
     @Override
@@ -99,6 +108,18 @@ public class MainActivity extends BaseActivity<ActivityMainBinding, MQViewModel>
                 startActivity(new Intent(MainActivity.this, LoginActivity.class));
             }
         });
+    }
+
+    private void changeAccount(UserBean userBean) {
+        if (userBean != null) { // login
+            TextView tvName = binding.navMenu.extrasNav.getHeaderView(0).findViewById(R.id.navFullName);
+            TextView tvEmail = binding.navMenu.extrasNav.getHeaderView(0).findViewById(R.id.navUsername);
+            tvName.setText(userBean.getEmail());
+            tvEmail.setText(userBean.getUsername());
+        } else { // no login
+
+        }
+
     }
 
     private void initDrawer(DrawerLayout drawer, Toolbar toolbar) {

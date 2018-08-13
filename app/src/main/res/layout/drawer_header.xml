@@ -25,16 +25,16 @@
             android:layout_marginEnd="@dimen/spacing_xs_large"
             android:layout_marginStart="@dimen/spacing_xs_large"/>
 
-        <ImageView
-            android:id="@+id/donatedIcon"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignBottom="@+id/navAvatarLayout"
-            android:layout_alignStart="@+id/navAvatarLayout"
-            android:layout_marginStart="@dimen/spacing_large"
-            android:src="@drawable/ic_heart_full"
-            android:visibility="gone"
-            tools:visibility="visible"/>
+        <!--<ImageView-->
+            <!--android:id="@+id/donatedIcon"-->
+            <!--android:layout_width="wrap_content"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:layout_alignBottom="@+id/navAvatarLayout"-->
+            <!--android:layout_alignStart="@+id/navAvatarLayout"-->
+            <!--android:layout_marginStart="@dimen/spacing_large"-->
+            <!--android:src="@drawable/ic_heart_full"-->
+            <!--android:visibility="gone"-->
+            <!--tools:visibility="visible"/>-->
     </RelativeLayout>
 
     <LinearLayout
@@ -60,7 +60,7 @@
                 android:layout_marginStart="@dimen/spacing_xs_large"
                 android:ellipsize="marquee"
                 android:singleLine="true"
-                android:text="@string/app_name"/>
+                android:text="@string/not_login"/>
 
             <TextView
                 android:id="@+id/navUsername"

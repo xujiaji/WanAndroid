@@ -1,5 +1,9 @@
 package com.xujiaji.wanandroid.util;
 
+import android.content.Context;
+import android.content.Intent;
+import android.net.Uri;
+
 import com.annimon.stream.Stream;
 
 import java.util.Arrays;
@@ -23,5 +27,21 @@ public class NetUtil {
         if (sb.length() > 0)
             sb.delete(sb.length() - 1, sb.length());
         return sb.toString().trim();
+    }
+
+
+    /**
+     * 系统浏览器打开该链接
+     * @param url 链接
+     */
+    public static void systemBrowserOpen(Context context, String url) {
+        try {
+            Intent intent = new Intent("android.intent.action.VIEW");
+            Uri content_url = Uri.parse(url);
+            intent.setData(content_url);
+            context.startActivity(intent);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 }

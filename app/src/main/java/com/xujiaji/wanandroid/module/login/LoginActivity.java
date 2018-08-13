@@ -162,7 +162,7 @@ public class LoginActivity extends MQActivity<ActivityLoginBinding, LoginViewMod
 
                 @Override
                 public void success(UserBean bean) {
-                    handleResult(true);
+                    handleResult(true, bean);
                 }
             });
         } else {
@@ -174,15 +174,15 @@ public class LoginActivity extends MQActivity<ActivityLoginBinding, LoginViewMod
 
                 @Override
                 public void success(UserBean bean) {
-                    handleResult(false);
+                    handleResult(false, bean);
                 }
 
             });
         }
     }
 
-    private void handleResult(boolean isLogIn) {
-        App.Login.in();
+    private void handleResult(boolean isLogIn, UserBean bean) {
+        App.Login.in(bean);
         ToastHelper.succuss(isLogIn ? App.getInstance().getString(R.string.success_login) : App.getInstance().getString(R.string.success_register));
         finish();
     }

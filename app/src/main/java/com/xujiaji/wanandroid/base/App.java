@@ -3,11 +3,20 @@ package com.xujiaji.wanandroid.base;
 import android.support.annotation.NonNull;
 import android.support.v4.content.ContextCompat;
 
+import com.google.gson.Gson;
 import com.xujiaji.mvvmquick.base.MQApp;
+import com.xujiaji.mvvmquick.lifecycle.SingleLiveEvent;
 import com.xujiaji.wanandroid.R;
 import com.xujiaji.wanandroid.di.DaggerAppComponent;
 import com.xujiaji.wanandroid.helper.PrefHelper;
+import com.xujiaji.wanandroid.repository.bean.UserBean;
 import com.xujiaji.wanandroid.repository.remote.Net;
+
+import java.util.ArrayList;
+import java.util.List;
+
+import javax.inject.Inject;
+import javax.inject.Provider;
 
 import dagger.android.AndroidInjector;
 import dagger.android.support.DaggerApplication;
@@ -49,7 +58,20 @@ public class App extends MQApp {
      * 登录状态
      */
     public static class Login {
+
+        private static final List<SingleLiveEvent<UserBean>> liveEventList = new ArrayList<>();
+
         private static boolean isOK;
+
+        /**
+         * 订阅登录成功事件
+         */
+        public static SingleLiveEvent<UserBean> event() {
+            SingleLiveEvent<UserBean> le = new SingleLiveEvent<>();
+            liveEventList.add(le);
+            return le;
+        }
+
         /**
          *  当前是否登录
          */
@@ -60,8 +82,13 @@ public class App extends MQApp {
         /**
          * 已登录
          */
-        public static void in() {
+        public static void in(UserBean userBean) {
             isOK = true;
+            PrefHelper.set(PrefHelper.USER_INFO, new Gson().toJson(userBean));
+
+            for (SingleLiveEvent<UserBean> le : liveEventList) {
+                le.setValue(userBean);
+            }
         }
 
         /**
@@ -69,6 +96,11 @@ public class App extends MQApp {
          */
         public static void out() {
             PrefHelper.clearKey(Net.SAVE_USER_LOGIN_KEY);
+            PrefHelper.clearKey(PrefHelper.USER_INFO);
+            for (SingleLiveEvent<UserBean> le : liveEventList) {
+                le.setValue(null);
+            }
+            liveEventList.clear();
             isOK = false;
         }
     }

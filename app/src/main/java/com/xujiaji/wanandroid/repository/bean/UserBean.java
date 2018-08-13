@@ -1,5 +1,7 @@
 package com.xujiaji.wanandroid.repository.bean;
 
+import android.text.TextUtils;
+
 import com.google.gson.annotations.SerializedName;
 
 import java.util.List;
@@ -37,6 +39,7 @@ public class UserBean {
     private List<Integer> collectIds;
 
     public String getEmail() {
+        if (TextUtils.isEmpty(email)) return "Wan";
         return email;
     }
 
@@ -77,6 +80,7 @@ public class UserBean {
     }
 
     public String getUsername() {
+        if (TextUtils.isEmpty(username)) return "Wan";
         return username;
     }
 

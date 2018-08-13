@@ -39,7 +39,7 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="top"
                 android:layout_margin="@dimen/layout_margin"
-                android:src="@drawable/ic_pen"
+                android:src="@drawable/ic_todo_list"
                 android:tint="@color/white"
                 app:fabSize="normal"
                 android:clickable="true"

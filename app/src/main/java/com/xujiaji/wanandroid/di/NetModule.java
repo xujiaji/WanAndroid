@@ -22,6 +22,7 @@ import okhttp3.Response;
 import okhttp3.logging.HttpLoggingInterceptor;
 import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
+import retrofit2.converter.scalars.ScalarsConverterFactory;
 
 /**
  * author: xujiaji
@@ -36,8 +37,9 @@ public class NetModule {
     static API provideAPI(OkHttpClient client) {
         return new Retrofit.Builder()
                 .baseUrl(BuildConfig.BASE_URL)
-                .client(client)
+                .addConverterFactory(ScalarsConverterFactory.create())
                 .addConverterFactory(GsonConverterFactory.create())
+                .client(client)
                 .build()
                 .create(API.class);
     }
