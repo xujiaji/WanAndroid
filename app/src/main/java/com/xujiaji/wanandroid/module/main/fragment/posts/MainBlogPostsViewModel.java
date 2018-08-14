@@ -52,7 +52,6 @@ public class MainBlogPostsViewModel extends BaseViewModel implements RefreshLoad
 
     @Override
     public void onListRefresh() {
-        net.get().getThreeAPIBean();
         mBannerData.setValue(net.get().getBanners());
         mBlogPostsLiveData.setValue(new RefreshLoadModel<>(net.get().getBlogPosts(UPDATE_INDEX), true));
     }

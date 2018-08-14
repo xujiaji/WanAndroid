@@ -2,6 +2,9 @@ package com.xujiaji.wanandroid.module.login;
 
 import android.animation.Animator;
 import android.animation.AnimatorListenerAdapter;
+import android.content.Context;
+import android.content.Intent;
+import android.support.annotation.Nullable;
 import android.text.TextUtils;
 import android.view.KeyEvent;
 import android.view.View;
@@ -15,7 +18,6 @@ import com.xujiaji.wanandroid.databinding.ActivityLoginBinding;
 import com.xujiaji.wanandroid.helper.AnimHelper;
 import com.xujiaji.wanandroid.helper.ToastHelper;
 import com.xujiaji.wanandroid.repository.bean.UserBean;
-import com.xujiaji.wanandroid.repository.remote.DataCallback;
 import com.xujiaji.wanandroid.repository.remote.DataCallbackImp;
 
 import static com.xujiaji.wanandroid.helper.CheckHelper.isEmailValid;
@@ -24,6 +26,11 @@ import static com.xujiaji.wanandroid.helper.CheckHelper.isPasswordValid;
 public class LoginActivity extends MQActivity<ActivityLoginBinding, LoginViewModel> implements View.OnFocusChangeListener, TextView.OnEditorActionListener {
 
     private boolean isLogIn = true;
+
+    public static void launch(@Nullable Context context) {
+        if (context == null) return;
+        context.startActivity(new Intent(context, LoginActivity.class));
+    }
 
     @Override
     public void onBinding(ActivityLoginBinding binding) {
@@ -183,7 +190,7 @@ public class LoginActivity extends MQActivity<ActivityLoginBinding, LoginViewMod
 
     private void handleResult(boolean isLogIn, UserBean bean) {
         App.Login.in(bean);
-        ToastHelper.succuss(isLogIn ? App.getInstance().getString(R.string.success_login) : App.getInstance().getString(R.string.success_register));
+        ToastHelper.success(isLogIn ? App.getInstance().getString(R.string.success_login) : App.getInstance().getString(R.string.success_register));
         finish();
     }
 

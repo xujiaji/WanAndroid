@@ -34,6 +34,8 @@ import com.xujiaji.wanandroid.module.main.fragment.MainToolsFragment;
 import com.xujiaji.wanandroid.module.main.fragment.MenuDrawerFragment;
 import com.youth.banner.Banner;
 
+import java.util.List;
+
 import javax.inject.Named;
 
 import dagger.Module;
@@ -64,7 +66,7 @@ public abstract class MainModule {
     @Provides
     public static FragmentModel provideBlogModel(MainActivity context,
                                                     MainBlogPostsFragment blogPostsFragment) {
-        return new FragmentModel(context.getString(R.string.blog_post), blogPostsFragment);
+        return new FragmentModel(context.getString(R.string.app_name), blogPostsFragment);
     }
 
 
@@ -80,6 +82,14 @@ public abstract class MainModule {
     @Provides
     public static FragmentModel provideToolModel(MainActivity context, MainToolsFragment toolsFragment) {
         return new FragmentModel(context.getString(R.string.tool), toolsFragment);
+    }
+
+    @ActivityScoped
+    @Provides
+    public static List<FragmentModel> provideHomeFragModels(@Named("Post") FragmentModel postModel,
+                                                            @Named("Project") FragmentModel projectModel,
+                                                            @Named("Tool") FragmentModel toolModel) {
+        return Stream.of(postModel, projectModel, toolModel).toList();
     }
 
     @FragmentScoped

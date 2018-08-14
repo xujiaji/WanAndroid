@@ -1,17 +1,13 @@
 package com.xujiaji.wanandroid.repository.remote;
 
+import android.annotation.SuppressLint;
 import android.arch.lifecycle.MutableLiveData;
-import android.arch.lifecycle.Observer;
-import android.os.Looper;
-import android.support.annotation.Nullable;
-import android.widget.Toast;
+import android.os.AsyncTask;
 
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
 import com.jventura.pybridge.PyManager;
-import com.xujiaji.mvvmquick.util.LogUtil;
 import com.xujiaji.wanandroid.base.App;
-import com.xujiaji.wanandroid.helper.ToastHelper;
 import com.xujiaji.wanandroid.repository.bean.BannerBean;
 import com.xujiaji.wanandroid.repository.bean.BlogPostBean;
 import com.xujiaji.wanandroid.repository.bean.PageBean;
@@ -19,15 +15,12 @@ import com.xujiaji.wanandroid.repository.bean.Result;
 import com.xujiaji.wanandroid.repository.bean.ThreeAPIBean;
 import com.xujiaji.wanandroid.repository.bean.UserBean;
 
-import java.io.IOException;
 import java.util.List;
 
 import javax.inject.Inject;
 import javax.inject.Singleton;
 
-import es.dmoral.toasty.Toasty;
 import retrofit2.Call;
-import retrofit2.Response;
 
 /**
  * author: xujiaji
@@ -56,11 +49,46 @@ public class Net {
         this.mApi = api;
     }
 
+    /**
+     * 请求统一处理
+     */
     private <T> MutableLiveData<T> handle(Call<T> call) {
         final MutableLiveData<T> data = new MutableLiveData<>();
         call.enqueue(new NetCallback<>(data));
         return data;
     }
+
+    /**
+     * 需要python解析的网页进行统一处理
+     */
+    @SuppressLint("StaticFieldLeak")
+    private <R, T extends Result<R>> MutableLiveData<T> handle(Call<String> call, ParserCallback callback) {
+        final MutableLiveData<T> data = new MutableLiveData<>();
+
+        final AsyncTask<String, Integer, R> asyncTask = new AsyncTask<String, Integer, R>() {
+            @Override
+            protected R doInBackground(String... strings) {
+                return new Gson().fromJson(callback.parser(strings[0]),
+                        new TypeToken<R>() {
+                        }.getType());
+            }
+
+            @Override
+            protected void onPostExecute(R r) {
+                Result<R> result = new Result<>();
+                result.setData(r);
+                data.setValue((T) result);
+            }
+        };
+
+        handle(call).observeForever(asyncTask::execute);
+        return data;
+    }
+
+    private interface ParserCallback {
+        String parser(String data);
+    }
+
 
     public MutableLiveData<Result<PageBean<BlogPostBean>>> getBlogPosts(int num) {
         return handle(mApi.getBlogPosts(num));
@@ -83,18 +111,16 @@ public class Net {
         return handle(mApi.postRegister(username, password, password));
     }
 
+    public MutableLiveData<Result<String>> postCollect(int id) {
+        return handle(mApi.postCollect(id));
+    }
+
+    public MutableLiveData<Result<String>> postUncollect(int id) {
+        return handle(mApi.postUncollect(id));
+    }
+
     public MutableLiveData<Result<List<ThreeAPIBean>>> getThreeAPIBean() {
-        final MutableLiveData<Result<List<ThreeAPIBean>>> data = new MutableLiveData<>();
-        handle(mApi.getOpenAPIS()).observeForever(s -> new Thread() {
-            @Override
-            public void run() {
-                Result<List<ThreeAPIBean>> result = new Result<>();
-                result.setData(new Gson().fromJson(PyManager.getInstance(App.getInstance()).parserOPENAPISHtml(s),
-                        new TypeToken<List<ThreeAPIBean>>(){}.getType()));
-                data.setValue(result);
-            }
-        }.start());
-        return data;
+        return handle(mApi.getOpenAPIS(), data -> PyManager.getInstance(App.getInstance()).parserOPENAPISHtml(data));
     }
 
 }

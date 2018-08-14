@@ -17,6 +17,14 @@ public class NetLiveEvent<T> extends MutableLiveData<MutableLiveData<Result<T>>>
      * 观察数据
      */
     public void observeData(@NonNull final LifecycleOwner owner, @NonNull final DataCallback<T> callback) {
+        observeData(owner, false, callback);
+    }
+
+    /**
+     * 观察数据
+     * @param dataNullable 数据结果是否可能为null
+     */
+    public void observeData(@NonNull final LifecycleOwner owner, boolean dataNullable, @NonNull final DataCallback<T> callback) {
         observe(owner, new Observer<MutableLiveData<Result<T>>>() {
             @Override
             public void onChanged(@Nullable MutableLiveData<Result<T>> resultMutableLiveData) {
@@ -35,7 +43,7 @@ public class NetLiveEvent<T> extends MutableLiveData<MutableLiveData<Result<T>>>
                         }
 
                         if (tResult.getErrorCode() == Net.OK) {
-                            if (tResult.getData() == null) {
+                            if (tResult.getData() == null && !dataNullable) {
                                 callback.fail(C.ERROR_NULL_DATA, null);
                             } else {
                                 callback.success(tResult.getData());
@@ -47,6 +55,7 @@ public class NetLiveEvent<T> extends MutableLiveData<MutableLiveData<Result<T>>>
                 });
             }
         });
+
     }
 
 }

@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <item name="navigation_home" type="id"/>
+    <item name="navigation_knowledge_system" type="id"/>
+    <item name="navigation_navigation" type="id"/>
+    <item name="navigation_project_category" type="id"/>
+    <item name="navigation_friend_links" type="id"/>
+    <item name="navigation_open_apis" type="id"/>
+    <item name="navigation_set" type="id"/>
+    <item name="navigation_about" type="id"/>
+</resources>

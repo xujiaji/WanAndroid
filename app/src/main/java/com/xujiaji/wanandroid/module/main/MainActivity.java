@@ -1,10 +1,10 @@
 package com.xujiaji.wanandroid.module.main;
 
-import android.arch.lifecycle.Observer;
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.annotation.Nullable;
+import android.support.annotation.IdRes;
 import android.support.design.widget.BottomNavigationView;
+import android.support.v4.app.FragmentTransaction;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.widget.Toolbar;
@@ -21,12 +21,15 @@ import com.xujiaji.wanandroid.base.App;
 import com.xujiaji.wanandroid.base.BaseActivity;
 import com.xujiaji.wanandroid.base.BaseFragment;
 import com.xujiaji.wanandroid.databinding.ActivityMainBinding;
+import com.xujiaji.wanandroid.helper.BottomNavigationHelper;
 import com.xujiaji.wanandroid.helper.PrefHelper;
 import com.xujiaji.wanandroid.helper.ToastHelper;
 import com.xujiaji.wanandroid.helper.ToolbarHelper;
 import com.xujiaji.wanandroid.model.FragmentModel;
 import com.xujiaji.wanandroid.module.login.LoginActivity;
 import com.xujiaji.wanandroid.repository.bean.UserBean;
+
+import java.util.List;
 
 import javax.inject.Inject;
 import javax.inject.Named;
@@ -48,6 +51,9 @@ public class MainActivity extends BaseActivity<ActivityMainBinding, MQViewModel>
     @Named("Tool")
     FragmentModel mToolModel;
 
+    @Inject
+    List<FragmentModel> mHomeFragModels;
+
 
     private BottomNavigationView.OnNavigationItemSelectedListener mOnNavigationItemSelectedListener = item -> {
         switch (item.getItemId()) {
@@ -65,14 +71,11 @@ public class MainActivity extends BaseActivity<ActivityMainBinding, MQViewModel>
     };
 
     private void showFrag(BaseFragment frag) {
-        getSupportFragmentManager()
-                .beginTransaction()
-                .hide(mBlogModel.getFragment())
-                .hide(mProjectModel.getFragment())
-                .hide(mToolModel.getFragment())
-                .show(frag)
-                .commit();
-
+        FragmentTransaction ft = getSupportFragmentManager().beginTransaction();
+        for (FragmentModel fragModel : mHomeFragModels) {
+            ft.hide(fragModel.getFragment());
+        }
+        ft.show(frag).commit();
     }
 
     @Override
@@ -105,19 +108,20 @@ public class MainActivity extends BaseActivity<ActivityMainBinding, MQViewModel>
             if (App.Login.isOK()) {
 
             } else {
-                startActivity(new Intent(MainActivity.this, LoginActivity.class));
+                LoginActivity.launch(MainActivity.this);
             }
         });
     }
 
     private void changeAccount(UserBean userBean) {
+        TextView tvName = binding.navMenu.extrasNav.getHeaderView(0).findViewById(R.id.navFullName);
+        TextView tvEmail = binding.navMenu.extrasNav.getHeaderView(0).findViewById(R.id.navUsername);
         if (userBean != null) { // login
-            TextView tvName = binding.navMenu.extrasNav.getHeaderView(0).findViewById(R.id.navFullName);
-            TextView tvEmail = binding.navMenu.extrasNav.getHeaderView(0).findViewById(R.id.navUsername);
             tvName.setText(userBean.getEmail());
             tvEmail.setText(userBean.getUsername());
         } else { // no login
-
+            tvName.setText(R.string.not_login);
+            tvEmail.setText(R.string.app_name);
         }
 
     }
@@ -131,6 +135,25 @@ public class MainActivity extends BaseActivity<ActivityMainBinding, MQViewModel>
         };
 
         toggle.syncState();
+    }
+
+    public void changeBottomNavigation(@IdRes int id) {
+        onBackPressed();
+        switch (id) {
+            case R.id.navigation_set:
+                ToastHelper.info("设置");
+                break;
+            case R.id.navigation_about:
+                ToastHelper.info("关于");
+                break;
+            case R.id.navigation_home:
+                if (binding.navigation.getMenu().size() != mHomeFragModels.size()) { //当前不为首页时
+                    BottomNavigationHelper.showHome(binding.navigation);
+                }
+                break;
+            default:
+                BottomNavigationHelper.onlyShow(binding.navigation, id);
+        }
     }
 
     @Override

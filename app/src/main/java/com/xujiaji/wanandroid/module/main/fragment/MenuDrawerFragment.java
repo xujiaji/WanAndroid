@@ -1,9 +1,16 @@
 package com.xujiaji.wanandroid.module.main.fragment;
 
+import android.support.annotation.NonNull;
+import android.support.design.widget.NavigationView;
+import android.view.MenuItem;
+
 import com.xujiaji.mvvmquick.base.MQViewModel;
 import com.xujiaji.mvvmquick.di.ActivityScoped;
+import com.xujiaji.wanandroid.R;
 import com.xujiaji.wanandroid.base.BaseFragment;
 import com.xujiaji.wanandroid.databinding.DrawerFragmentMenuBinding;
+import com.xujiaji.wanandroid.helper.ToastHelper;
+import com.xujiaji.wanandroid.module.main.MainActivity;
 
 import javax.inject.Inject;
 
@@ -13,7 +20,23 @@ import javax.inject.Inject;
  * description:
  */
 @ActivityScoped
-public class MenuDrawerFragment extends BaseFragment<DrawerFragmentMenuBinding, MQViewModel> {
+public class MenuDrawerFragment extends BaseFragment<DrawerFragmentMenuBinding, MQViewModel> implements NavigationView.OnNavigationItemSelectedListener {
+
+    @Inject
+    MainActivity mainActivity;
+
     @Inject
     public MenuDrawerFragment() {}
+
+    @Override
+    public void onBinding(DrawerFragmentMenuBinding binding) {
+        super.onBinding(binding);
+        binding.mainNav.setNavigationItemSelectedListener(this);
+    }
+
+    @Override
+    public boolean onNavigationItemSelected(@NonNull MenuItem item) {
+        mainActivity.changeBottomNavigation(item.getItemId());
+        return true;
+    }
 }

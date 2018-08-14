@@ -1,20 +1,26 @@
 package com.xujiaji.wanandroid.module.main.fragment.posts;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 
 import com.xujiaji.mvvmquick.di.ActivityScoped;
+import com.xujiaji.mvvmquick.util.LogUtil;
 import com.xujiaji.wanandroid.base.BaseFragment;
 import com.xujiaji.wanandroid.databinding.FragmentMainBlogPostsBinding;
+import com.xujiaji.wanandroid.helper.ActivityResultHelper;
 import com.xujiaji.wanandroid.helper.RefreshLoadHelper;
 import com.xujiaji.wanandroid.module.read.ReadActivity;
 import com.xujiaji.wanandroid.repository.bean.BannerBean;
+import com.xujiaji.wanandroid.repository.bean.BlogPostBean;
 import com.xujiaji.wanandroid.repository.remote.DataCallbackImp;
 import com.youth.banner.Banner;
 
 import java.util.List;
 
 import javax.inject.Inject;
+
+import static android.app.Activity.RESULT_OK;
 
 /**
  * author: xujiaji
@@ -60,7 +66,7 @@ public class MainBlogPostsFragment extends BaseFragment<FragmentMainBlogPostsBin
         });
 
         viewModel.getObservableBlogPosts().observe(this, RefreshLoadHelper.listener(this, mAdapter, binding.refresh, viewModel));
-        viewModel.mClickEvent.observe(this, blogPostBean -> ReadActivity.launch(getActivity(), blogPostBean));
+        viewModel.mClickEvent.observe(this, blogPostBean -> ReadActivity.launch(this, blogPostBean));
     }
 
 
@@ -74,5 +80,11 @@ public class MainBlogPostsFragment extends BaseFragment<FragmentMainBlogPostsBin
     public void onStop() {
         super.onStop();
         mBanner.stopAutoPlay();
+    }
+
+    @Override
+    public void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        ActivityResultHelper.handlePost(requestCode, resultCode, data, mAdapter);
     }
 }

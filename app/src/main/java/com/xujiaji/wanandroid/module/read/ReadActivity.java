@@ -1,26 +1,27 @@
 package com.xujiaji.wanandroid.module.read;
 
-import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.design.widget.AppBarLayout;
 import android.support.design.widget.CoordinatorLayout;
+import android.support.v4.app.Fragment;
 import android.support.v4.content.ContextCompat;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.webkit.WebView;
 
 import com.just.agentweb.AgentWeb;
-import com.xujiaji.mvvmquick.base.MQViewModel;
 import com.xujiaji.mvvmquick.util.LogUtil;
 import com.xujiaji.wanandroid.R;
 import com.xujiaji.wanandroid.base.BaseActivity;
 import com.xujiaji.wanandroid.databinding.ActivityReadBinding;
 import com.xujiaji.wanandroid.helper.FabPopLayoutHelper;
+import com.xujiaji.wanandroid.helper.ToastHelper;
 import com.xujiaji.wanandroid.helper.ToolbarHelper;
 import com.xujiaji.wanandroid.helper.ViewHelper;
 import com.xujiaji.wanandroid.repository.bean.BlogPostBean;
+import com.xujiaji.wanandroid.repository.remote.DataCallbackImp;
 import com.xujiaji.wanandroid.util.NetUtil;
 
 /**
@@ -30,15 +31,17 @@ import com.xujiaji.wanandroid.util.NetUtil;
  */
 public class ReadActivity extends BaseActivity<ActivityReadBinding, ReadViewModel> {
 
+    public static final int ACTIVITY_REQUEST_CODE = 222;
+
     private BlogPostBean mPostBean;
 
     private AgentWeb mAgentWeb;
 
-    public static void launch(@Nullable Context context, BlogPostBean postBean) {
-        if (context == null) return;
-        Intent intent = new Intent(context, ReadActivity.class);
+    public static void launch(@Nullable Fragment fragment, BlogPostBean postBean) {
+        if (fragment == null) return;
+        Intent intent = new Intent(fragment.getContext(), ReadActivity.class);
         intent.putExtra(BlogPostBean.class.getSimpleName(), postBean);
-        context.startActivity(intent);
+        fragment.startActivityForResult(intent, ACTIVITY_REQUEST_CODE);
     }
 
     @Override
@@ -83,12 +86,16 @@ public class ReadActivity extends BaseActivity<ActivityReadBinding, ReadViewMode
                 .ready()
                 .go(mPostBean.getLink());
 
-        ViewHelper.tintDrawable(binding.fabLike.getDrawable(), mPostBean.isCollect() ? ContextCompat.getColor(this, android.R.color.holo_red_light) : ContextCompat.getColor(this, R.color.grey_400));
+        initFab();
+    }
 
+    private void initFab() {
+        ViewHelper.tintDrawable(binding.fabLike.getDrawable(), mPostBean.isCollect() ? ContextCompat.getColor(this, android.R.color.holo_red_light) : ContextCompat.getColor(this, R.color.grey_400));
     }
 
     @Override
     public boolean onSupportNavigateUp() {
+        setResultData();
         finish();
         return true;
     }
@@ -107,7 +114,13 @@ public class ReadActivity extends BaseActivity<ActivityReadBinding, ReadViewMode
 
     @Override
     public void onBackPressed() {
+        if (binding.backDrop.getVisibility() == View.VISIBLE) {
+            binding.backDrop.performClick();
+            return;
+        }
+
         if (!mAgentWeb.back()) {
+            setResultData();
             super.onBackPressed();
         }
     }
@@ -118,7 +131,41 @@ public class ReadActivity extends BaseActivity<ActivityReadBinding, ReadViewMode
         super.onDestroy();
     }
 
+    /**
+     * 设置返回数据
+     */
+    private void setResultData() {
+        if (mPostBean == null) return;
+        Intent intent = new Intent();
+        intent.putExtra(BlogPostBean.class.getSimpleName(), mPostBean);
+        setResult(RESULT_OK, intent);
+    }
+
     public void onClickSystemBrowseOpen(View view) {
         NetUtil.systemBrowserOpen(this, mPostBean.getLink());
     }
+
+    public void onClickLike(View view) {
+        if (mPostBean == null) return;
+        if (mPostBean.isCollect()) {
+            viewModel.postObservableUncollect(mPostBean.getId()).observeData(this, true, new DataCallbackImp<String>() {
+                @Override
+                public void success(String bean) {
+                    mPostBean.setCollect(false);
+                    initFab();
+                    ToastHelper.successUncollect();
+                }
+            });
+        } else {
+            viewModel.postObservableCollect(mPostBean.getId()).observeData(this, true, new DataCallbackImp<String>() {
+                @Override
+                public void success(String bean) {
+                    mPostBean.setCollect(true);
+                    initFab();
+                    ToastHelper.successCollect();
+                }
+            });
+        }
+    }
+
 }

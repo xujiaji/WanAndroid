@@ -80,7 +80,15 @@ public class BlogPostBean implements Parcelable {
     private int zan;
     @SerializedName("tags")
     private List<TagsBean> tags;
+    private int index;
 
+    public int getIndex() {
+        return index;
+    }
+
+    public void setIndex(int index) {
+        this.index = index;
+    }
 
     public String getApkLink() {
         return apkLink;
@@ -325,6 +333,9 @@ public class BlogPostBean implements Parcelable {
         };
     }
 
+    public BlogPostBean() {
+    }
+
     @Override
     public int describeContents() {
         return 0;
@@ -355,9 +366,7 @@ public class BlogPostBean implements Parcelable {
         dest.writeInt(this.visible);
         dest.writeInt(this.zan);
         dest.writeTypedList(this.tags);
-    }
-
-    public BlogPostBean() {
+        dest.writeInt(this.index);
     }
 
     protected BlogPostBean(Parcel in) {
@@ -384,9 +393,10 @@ public class BlogPostBean implements Parcelable {
         this.visible = in.readInt();
         this.zan = in.readInt();
         this.tags = in.createTypedArrayList(TagsBean.CREATOR);
+        this.index = in.readInt();
     }
 
-    public static final Parcelable.Creator<BlogPostBean> CREATOR = new Parcelable.Creator<BlogPostBean>() {
+    public static final Creator<BlogPostBean> CREATOR = new Creator<BlogPostBean>() {
         @Override
         public BlogPostBean createFromParcel(Parcel source) {
             return new BlogPostBean(source);

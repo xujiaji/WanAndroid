@@ -3,7 +3,7 @@
 
     <group android:id="@+id/home_group">
         <item
-            android:id="@+id/mainView"
+            android:id="@id/navigation_home"
             android:icon="@drawable/ic_nav_home"
             android:title="@string/home"
             android:visible="true" />
@@ -11,47 +11,47 @@
 
     <group android:id="@+id/menu_group">
         <item
-            android:id="@+id/system"
+            android:id="@id/navigation_knowledge_system"
             android:icon="@drawable/ic_nav_system"
             android:title="@string/system" />
         <item
-            android:id="@+id/orgs"
+            android:id="@id/navigation_navigation"
             android:icon="@drawable/ic_nav_navigation"
             android:title="@string/navigation" />
         <item
-            android:id="@+id/notifications"
+            android:id="@id/navigation_project_category"
             android:icon="@drawable/ic_nav_category_project"
             android:title="@string/project_category" />
     </group>
 
 
     <group
-        android:id="@+id/group_one"
+        android:id="@+id/html_group"
         android:checkableBehavior="none">
 
 
         <item
-            android:id="@+id/pinnedMenu333"
+            android:id="@id/navigation_friend_links"
             android:icon="@drawable/ic_nav_links"
             android:title="@string/links" />
 
         <item
-            android:id="@+id/gists"
+            android:id="@id/navigation_open_apis"
             android:icon="@drawable/ic_nav_api"
             android:title="@string/openapis" />
     </group>
 
 
     <group
-        android:id="@+id/group_three"
+        android:id="@+id/app_group"
         android:checkableBehavior="none">
         <item
-            android:id="@+id/pinnedMenu"
+            android:id="@id/navigation_set"
             android:icon="@drawable/ic_nav_set"
             android:title="@string/set" />
 
         <item
-            android:id="@+id/trending"
+            android:id="@id/navigation_about"
             android:icon="@drawable/ic_nav_i"
             android:title="@string/about" />
         <!--<item-->

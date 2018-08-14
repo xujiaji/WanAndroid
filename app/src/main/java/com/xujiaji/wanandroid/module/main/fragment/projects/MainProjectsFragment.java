@@ -1,9 +1,13 @@
 package com.xujiaji.wanandroid.module.main.fragment.projects;
 
+import android.content.Intent;
+
 import com.xujiaji.mvvmquick.di.ActivityScoped;
 import com.xujiaji.wanandroid.base.BaseFragment;
 import com.xujiaji.wanandroid.databinding.FragmentMainProjectsBinding;
+import com.xujiaji.wanandroid.helper.ActivityResultHelper;
 import com.xujiaji.wanandroid.helper.RefreshLoadHelper;
+import com.xujiaji.wanandroid.module.read.ReadActivity;
 
 import javax.inject.Inject;
 
@@ -31,5 +35,12 @@ public class MainProjectsFragment extends BaseFragment<FragmentMainProjectsBindi
         super.onObserveViewModel(viewModel);
         binding.setMainProjectsViewModel(viewModel);
         viewModel.getObservableProjects().observe(this, RefreshLoadHelper.listener(this, mAdapter, binding.refresh, viewModel));
+        viewModel.mClickEvent.observe(this, blogPostBean -> ReadActivity.launch(this, blogPostBean));
+    }
+
+    @Override
+    public void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        ActivityResultHelper.handlePost(requestCode, resultCode, data, mAdapter);
     }
 }

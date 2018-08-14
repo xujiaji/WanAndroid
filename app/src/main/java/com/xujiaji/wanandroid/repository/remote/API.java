@@ -55,7 +55,19 @@ public interface API {
     Call<Result<UserBean>> postRegister(@Field("username") String username, @Field("password") String password, @Field("repassword") String repassword);
 
     /**
-     * OPENAPIS
+     * 收藏文章
+     */
+    @POST("lg/collect/{id}/json")
+    Call<Result<String>> postCollect(@Path("id") int id);
+
+    /**
+     * 取消收藏文章
+     */
+    @POST("lg/uncollect_originId/{id}/json")
+    Call<Result<String>> postUncollect(@Path("id") int id);
+
+    /**
+     * 公开的API
      */
     @GET("openapis")
     Call<String> getOpenAPIS();

@@ -1,19 +1,21 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
 
-    <item
-        android:id="@+id/navigation_blog_post"
-        android:icon="@drawable/ic_home_blog_post"
-        android:title="@string/blog_post" />
+    <group android:id="@+id/navigationDrawer">
+        <item
+            android:id="@+id/navigation_blog_post"
+            android:icon="@drawable/ic_home_blog_post"
+            android:title="@string/blog_post" />
 
-    <item
-        android:id="@+id/navigation_project"
-        android:icon="@drawable/ic_home_project"
-        android:title="@string/project" />
+        <item
+            android:id="@+id/navigation_project"
+            android:icon="@drawable/ic_home_project"
+            android:title="@string/project" />
 
-    <item
-        android:id="@+id/navigation_tool"
-        android:icon="@drawable/ic_home_tool"
-        android:title="@string/tool" />
+        <item
+            android:id="@+id/navigation_tool"
+            android:icon="@drawable/ic_home_tool"
+            android:title="@string/tool" />
+    </group>
 
 </menu>

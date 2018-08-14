@@ -133,6 +133,7 @@
                 android:tint="@color/grey_400"
                 app:backgroundTint="@android:color/white"
                 app:fabSize="mini"
+                android:onClick="onClickLike"
                 app:rippleColor="@color/colorPrimaryDark"
                 app:srcCompat="@drawable/ic_nav_heart"
                 android:focusable="true" />

@@ -35,6 +35,7 @@ public class MainProjectsAdapter extends MQQuickAdapter<BlogPostBean, ItemBlogPo
 
     @Override
     protected void convert(MQViewHolder<ItemBlogPostBinding> helper, BlogPostBean item) {
+        item.setIndex(getData().indexOf(item));
         helper.binding.setHideTag(true);
         helper.binding.setBlogPost(item);
         helper.binding.executePendingBindings();
