@@ -58,24 +58,25 @@ public class MainActivity extends BaseActivity<ActivityMainBinding, MQViewModel>
     private BottomNavigationView.OnNavigationItemSelectedListener mOnNavigationItemSelectedListener = item -> {
         switch (item.getItemId()) {
             case R.id.navigation_blog_post:
-                showFrag(mBlogModel.getFragment());
+                showFrag(mBlogModel);
                 return true;
             case R.id.navigation_project:
-                showFrag(mProjectModel.getFragment());
+                showFrag(mProjectModel);
                 return true;
             case R.id.navigation_tool:
-                showFrag(mToolModel.getFragment());
+                showFrag(mToolModel);
                 return true;
         }
         return false;
     };
 
-    private void showFrag(BaseFragment frag) {
+    private void showFrag(FragmentModel fragModel) {
         FragmentTransaction ft = getSupportFragmentManager().beginTransaction();
-        for (FragmentModel fragModel : mHomeFragModels) {
-            ft.hide(fragModel.getFragment());
+        for (FragmentModel fm : mHomeFragModels) {
+            ft.hide(fm.getFragment());
         }
-        ft.show(frag).commit();
+        ft.show(fragModel.getFragment()).commit();
+        binding.includeBar.toolbar.setTitle(fragModel.getTitle());
     }
 
     @Override
@@ -106,7 +107,7 @@ public class MainActivity extends BaseActivity<ActivityMainBinding, MQViewModel>
         binding.navMenu.drawerTabLayout.setupWithViewPager(binding.navMenu.drawerViewPager);
         binding.fab.setOnClickListener(v -> {
             if (App.Login.isOK()) {
-
+                ToastHelper.info("敬请期待！");
             } else {
                 LoginActivity.launch(MainActivity.this);
             }
@@ -148,6 +149,7 @@ public class MainActivity extends BaseActivity<ActivityMainBinding, MQViewModel>
                 break;
             case R.id.navigation_home:
                 if (binding.navigation.getMenu().size() != mHomeFragModels.size()) { //当前不为首页时
+                    showFrag(mBlogModel);
                     BottomNavigationHelper.showHome(binding.navigation);
                 }
                 break;

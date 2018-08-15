@@ -15,6 +15,7 @@ import com.xujiaji.wanandroid.repository.bean.BannerBean;
 import com.xujiaji.wanandroid.repository.bean.BlogPostBean;
 import com.xujiaji.wanandroid.repository.remote.DataCallbackImp;
 import com.youth.banner.Banner;
+import com.youth.banner.listener.OnBannerListener;
 
 import java.util.List;
 
@@ -36,6 +37,8 @@ public class MainBlogPostsFragment extends BaseFragment<FragmentMainBlogPostsBin
     @Inject
     Banner mBanner;
 
+    private List<BannerBean> bannerBeanList;
+
     @Inject
     public MainBlogPostsFragment() {
     }
@@ -44,6 +47,7 @@ public class MainBlogPostsFragment extends BaseFragment<FragmentMainBlogPostsBin
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         mAdapter.addHeaderView(mBanner);
+        mBanner.setOnBannerListener(position -> ReadActivity.launch(MainBlogPostsFragment.this, bannerBeanList.get(position).getTitle(), bannerBeanList.get(position).getUrl()));
     }
 
     @Override
@@ -59,6 +63,7 @@ public class MainBlogPostsFragment extends BaseFragment<FragmentMainBlogPostsBin
         viewModel.getObservableBanners().observeData(this, new DataCallbackImp<List<BannerBean>>() {
             @Override
             public void success(List<BannerBean> bean) {
+                bannerBeanList = bean;
                 mBanner.setImages(bean);
                 mBanner.start();
             }

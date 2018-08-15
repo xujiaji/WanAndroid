@@ -37,6 +37,13 @@ public class ReadActivity extends BaseActivity<ActivityReadBinding, ReadViewMode
 
     private AgentWeb mAgentWeb;
 
+    public static void launch(@Nullable Fragment fragment, String title, String link) {
+        BlogPostBean blogPostBean = new BlogPostBean();
+        blogPostBean.setTitle(title);
+        blogPostBean.setLink(link);
+        launch(fragment, blogPostBean);
+    }
+
     public static void launch(@Nullable Fragment fragment, BlogPostBean postBean) {
         if (fragment == null) return;
         Intent intent = new Intent(fragment.getContext(), ReadActivity.class);
@@ -86,7 +93,12 @@ public class ReadActivity extends BaseActivity<ActivityReadBinding, ReadViewMode
                 .ready()
                 .go(mPostBean.getLink());
 
-        initFab();
+        if (isNotBlogPost()) {
+            binding.cardLike.setVisibility(View.GONE);
+            binding.fabLike.setVisibility(View.GONE);
+        } else {
+            initFab();
+        }
     }
 
     private void initFab() {
@@ -131,21 +143,28 @@ public class ReadActivity extends BaseActivity<ActivityReadBinding, ReadViewMode
         super.onDestroy();
     }
 
+    // 是否是博文
+    private boolean isNotBlogPost() {
+        return mPostBean.getId() == 0;
+    }
+
     /**
      * 设置返回数据
      */
     private void setResultData() {
-        if (mPostBean == null) return;
+        if (mPostBean == null || isNotBlogPost()) return;
         Intent intent = new Intent();
         intent.putExtra(BlogPostBean.class.getSimpleName(), mPostBean);
         setResult(RESULT_OK, intent);
     }
 
     public void onClickSystemBrowseOpen(View view) {
+        onBackPressed();
         NetUtil.systemBrowserOpen(this, mPostBean.getLink());
     }
 
     public void onClickLike(View view) {
+        onBackPressed();
         if (mPostBean == null) return;
         if (mPostBean.isCollect()) {
             viewModel.postObservableUncollect(mPostBean.getId()).observeData(this, true, new DataCallbackImp<String>() {

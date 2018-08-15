@@ -30,7 +30,7 @@ import com.xujiaji.wanandroid.model.FragmentModel;
 import com.xujiaji.wanandroid.module.main.fragment.AccountDrawerFragment;
 import com.xujiaji.wanandroid.module.main.fragment.posts.MainBlogPostsFragment;
 import com.xujiaji.wanandroid.module.main.fragment.projects.MainProjectsFragment;
-import com.xujiaji.wanandroid.module.main.fragment.MainToolsFragment;
+import com.xujiaji.wanandroid.module.main.fragment.tools.MainToolsFragment;
 import com.xujiaji.wanandroid.module.main.fragment.MenuDrawerFragment;
 import com.youth.banner.Banner;
 
@@ -74,14 +74,14 @@ public abstract class MainModule {
     @Named("Project")
     @Provides
     public static FragmentModel provideProjectModel(MainActivity context, MainProjectsFragment projectsFragment) {
-        return new FragmentModel(context.getString(R.string.project), projectsFragment);
+        return new FragmentModel(context.getString(R.string.app_name), projectsFragment);
     }
 
     @ActivityScoped
     @Named("Tool")
     @Provides
     public static FragmentModel provideToolModel(MainActivity context, MainToolsFragment toolsFragment) {
-        return new FragmentModel(context.getString(R.string.tool), toolsFragment);
+        return new FragmentModel(context.getString(R.string.app_name), toolsFragment);
     }
 
     @ActivityScoped
@@ -116,6 +116,7 @@ public abstract class MainModule {
     @Provides
     static Banner provideBanner(MainActivity activity) {
         Banner mBanner = new Banner(activity);
+        mBanner.setBackgroundResource(R.mipmap.placeholder_item_pic);
         mBanner.setDelayTime(3000);
         mBanner.setOffscreenPageLimit(5);
         mBanner.setLayoutParams(new ViewGroup.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewHelper.dpToPx(App.getInstance(), 120)));
