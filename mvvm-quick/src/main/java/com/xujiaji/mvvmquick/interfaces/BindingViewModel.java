@@ -24,8 +24,7 @@ import android.databinding.ViewDataBinding;
  * created on: 2018/7/4 23:19
  * description:
  */
-public interface BindingViewModel<B extends ViewDataBinding, VM extends AndroidViewModel>
-{
+public interface BindingViewModel<B extends ViewDataBinding, VM extends AndroidViewModel> {
     /**
      * 实例化Binding后调用该方法
      */

@@ -37,7 +37,7 @@ public class BottomNavigationHelper {
         // 首页Menu
         map.put(R.id.navigation_blog_post       , new Menu(R.id.navigation_blog_post       , R.string.blog_post,        5, R.drawable.ic_home_blog_post));
         map.put(R.id.navigation_project         , new Menu(R.id.navigation_project         , R.string.project,          5, R.drawable.ic_home_project));
-        map.put(R.id.navigation_tool            , new Menu(R.id.navigation_tool            , R.string.tool,             5, R.drawable.ic_home_tool));
+        map.put(R.id.navigation_box            , new Menu(R.id.navigation_box            , R.string.box,             5, R.drawable.ic_home_box));
 
         //其他Menu
         map.put(R.id.navigation_knowledge_system, new Menu(R.id.navigation_knowledge_system, R.string.system,           5, R.drawable.ic_nav_system));
@@ -61,7 +61,7 @@ public class BottomNavigationHelper {
         Stream.of(
                 map.get(R.id.navigation_blog_post),
                 map.get(R.id.navigation_project),
-                map.get(R.id.navigation_tool)
+                map.get(R.id.navigation_box)
         ).forEach(menu ->
                 navigationView.getMenu().add(R.id.navigationDrawer, menu.id, menu.order, menu.stringId).setIcon(menu.iconRes));
     }

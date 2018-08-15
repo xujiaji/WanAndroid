@@ -29,8 +29,7 @@ import static dagger.internal.Preconditions.checkNotNull;
 /**
  * Activity 工具类
  */
-public class ActivityUtils
-{
+public class ActivityUtils {
 
     public static void replaceFragmentInActivity(@NonNull FragmentManager fragmentManager,
                                                  @NonNull Fragment fragment,
@@ -40,11 +39,12 @@ public class ActivityUtils
 
     /**
      * 用replace向Activity中添加Fragment
+     *
      * @param fragmentManager FragmentManger
-     * @param fragment Fragment
-     * @param frameId 添加到View容器的id
-     * @param tag fragment tag
-     * @param toBackStackStr 添加到返回堆栈
+     * @param fragment        Fragment
+     * @param frameId         添加到View容器的id
+     * @param tag             fragment tag
+     * @param toBackStackStr  添加到返回堆栈
      */
     public static void replaceFragmentInActivity(@NonNull FragmentManager fragmentManager,
                                                  @NonNull Fragment fragment,
@@ -54,16 +54,13 @@ public class ActivityUtils
         checkNotNull(fragmentManager);
         checkNotNull(fragment);
         FragmentTransaction transaction = fragmentManager.beginTransaction();
-        if (TextUtils.isEmpty(tag))
-        {
+        if (TextUtils.isEmpty(tag)) {
             transaction.replace(frameId, fragment);
-        } else
-        {
+        } else {
             transaction.replace(frameId, fragment, tag);
         }
 
-        if (!TextUtils.isEmpty(toBackStackStr))
-        {
+        if (!TextUtils.isEmpty(toBackStackStr)) {
             transaction.addToBackStack(toBackStackStr);
         }
         transaction.commit();
@@ -72,13 +69,14 @@ public class ActivityUtils
 
     /**
      * 用add将Fragment添加到Activity
+     *
      * @param fragmentManager FragmentManger
-     * @param fragment Fragment
-     * @param frameId 添加到View容器的id
-     * @param tag fragment tag
+     * @param fragment        Fragment
+     * @param frameId         添加到View容器的id
+     * @param tag             fragment tag
      */
     public static void addFragmentInActivity(@NonNull FragmentManager fragmentManager,
-                                                 @NonNull Fragment fragment, int frameId, String tag) {
+                                             @NonNull Fragment fragment, int frameId, String tag) {
         checkNotNull(fragmentManager);
         checkNotNull(fragment);
         FragmentTransaction transaction = fragmentManager.beginTransaction();
@@ -88,13 +86,13 @@ public class ActivityUtils
 
 
     private static long exitTime = 0;
+
     /**
      * 作用如：2s内双击两次返回则退出程序
      *
      * @return 是否退出程序
      */
-    public static boolean exitBy2Click()
-    {
+    public static boolean exitBy2Click() {
         return exitBy2Click(2000);
     }
 
@@ -104,8 +102,7 @@ public class ActivityUtils
      * @param space 两次点击最大时间间隔
      * @return 是否退出
      */
-    public static boolean exitBy2Click(int space)
-    {
+    public static boolean exitBy2Click(int space) {
         if ((System.currentTimeMillis() - exitTime) > 2000) {
             exitTime = System.currentTimeMillis();
             return false;
@@ -129,8 +126,7 @@ public class ActivityUtils
 //    }
 
 
-    public static void initSatus(View view)
-    {
+    public static void initSatus(View view) {
         int statusHeight = ScreenUtils.getStatusHeight(view.getContext());
         ViewGroup.LayoutParams statusParams = view.getLayoutParams();
         statusParams.height = statusHeight;

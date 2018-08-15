@@ -13,9 +13,9 @@
             android:title="@string/project" />
 
         <item
-            android:id="@+id/navigation_tool"
-            android:icon="@drawable/ic_home_tool"
-            android:title="@string/tool" />
+            android:id="@+id/navigation_box"
+            android:icon="@drawable/ic_home_box"
+            android:title="@string/box" />
     </group>
 
 </menu>

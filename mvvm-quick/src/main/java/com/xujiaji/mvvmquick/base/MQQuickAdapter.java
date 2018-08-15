@@ -75,6 +75,7 @@ public abstract class MQQuickAdapter<T, B extends ViewDataBinding>
 
     /**
      * 绑定RecyclerView
+     *
      * @param load 是否需要加载
      */
     public void bindToRecyclerView(RecyclerView recyclerView, boolean load) {

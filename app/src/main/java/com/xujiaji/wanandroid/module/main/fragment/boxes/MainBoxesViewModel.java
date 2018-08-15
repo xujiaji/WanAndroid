@@ -1,4 +1,4 @@
-package com.xujiaji.wanandroid.module.main.fragment.tools;
+package com.xujiaji.wanandroid.module.main.fragment.boxes;
 
 import android.app.Application;
 import android.databinding.ObservableArrayList;
@@ -18,13 +18,13 @@ import javax.inject.Singleton;
  * description:
  */
 @Singleton
-public class MainToolsViewModel extends BaseViewModel {
+public class MainBoxesViewModel extends BaseViewModel {
 
     public final SingleLiveEvent<ToolBean> mClickEvent = new SingleLiveEvent<>();
     public final ObservableList<ToolBean> items = new ObservableArrayList<>();
 
     @Inject
-    public MainToolsViewModel(@NonNull Application application) {
+    public MainBoxesViewModel(@NonNull Application application) {
         super(application);
     }
 }

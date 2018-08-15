@@ -27,8 +27,7 @@ import java.util.ArrayList;
  * created on: 2018/6/13 15:32
  * description: Fragment 工具类
  */
-public class FragmentUtils
-{
+public class FragmentUtils {
 
     /**
      * 创建Fragment的实例
@@ -37,18 +36,15 @@ public class FragmentUtils
      * @param values 对应key的值
      * @return 创建好的Fragment实例
      */
-    public static <T extends Fragment> T setArgs(T fragment, String[] keys, String ... values)
-    {
+    public static <T extends Fragment> T setArgs(T fragment, String[] keys, String... values) {
 
-        if (keys != null && values != null && keys.length != 0)
-        {
+        if (keys != null && values != null && keys.length != 0) {
             if (keys.length != values.length)
                 throw new RuntimeException("keys size must be equal values size");
 
             Bundle args = new Bundle();
 
-            for (int i = 0; i < keys.length; i++)
-            {
+            for (int i = 0; i < keys.length; i++) {
                 args.putString(keys[i], values[i]);
             }
 

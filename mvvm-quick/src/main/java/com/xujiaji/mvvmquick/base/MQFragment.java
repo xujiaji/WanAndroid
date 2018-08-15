@@ -38,8 +38,7 @@ import dagger.android.support.DaggerFragment;
  * created on: 2018/6/13 13:49
  * description: Fragment基类
  */
-public class MQFragment<B extends ViewDataBinding, VM extends MQViewModel> extends DaggerFragment implements BindingViewModel<B, VM>
-{
+public class MQFragment<B extends ViewDataBinding, VM extends MQViewModel> extends DaggerFragment implements BindingViewModel<B, VM> {
     @Inject
     protected ViewModelProvider.Factory mViewModelFactory;
 
@@ -49,32 +48,26 @@ public class MQFragment<B extends ViewDataBinding, VM extends MQViewModel> exten
 
     @Nullable
     @Override
-    public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState)
-    {
+    public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         binding = ClassUtils.getBinding(this, inflater, container);
-        if (binding == null)
-        {
+        if (binding == null) {
             return super.onCreateView(inflater, container, savedInstanceState);
-        } else
-        {
+        } else {
             onBinding(binding);
             return binding.getRoot();
         }
     }
 
     @Override
-    public void onActivityCreated(@Nullable Bundle savedInstanceState)
-    {
+    public void onActivityCreated(@Nullable Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
         Class<VM> viewModelClass = ClassUtils.getViewModel(this);
         if (viewModelClass == null) return;
 
         final VM viewModel;
-        if (providerVmByActivity() && getActivity() != null)
-        {
+        if (providerVmByActivity() && getActivity() != null) {
             viewModel = ViewModelProviders.of(getActivity(), mViewModelFactory).get(viewModelClass);
-        } else
-        {
+        } else {
             viewModel = ViewModelProviders.of(this, mViewModelFactory).get(viewModelClass);
         }
         this.viewModel = viewModel;
@@ -85,13 +78,11 @@ public class MQFragment<B extends ViewDataBinding, VM extends MQViewModel> exten
     @Override
     public void onDestroy() {
         super.onDestroy();
-        if (viewModel != null)
-        {
+        if (viewModel != null) {
             viewModel.onDestroy();
             viewModel = null;
         }
-        if (binding != null)
-        {
+        if (binding != null) {
             binding.unbind();
         }
     }
@@ -99,17 +90,17 @@ public class MQFragment<B extends ViewDataBinding, VM extends MQViewModel> exten
     /**
      * 实例化ViewModel是否通过Activity
      */
-    protected boolean providerVmByActivity() { return false; }
+    protected boolean providerVmByActivity() {
+        return false;
+    }
 
     @Override
-    public void onBinding(B binding)
-    {
+    public void onBinding(B binding) {
 
     }
 
     @Override
-    public void onObserveViewModel(VM viewModel)
-    {
+    public void onObserveViewModel(VM viewModel) {
 
     }
 }

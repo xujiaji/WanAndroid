@@ -19,6 +19,7 @@ package com.xujiaji.mvvmquick.viewmodel;
 import android.arch.lifecycle.ViewModel;
 import android.arch.lifecycle.ViewModelProvider;
 import android.support.annotation.NonNull;
+
 import java.util.Map;
 import java.util.concurrent.Callable;
 
@@ -32,41 +33,32 @@ import dagger.Lazy;
  * created on: 2018/6/12 13:22
  * description:
  */
-public class ProjectViewModelFactory implements ViewModelProvider.Factory
-{
+public class ProjectViewModelFactory implements ViewModelProvider.Factory {
     private final Map<Class<?>, Callable<Lazy<? extends ViewModel>>> creators;
 
     @Inject
-    public ProjectViewModelFactory(Map<Class<?>, Callable<Lazy<? extends ViewModel>>> creators)
-    {
+    public ProjectViewModelFactory(Map<Class<?>, Callable<Lazy<? extends ViewModel>>> creators) {
         this.creators = creators;
     }
 
     @NonNull
     @Override
-    public <T extends ViewModel> T create(@NonNull Class<T> modelClass)
-    {
+    public <T extends ViewModel> T create(@NonNull Class<T> modelClass) {
         Callable<Lazy<? extends ViewModel>> creator = creators.get(modelClass);
-        if (creator == null)
-        {
-            for (Map.Entry<Class<?>, Callable<Lazy<? extends ViewModel>>> entry : creators.entrySet())
-            {
-                if (modelClass.isAssignableFrom(entry.getKey()))
-                {
+        if (creator == null) {
+            for (Map.Entry<Class<?>, Callable<Lazy<? extends ViewModel>>> entry : creators.entrySet()) {
+                if (modelClass.isAssignableFrom(entry.getKey())) {
                     creator = entry.getValue();
                     break;
                 }
             }
         }
-        if (creator == null)
-        {
+        if (creator == null) {
             throw new IllegalArgumentException("Unknown model class " + modelClass);
         }
-        try
-        {
+        try {
             return (T) creator.call().get();
-        } catch (Exception e)
-        {
+        } catch (Exception e) {
             throw new RuntimeException(e);
         }
     }

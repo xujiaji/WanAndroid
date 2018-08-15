@@ -1,10 +1,10 @@
-package com.xujiaji.wanandroid.module.main.fragment.tools;
+package com.xujiaji.wanandroid.module.main.fragment.boxes;
 
 import com.annimon.stream.Stream;
 import com.xujiaji.mvvmquick.di.ActivityScoped;
 import com.xujiaji.wanandroid.R;
 import com.xujiaji.wanandroid.base.BaseFragment;
-import com.xujiaji.wanandroid.databinding.FragmentMainToolsBinding;
+import com.xujiaji.wanandroid.databinding.FragmentMainBoxesBinding;
 import com.xujiaji.wanandroid.repository.bean.ToolBean;
 
 import javax.inject.Inject;
@@ -15,16 +15,16 @@ import javax.inject.Inject;
  * description:
  */
 @ActivityScoped
-public class MainToolsFragment extends BaseFragment<FragmentMainToolsBinding, MainToolsViewModel> {
+public class MainBoxesFragment extends BaseFragment<FragmentMainBoxesBinding, MainBoxesViewModel> {
 
     @Inject
-    MainToolsAdapter mAdapter;
+    MainBoxesAdapter mAdapter;
 
     @Inject
-    public MainToolsFragment() {}
+    public MainBoxesFragment() {}
 
     @Override
-    public void onBinding(FragmentMainToolsBinding binding) {
+    public void onBinding(FragmentMainBoxesBinding binding) {
         super.onBinding(binding);
         mAdapter.bindToRecyclerView(binding.list);
         mAdapter.setEmptyView(R.layout.no_item_archived, binding.list);
@@ -32,9 +32,9 @@ public class MainToolsFragment extends BaseFragment<FragmentMainToolsBinding, Ma
     }
 
     @Override
-    public void onObserveViewModel(MainToolsViewModel viewModel) {
+    public void onObserveViewModel(MainBoxesViewModel viewModel) {
         super.onObserveViewModel(viewModel);
-        binding.setMainToolsViewModel(viewModel);
+        binding.setMainBoxesViewModel(viewModel);
         ToolBean toolBean = new ToolBean();
         toolBean.setName("工具名字");
         toolBean.setDescription("balabala 一抹多的描述");

@@ -34,19 +34,15 @@ import java.lang.reflect.Type;
  * created on: 2018/6/13 14:24
  * description:
  */
-public class ClassUtils
-{
-    private static <T> Class<T> getGenericClass(Class<?> klass, Class<?> filterClass)
-    {
+public class ClassUtils {
+    private static <T> Class<T> getGenericClass(Class<?> klass, Class<?> filterClass) {
         Type type = klass.getGenericSuperclass();
         if (type == null || !(type instanceof ParameterizedType)) return null;
         ParameterizedType parameterizedType = (ParameterizedType) type;
         Type[] types = parameterizedType.getActualTypeArguments();
-        for (Type t : types)
-        {
+        for (Type t : types) {
             Class<T> tClass = (Class<T>) t;
-            if (filterClass.isAssignableFrom(tClass))
-            {
+            if (filterClass.isAssignableFrom(tClass)) {
                 return tClass;
             }
         }
@@ -57,12 +53,10 @@ public class ClassUtils
     /**
      * 获取泛型ViewModel的class对象
      */
-    public static <T> Class<T> getViewModel(Object obj)
-    {
+    public static <T> Class<T> getViewModel(Object obj) {
         Class<?> currentClass = obj.getClass();
         Class<T> tClass = getGenericClass(currentClass, MQViewModel.class);
-        if (tClass == null || tClass == MQViewModel.class)
-        {
+        if (tClass == null || tClass == MQViewModel.class) {
             return null;
         }
         return tClass;
@@ -71,27 +65,21 @@ public class ClassUtils
     /**
      * 获取泛型Binding的class对象
      */
-    public static <T> T getBinding(@NonNull Object obj, @NonNull LayoutInflater inflater, @Nullable ViewGroup container)
-    {
+    public static <T> T getBinding(@NonNull Object obj, @NonNull LayoutInflater inflater, @Nullable ViewGroup container) {
         Class<?> currentClass = obj.getClass();
         Class<T> tClass = getGenericClass(currentClass, ViewDataBinding.class);
-        if (tClass == null || tClass == ViewDataBinding.class)
-        {
+        if (tClass == null || tClass == ViewDataBinding.class) {
             return null;
         }
-        try
-        {
+        try {
             Method method = tClass.getMethod("inflate", LayoutInflater.class, ViewGroup.class, Boolean.TYPE);
             Object returnValue = method.invoke(null, inflater, container, false);
             return (T) returnValue;
-        } catch (NoSuchMethodException e)
-        {
+        } catch (NoSuchMethodException e) {
             throw new RuntimeException(e);
-        } catch (IllegalAccessException e)
-        {
+        } catch (IllegalAccessException e) {
             throw new RuntimeException(e);
-        } catch (InvocationTargetException e)
-        {
+        } catch (InvocationTargetException e) {
             throw new RuntimeException(e);
         }
     }

@@ -33,31 +33,25 @@ import retrofit2.Response;
  * created on: 2018/6/12 16:42
  * description: 网络请求回调统一处理
  */
-public class NetCallback<T> implements Callback<T>
-{
+public class NetCallback<T> implements Callback<T> {
     private final MutableLiveData<T> mutableLiveData;
-    public NetCallback(MutableLiveData<T> mutableLiveData)
-    {
+
+    public NetCallback(MutableLiveData<T> mutableLiveData) {
         this.mutableLiveData = mutableLiveData;
     }
 
     @Override
-    public void onResponse(Call<T> call, Response<T> response)
-    {
+    public void onResponse(Call<T> call, Response<T> response) {
         mutableLiveData.setValue(response.body());
     }
 
     @Override
-    public void onFailure(Call<T> call, Throwable t)
-    {
-        if (t instanceof UnknownHostException)
-        {
+    public void onFailure(Call<T> call, Throwable t) {
+        if (t instanceof UnknownHostException) {
             ToastHelper.warning("请检查网络");
-        } else if (t instanceof TimeoutException)
-        {
+        } else if (t instanceof TimeoutException) {
             ToastHelper.warning("连接超时");
-        } else
-        {
+        } else {
             ToastHelper.warning(t.getMessage());
         }
         mutableLiveData.setValue(null);

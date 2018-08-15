@@ -5,8 +5,8 @@
     <data>
 
         <variable
-            name="mainToolsViewModel"
-            type="com.xujiaji.wanandroid.module.main.fragment.tools.MainToolsViewModel" />
+            name="mainBoxesViewModel"
+            type="com.xujiaji.wanandroid.module.main.fragment.boxes.MainBoxesViewModel" />
     </data>
 
 
@@ -14,7 +14,7 @@
         android:id="@+id/list"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        app:items="@{mainToolsViewModel.items}"
+        app:items="@{mainBoxesViewModel.items}"
         app:layoutManager="android.support.v7.widget.LinearLayoutManager">
 
     </android.support.v7.widget.RecyclerView>

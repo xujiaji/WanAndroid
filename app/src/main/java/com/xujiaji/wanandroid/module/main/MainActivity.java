@@ -1,6 +1,5 @@
 package com.xujiaji.wanandroid.module.main;
 
-import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.IdRes;
 import android.support.design.widget.BottomNavigationView;
@@ -19,7 +18,6 @@ import com.xujiaji.wanandroid.R;
 import com.xujiaji.wanandroid.adapter.FragmentsPagerAdapter;
 import com.xujiaji.wanandroid.base.App;
 import com.xujiaji.wanandroid.base.BaseActivity;
-import com.xujiaji.wanandroid.base.BaseFragment;
 import com.xujiaji.wanandroid.databinding.ActivityMainBinding;
 import com.xujiaji.wanandroid.helper.BottomNavigationHelper;
 import com.xujiaji.wanandroid.helper.PrefHelper;
@@ -48,7 +46,7 @@ public class MainActivity extends BaseActivity<ActivityMainBinding, MQViewModel>
     FragmentModel mProjectModel;
 
     @Inject
-    @Named("Tool")
+    @Named("Box")
     FragmentModel mToolModel;
 
     @Inject
@@ -63,7 +61,7 @@ public class MainActivity extends BaseActivity<ActivityMainBinding, MQViewModel>
             case R.id.navigation_project:
                 showFrag(mProjectModel);
                 return true;
-            case R.id.navigation_tool:
+            case R.id.navigation_box:
                 showFrag(mToolModel);
                 return true;
         }
@@ -88,7 +86,7 @@ public class MainActivity extends BaseActivity<ActivityMainBinding, MQViewModel>
                 .beginTransaction()
                 .add(R.id.container, mBlogModel.getFragment(), "MainBlogPostsFragment")
                 .add(R.id.container, mProjectModel.getFragment(), "MainProjectsFragment")
-                .add(R.id.container, mToolModel.getFragment(), "MainToolsFragment")
+                .add(R.id.container, mToolModel.getFragment(), "MainBoxesFragment")
                 .hide(mProjectModel.getFragment())
                 .hide(mToolModel.getFragment())
                 .commit();

@@ -28,9 +28,9 @@ import com.xujiaji.wanandroid.helper.GlideImageLoader;
 import com.xujiaji.wanandroid.helper.ViewHelper;
 import com.xujiaji.wanandroid.model.FragmentModel;
 import com.xujiaji.wanandroid.module.main.fragment.AccountDrawerFragment;
+import com.xujiaji.wanandroid.module.main.fragment.boxes.MainBoxesFragment;
 import com.xujiaji.wanandroid.module.main.fragment.posts.MainBlogPostsFragment;
 import com.xujiaji.wanandroid.module.main.fragment.projects.MainProjectsFragment;
-import com.xujiaji.wanandroid.module.main.fragment.tools.MainToolsFragment;
 import com.xujiaji.wanandroid.module.main.fragment.MenuDrawerFragment;
 import com.youth.banner.Banner;
 
@@ -78,9 +78,9 @@ public abstract class MainModule {
     }
 
     @ActivityScoped
-    @Named("Tool")
+    @Named("Box")
     @Provides
-    public static FragmentModel provideToolModel(MainActivity context, MainToolsFragment toolsFragment) {
+    public static FragmentModel provideToolModel(MainActivity context, MainBoxesFragment toolsFragment) {
         return new FragmentModel(context.getString(R.string.app_name), toolsFragment);
     }
 
@@ -88,7 +88,7 @@ public abstract class MainModule {
     @Provides
     public static List<FragmentModel> provideHomeFragModels(@Named("Post") FragmentModel postModel,
                                                             @Named("Project") FragmentModel projectModel,
-                                                            @Named("Tool") FragmentModel toolModel) {
+                                                            @Named("Box") FragmentModel toolModel) {
         return Stream.of(postModel, projectModel, toolModel).toList();
     }
 
@@ -110,7 +110,7 @@ public abstract class MainModule {
 
     @FragmentScoped
     @ContributesAndroidInjector
-    abstract MainToolsFragment contributeMainToolsFragment();
+    abstract MainBoxesFragment contributeMainToolsFragment();
 
 
     @Provides

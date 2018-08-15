@@ -25,8 +25,7 @@ import android.content.pm.PackageManager;
  * Created by Administrator on 2017/8/17.
  */
 
-public class VersionUtil
-{
+public class VersionUtil {
 
 //    /**
 //     * 当前版本是否改变
@@ -52,18 +51,15 @@ public class VersionUtil
      * @param context
      * @return
      */
-    public static String getVersionName(Context context)
-    {
+    public static String getVersionName(Context context) {
         // 获取packagemanager的实例
         PackageManager packageManager = context.getPackageManager();
         // getPackageName()是你当前类的包名，0代表是获取版本信息
         PackageInfo packInfo = null;
-        try
-        {
+        try {
             packInfo = packageManager.getPackageInfo(context.getPackageName(), 0);
             return packInfo.versionName;
-        } catch (PackageManager.NameNotFoundException e)
-        {
+        } catch (PackageManager.NameNotFoundException e) {
             e.printStackTrace();
         }
         return "";
@@ -72,18 +68,15 @@ public class VersionUtil
     /**
      * 获取版本号
      */
-    public static int getVersionCode(Context context)
-    {
+    public static int getVersionCode(Context context) {
         // 获取packagemanager的实例
         PackageManager packageManager = context.getPackageManager();
         // getPackageName()是你当前类的包名，0代表是获取版本信息
         PackageInfo packInfo = null;
-        try
-        {
+        try {
             packInfo = packageManager.getPackageInfo(context.getPackageName(), 0);
             return packInfo.versionCode;
-        } catch (PackageManager.NameNotFoundException e)
-        {
+        } catch (PackageManager.NameNotFoundException e) {
             e.printStackTrace();
         }
         return 0;

@@ -25,8 +25,7 @@ import com.xujiaji.mvvmquick.base.MQViewModel;
 import java.lang.ref.WeakReference;
 
 
-public class SwipeRefreshLayoutBindingAdapter
-{
+public class SwipeRefreshLayoutBindingAdapter {
 
     private static final int CODE = 1001;
 
@@ -34,19 +33,15 @@ public class SwipeRefreshLayoutBindingAdapter
 
         private WeakReference<SwipeRefreshLayout> wr;
 
-        private Handler(SwipeRefreshLayout srl)
-        {
+        private Handler(SwipeRefreshLayout srl) {
             wr = new WeakReference<>(srl);
         }
 
         @Override
-        public void handleMessage(Message msg)
-        {
+        public void handleMessage(Message msg) {
             if (wr.get() == null) return;
-            if (msg.what == CODE)
-            {
-                if (wr.get().isRefreshing())
-                {
+            if (msg.what == CODE) {
+                if (wr.get().isRefreshing()) {
                     wr.get().setRefreshing(false);
                 }
             }

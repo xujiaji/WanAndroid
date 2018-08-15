@@ -19,7 +19,7 @@ package com.xujiaji.wanandroid.di;
 import com.xujiaji.wanandroid.module.login.LoginViewModel;
 import com.xujiaji.wanandroid.module.main.fragment.posts.MainBlogPostsViewModel;
 import com.xujiaji.wanandroid.module.main.fragment.projects.MainProjectsViewModel;
-import com.xujiaji.wanandroid.module.main.fragment.tools.MainToolsViewModel;
+import com.xujiaji.wanandroid.module.main.fragment.boxes.MainBoxesViewModel;
 import com.xujiaji.wanandroid.module.read.ReadViewModel;
 
 import dagger.Lazy;
@@ -41,7 +41,7 @@ public interface ViewModelSubComponent
 
     Lazy<MainBlogPostsViewModel> viewModelMainBlogPosts();
     Lazy<MainProjectsViewModel> viewModelMainProjects();
-    Lazy<MainToolsViewModel> viewModelMainTools();
+    Lazy<MainBoxesViewModel> viewModelMainBoxes();
     Lazy<ReadViewModel> viewModelRead();
     Lazy<LoginViewModel> viewModelLogin();
 }

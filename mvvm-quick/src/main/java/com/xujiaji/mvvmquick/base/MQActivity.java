@@ -36,8 +36,7 @@ import dagger.android.support.DaggerAppCompatActivity;
  * created on: 2018/7/2 14:23
  * description:
  */
-public class MQActivity<B extends ViewDataBinding, VM extends AndroidViewModel> extends DaggerAppCompatActivity implements BindingViewModel<B, VM>
-{
+public class MQActivity<B extends ViewDataBinding, VM extends AndroidViewModel> extends DaggerAppCompatActivity implements BindingViewModel<B, VM> {
 
     @Inject
     protected ViewModelProvider.Factory mViewModelFactory;
@@ -47,8 +46,7 @@ public class MQActivity<B extends ViewDataBinding, VM extends AndroidViewModel> 
     protected VM viewModel;
 
     @Override
-    protected void onCreate(Bundle savedInstanceState)
-    {
+    protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         initBinding();
         initViewModel();
@@ -57,8 +55,7 @@ public class MQActivity<B extends ViewDataBinding, VM extends AndroidViewModel> 
     /**
      * 初始化ViewModel
      */
-    private void initViewModel()
-    {
+    private void initViewModel() {
         Class<VM> viewModelClass = ClassUtils.getViewModel(this);
         if (viewModelClass == null) return;
         final VM viewModel = ViewModelProviders.of(this, mViewModelFactory).get(viewModelClass);
@@ -69,23 +66,20 @@ public class MQActivity<B extends ViewDataBinding, VM extends AndroidViewModel> 
     /**
      * 初始化Binding
      */
-    private void initBinding()
-    {
-        binding = ClassUtils.getBinding(this, getLayoutInflater(), ((ViewGroup)findViewById(android.R.id.content)));
+    private void initBinding() {
+        binding = ClassUtils.getBinding(this, getLayoutInflater(), ((ViewGroup) findViewById(android.R.id.content)));
         if (binding != null)
             setContentView(binding.getRoot());
         onBinding(binding);
     }
 
     @Override
-    public void onBinding(B binding)
-    {
+    public void onBinding(B binding) {
 
     }
 
     @Override
-    public void onObserveViewModel(VM viewModel)
-    {
+    public void onObserveViewModel(VM viewModel) {
 
     }
 }
