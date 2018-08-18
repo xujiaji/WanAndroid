@@ -21,7 +21,10 @@ android {
 //        }
 
         vectorDrawables.useSupportLibrary = true
+
         buildConfigField "String", "BASE_URL", "$baseUrl"
+        buildConfigField "String", "PLUGINS_URL", "$pluginsUrl"
+        buildConfigField "String", "ADD_OWN_PLUGIN", "$addOwnPlugin"
     }
     buildTypes {
         release {
@@ -71,5 +74,12 @@ dependencies {
     implementation "com.just.agentweb:agentweb:$agentweb"
     implementation "com.github.GrenderG:Toasty:$toasty"
     implementation "com.squareup.retrofit2:converter-scalars:$retrofit"
+
     implementation "com.qihoo360.replugin:replugin-host-lib:$replugin_host_version"
+    implementation "com.liulishuo.filedownloader:library:$filedownloader"
+
+    debugImplementation "com.squareup.leakcanary:leakcanary-android:$leakcanary"
+    releaseImplementation "com.squareup.leakcanary:leakcanary-android-no-op:$leakcanary"
+    // Optional, if you use support library fragments:
+    debugImplementation "com.squareup.leakcanary:leakcanary-support-fragment:$leakcanary"
 }

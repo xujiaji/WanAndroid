@@ -1,11 +1,20 @@
 package com.xujiaji.wanandroid.base;
 
+import android.content.Context;
 import android.support.annotation.NonNull;
 import android.support.v4.content.ContextCompat;
 
 import com.google.gson.Gson;
+import com.qihoo360.replugin.RePlugin;
+import com.qihoo360.replugin.RePluginConfig;
+import com.qihoo360.replugin.sdk.HostCallbacks;
+import com.qihoo360.replugin.sdk.HostEventCallbacks;
+import com.qihoo360.replugin.sdk.PluginConfig;
+import com.qihoo360.replugin.sdk.PluginManager;
+import com.squareup.leakcanary.LeakCanary;
 import com.xujiaji.mvvmquick.base.MQApp;
 import com.xujiaji.mvvmquick.lifecycle.SingleLiveEvent;
+import com.xujiaji.wanandroid.BuildConfig;
 import com.xujiaji.wanandroid.R;
 import com.xujiaji.wanandroid.di.DaggerAppComponent;
 import com.xujiaji.wanandroid.helper.PrefHelper;
@@ -14,9 +23,6 @@ import com.xujiaji.wanandroid.repository.remote.Net;
 
 import java.util.ArrayList;
 import java.util.List;
-
-import javax.inject.Inject;
-import javax.inject.Provider;
 
 import dagger.android.AndroidInjector;
 import dagger.android.support.DaggerApplication;
@@ -35,10 +41,25 @@ public class App extends MQApp {
     public void onCreate() {
         super.onCreate();
         instance = this;
+        initRePlugin();
+        initLeakCanary();
         Login.isOK = PrefHelper.isExist(Net.SAVE_USER_LOGIN_KEY);
         Toasty.Config.getInstance()
                 .setInfoColor(ContextCompat.getColor(this, R.color.colorAccent))
                 .apply();
+    }
+
+    private void initLeakCanary() {
+        if (BuildConfig.DEBUG) {
+            LeakCanary.install(this);
+        }
+    }
+
+    private void initRePlugin() {
+        RePlugin.App.onCreate(); // config RePlugin
+        //1、设置AppKey
+        PluginConfig.setAppKey("xyzjxo72ebui");
+        PluginManager.init(getApplicationContext());
     }
 
     @NonNull
@@ -53,6 +74,21 @@ public class App extends MQApp {
                 .build();
 
     }
+
+    @Override
+    protected void attachBaseContext(Context base) {
+        super.attachBaseContext(base);
+        RePluginConfig config = new RePluginConfig();
+
+        config.setUseHostClassIfNotFound(true);
+//        config.setVerifySign(!BuildConfig.DEBUG);
+        config.setEventCallbacks(new HostEventCallbacks(this));
+        config.setCallbacks(new HostCallbacks(this));
+
+        RePlugin.App.attachBaseContext(this, config);
+        RePlugin.enableDebugger(base, BuildConfig.DEBUG);
+    }
+
 
     /**
      * 登录状态

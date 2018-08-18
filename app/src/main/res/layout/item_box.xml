@@ -5,11 +5,15 @@
     <data>
 
         <variable
-            name="toolBean"
-            type="com.xujiaji.wanandroid.repository.bean.ToolBean"/>
+            name="boxBean"
+            type="com.xujiaji.wanandroid.repository.bean.BoxBean"/>
 
         <variable
             name="callback"
+            type="com.xujiaji.mvvmquick.callback.GeneralClickCallback"/>
+
+        <variable
+            name="clickGithubCallback"
             type="com.xujiaji.mvvmquick.callback.GeneralClickCallback"/>
     </data>
 
@@ -17,7 +21,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:foreground="?attr/selectableItemBackground"
-        android:onClick="@{() ->  callback.onClick(toolBean)}">
+        android:onClick="@{() ->  callback.onClick(boxBean)}">
 
         <ImageView
             android:id="@+id/thumb"
@@ -27,7 +31,7 @@
             android:layout_marginTop="@dimen/activity_horizontal_margin"
             android:src="@mipmap/placeholder_item_pic"
             app:layout_constraintStart_toStartOf="parent"
-            app:itemUrl="@{toolBean.thumb}"
+            app:itemUrl="@{boxBean.thumb}"
             app:layout_constraintTop_toTopOf="parent" />
 
 
@@ -35,13 +39,13 @@
             android:id="@+id/name"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_marginEnd="@dimen/activity_vertical_margin"
+            android:layout_marginEnd="24dp"
             android:layout_marginStart="@dimen/activity_vertical_margin"
+            android:ellipsize="end"
             android:lines="1"
-            android:text="@{toolBean.name}"
+            android:text="@{boxBean.name}"
             android:textAppearance="@style/TextAppearance.AppCompat.Medium"
             android:textColor="@color/textPrimary"
-            android:ellipsize="end"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toEndOf="@+id/thumb"
             app:layout_constraintTop_toTopOf="@+id/thumb" />
@@ -54,7 +58,7 @@
             android:layout_marginStart="@dimen/activity_vertical_margin"
             android:layout_marginTop="4dp"
             android:maxLines="3"
-            android:text="@{toolBean.description}"
+            android:text="@{boxBean.description}"
             android:textAppearance="@style/TextAppearance.AppCompat.Small"
             android:textColor="@color/textSecondary"
             android:ellipsize="end"
@@ -72,5 +76,20 @@
             android:layout_marginTop="@dimen/activity_horizontal_margin"
             app:layout_constraintTop_toBottomOf="@+id/description"/>
 
+        <TextView
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:gravity="center"
+            android:rotation="45"
+            android:text="@string/github"
+            android:textSize="@dimen/small_font"
+            android:textStyle="bold"
+            android:clickable="true"
+            android:textColor="@color/textSecondary"
+            android:onClick="@{() ->  clickGithubCallback.onClick(boxBean)}"
+            android:background="?selectableItemBackgroundBorderless"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            android:focusable="true" />
     </android.support.constraint.ConstraintLayout>
 </layout>

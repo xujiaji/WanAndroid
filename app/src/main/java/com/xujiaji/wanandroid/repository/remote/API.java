@@ -2,6 +2,7 @@ package com.xujiaji.wanandroid.repository.remote;
 
 import com.xujiaji.wanandroid.repository.bean.BannerBean;
 import com.xujiaji.wanandroid.repository.bean.BlogPostBean;
+import com.xujiaji.wanandroid.repository.bean.BoxBean;
 import com.xujiaji.wanandroid.repository.bean.PageBean;
 import com.xujiaji.wanandroid.repository.bean.Result;
 import com.xujiaji.wanandroid.repository.bean.UserBean;
@@ -73,6 +74,10 @@ public interface API {
     @GET("openapis")
     Call<String> getOpenAPIS();
 
-//    @Url("")
+    /**
+     * 获取插件列表信息
+     */
+    @GET
+    Call<Result<List<BoxBean>>> getBoxes(@Url String url);
 
 }

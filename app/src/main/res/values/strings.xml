@@ -30,6 +30,7 @@
 
     <!-- Strings related to login -->
     <string name="prompt_email">邮箱</string>
+    <string name="prompt_account">账号</string>
     <string name="prompt_password">密码</string>
     <string name="prompt_confirm_password">确认密码</string>
     <string name="action_sign_in">登录</string>
@@ -53,4 +54,6 @@
     <string name="again_touch_exit">再按一次退出</string>
     <string name="not_login">未登录</string>
     <string name="success_uncollect">已取消收藏</string>
+    <string name="github">GITHUB</string>
+    <string name="add_own_project">添加我的项目</string>
 </resources>

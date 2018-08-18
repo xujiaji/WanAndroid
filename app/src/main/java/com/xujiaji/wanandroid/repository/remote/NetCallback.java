@@ -21,6 +21,8 @@ import android.widget.Toast;
 
 import com.xujiaji.wanandroid.helper.ToastHelper;
 
+import java.net.ConnectException;
+import java.net.SocketTimeoutException;
 import java.net.UnknownHostException;
 import java.util.concurrent.TimeoutException;
 
@@ -47,9 +49,9 @@ public class NetCallback<T> implements Callback<T> {
 
     @Override
     public void onFailure(Call<T> call, Throwable t) {
-        if (t instanceof UnknownHostException) {
+        if (t instanceof UnknownHostException || t instanceof ConnectException) {
             ToastHelper.warning("请检查网络");
-        } else if (t instanceof TimeoutException) {
+        } else if (t instanceof TimeoutException || t instanceof SocketTimeoutException) {
             ToastHelper.warning("连接超时");
         } else {
             ToastHelper.warning(t.getMessage());

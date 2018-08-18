@@ -27,3 +27,6 @@
 -keep class com.youth.banner.** {
     *;
  }
+
+-keep class com.qihoo360.replugin.sdk.**{*;}
+-keep class com.liulishuo.filedownloader.**{*;}

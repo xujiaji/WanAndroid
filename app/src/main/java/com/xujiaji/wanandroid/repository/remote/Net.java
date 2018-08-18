@@ -7,9 +7,11 @@ import android.os.AsyncTask;
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
 import com.jventura.pybridge.PyManager;
+import com.xujiaji.wanandroid.BuildConfig;
 import com.xujiaji.wanandroid.base.App;
 import com.xujiaji.wanandroid.repository.bean.BannerBean;
 import com.xujiaji.wanandroid.repository.bean.BlogPostBean;
+import com.xujiaji.wanandroid.repository.bean.BoxBean;
 import com.xujiaji.wanandroid.repository.bean.PageBean;
 import com.xujiaji.wanandroid.repository.bean.Result;
 import com.xujiaji.wanandroid.repository.bean.ThreeAPIBean;
@@ -123,4 +125,7 @@ public class Net {
         return handle(mApi.getOpenAPIS(), data -> PyManager.getInstance(App.getInstance()).parserOPENAPISHtml(data));
     }
 
+    public MutableLiveData<Result<List<BoxBean>>> getBoxes() {
+        return handle(mApi.getBoxes(BuildConfig.PLUGINS_URL));
+    }
 }

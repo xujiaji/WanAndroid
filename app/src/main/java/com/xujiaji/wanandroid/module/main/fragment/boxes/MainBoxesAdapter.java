@@ -5,7 +5,7 @@ import com.xujiaji.mvvmquick.base.MQViewHolder;
 import com.xujiaji.mvvmquick.callback.GeneralClickCallback;
 import com.xujiaji.wanandroid.R;
 import com.xujiaji.wanandroid.databinding.ItemBoxBinding;
-import com.xujiaji.wanandroid.repository.bean.ToolBean;
+import com.xujiaji.wanandroid.repository.bean.BoxBean;
 
 import javax.inject.Inject;
 
@@ -14,7 +14,7 @@ import javax.inject.Inject;
  * created on: 2018/8/15 10:46
  * description:
  */
-public class MainBoxesAdapter extends MQQuickAdapter<ToolBean, ItemBoxBinding> {
+public class MainBoxesAdapter extends MQQuickAdapter<BoxBean, ItemBoxBinding> {
 
     private MainBoxesViewModel mViewModel;
 
@@ -26,12 +26,13 @@ public class MainBoxesAdapter extends MQQuickAdapter<ToolBean, ItemBoxBinding> {
 
     @Override
     protected void onBinding(ItemBoxBinding binding) {
-        binding.setCallback((GeneralClickCallback<ToolBean>) mViewModel.mClickEvent::setValue);
+        binding.setCallback((GeneralClickCallback<BoxBean>) mViewModel.mClickEvent::setValue);
+        binding.setClickGithubCallback((GeneralClickCallback<BoxBean>) mViewModel.mClickGithubEvent::setValue);
     }
 
     @Override
-    protected void convert(MQViewHolder<ItemBoxBinding> helper, ToolBean item) {
-        helper.binding.setToolBean(item);
+    protected void convert(MQViewHolder<ItemBoxBinding> helper, BoxBean item) {
+        helper.binding.setBoxBean(item);
         helper.binding.executePendingBindings();
     }
 }

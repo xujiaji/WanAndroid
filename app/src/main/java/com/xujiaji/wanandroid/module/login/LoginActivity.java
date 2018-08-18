@@ -20,7 +20,6 @@ import com.xujiaji.wanandroid.helper.ToastHelper;
 import com.xujiaji.wanandroid.repository.bean.UserBean;
 import com.xujiaji.wanandroid.repository.remote.DataCallbackImp;
 
-import static com.xujiaji.wanandroid.helper.CheckHelper.isEmailValid;
 import static com.xujiaji.wanandroid.helper.CheckHelper.isPasswordValid;
 
 public class LoginActivity extends MQActivity<ActivityLoginBinding, LoginViewModel> implements View.OnFocusChangeListener, TextView.OnEditorActionListener {
@@ -140,10 +139,10 @@ public class LoginActivity extends MQActivity<ActivityLoginBinding, LoginViewMod
             return null;
         }
 
-        if (!isEmailValid(email)) {
-            binding.email.setError(getString(R.string.error_invalid_email));
-            return null;
-        }
+//        if (!isEmailValid(email)) {
+//            binding.email.setError(getString(R.string.error_invalid_email));
+//            return null;
+//        }
         return email;
     }
 

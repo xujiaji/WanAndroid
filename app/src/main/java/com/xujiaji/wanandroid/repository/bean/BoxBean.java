@@ -7,25 +7,45 @@ import com.google.gson.annotations.SerializedName;
  * created on: 2018/8/15 10:43
  * description:
  */
-public class ToolBean {
+public class BoxBean {
 
-    @SerializedName("id")
-    private int id;
     @SerializedName("thumb")
     private String thumb;
     @SerializedName("name")
     private String name;
     @SerializedName("description")
     private String description;
-    @SerializedName("pkg_path")
-    private String pkgPath;
+    @SerializedName("pkg")
+    private String pkg;
+    @SerializedName("start_class")
+    private String startClass;
+    @SerializedName("version_code")
+    private int versionCode;
+    @SerializedName("url")
+    private String url;
 
-    public int getId() {
-        return id;
+    public String getUrl() {
+        return url;
     }
 
-    public void setId(int id) {
-        this.id = id;
+    public void setUrl(String url) {
+        this.url = url;
+    }
+
+    public int getVersionCode() {
+        return versionCode;
+    }
+
+    public void setVersionCode(int versionCode) {
+        this.versionCode = versionCode;
+    }
+
+    public String getStartClass() {
+        return startClass;
+    }
+
+    public void setStartClass(String startClass) {
+        this.startClass = startClass;
     }
 
     public String getThumb() {
@@ -52,11 +72,11 @@ public class ToolBean {
         this.description = description;
     }
 
-    public String getPkgPath() {
-        return pkgPath;
+    public String getPkg() {
+        return pkg;
     }
 
-    public void setPkgPath(String pkgPath) {
-        this.pkgPath = pkgPath;
+    public void setPkg(String pkg) {
+        this.pkg = pkg;
     }
 }

@@ -9,13 +9,20 @@
             type="com.xujiaji.wanandroid.module.main.fragment.boxes.MainBoxesViewModel" />
     </data>
 
-
-    <android.support.v7.widget.RecyclerView
-        android:id="@+id/list"
+    <android.support.v4.widget.SwipeRefreshLayout
+        android:id="@+id/refresh"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        app:items="@{mainBoxesViewModel.items}"
-        app:layoutManager="android.support.v7.widget.LinearLayoutManager">
+        android:onRefresh="@{mainBoxesViewModel}">
+        <android.support.v7.widget.RecyclerView
+            android:id="@+id/list"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            app:items="@{mainBoxesViewModel.items}"
+            android:background="@color/white"
+            app:layoutManager="android.support.v7.widget.LinearLayoutManager">
 
-    </android.support.v7.widget.RecyclerView>
+        </android.support.v7.widget.RecyclerView>
+
+    </android.support.v4.widget.SwipeRefreshLayout>
 </layout>

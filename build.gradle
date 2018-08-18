@@ -31,6 +31,8 @@ task clean(type: Delete) {
 
 ext{
     baseUrl          = '"http://www.wanandroid.com/"'
+    pluginsUrl       = '"https://raw.githubusercontent.com/xujiaji/WanAndroid/master/json/plugin_list.json"'
+    addOwnPlugin     = '"https://github.com/xujiaji/WanAndroid/issues/1"'
 
     compileSdk       = 27
     minSdk           = 21
@@ -51,4 +53,6 @@ ext{
     agentweb         = '4.0.2'
     toasty           = '1.3.0'
     shapedImageView  = '0.8.5'
+    filedownloader   = '1.6.9'
+    leakcanary       = '1.6.1'
 }
