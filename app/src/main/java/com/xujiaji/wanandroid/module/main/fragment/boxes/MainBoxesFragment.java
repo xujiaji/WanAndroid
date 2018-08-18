@@ -8,7 +8,7 @@ import com.xujiaji.mvvmquick.di.ActivityScoped;
 import com.xujiaji.wanandroid.BuildConfig;
 import com.xujiaji.wanandroid.R;
 import com.xujiaji.wanandroid.base.BaseFragment;
-import com.xujiaji.wanandroid.databinding.FragmentMainBoxesBinding;
+import com.xujiaji.wanandroid.databinding.LayoutRefreshBinding;
 import com.xujiaji.wanandroid.helper.PrefHelper;
 import com.xujiaji.wanandroid.module.read.ReadActivity;
 import com.xujiaji.wanandroid.repository.bean.BoxBean;
@@ -24,7 +24,7 @@ import javax.inject.Inject;
  * description:
  */
 @ActivityScoped
-public class MainBoxesFragment extends BaseFragment<FragmentMainBoxesBinding, MainBoxesViewModel> {
+public class MainBoxesFragment extends BaseFragment<LayoutRefreshBinding, MainBoxesViewModel> {
 
     @Inject
     MainBoxesAdapter mAdapter;
@@ -33,7 +33,7 @@ public class MainBoxesFragment extends BaseFragment<FragmentMainBoxesBinding, Ma
     public MainBoxesFragment() {}
 
     @Override
-    public void onBinding(FragmentMainBoxesBinding binding) {
+    public void onBinding(LayoutRefreshBinding binding) {
         super.onBinding(binding);
         mAdapter.bindToRecyclerView(binding.list);
         mAdapter.setEmptyView(R.layout.no_item_archived, binding.list);
@@ -46,7 +46,7 @@ public class MainBoxesFragment extends BaseFragment<FragmentMainBoxesBinding, Ma
     @Override
     public void onObserveViewModel(MainBoxesViewModel viewModel) {
         super.onObserveViewModel(viewModel);
-        binding.setMainBoxesViewModel(viewModel);
+        binding.setRefreshViewModel(viewModel);
 
         viewModel.mClickEvent.observe(this, this::startPlugin);
 

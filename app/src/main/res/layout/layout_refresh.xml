@@ -5,22 +5,22 @@
     <data>
 
         <variable
-            name="mainProjectsViewModel"
-            type="com.xujiaji.wanandroid.module.main.fragment.projects.MainProjectsViewModel" />
+            name="refreshViewModel"
+            type="com.xujiaji.wanandroid.base.BaseRefreshViewModel" />
     </data>
 
     <android.support.v4.widget.SwipeRefreshLayout
         android:id="@+id/refresh"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:onRefresh="@{mainProjectsViewModel}">
+        android:onRefresh="@{refreshViewModel}">
 
         <android.support.v7.widget.RecyclerView
             android:id="@+id/list"
             style="@style/scrollbar_style"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            app:items="@{mainProjectsViewModel.items}"
+            app:items="@{refreshViewModel.items}"
             app:layoutManager="android.support.v7.widget.LinearLayoutManager" />
 
     </android.support.v4.widget.SwipeRefreshLayout>

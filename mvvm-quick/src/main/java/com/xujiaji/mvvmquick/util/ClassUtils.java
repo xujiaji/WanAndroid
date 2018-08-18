@@ -23,6 +23,7 @@ import android.view.LayoutInflater;
 import android.view.ViewGroup;
 
 import com.xujiaji.mvvmquick.base.MQViewModel;
+import com.xujiaji.mvvmquick.base.NoneViewModel;
 
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
@@ -56,7 +57,7 @@ public class ClassUtils {
     public static <T> Class<T> getViewModel(Object obj) {
         Class<?> currentClass = obj.getClass();
         Class<T> tClass = getGenericClass(currentClass, MQViewModel.class);
-        if (tClass == null || tClass == MQViewModel.class) {
+        if (tClass == null || tClass == MQViewModel.class || tClass == NoneViewModel.class) {
             return null;
         }
         return tClass;

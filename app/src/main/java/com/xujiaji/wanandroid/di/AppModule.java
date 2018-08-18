@@ -21,6 +21,7 @@ import android.arch.lifecycle.ViewModelProvider;
 
 import com.xujiaji.mvvmquick.viewmodel.ProjectViewModelFactory;
 import com.xujiaji.wanandroid.module.login.LoginViewModel;
+import com.xujiaji.wanandroid.module.main.fragment.openapis.OpenAPISViewModel;
 import com.xujiaji.wanandroid.module.main.fragment.posts.MainBlogPostsViewModel;
 import com.xujiaji.wanandroid.module.main.fragment.projects.MainProjectsViewModel;
 import com.xujiaji.wanandroid.module.main.fragment.boxes.MainBoxesViewModel;
@@ -56,6 +57,8 @@ public abstract class AppModule {
 
         creators.put(ReadViewModel.class, vmsc::viewModelRead);
         creators.put(LoginViewModel.class, vmsc::viewModelLogin);
+
+        creators.put(OpenAPISViewModel.class, vmsc::viewModelOpenAPIS);
         return creators;
     }
 

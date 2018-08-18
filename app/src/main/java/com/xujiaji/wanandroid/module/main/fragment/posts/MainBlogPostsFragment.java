@@ -5,23 +5,18 @@ import android.os.Bundle;
 import android.support.annotation.Nullable;
 
 import com.xujiaji.mvvmquick.di.ActivityScoped;
-import com.xujiaji.mvvmquick.util.LogUtil;
 import com.xujiaji.wanandroid.base.BaseFragment;
-import com.xujiaji.wanandroid.databinding.FragmentMainBlogPostsBinding;
+import com.xujiaji.wanandroid.databinding.LayoutRefreshBinding;
 import com.xujiaji.wanandroid.helper.ActivityResultHelper;
 import com.xujiaji.wanandroid.helper.RefreshLoadHelper;
 import com.xujiaji.wanandroid.module.read.ReadActivity;
 import com.xujiaji.wanandroid.repository.bean.BannerBean;
-import com.xujiaji.wanandroid.repository.bean.BlogPostBean;
 import com.xujiaji.wanandroid.repository.remote.DataCallbackImp;
 import com.youth.banner.Banner;
-import com.youth.banner.listener.OnBannerListener;
 
 import java.util.List;
 
 import javax.inject.Inject;
-
-import static android.app.Activity.RESULT_OK;
 
 /**
  * author: xujiaji
@@ -29,7 +24,7 @@ import static android.app.Activity.RESULT_OK;
  * description:
  */
 @ActivityScoped
-public class MainBlogPostsFragment extends BaseFragment<FragmentMainBlogPostsBinding, MainBlogPostsViewModel> {
+public class MainBlogPostsFragment extends BaseFragment<LayoutRefreshBinding, MainBlogPostsViewModel> {
 
     @Inject
     MainBlogPostsAdapter mAdapter;
@@ -51,7 +46,7 @@ public class MainBlogPostsFragment extends BaseFragment<FragmentMainBlogPostsBin
     }
 
     @Override
-    public void onBinding(FragmentMainBlogPostsBinding binding) {
+    public void onBinding(LayoutRefreshBinding binding) {
         super.onBinding(binding);
         RefreshLoadHelper.init(binding.refresh, mAdapter, binding.list);
     }
@@ -59,7 +54,7 @@ public class MainBlogPostsFragment extends BaseFragment<FragmentMainBlogPostsBin
     @Override
     public void onObserveViewModel(MainBlogPostsViewModel viewModel) {
         super.onObserveViewModel(viewModel);
-        binding.setMainBlogPostsViewModel(viewModel);
+        binding.setRefreshViewModel(viewModel);
         viewModel.getObservableBanners().observeData(this, new DataCallbackImp<List<BannerBean>>() {
             @Override
             public void success(List<BannerBean> bean) {

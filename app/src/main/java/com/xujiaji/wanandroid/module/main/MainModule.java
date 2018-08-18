@@ -29,6 +29,7 @@ import com.xujiaji.wanandroid.helper.ViewHelper;
 import com.xujiaji.wanandroid.model.FragmentModel;
 import com.xujiaji.wanandroid.module.main.fragment.AccountDrawerFragment;
 import com.xujiaji.wanandroid.module.main.fragment.boxes.MainBoxesFragment;
+import com.xujiaji.wanandroid.module.main.fragment.openapis.OpenAPISFragment;
 import com.xujiaji.wanandroid.module.main.fragment.posts.MainBlogPostsFragment;
 import com.xujiaji.wanandroid.module.main.fragment.projects.MainProjectsFragment;
 import com.xujiaji.wanandroid.module.main.fragment.MenuDrawerFragment;
@@ -85,11 +86,26 @@ public abstract class MainModule {
     }
 
     @ActivityScoped
+    @Named("OPENAPIS")
     @Provides
-    public static List<FragmentModel> provideHomeFragModels(@Named("Post") FragmentModel postModel,
-                                                            @Named("Project") FragmentModel projectModel,
-                                                            @Named("Box") FragmentModel toolModel) {
-        return Stream.of(postModel, projectModel, toolModel).toList();
+    public static FragmentModel provideOpenAPIModel(MainActivity context, OpenAPISFragment openApiFrg) {
+        return new FragmentModel(context.getString(R.string.openapis), openApiFrg);
+    }
+
+    @ActivityScoped
+    @Provides
+    public static List<FragmentModel> provideHomeFragModels(
+            @Named("Post") FragmentModel postModel,
+            @Named("Project") FragmentModel projectModel,
+            @Named("Box") FragmentModel toolModel,
+            @Named("OPENAPIS") FragmentModel apiModel) {
+
+        return Stream.of(
+                postModel,
+                projectModel,
+                toolModel,
+
+                apiModel).toList();
     }
 
     @FragmentScoped
@@ -112,6 +128,9 @@ public abstract class MainModule {
     @ContributesAndroidInjector
     abstract MainBoxesFragment contributeMainToolsFragment();
 
+    @FragmentScoped
+    @ContributesAndroidInjector
+    abstract OpenAPISFragment contributeOpenApiFragment();
 
     @Provides
     static Banner provideBanner(MainActivity activity) {

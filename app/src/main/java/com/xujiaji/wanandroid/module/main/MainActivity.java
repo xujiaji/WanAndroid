@@ -3,6 +3,7 @@ package com.xujiaji.wanandroid.module.main;
 import android.os.Bundle;
 import android.support.annotation.IdRes;
 import android.support.design.widget.BottomNavigationView;
+import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
@@ -50,6 +51,10 @@ public class MainActivity extends BaseActivity<ActivityMainBinding, MQViewModel>
     FragmentModel mToolModel;
 
     @Inject
+    @Named("OPENAPIS")
+    FragmentModel mOpenAPIModel;
+
+    @Inject
     List<FragmentModel> mHomeFragModels;
 
 
@@ -69,11 +74,18 @@ public class MainActivity extends BaseActivity<ActivityMainBinding, MQViewModel>
     };
 
     private void showFrag(FragmentModel fragModel) {
+        FragmentManager manager = getSupportFragmentManager();
         FragmentTransaction ft = getSupportFragmentManager().beginTransaction();
         for (FragmentModel fm : mHomeFragModels) {
-            ft.hide(fm.getFragment());
+            if (manager.findFragmentByTag(fm.getFragment().getClass().getSimpleName()) != null)
+                ft.hide(fm.getFragment());
         }
-        ft.show(fragModel.getFragment()).commit();
+        if (manager.findFragmentByTag(fragModel.getFragment().getClass().getSimpleName()) != null) {
+            ft.show(fragModel.getFragment()).commit();
+        } else {
+            ft.add(R.id.container, fragModel.getFragment(), fragModel.getFragment().getClass().getSimpleName()).commit();
+        }
+
         binding.includeBar.toolbar.setTitle(fragModel.getTitle());
     }
 
@@ -84,9 +96,9 @@ public class MainActivity extends BaseActivity<ActivityMainBinding, MQViewModel>
 
         getSupportFragmentManager()
                 .beginTransaction()
-                .add(R.id.container, mBlogModel.getFragment(), "MainBlogPostsFragment")
-                .add(R.id.container, mProjectModel.getFragment(), "MainProjectsFragment")
-                .add(R.id.container, mToolModel.getFragment(), "MainBoxesFragment")
+                .add(R.id.container, mBlogModel.getFragment(), mBlogModel.getFragment().getClass().getSimpleName())
+                .add(R.id.container, mProjectModel.getFragment(), mProjectModel.getFragment().getClass().getSimpleName())
+                .add(R.id.container, mToolModel.getFragment(), mToolModel.getFragment().getClass().getSimpleName())
                 .hide(mProjectModel.getFragment())
                 .hide(mToolModel.getFragment())
                 .commit();
@@ -141,18 +153,23 @@ public class MainActivity extends BaseActivity<ActivityMainBinding, MQViewModel>
         switch (id) {
             case R.id.navigation_set:
                 ToastHelper.info("设置");
-                break;
+                return;
             case R.id.navigation_about:
                 ToastHelper.info("关于");
-                break;
+                return;
             case R.id.navigation_home:
-                if (binding.navigation.getMenu().size() != mHomeFragModels.size()) { //当前不为首页时
+                if (binding.navigation.getMenu().size() != 3) { //当前不为首页时，注意首页底部导航数量不为3时，必须修改这个值
                     showFrag(mBlogModel);
                     BottomNavigationHelper.showHome(binding.navigation);
                 }
+                return;
+        }
+
+        BottomNavigationHelper.onlyShow(binding.navigation, id);
+        switch (id) {
+            case R.id.navigation_open_apis:
+                showFrag(mOpenAPIModel);
                 break;
-            default:
-                BottomNavigationHelper.onlyShow(binding.navigation, id);
         }
     }
 

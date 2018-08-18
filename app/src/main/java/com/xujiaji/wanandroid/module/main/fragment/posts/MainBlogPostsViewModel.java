@@ -1,15 +1,13 @@
 package com.xujiaji.wanandroid.module.main.fragment.posts;
 
 import android.app.Application;
-import android.arch.lifecycle.LiveData;
 import android.arch.lifecycle.MutableLiveData;
-import android.databinding.ObservableArrayList;
 import android.databinding.ObservableList;
 import android.support.annotation.NonNull;
 
 import com.xujiaji.mvvmquick.lifecycle.SingleLiveEvent;
 import com.xujiaji.wanandroid.RefreshLoadViewModel;
-import com.xujiaji.wanandroid.base.BaseViewModel;
+import com.xujiaji.wanandroid.base.BaseRefreshViewModel;
 import com.xujiaji.wanandroid.model.RefreshLoadModel;
 import com.xujiaji.wanandroid.repository.bean.BannerBean;
 import com.xujiaji.wanandroid.repository.bean.BlogPostBean;
@@ -28,10 +26,9 @@ import javax.inject.Singleton;
  * description:
  */
 @Singleton
-public class MainBlogPostsViewModel extends BaseViewModel implements RefreshLoadViewModel<BlogPostBean>{
+public class MainBlogPostsViewModel extends BaseRefreshViewModel<BlogPostBean> implements RefreshLoadViewModel<BlogPostBean>{
 
     public final SingleLiveEvent<BlogPostBean> mClickEvent = new SingleLiveEvent<>();
-    public final ObservableList<BlogPostBean> items = new ObservableArrayList<>();
     private final NetLiveEvent<List<BannerBean>> mBannerData = new NetLiveEvent<>();
     private final SingleLiveEvent<RefreshLoadModel<MutableLiveData<Result<PageBean<BlogPostBean>>>>> mBlogPostsLiveData = new SingleLiveEvent<>();
 

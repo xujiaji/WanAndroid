@@ -22,10 +22,7 @@ import android.view.View;
 import android.widget.ImageView;
 
 import com.bumptech.glide.Glide;
-import com.bumptech.glide.request.RequestOptions;
-import com.xujiaji.wanandroid.R;
 import com.xujiaji.wanandroid.config.PicConfig;
-import com.xujiaji.wanandroid.wedgit.AvatarLayout;
 
 /**
  * author: xujiaji

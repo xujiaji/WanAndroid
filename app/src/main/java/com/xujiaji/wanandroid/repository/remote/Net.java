@@ -17,6 +17,7 @@ import com.xujiaji.wanandroid.repository.bean.Result;
 import com.xujiaji.wanandroid.repository.bean.ThreeAPIBean;
 import com.xujiaji.wanandroid.repository.bean.UserBean;
 
+import java.lang.reflect.Type;
 import java.util.List;
 
 import javax.inject.Inject;
@@ -64,15 +65,13 @@ public class Net {
      * 需要python解析的网页进行统一处理
      */
     @SuppressLint("StaticFieldLeak")
-    private <R, T extends Result<R>> MutableLiveData<T> handle(Call<String> call, ParserCallback callback) {
+    private <R, T extends Result<R>> MutableLiveData<T> handle(Call<String> call, ParserCallback callback, Type type) {
         final MutableLiveData<T> data = new MutableLiveData<>();
 
         final AsyncTask<String, Integer, R> asyncTask = new AsyncTask<String, Integer, R>() {
             @Override
             protected R doInBackground(String... strings) {
-                return new Gson().fromJson(callback.parser(strings[0]),
-                        new TypeToken<R>() {
-                        }.getType());
+                return new Gson().fromJson(callback.parser(strings[0]), type);
             }
 
             @Override
@@ -122,7 +121,9 @@ public class Net {
     }
 
     public MutableLiveData<Result<List<ThreeAPIBean>>> getThreeAPIBean() {
-        return handle(mApi.getOpenAPIS(), data -> PyManager.getInstance(App.getInstance()).parserOPENAPISHtml(data));
+        return handle(mApi.getOpenAPIS(),
+                data -> PyManager.getInstance(App.getInstance()).parserOPENAPISHtml(data),
+                new TypeToken<List<ThreeAPIBean>>(){}.getType());
     }
 
     public MutableLiveData<Result<List<BoxBean>>> getBoxes() {
