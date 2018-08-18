@@ -8,7 +8,8 @@
             "description":"BubbleLayout随意变化的气泡布局，BubbleDialog根据点击View的位置定位它的位置，BubbleDialog可定制方向等！",
             "pkg":"com.xujiaji.happybubbletest",
             "start_class":"com.xujiaji.happybubbletest.MainActivity",
-            "version_code":2
+            "version_code":2,
+            "url":"https://github.com/xujiaji/HappyBubble"
         }
     ]
 }
