@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto">
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:bind="http://schemas.android.com/tools">
 
     <data>
         <variable
@@ -33,7 +34,7 @@
             android:layout_height="wrap_content"
             android:src="@drawable/ic_arrow_drop"
             android:layout_gravity="end"
-            app:rotationAnim="@{threeAPIBean.isExpanded() ? 0 : 90 }"
+            bind:rotationAnim="@{threeAPIBean.isExpanded() ? 0 : 90 }"
             android:tint="@color/colorAccent"/>
     </FrameLayout>
 </layout>

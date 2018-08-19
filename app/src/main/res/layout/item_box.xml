@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <layout xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:android="http://schemas.android.com/apk/res/android">
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:bind="http://schemas.android.com/tools">
 
     <data>
 
@@ -31,7 +32,7 @@
             android:layout_marginTop="@dimen/activity_horizontal_margin"
             android:src="@mipmap/placeholder_item_pic"
             app:layout_constraintStart_toStartOf="parent"
-            app:itemUrl="@{boxBean.thumb}"
+            bind:itemUrl="@{boxBean.thumb}"
             app:layout_constraintTop_toTopOf="parent" />
 
 

@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto">
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:bind="http://schemas.android.com/tools">
 
     <data>
 
@@ -13,7 +14,7 @@
         android:id="@+id/refresh"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        app:addCircleStyle="@{true}"
+        bind:addCircleStyle="@{true}"
         android:onRefresh="@{refreshViewModel}">
 
         <android.support.v7.widget.RecyclerView
@@ -21,7 +22,7 @@
             style="@style/scrollbar_style"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            app:items="@{refreshViewModel.items}"
+            bind:items="@{refreshViewModel.items}"
             app:layoutManager="android.support.v7.widget.LinearLayoutManager" />
 
     </android.support.v4.widget.SwipeRefreshLayout>

@@ -52,13 +52,7 @@ public class MainBoxesFragment extends BaseFragment<LayoutRefreshBinding, MainBo
 
         viewModel.mClickGithubEvent.observe(this, boxBean -> ReadActivity.launch(MainBoxesFragment.this, boxBean.getName(), boxBean.getUrl()));
 
-        viewModel.getBoxes().observeData(this, new DataCallbackImp<List<BoxBean>>() {
-
-            @Override
-            public void finished() {
-                binding.refresh.setRefreshing(false);
-            }
-
+        viewModel.getBoxes().observeData(this, new DataCallbackImp<List<BoxBean>>(binding.refresh) {
             @Override
             public void success(List<BoxBean> bean) {
                 viewModel.items.clear();

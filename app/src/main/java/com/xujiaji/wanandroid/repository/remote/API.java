@@ -5,6 +5,7 @@ import com.xujiaji.wanandroid.repository.bean.BlogPostBean;
 import com.xujiaji.wanandroid.repository.bean.BoxBean;
 import com.xujiaji.wanandroid.repository.bean.PageBean;
 import com.xujiaji.wanandroid.repository.bean.Result;
+import com.xujiaji.wanandroid.repository.bean.TreeBean;
 import com.xujiaji.wanandroid.repository.bean.UserBean;
 
 import java.util.List;
@@ -80,4 +81,9 @@ public interface API {
     @GET
     Call<Result<List<BoxBean>>> getBoxes(@Url String url);
 
+    /**
+     * 体系
+     */
+    @GET("tree/json")
+    Call<Result<List<TreeBean>>> getPostTree();
 }

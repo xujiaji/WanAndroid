@@ -5,6 +5,7 @@ import android.databinding.ObservableArrayList;
 import android.databinding.ObservableList;
 import android.support.annotation.NonNull;
 
+import com.xujiaji.mvvmquick.lifecycle.SingleLiveEvent;
 import com.xujiaji.wanandroid.repository.remote.Net;
 
 /**
@@ -15,6 +16,7 @@ import com.xujiaji.wanandroid.repository.remote.Net;
 public class BaseRefreshViewModel<T> extends BaseViewModel {
 
     public final ObservableList<T> items = new ObservableArrayList<>();
+    public final SingleLiveEvent<T> mClickEvent = new SingleLiveEvent<>();
     /**
      * 更新时的第一页页码
      */

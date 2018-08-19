@@ -28,7 +28,6 @@ import javax.inject.Singleton;
 @Singleton
 public class MainBlogPostsViewModel extends BaseRefreshViewModel<BlogPostBean> implements RefreshLoadViewModel<BlogPostBean>{
 
-    public final SingleLiveEvent<BlogPostBean> mClickEvent = new SingleLiveEvent<>();
     private final NetLiveEvent<List<BannerBean>> mBannerData = new NetLiveEvent<>();
     private final SingleLiveEvent<RefreshLoadModel<MutableLiveData<Result<PageBean<BlogPostBean>>>>> mBlogPostsLiveData = new SingleLiveEvent<>();
 

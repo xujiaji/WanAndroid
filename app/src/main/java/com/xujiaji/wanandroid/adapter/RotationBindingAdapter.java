@@ -9,7 +9,7 @@ import android.view.View;
  * description:
  */
 public class RotationBindingAdapter {
-    @BindingAdapter("app:rotationAnim")
+    @BindingAdapter("bind:rotationAnim")
     public static void rotationAnim(View view, int rotation) {
         view.animate().setDuration(400).rotation(rotation).start();
     }

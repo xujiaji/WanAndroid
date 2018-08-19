@@ -39,14 +39,7 @@ public class OpenAPISFragment extends BaseFragment<LayoutRefreshBinding, OpenAPI
     public void onObserveViewModel(OpenAPISViewModel viewModel) {
         super.onObserveViewModel(viewModel);
         binding.setRefreshViewModel(viewModel);
-        viewModel.getObservableThreeAPIS().observeData(this, new DataCallbackImp<List<ThreeAPIBean>>() {
-
-            @Override
-            public void finished() {
-                super.finished();
-                binding.refresh.setRefreshing(false);
-            }
-
+        viewModel.getObservableThreeAPIS().observeData(this, new DataCallbackImp<List<ThreeAPIBean>>(binding.refresh) {
             @Override
             public void success(List<ThreeAPIBean> bean) {
                 ArrayList<MultiItemEntity> src = new ArrayList<>();

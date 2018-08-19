@@ -30,6 +30,8 @@ import com.xujiaji.wanandroid.model.FragmentModel;
 import com.xujiaji.wanandroid.module.main.fragment.AccountDrawerFragment;
 import com.xujiaji.wanandroid.module.main.fragment.boxes.MainBoxesFragment;
 import com.xujiaji.wanandroid.module.main.fragment.openapis.OpenAPISFragment;
+import com.xujiaji.wanandroid.module.main.fragment.post_tree.PostTreeFragment;
+import com.xujiaji.wanandroid.module.main.fragment.post_tree.PostTreeViewModel;
 import com.xujiaji.wanandroid.module.main.fragment.posts.MainBlogPostsFragment;
 import com.xujiaji.wanandroid.module.main.fragment.projects.MainProjectsFragment;
 import com.xujiaji.wanandroid.module.main.fragment.MenuDrawerFragment;
@@ -93,19 +95,28 @@ public abstract class MainModule {
     }
 
     @ActivityScoped
+    @Named("PostTree")
+    @Provides
+    public static FragmentModel providePostTreeModel(MainActivity context, PostTreeFragment postTreeFragment) {
+        return new FragmentModel(context.getString(R.string.post_tree), postTreeFragment);
+    }
+
+    @ActivityScoped
     @Provides
     public static List<FragmentModel> provideHomeFragModels(
             @Named("Post") FragmentModel postModel,
             @Named("Project") FragmentModel projectModel,
             @Named("Box") FragmentModel toolModel,
-            @Named("OPENAPIS") FragmentModel apiModel) {
+            @Named("OPENAPIS") FragmentModel apiModel,
+            @Named("PostTree") FragmentModel postTreeModel) {
 
         return Stream.of(
                 postModel,
                 projectModel,
                 toolModel,
 
-                apiModel).toList();
+                apiModel,
+                postTreeModel).toList();
     }
 
     @FragmentScoped
@@ -131,6 +142,10 @@ public abstract class MainModule {
     @FragmentScoped
     @ContributesAndroidInjector
     abstract OpenAPISFragment contributeOpenApiFragment();
+
+    @FragmentScoped
+    @ContributesAndroidInjector
+    abstract PostTreeFragment contributePostTreeFragment();
 
     @Provides
     static Banner provideBanner(MainActivity activity) {

@@ -82,4 +82,6 @@ dependencies {
     releaseImplementation "com.squareup.leakcanary:leakcanary-android-no-op:$leakcanary"
     // Optional, if you use support library fragments:
     debugImplementation "com.squareup.leakcanary:leakcanary-support-fragment:$leakcanary"
+
+    implementation "com.google.android:flexbox:$flexbox"
 }

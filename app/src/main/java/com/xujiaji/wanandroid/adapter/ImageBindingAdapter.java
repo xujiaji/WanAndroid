@@ -31,7 +31,7 @@ import com.xujiaji.wanandroid.config.PicConfig;
  */
 public class ImageBindingAdapter {
 
-    @BindingAdapter("app:itemUrl")
+    @BindingAdapter("bind:itemUrl")
     public static void setImage(ImageView imageView, String url) {
         if (TextUtils.isEmpty(url)) {
             imageView.setVisibility(View.GONE);

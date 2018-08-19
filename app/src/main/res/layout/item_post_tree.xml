@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:bind="http://schemas.android.com/apk/res-auto">
+
+    <data>
+        <variable
+            name="callback"
+            type="com.xujiaji.mvvmquick.callback.GeneralClickCallback"/>
+
+        <variable
+            name="postTree"
+            type="com.xujiaji.wanandroid.repository.bean.TreeBean"/>
+
+        <variable
+            name="viewModel"
+            type="com.xujiaji.wanandroid.module.main.fragment.post_tree.PostTreeViewModel"/>
+    </data>
+
+    <android.support.constraint.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/item_bg_line"
+        android:foreground="?attr/selectableItemBackground"
+        android:onClick="@{() ->  callback.onClick(postTree)}">
+
+        <TextView
+            android:id="@+id/title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/activity_horizontal_margin"
+            android:layout_marginTop="@dimen/activity_vertical_margin"
+            android:text="@{postTree.name}"
+            android:textAppearance="@style/TextAppearance.AppCompat.Subhead"
+            android:textColor="@color/textPrimary"
+            android:textStyle="bold"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+
+        <com.google.android.flexbox.FlexboxLayout
+            android:id="@+id/flexBox"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/activity_vertical_margin"
+            bind:fullFlexData="@{postTree}"
+            bind:postTreeViewModel="@{viewModel}"
+            app:flexWrap="wrap"
+            app:justifyContent="flex_start"
+            app:layout_constraintTop_toBottomOf="@+id/title">
+
+        </com.google.android.flexbox.FlexboxLayout>
+    </android.support.constraint.ConstraintLayout>
+</layout>

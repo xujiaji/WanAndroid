@@ -15,6 +15,7 @@ import com.xujiaji.wanandroid.repository.bean.BoxBean;
 import com.xujiaji.wanandroid.repository.bean.PageBean;
 import com.xujiaji.wanandroid.repository.bean.Result;
 import com.xujiaji.wanandroid.repository.bean.ThreeAPIBean;
+import com.xujiaji.wanandroid.repository.bean.TreeBean;
 import com.xujiaji.wanandroid.repository.bean.UserBean;
 
 import java.lang.reflect.Type;
@@ -130,4 +131,9 @@ public class Net {
     public MutableLiveData<Result<List<BoxBean>>> getBoxes() {
         return handle(mApi.getBoxes(BuildConfig.PLUGINS_URL));
     }
+
+    public MutableLiveData<Result<List<TreeBean>>> getPostTree() {
+        return handle(mApi.getPostTree());
+    }
+
 }

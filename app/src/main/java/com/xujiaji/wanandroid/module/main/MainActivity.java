@@ -55,6 +55,10 @@ public class MainActivity extends BaseActivity<ActivityMainBinding, MQViewModel>
     FragmentModel mOpenAPIModel;
 
     @Inject
+    @Named("PostTree")
+    FragmentModel mPostTreeModel;
+
+    @Inject
     List<FragmentModel> mHomeFragModels;
 
 
@@ -169,6 +173,9 @@ public class MainActivity extends BaseActivity<ActivityMainBinding, MQViewModel>
         switch (id) {
             case R.id.navigation_open_apis:
                 showFrag(mOpenAPIModel);
+                break;
+            case R.id.navigation_knowledge_system:
+                showFrag(mPostTreeModel);
                 break;
         }
     }

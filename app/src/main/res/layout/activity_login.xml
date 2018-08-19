@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto">
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:bind="http://schemas.android.com/tools">
 
 
     <data>
@@ -94,14 +95,14 @@
             android:visibility="gone"
             app:layout_anchor="@id/appbar"
             app:layout_anchorGravity="bottom|center_horizontal"
-            app:visibleGone="@{isLoading}" />
+            bind:visibleGone="@{isLoading}" />
 
         <android.support.v4.widget.NestedScrollView
             android:id="@+id/scrollView"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             app:layout_behavior="@string/appbar_scrolling_view_behavior"
-            app:visibleGone="@{!isLoading}">
+            bind:visibleGone="@{!isLoading}">
 
             <LinearLayout
                 android:layout_width="match_parent"

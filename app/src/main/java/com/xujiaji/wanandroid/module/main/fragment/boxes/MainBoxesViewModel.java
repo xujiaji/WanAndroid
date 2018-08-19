@@ -21,7 +21,6 @@ import javax.inject.Singleton;
 @Singleton
 public class MainBoxesViewModel extends BaseRefreshViewModel<BoxBean> {
 
-    public final SingleLiveEvent<BoxBean> mClickEvent = new SingleLiveEvent<>();
     public final SingleLiveEvent<BoxBean> mClickGithubEvent = new SingleLiveEvent<>();
 
     private final NetLiveEvent<List<BoxBean>> mBoxes = new NetLiveEvent<>();
