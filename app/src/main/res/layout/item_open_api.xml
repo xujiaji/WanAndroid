@@ -1,10 +1,23 @@
 <?xml version="1.0" encoding="utf-8"?>
 
 <layout xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+        <variable
+            name="linkBean"
+            type="com.xujiaji.wanandroid.repository.bean.ThreeAPIBean.LinkBean"/>
+
+        <variable
+            name="callback"
+            type="com.xujiaji.mvvmquick.callback.GeneralClickCallback"/>
+
+    </data>
+
     <android.support.constraint.ConstraintLayout
         xmlns:android="http://schemas.android.com/apk/res/android"
         android:layout_width="match_parent"
         android:layout_height="48dp"
+        android:onClick="@{() -> callback.onClick(linkBean)}"
         android:background="@drawable/item_bg_line"
         android:foreground="?attr/selectableItemBackground">
 
@@ -13,15 +26,15 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginBottom="8dp"
-            android:layout_marginEnd="@dimen/activity_horizontal_margin"
-            android:layout_marginStart="@dimen/activity_horizontal_margin"
+            android:layout_marginEnd="@dimen/spacing_large"
+            android:layout_marginStart="@dimen/spacing_large"
             android:layout_marginTop="8dp"
             android:ellipsize="end"
             android:gravity="center_vertical"
             android:maxLines="1"
             android:textAppearance="@style/TextAppearance.AppCompat.Caption"
             android:textColor="@color/textPrimary"
-            android:textStyle="bold"
+            android:text="@{linkBean.name}"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"

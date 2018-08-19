@@ -27,7 +27,7 @@ public class MainProjectsFragment extends BaseFragment<LayoutRefreshBinding, Mai
     @Override
     public void onBinding(LayoutRefreshBinding binding) {
         super.onBinding(binding);
-        RefreshLoadHelper.init(binding.refresh, mAdapter, binding.list);
+        RefreshLoadHelper.init(mAdapter, binding.list);
     }
 
     @Override

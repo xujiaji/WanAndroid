@@ -24,6 +24,7 @@ import javax.inject.Inject;
 import javax.inject.Singleton;
 
 import retrofit2.Call;
+import retrofit2.converter.gson.GsonConverterFactory;
 
 /**
  * author: xujiaji

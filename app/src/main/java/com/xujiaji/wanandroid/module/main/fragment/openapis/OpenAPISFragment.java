@@ -5,6 +5,7 @@ import com.xujiaji.mvvmquick.di.ActivityScoped;
 import com.xujiaji.wanandroid.R;
 import com.xujiaji.wanandroid.base.BaseFragment;
 import com.xujiaji.wanandroid.databinding.LayoutRefreshBinding;
+import com.xujiaji.wanandroid.module.read.ReadActivity;
 import com.xujiaji.wanandroid.repository.bean.ThreeAPIBean;
 import com.xujiaji.wanandroid.repository.remote.DataCallbackImp;
 
@@ -37,6 +38,7 @@ public class OpenAPISFragment extends BaseFragment<LayoutRefreshBinding, OpenAPI
     @Override
     public void onObserveViewModel(OpenAPISViewModel viewModel) {
         super.onObserveViewModel(viewModel);
+        binding.setRefreshViewModel(viewModel);
         viewModel.getObservableThreeAPIS().observeData(this, new DataCallbackImp<List<ThreeAPIBean>>() {
 
             @Override
@@ -47,8 +49,16 @@ public class OpenAPISFragment extends BaseFragment<LayoutRefreshBinding, OpenAPI
 
             @Override
             public void success(List<ThreeAPIBean> bean) {
-                mAdapter.setNewData(new ArrayList<>(bean));
+                ArrayList<MultiItemEntity> src = new ArrayList<>();
+                for (ThreeAPIBean t : bean) {
+                    src.add(t);
+                    t.setSubItems(t.getLinks());
+                }
+                mAdapter.setNewData(src);
+                mAdapter.expandAll();
             }
         });
+
+        viewModel.mClickEvent.observe(this, linkBean -> ReadActivity.launch(OpenAPISFragment.this, linkBean.getName(), linkBean.getUrl()));
     }
 }

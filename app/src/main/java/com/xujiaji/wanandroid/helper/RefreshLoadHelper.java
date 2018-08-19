@@ -20,8 +20,7 @@ import com.xujiaji.wanandroid.repository.bean.Result;
  * description:
  */
 public class RefreshLoadHelper {
-    public static void init(SwipeRefreshLayout refresh, MQQuickAdapter adapter, RecyclerView list) {
-        refresh.setColorSchemeResources(R.color.colorAccent, R.color.colorPrimaryDark, R.color.colorPrimary);
+    public static void init(MQQuickAdapter adapter, RecyclerView list) {
         adapter.bindToRecyclerView(list, true);
         adapter.setEmptyView(R.layout.no_item_archived, list);
     }

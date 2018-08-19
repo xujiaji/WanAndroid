@@ -3,6 +3,7 @@ package com.xujiaji.wanandroid.module.main.fragment.openapis;
 import android.app.Application;
 import android.support.annotation.NonNull;
 
+import com.xujiaji.mvvmquick.lifecycle.SingleLiveEvent;
 import com.xujiaji.wanandroid.base.BaseRefreshViewModel;
 import com.xujiaji.wanandroid.repository.bean.ThreeAPIBean;
 import com.xujiaji.wanandroid.repository.remote.NetLiveEvent;
@@ -21,6 +22,7 @@ import javax.inject.Singleton;
 public class OpenAPISViewModel extends BaseRefreshViewModel<ThreeAPIBean> {
 
     private final NetLiveEvent<List<ThreeAPIBean>> mThreeAPIListData = new NetLiveEvent<>();
+    public final SingleLiveEvent<ThreeAPIBean.LinkBean> mClickEvent = new SingleLiveEvent<>();
 
     @Inject
     public OpenAPISViewModel(@NonNull Application application) {

@@ -1,20 +1,39 @@
 <?xml version="1.0" encoding="utf-8"?>
-<layout xmlns:android="http://schemas.android.com/apk/res/android">
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
 
-    <LinearLayout
+    <data>
+        <variable
+            name="threeAPIBean"
+            type="com.xujiaji.wanandroid.repository.bean.ThreeAPIBean"/>
+
+    </data>
+
+    <FrameLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        android:padding="@dimen/activity_horizontal_margin">
+        android:background="@color/white"
+        android:clickable="true"
+        android:foreground="?attr/selectableItemBackground"
+        android:padding="@dimen/activity_horizontal_margin"
+        android:focusable="true">
 
         <TextView
             android:id="@+id/title_section"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Section Title"
+            android:text="@{threeAPIBean.name}"
             android:textAppearance="@style/TextAppearance.AppCompat.Subhead"
             android:textColor="@color/textSecondary"
             android:textStyle="bold" />
 
-    </LinearLayout>
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/ic_arrow_drop"
+            android:layout_gravity="end"
+            app:rotationAnim="@{threeAPIBean.isExpanded() ? 0 : 90 }"
+            android:tint="@color/colorAccent"/>
+    </FrameLayout>
 </layout>

@@ -1,15 +1,20 @@
 package com.xujiaji.wanandroid.module.main.fragment.openapis;
 
+import android.databinding.DataBindingUtil;
+import android.databinding.ViewDataBinding;
 import android.view.View;
+import android.view.ViewGroup;
 
 import com.chad.library.adapter.base.BaseMultiItemQuickAdapter;
 import com.chad.library.adapter.base.BaseViewHolder;
 import com.chad.library.adapter.base.entity.MultiItemEntity;
+import com.xujiaji.mvvmquick.callback.GeneralClickCallback;
 import com.xujiaji.wanandroid.R;
+import com.xujiaji.wanandroid.databinding.ItemOpenApiBinding;
+import com.xujiaji.wanandroid.databinding.ItemOpenApiSectionBinding;
 import com.xujiaji.wanandroid.repository.bean.ThreeAPIBean;
 
 import java.util.ArrayList;
-import java.util.List;
 
 import javax.inject.Inject;
 
@@ -22,12 +27,33 @@ public class OpenAPISAdapter extends BaseMultiItemQuickAdapter<MultiItemEntity, 
 
     public static final int TYPE_SECTION = 0;
     public static final int TYPE_API = 1;
+    private OpenAPISViewModel mViewModel;
 
     @Inject
-    public OpenAPISAdapter() {
-        super(new ArrayList<MultiItemEntity>());
+    public OpenAPISAdapter(OpenAPISViewModel viewModel) {
+        super(new ArrayList<>());
         addItemType(TYPE_SECTION, R.layout.item_open_api_section);
         addItemType(TYPE_API, R.layout.item_open_api);
+        mViewModel = viewModel;
+    }
+
+    @Override
+    protected View getItemView(int layoutResId, ViewGroup parent) {
+        ViewDataBinding binding;
+        if (layoutResId == R.layout.item_open_api) {
+            ItemOpenApiBinding b1 = DataBindingUtil.inflate(mLayoutInflater, layoutResId, parent, false);
+            b1.setCallback((GeneralClickCallback<ThreeAPIBean.LinkBean>) linkBean -> mViewModel.mClickEvent.setValue(linkBean));
+            binding = b1;
+        } else if (layoutResId == R.layout.item_open_api_section) {
+            ItemOpenApiSectionBinding b2 = DataBindingUtil.inflate(mLayoutInflater, layoutResId, parent, false);
+            binding = b2;
+        } else {
+            return super.getItemView(layoutResId, parent);
+        }
+
+        View view = binding.getRoot();
+        view.setTag(com.xujiaji.mvvmquick.R.id.BaseQuickAdapter_databinding_support, binding);
+        return view;
     }
 
     @Override
@@ -35,23 +61,21 @@ public class OpenAPISAdapter extends BaseMultiItemQuickAdapter<MultiItemEntity, 
         switch (helper.getItemViewType()) {
             case TYPE_SECTION:
                 ThreeAPIBean threeAPIBean = (ThreeAPIBean) item;
-                helper.setText(R.id.title_section, threeAPIBean.getName());
-                helper.itemView.setOnClickListener(new View.OnClickListener() {
-                    @Override
-                    public void onClick(View v) {
-                        int pos = helper.getAdapterPosition();
-                        if (threeAPIBean.isExpanded()) {
-                            collapse(pos);
-                        } else {
-                            expand(pos);
-                        }
+                ItemOpenApiSectionBinding binding = (ItemOpenApiSectionBinding) helper.itemView.getTag(com.xujiaji.mvvmquick.R.id.BaseQuickAdapter_databinding_support);
+                binding.setThreeAPIBean(threeAPIBean);
+                helper.itemView.setOnClickListener(v -> {
+                    int pos = helper.getAdapterPosition();
+                    if (threeAPIBean.isExpanded()) {
+                        collapse(pos);
+                    } else {
+                        expand(pos);
                     }
                 });
-                expand(helper.getAdapterPosition());
                 break;
             case TYPE_API:
                 ThreeAPIBean.LinkBean linkBean = (ThreeAPIBean.LinkBean) item;
-                helper.setText(R.id.linkName, linkBean.getName());
+                ItemOpenApiBinding b = (ItemOpenApiBinding) helper.itemView.getTag(com.xujiaji.mvvmquick.R.id.BaseQuickAdapter_databinding_support);
+                b.setLinkBean(linkBean);
                 break;
         }
     }
