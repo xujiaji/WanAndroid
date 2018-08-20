@@ -57,4 +57,7 @@
     <string name="github">GITHUB</string>
     <string name="add_own_project">添加我的项目</string>
     <string name="post_tree">POST TREE</string>
+    <string name="copy_link">复制链接</string>
+    <string name="copied">已复制</string>
+    <string name="copy_fail">复制失败</string>
 </resources>

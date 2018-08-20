@@ -28,13 +28,12 @@ import com.xujiaji.wanandroid.helper.GlideImageLoader;
 import com.xujiaji.wanandroid.helper.ViewHelper;
 import com.xujiaji.wanandroid.model.FragmentModel;
 import com.xujiaji.wanandroid.module.main.fragment.AccountDrawerFragment;
+import com.xujiaji.wanandroid.module.main.fragment.MenuDrawerFragment;
 import com.xujiaji.wanandroid.module.main.fragment.boxes.MainBoxesFragment;
 import com.xujiaji.wanandroid.module.main.fragment.openapis.OpenAPISFragment;
 import com.xujiaji.wanandroid.module.main.fragment.post_tree.PostTreeFragment;
-import com.xujiaji.wanandroid.module.main.fragment.post_tree.PostTreeViewModel;
 import com.xujiaji.wanandroid.module.main.fragment.posts.MainBlogPostsFragment;
 import com.xujiaji.wanandroid.module.main.fragment.projects.MainProjectsFragment;
-import com.xujiaji.wanandroid.module.main.fragment.MenuDrawerFragment;
 import com.youth.banner.Banner;
 
 import java.util.List;

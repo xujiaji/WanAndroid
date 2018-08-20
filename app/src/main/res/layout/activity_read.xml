@@ -39,13 +39,67 @@
             app:layout_behavior="com.xujiaji.wanandroid.behavior.FABScrollBehavior"/>
 
         <LinearLayout
-            android:id="@+id/layoutBrowse"
+            android:id="@+id/layoutCopy"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
             android:layout_gravity="top|end"
             app:useCompatPadding="true"
             app:layout_anchor="@id/fab"
+            app:layout_anchorGravity="top|end">
+
+            <android.support.v7.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical|end"
+                android:layout_margin="@dimen/spacing_middle"
+                app:cardBackgroundColor="@android:color/white"
+                app:cardCornerRadius="3dp"
+                app:cardElevation="2dp"
+                app:contentPadding="@dimen/spacing_medium">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_gravity="center"
+                    android:gravity="center"
+                    android:text="@string/copy_link"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Body2" />
+
+            </android.support.v7.widget.CardView>
+
+            <android.support.design.widget.FloatingActionButton
+                android:id="@+id/fabCopyLink"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="@dimen/spacing_middle"
+                android:layout_marginLeft="@dimen/spacing_smlarge"
+                android:layout_marginRight="@dimen/spacing_smlarge"
+                android:layout_marginTop="@dimen/spacing_middle"
+                android:clickable="true"
+                android:onClick="onClickCopyLink"
+                android:tint="@color/colorPrimaryDark"
+                app:backgroundTint="@android:color/white"
+                app:fabSize="mini"
+                app:rippleColor="@color/colorPrimaryDark"
+                app:srcCompat="@drawable/ic_link"
+                android:focusable="true" />
+
+            <View
+                android:layout_width="@dimen/spacing_xmedium"
+                android:layout_height="0dp" />
+
+        </LinearLayout>
+
+
+        <LinearLayout
+            android:id="@+id/layoutBrowse"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_gravity="top|end"
+            app:useCompatPadding="true"
+            app:layout_anchor="@id/layoutCopy"
             app:layout_anchorGravity="top|end">
 
             <android.support.v7.widget.CardView
@@ -78,7 +132,7 @@
                 android:layout_marginTop="@dimen/spacing_middle"
                 android:clickable="true"
                 android:onClick="onClickSystemBrowseOpen"
-                android:tint="@android:color/holo_blue_light"
+                android:tint="@color/colorPrimaryDark"
                 app:backgroundTint="@android:color/white"
                 app:fabSize="mini"
                 app:rippleColor="@color/colorPrimaryDark"

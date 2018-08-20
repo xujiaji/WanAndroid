@@ -16,6 +16,7 @@ import com.xujiaji.mvvmquick.util.LogUtil;
 import com.xujiaji.wanandroid.R;
 import com.xujiaji.wanandroid.base.BaseActivity;
 import com.xujiaji.wanandroid.databinding.ActivityReadBinding;
+import com.xujiaji.wanandroid.helper.ClipHelper;
 import com.xujiaji.wanandroid.helper.FabPopLayoutHelper;
 import com.xujiaji.wanandroid.helper.ToastHelper;
 import com.xujiaji.wanandroid.helper.ToolbarHelper;
@@ -80,7 +81,7 @@ public class ReadActivity extends BaseActivity<ActivityReadBinding, ReadViewMode
         super.onBinding(binding);
         binding.includeBar.toolbar.setTitle(mPostBean.getTitle());
         ToolbarHelper.initFullBar(binding.includeBar.toolbar, this);
-        FabPopLayoutHelper.initPopLayout(binding.fab, binding.backDrop, binding.layoutBrowse, binding.layoutLike);
+        FabPopLayoutHelper.initPopLayout(binding.fab, binding.backDrop, binding.layoutBrowse, binding.layoutLike, binding.layoutCopy);
 
         CoordinatorLayout.LayoutParams lp = new CoordinatorLayout.LayoutParams(-1, -1);
         lp.setBehavior(new AppBarLayout.ScrollingViewBehavior());
@@ -187,4 +188,12 @@ public class ReadActivity extends BaseActivity<ActivityReadBinding, ReadViewMode
         }
     }
 
+    public void onClickCopyLink(View view) {
+        onBackPressed();
+        if (ClipHelper.copyToClipboard(this, mPostBean.getLink())) {
+            ToastHelper.success(getString(R.string.copied));
+        } else {
+            ToastHelper.error(getString(R.string.copy_fail));
+        }
+    }
 }
