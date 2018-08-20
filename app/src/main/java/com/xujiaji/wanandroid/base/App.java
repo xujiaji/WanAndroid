@@ -136,7 +136,6 @@ public class App extends MQApp {
             for (SingleLiveEvent<UserBean> le : liveEventList) {
                 le.setValue(null);
             }
-            liveEventList.clear();
             isOK = false;
         }
     }
