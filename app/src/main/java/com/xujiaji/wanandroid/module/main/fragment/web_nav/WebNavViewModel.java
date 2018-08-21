@@ -1,4 +1,4 @@
-package com.xujiaji.wanandroid.module.main.fragment.openapis;
+package com.xujiaji.wanandroid.module.main.fragment.web_nav;
 
 import android.app.Application;
 import android.support.annotation.NonNull;
@@ -7,6 +7,7 @@ import com.xujiaji.mvvmquick.lifecycle.SingleLiveEvent;
 import com.xujiaji.wanandroid.base.BaseRefreshClickChildViewModel;
 import com.xujiaji.wanandroid.base.BaseRefreshViewModel;
 import com.xujiaji.wanandroid.repository.bean.ThreeAPIBean;
+import com.xujiaji.wanandroid.repository.bean.WebNavBean;
 import com.xujiaji.wanandroid.repository.remote.NetLiveEvent;
 
 import java.util.List;
@@ -20,22 +21,22 @@ import javax.inject.Singleton;
  * description:
  */
 @Singleton
-public class OpenAPISViewModel extends BaseRefreshClickChildViewModel<ThreeAPIBean, ThreeAPIBean.LinkBean> {
+public class WebNavViewModel extends BaseRefreshClickChildViewModel<WebNavBean, ThreeAPIBean.LinkBean> {
 
-    private final NetLiveEvent<List<ThreeAPIBean>> mThreeAPIListData = new NetLiveEvent<>();
+    private final NetLiveEvent<List<WebNavBean>> mWebNavListData = new NetLiveEvent<>();
 
     @Inject
-    public OpenAPISViewModel(@NonNull Application application) {
+    public WebNavViewModel(@NonNull Application application) {
         super(application);
     }
 
     @Override
     public void onListRefresh() {
-        mThreeAPIListData.setValue(net.get().getThreeAPIBean());
+        mWebNavListData.setValue(net.get().getWebNavs());
     }
 
-    public NetLiveEvent<List<ThreeAPIBean>> getObservableThreeAPIS() {
-        mThreeAPIListData.setValue(net.get().getThreeAPIBean());
-        return mThreeAPIListData;
+    public NetLiveEvent<List<WebNavBean>> getObservableWebNavs() {
+        mWebNavListData.setValue(net.get().getWebNavs());
+        return mWebNavListData;
     }
 }

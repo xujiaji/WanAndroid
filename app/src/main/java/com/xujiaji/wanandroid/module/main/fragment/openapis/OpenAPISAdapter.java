@@ -10,13 +10,12 @@ import com.chad.library.adapter.base.BaseViewHolder;
 import com.chad.library.adapter.base.entity.MultiItemEntity;
 import com.xujiaji.mvvmquick.callback.GeneralClickCallback;
 import com.xujiaji.wanandroid.R;
+import com.xujiaji.wanandroid.base.BaseRefreshClickChildViewModel;
 import com.xujiaji.wanandroid.databinding.ItemOpenApiBinding;
 import com.xujiaji.wanandroid.databinding.ItemOpenApiSectionBinding;
 import com.xujiaji.wanandroid.repository.bean.ThreeAPIBean;
 
 import java.util.ArrayList;
-
-import javax.inject.Inject;
 
 /**
  * author: xujiaji
@@ -27,10 +26,9 @@ public class OpenAPISAdapter extends BaseMultiItemQuickAdapter<MultiItemEntity, 
 
     public static final int TYPE_SECTION = 0;
     public static final int TYPE_API = 1;
-    private OpenAPISViewModel mViewModel;
+    private BaseRefreshClickChildViewModel mViewModel;
 
-    @Inject
-    public OpenAPISAdapter(OpenAPISViewModel viewModel) {
+    public OpenAPISAdapter(BaseRefreshClickChildViewModel viewModel) {
         super(new ArrayList<>());
         addItemType(TYPE_SECTION, R.layout.item_open_api_section);
         addItemType(TYPE_API, R.layout.item_open_api);
@@ -42,7 +40,7 @@ public class OpenAPISAdapter extends BaseMultiItemQuickAdapter<MultiItemEntity, 
         ViewDataBinding binding;
         if (layoutResId == R.layout.item_open_api) {
             ItemOpenApiBinding b1 = DataBindingUtil.inflate(mLayoutInflater, layoutResId, parent, false);
-            b1.setCallback((GeneralClickCallback<ThreeAPIBean.LinkBean>) linkBean -> mViewModel.mClickEvent.setValue(linkBean));
+            b1.setCallback((GeneralClickCallback<ThreeAPIBean.LinkBean>) mViewModel.mClickChildEvent::setValue);
             binding = b1;
         } else if (layoutResId == R.layout.item_open_api_section) {
             ItemOpenApiSectionBinding b2 = DataBindingUtil.inflate(mLayoutInflater, layoutResId, parent, false);

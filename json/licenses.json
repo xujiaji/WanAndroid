@@ -1,0 +1,126 @@
+{
+  "errorCode":0,
+  "errorMsg":"",
+  "data":[
+    {
+      "thumb":"https://avatars3.githubusercontent.com/u/1321838?s=400&v=4",
+      "name":"Stream",
+      "author":"aNNiMON",
+      "desc":"Stream API from Java 8 rewritten on iterators for Java 7 and below",
+      "link":"https://github.com/aNNiMON/Lightweight-Stream-API",
+      "license":"Apache-2.0"
+    },
+    {
+      "thumb":"https://avatars2.githubusercontent.com/u/1718359?s=400&v=4",
+      "name":"pybridge",
+      "author":"joaoventura",
+      "desc":"Reuse Python code in native Android applications",
+      "link":"https://github.com/joaoventura/pybridge",
+      "license":""
+    },
+    {
+      "thumb":"https://avatars2.githubusercontent.com/u/1342004?s=200&v=4",
+      "name":"dagger2",
+      "author":"google",
+      "desc":"A fast dependency injector for Android and Java.",
+      "link":"https://github.com/google/dagger",
+      "license":"Apache-2.0"
+    },
+    {
+      "thumb":"https://avatars0.githubusercontent.com/u/16447251?s=400&v=4",
+      "name":"MVVMQuick",
+      "author":"xujiaji",
+      "desc":"Quickly start projects with MVVMQuick!旨在快速以MVVM开始开发项目，其内集成了dagger2、okhttp3、retrofit、BaseRecyclerViewAdapterHelper、lifecycle等常用的框架和一些工具。",
+      "link":"https://github.com/xujiaji/MVVMQuick",
+      "license":"Apache-2.0"
+    },
+    {
+      "thumb":"https://avatars1.githubusercontent.com/u/7698209?s=400&v=4",
+      "name":"BaseRecyclerViewAdapterHelper",
+      "author":"CymChad",
+      "desc":"BRVAH:Powerful and flexible RecyclerAdapter",
+      "link":"https://github.com/CymChad/BaseRecyclerViewAdapterHelper",
+      "license":"Apache-2.0"
+    },
+    {
+      "thumb":"https://avatars3.githubusercontent.com/u/8827239?s=400&v=4",
+      "name":"banner",
+      "author":"youth5201314",
+      "desc":"Android广告图片轮播控件，支持无限循环和多种主题，可以灵活设置轮播样式、动画、轮播和切换时间、位置、图片加载框架等！",
+      "link":"https://github.com/youth5201314/banner",
+      "license":"Apache-2.0"
+    },
+    {
+      "thumb":"https://avatars1.githubusercontent.com/u/423539?s=200&v=4",
+      "name":"glide",
+      "author":"bumptech",
+      "desc":"An image loading and caching library for Android focused on smooth scrolling",
+      "link":"https://github.com/bumptech/glide",
+      "license":"BSD, part MIT and Apache 2.0."
+    },
+    {
+      "thumb":"https://avatars0.githubusercontent.com/u/3281741?s=400&v=4",
+      "name":"ShapedImageView",
+      "author":"gavinliu",
+      "desc":"Android Rounded, Circle, Path ImageView",
+      "link":"https://github.com/gavinliu/ShapedImageView",
+      "license":"MIT"
+    },
+    {
+      "thumb":"https://avatars3.githubusercontent.com/u/17163056?s=400&v=4",
+      "name":"AgentWeb",
+      "author":"Justson",
+      "desc":"AgentWeb is a powerful library based on Android WebView.",
+      "link":"https://github.com/Justson/AgentWeb",
+      "license":"Apache-2.0"
+    },
+    {
+      "thumb":"https://avatars0.githubusercontent.com/u/8654362?s=400&v=4",
+      "name":"Toasty",
+      "author":"GrenderG",
+      "desc":"The usual Toast, but with steroids",
+      "link":"https://github.com/GrenderG/Toasty",
+      "license":"LGPL-3.0"
+    },
+    {
+      "thumb":"https://avatars0.githubusercontent.com/u/82592?s=200&v=4",
+      "name":"retrofit2",
+      "author":"square",
+      "desc":"Type-safe HTTP client for Android and Java by Square, Inc.",
+      "link":"https://github.com/square/retrofit",
+      "license":"Apache-2.0"
+    },
+    {
+      "thumb":"https://avatars0.githubusercontent.com/u/4082929?s=200&v=4",
+      "name":"RePlugin",
+      "author":"Qihoo360",
+      "desc":"RePlugin - A flexible, stable, easy-to-use Android Plug-in Framework",
+      "link":"https://github.com/Qihoo360/RePlugin",
+      "license":"Apache-2.0"
+    },
+    {
+      "thumb":"https://avatars2.githubusercontent.com/u/7429349?s=200&v=4",
+      "name":"FileDownloader",
+      "author":"lingochamp",
+      "desc":"Multitask、MultiThread(MultiConnection)、Breakpoint-resume、High-concurrency、Simple to use、Single/NotSingle-process",
+      "link":"https://github.com/lingochamp/FileDownloader",
+      "license":"Apache-2.0"
+    },
+    {
+      "thumb":"https://avatars0.githubusercontent.com/u/82592?s=200&v=4",
+      "name":"LeakCanary",
+      "author":"square",
+      "desc":"A memory leak detection library for Android and Java.",
+      "link":"https://github.com/square/leakcanary",
+      "license":"Apache-2.0"
+    },
+    {
+      "thumb":"https://avatars2.githubusercontent.com/u/1342004?s=200&v=4",
+      "name":"FlexboxLayout",
+      "author":"google",
+      "desc":"Flexbox for Android",
+      "link":"https://github.com/google/flexbox-layout",
+      "license":"Apache-2.0"
+    }
+  ]
+}

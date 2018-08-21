@@ -22,23 +22,19 @@ import javax.inject.Inject;
 @ActivityScoped
 public class OpenAPISFragment extends BaseFragment<LayoutRefreshBinding, OpenAPISViewModel> {
 
-    @Inject
     OpenAPISAdapter mAdapter;
 
     @Inject
     public OpenAPISFragment() {}
 
     @Override
-    public void onBinding(LayoutRefreshBinding binding) {
-        super.onBinding(binding);
-        mAdapter.bindToRecyclerView(binding.list);
-        mAdapter.setEmptyView(R.layout.no_item_archived, binding.list);
-    }
-
-    @Override
     public void onObserveViewModel(OpenAPISViewModel viewModel) {
         super.onObserveViewModel(viewModel);
         binding.setRefreshViewModel(viewModel);
+        mAdapter = new OpenAPISAdapter(viewModel);
+        mAdapter.bindToRecyclerView(binding.list);
+        mAdapter.setEmptyView(R.layout.no_item_archived, binding.list);
+
         viewModel.getObservableThreeAPIS().observeData(this, new DataCallbackImp<List<ThreeAPIBean>>(binding.refresh) {
             @Override
             public void success(List<ThreeAPIBean> bean) {
@@ -52,6 +48,6 @@ public class OpenAPISFragment extends BaseFragment<LayoutRefreshBinding, OpenAPI
             }
         });
 
-        viewModel.mClickEvent.observe(this, linkBean -> ReadActivity.launch(OpenAPISFragment.this, linkBean.getName(), linkBean.getUrl()));
+        viewModel.mClickChildEvent.observe(this, linkBean -> ReadActivity.launch(OpenAPISFragment.this, linkBean.getName(), linkBean.getUrl()));
     }
 }

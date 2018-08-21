@@ -21,11 +21,12 @@ import android.arch.lifecycle.ViewModelProvider;
 
 import com.xujiaji.mvvmquick.viewmodel.ProjectViewModelFactory;
 import com.xujiaji.wanandroid.module.login.LoginViewModel;
+import com.xujiaji.wanandroid.module.main.fragment.boxes.MainBoxesViewModel;
 import com.xujiaji.wanandroid.module.main.fragment.openapis.OpenAPISViewModel;
 import com.xujiaji.wanandroid.module.main.fragment.post_tree.PostTreeViewModel;
 import com.xujiaji.wanandroid.module.main.fragment.posts.MainBlogPostsViewModel;
 import com.xujiaji.wanandroid.module.main.fragment.projects.MainProjectsViewModel;
-import com.xujiaji.wanandroid.module.main.fragment.boxes.MainBoxesViewModel;
+import com.xujiaji.wanandroid.module.main.fragment.web_nav.WebNavViewModel;
 import com.xujiaji.wanandroid.module.read.ReadViewModel;
 
 import java.util.HashMap;
@@ -61,6 +62,7 @@ public abstract class AppModule {
 
         creators.put(OpenAPISViewModel.class, vmsc::viewModelOpenAPIS);
         creators.put(PostTreeViewModel.class, vmsc::viewModelPostTree);
+        creators.put(WebNavViewModel.class, vmsc::viewModelWebNav);
         return creators;
     }
 

@@ -60,4 +60,7 @@
     <string name="copy_link">复制链接</string>
     <string name="copied">已复制</string>
     <string name="copy_fail">复制失败</string>
+    <string name="web_navigation">WEB NAVIGATION</string>
+    <string name="title_start_">『</string>
+    <string name="title_end_">』</string>
 </resources>

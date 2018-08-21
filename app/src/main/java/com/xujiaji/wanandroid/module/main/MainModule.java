@@ -34,6 +34,7 @@ import com.xujiaji.wanandroid.module.main.fragment.openapis.OpenAPISFragment;
 import com.xujiaji.wanandroid.module.main.fragment.post_tree.PostTreeFragment;
 import com.xujiaji.wanandroid.module.main.fragment.posts.MainBlogPostsFragment;
 import com.xujiaji.wanandroid.module.main.fragment.projects.MainProjectsFragment;
+import com.xujiaji.wanandroid.module.main.fragment.web_nav.WebNavFragment;
 import com.youth.banner.Banner;
 
 import java.util.List;
@@ -101,13 +102,22 @@ public abstract class MainModule {
     }
 
     @ActivityScoped
+    @Named("WebNav")
+    @Provides
+    public static FragmentModel provideWebNavModel(MainActivity context, WebNavFragment webNavFragment) {
+        return new FragmentModel(context.getString(R.string.web_navigation), webNavFragment);
+    }
+
+    @ActivityScoped
     @Provides
     public static List<FragmentModel> provideHomeFragModels(
             @Named("Post") FragmentModel postModel,
             @Named("Project") FragmentModel projectModel,
             @Named("Box") FragmentModel toolModel,
             @Named("OPENAPIS") FragmentModel apiModel,
-            @Named("PostTree") FragmentModel postTreeModel) {
+            @Named("PostTree") FragmentModel postTreeModel,
+            @Named("WebNav") FragmentModel webNavMovel
+    ) {
 
         return Stream.of(
                 postModel,
@@ -115,7 +125,9 @@ public abstract class MainModule {
                 toolModel,
 
                 apiModel,
-                postTreeModel).toList();
+                postTreeModel,
+                webNavMovel
+        ).toList();
     }
 
     @FragmentScoped
@@ -145,6 +157,10 @@ public abstract class MainModule {
     @FragmentScoped
     @ContributesAndroidInjector
     abstract PostTreeFragment contributePostTreeFragment();
+
+    @FragmentScoped
+    @ContributesAndroidInjector
+    abstract WebNavFragment contributeWebNavFragment();
 
     @Provides
     static Banner provideBanner(MainActivity activity) {

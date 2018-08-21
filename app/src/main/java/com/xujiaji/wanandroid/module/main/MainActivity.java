@@ -59,6 +59,10 @@ public class MainActivity extends BaseActivity<ActivityMainBinding, MQViewModel>
     FragmentModel mPostTreeModel;
 
     @Inject
+    @Named("WebNav")
+    FragmentModel mWebNavModel;
+
+    @Inject
     List<FragmentModel> mHomeFragModels;
 
 
@@ -176,6 +180,9 @@ public class MainActivity extends BaseActivity<ActivityMainBinding, MQViewModel>
                 break;
             case R.id.navigation_knowledge_system:
                 showFrag(mPostTreeModel);
+                break;
+            case R.id.navigation_navigation:
+                showFrag(mWebNavModel);
                 break;
         }
     }

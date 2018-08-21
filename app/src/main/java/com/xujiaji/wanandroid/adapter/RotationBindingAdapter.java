@@ -11,6 +11,7 @@ import android.view.View;
 public class RotationBindingAdapter {
     @BindingAdapter("bind:rotationAnim")
     public static void rotationAnim(View view, int rotation) {
+        if (view.getRotation() == rotation) return;
         view.animate().setDuration(400).rotation(rotation).start();
     }
 }

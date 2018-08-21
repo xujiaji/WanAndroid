@@ -1,0 +1,12 @@
+{
+  "errorCode":0,
+  "errorMsg":"",
+  "data":{
+    "version_name":"1.0.0",
+    "version_code":1,
+    "update_info":"更新信息",
+    "file_size":"5M",
+    "constraint":0,
+    "apk_url":"https://github.com/xujiaji/HappyBubble/releases/download/v1.1.4-demoApk/app-debug.apk"
+  }
+}

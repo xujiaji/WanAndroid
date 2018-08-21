@@ -24,16 +24,16 @@
             android:id="@+id/title_section"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@{threeAPIBean.name}"
+            android:text="@{@string/title_start_ + threeAPIBean.name + @string/title_end_}"
             android:textAppearance="@style/TextAppearance.AppCompat.Subhead"
-            android:textColor="@color/textSecondary"
-            android:textStyle="bold" />
+            android:textColor="@color/textPrimary" />
 
         <ImageView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:src="@drawable/ic_arrow_drop"
             android:layout_gravity="end"
+            android:rotation="90"
             bind:rotationAnim="@{threeAPIBean.isExpanded() ? 0 : 90 }"
             android:tint="@color/colorAccent"/>
     </FrameLayout>

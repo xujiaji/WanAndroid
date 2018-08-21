@@ -7,6 +7,7 @@ import com.xujiaji.wanandroid.repository.bean.PageBean;
 import com.xujiaji.wanandroid.repository.bean.Result;
 import com.xujiaji.wanandroid.repository.bean.TreeBean;
 import com.xujiaji.wanandroid.repository.bean.UserBean;
+import com.xujiaji.wanandroid.repository.bean.WebNavBean;
 
 import java.util.List;
 
@@ -86,4 +87,10 @@ public interface API {
      */
     @GET("tree/json")
     Call<Result<List<TreeBean>>> getPostTree();
+
+    /**
+     * 网站导航
+     */
+    @GET("navi/json")
+    Call<Result<List<WebNavBean>>> getWebNavs();
 }

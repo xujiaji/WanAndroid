@@ -17,6 +17,7 @@ import com.xujiaji.wanandroid.repository.bean.Result;
 import com.xujiaji.wanandroid.repository.bean.ThreeAPIBean;
 import com.xujiaji.wanandroid.repository.bean.TreeBean;
 import com.xujiaji.wanandroid.repository.bean.UserBean;
+import com.xujiaji.wanandroid.repository.bean.WebNavBean;
 
 import java.lang.reflect.Type;
 import java.util.List;
@@ -136,4 +137,7 @@ public class Net {
         return handle(mApi.getPostTree());
     }
 
+    public MutableLiveData<Result<List<WebNavBean>>> getWebNavs() {
+        return handle(mApi.getWebNavs());
+    }
 }
