@@ -26,6 +26,7 @@ import com.xujiaji.wanandroid.helper.ToastHelper;
 import com.xujiaji.wanandroid.helper.ToolbarHelper;
 import com.xujiaji.wanandroid.model.FragmentModel;
 import com.xujiaji.wanandroid.module.login.LoginActivity;
+import com.xujiaji.wanandroid.module.set.SettingsActivity;
 import com.xujiaji.wanandroid.repository.bean.UserBean;
 
 import java.util.List;
@@ -61,6 +62,14 @@ public class MainActivity extends BaseActivity<ActivityMainBinding, MQViewModel>
     @Inject
     @Named("WebNav")
     FragmentModel mWebNavModel;
+
+    @Inject
+    @Named("ProjectCategory")
+    FragmentModel mProjectCategoryModel;
+
+    @Inject
+    @Named("FriendLink")
+    FragmentModel mFriendLinkModel;
 
     @Inject
     List<FragmentModel> mHomeFragModels;
@@ -160,13 +169,14 @@ public class MainActivity extends BaseActivity<ActivityMainBinding, MQViewModel>
         onBackPressed();
         switch (id) {
             case R.id.navigation_set:
-                ToastHelper.info("设置");
+                SettingsActivity.launch(this);
                 return;
             case R.id.navigation_about:
                 ToastHelper.info("关于");
                 return;
             case R.id.navigation_home:
                 if (binding.navigation.getMenu().size() != 3) { //当前不为首页时，注意首页底部导航数量不为3时，必须修改这个值
+                    binding.fab.setVisibility(View.VISIBLE);
                     showFrag(mBlogModel);
                     BottomNavigationHelper.showHome(binding.navigation);
                 }
@@ -174,6 +184,7 @@ public class MainActivity extends BaseActivity<ActivityMainBinding, MQViewModel>
         }
 
         BottomNavigationHelper.onlyShow(binding.navigation, id);
+        binding.fab.setVisibility(View.GONE);
         switch (id) {
             case R.id.navigation_open_apis:
                 showFrag(mOpenAPIModel);
@@ -183,6 +194,12 @@ public class MainActivity extends BaseActivity<ActivityMainBinding, MQViewModel>
                 break;
             case R.id.navigation_navigation:
                 showFrag(mWebNavModel);
+                break;
+            case R.id.navigation_project_category:
+                showFrag(mProjectCategoryModel);
+                break;
+            case R.id.navigation_friend_links:
+                showFrag(mFriendLinkModel);
                 break;
         }
     }

@@ -2,7 +2,9 @@ package com.xujiaji.wanandroid.helper;
 
 import android.support.v7.app.ActionBar;
 import android.support.v7.widget.Toolbar;
+import android.view.View;
 import android.view.ViewGroup;
+import android.widget.LinearLayout;
 
 import com.xujiaji.mvvmquick.util.ScreenUtils;
 import com.xujiaji.wanandroid.base.BaseActivity;
@@ -18,6 +20,14 @@ public class ToolbarHelper {
     public static void initTranslucent(BaseActivity activity) {
         StatusBarUtil.setTranslucentStatus(activity);
         StatusBarUtil.setLightMode(activity);
+    }
+
+    public static void initMarginTopDiffBar(View view) {
+        ViewGroup.LayoutParams params = view.getLayoutParams();
+        if (params instanceof LinearLayout.LayoutParams) {
+            ((LinearLayout.LayoutParams) params).topMargin = ScreenUtils.getStatusHeight(view.getContext());
+        }
+        view.setLayoutParams(params);
     }
 
     public static void initFullBar(Toolbar toolbar, BaseActivity activity) {

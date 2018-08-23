@@ -30,9 +30,11 @@ import com.xujiaji.wanandroid.model.FragmentModel;
 import com.xujiaji.wanandroid.module.main.fragment.AccountDrawerFragment;
 import com.xujiaji.wanandroid.module.main.fragment.MenuDrawerFragment;
 import com.xujiaji.wanandroid.module.main.fragment.boxes.MainBoxesFragment;
+import com.xujiaji.wanandroid.module.main.fragment.friend_link.FriendLinkFragment;
 import com.xujiaji.wanandroid.module.main.fragment.openapis.OpenAPISFragment;
 import com.xujiaji.wanandroid.module.main.fragment.post_tree.PostTreeFragment;
 import com.xujiaji.wanandroid.module.main.fragment.posts.MainBlogPostsFragment;
+import com.xujiaji.wanandroid.module.main.fragment.project_category.ProjectCategoryFragment;
 import com.xujiaji.wanandroid.module.main.fragment.projects.MainProjectsFragment;
 import com.xujiaji.wanandroid.module.main.fragment.web_nav.WebNavFragment;
 import com.youth.banner.Banner;
@@ -109,6 +111,20 @@ public abstract class MainModule {
     }
 
     @ActivityScoped
+    @Named("ProjectCategory")
+    @Provides
+    public static FragmentModel provideProjectCategoryModel(MainActivity context, ProjectCategoryFragment projectCategoryFragment) {
+        return new FragmentModel(context.getString(R.string.en_big_project_category), projectCategoryFragment);
+    }
+
+    @ActivityScoped
+    @Named("FriendLink")
+    @Provides
+    public static FragmentModel provideFriendLinkModel(MainActivity context, FriendLinkFragment friendLinkFragment) {
+        return new FragmentModel(context.getString(R.string.en_big_friend_link), friendLinkFragment);
+    }
+
+    @ActivityScoped
     @Provides
     public static List<FragmentModel> provideHomeFragModels(
             @Named("Post") FragmentModel postModel,
@@ -116,7 +132,9 @@ public abstract class MainModule {
             @Named("Box") FragmentModel toolModel,
             @Named("OPENAPIS") FragmentModel apiModel,
             @Named("PostTree") FragmentModel postTreeModel,
-            @Named("WebNav") FragmentModel webNavMovel
+            @Named("WebNav") FragmentModel webNavModel,
+            @Named("ProjectCategory") FragmentModel projectCategoryModel,
+            @Named("FriendLink") FragmentModel friendLinkModel
     ) {
 
         return Stream.of(
@@ -126,7 +144,9 @@ public abstract class MainModule {
 
                 apiModel,
                 postTreeModel,
-                webNavMovel
+                webNavModel,
+                projectCategoryModel,
+                friendLinkModel
         ).toList();
     }
 
@@ -161,6 +181,14 @@ public abstract class MainModule {
     @FragmentScoped
     @ContributesAndroidInjector
     abstract WebNavFragment contributeWebNavFragment();
+
+    @FragmentScoped
+    @ContributesAndroidInjector
+    abstract ProjectCategoryFragment contributeProjectCategoryFragment();
+
+    @FragmentScoped
+    @ContributesAndroidInjector
+    abstract FriendLinkFragment contributeFriendLinkFragment();
 
     @Provides
     static Banner provideBanner(MainActivity activity) {

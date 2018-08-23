@@ -38,7 +38,7 @@
 
 
                 <ImageView
-                    android:id="@+id/btnBack"
+                    android:id="@id/btnBack"
                     android:layout_width="48dp"
                     android:layout_height="48dp"
                     android:background="@drawable/ripple_white_small"

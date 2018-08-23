@@ -63,4 +63,10 @@
     <string name="web_navigation">WEB NAVIGATION</string>
     <string name="title_start_">『</string>
     <string name="title_end_">』</string>
+    <string name="en_big_project_category">PROJECT CATEGORY</string>
+    <string name="en_big_friend_link">FRIEND LINK</string>
+    <string name="settings">SETTINGS</string>
+    <string name="pic_cache">图片缓存</string>
+    <string name="plugin_clean">插件清理</string>
+
 </resources>

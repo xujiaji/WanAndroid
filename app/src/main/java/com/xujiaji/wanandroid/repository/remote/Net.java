@@ -140,4 +140,8 @@ public class Net {
     public MutableLiveData<Result<List<WebNavBean>>> getWebNavs() {
         return handle(mApi.getWebNavs());
     }
+
+    public MutableLiveData<Result<List<TreeBean>>> getProjectTree() {
+        return handle(mApi.getProjectTree());
+    }
 }

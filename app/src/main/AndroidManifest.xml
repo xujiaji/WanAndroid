@@ -6,15 +6,14 @@
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
-    <uses-permission android:name="android.permission.CHANGE_WIFI_STATE"/>
-
+    <uses-permission android:name="android.permission.CHANGE_WIFI_STATE" />
     <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
     <uses-permission android:name="android.permission.ACCESS_LOCATION_EXTRA_COMMANDS" />
     <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
     <!-- Needed only if your app targets Android 5.0 (API level 21) or higher. -->
     <uses-feature android:name="android.hardware.location.gps" />
-    <uses-permission android:name= "android.permission.READ_PHONE_STATE"/>
+
 
     <application
         android:name=".base.App"
@@ -33,10 +32,13 @@
         </activity>
         <activity android:name=".module.read.ReadActivity" />
         <activity android:name=".module.login.LoginActivity" />
+        <activity android:name=".module.set.SettingsActivity" />
 
         <service android:name="com.qihoo360.replugin.sdk.log.LogService" />
         <service android:name="com.liulishuo.filedownloader.services.FileDownloadService$SharedMainProcessService" />
-        <service android:name="com.liulishuo.filedownloader.services.FileDownloadService$SeparateProcessService" android:process=":filedownloader" />
+        <service
+            android:name="com.liulishuo.filedownloader.services.FileDownloadService$SeparateProcessService"
+            android:process=":filedownloader" />
     </application>
 
 </manifest>

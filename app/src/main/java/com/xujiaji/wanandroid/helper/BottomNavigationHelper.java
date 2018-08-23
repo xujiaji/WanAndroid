@@ -35,9 +35,9 @@ public class BottomNavigationHelper {
 
     static {
         // 首页Menu
-        map.put(R.id.navigation_blog_post       , new Menu(R.id.navigation_blog_post       , R.string.blog_post,        5, R.drawable.ic_home_blog_post));
-        map.put(R.id.navigation_project         , new Menu(R.id.navigation_project         , R.string.project,          5, R.drawable.ic_home_project));
-        map.put(R.id.navigation_box            , new Menu(R.id.navigation_box            , R.string.box,             5, R.drawable.ic_home_box));
+        map.put(R.id.navigation_blog_post      , new Menu(R.id.navigation_blog_post        , R.string.blog_post,        5, R.drawable.ic_home_blog_post));
+        map.put(R.id.navigation_project        , new Menu(R.id.navigation_project          , R.string.project,          5, R.drawable.ic_home_project));
+        map.put(R.id.navigation_box            , new Menu(R.id.navigation_box              , R.string.box,             5, R.drawable.ic_home_box));
 
         //其他Menu
         map.put(R.id.navigation_knowledge_system, new Menu(R.id.navigation_knowledge_system, R.string.system,           5, R.drawable.ic_nav_system));

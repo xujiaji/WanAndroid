@@ -93,4 +93,10 @@ public interface API {
      */
     @GET("navi/json")
     Call<Result<List<WebNavBean>>> getWebNavs();
+
+    /**
+     * 项目分类列表
+     */
+    @GET("project/tree/json")
+    Call<Result<List<TreeBean>>> getProjectTree();
 }

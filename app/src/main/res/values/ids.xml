@@ -8,4 +8,5 @@
     <item name="navigation_open_apis" type="id"/>
     <item name="navigation_set" type="id"/>
     <item name="navigation_about" type="id"/>
+    <item name="btnBack" type="id" />
 </resources>
