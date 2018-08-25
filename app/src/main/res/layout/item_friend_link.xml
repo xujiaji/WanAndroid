@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:bind="http://schemas.android.com/apk/res-auto">
+
+    <data>
+        <variable
+            name="callback"
+            type="com.xujiaji.mvvmquick.callback.GeneralClickCallback"/>
+
+        <variable
+            name="friendLinkBean"
+            type="com.xujiaji.wanandroid.repository.bean.FriendLinkBean"/>
+
+    </data>
+
+    <android.support.constraint.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/item_bg_line"
+        android:layout_marginStart="2dp"
+        android:layout_marginEnd="2dp"
+        android:foreground="?attr/selectableItemBackground"
+        android:onClick="@{() ->  callback.onClick(friendLinkBean)}">
+
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            bind:itemUrl="@{friendLinkBean.thumb}"
+            android:scaleType="centerCrop"
+            app:layout_constraintDimensionRatio="338:118"/>
+
+        <TextView
+            android:id="@+id/title"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:text="@{friendLinkBean.title}"
+            android:textSize="18sp"
+            android:textColor="@color/colorAccent"
+            android:gravity="center"
+            android:lines="2"
+            android:ellipsize="end"
+            app:layout_constraintDimensionRatio="338:118"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+
+    </android.support.constraint.ConstraintLayout>
+</layout>

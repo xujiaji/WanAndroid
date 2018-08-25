@@ -68,5 +68,6 @@
     <string name="settings">SETTINGS</string>
     <string name="pic_cache">图片缓存</string>
     <string name="plugin_clean">插件清理</string>
+    <string name="search">搜索</string>
 
 </resources>

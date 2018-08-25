@@ -18,6 +18,7 @@ package com.xujiaji.wanandroid.di;
 
 import com.xujiaji.wanandroid.module.login.LoginViewModel;
 import com.xujiaji.wanandroid.module.main.fragment.boxes.MainBoxesViewModel;
+import com.xujiaji.wanandroid.module.main.fragment.friend_link.FriendLinkViewModel;
 import com.xujiaji.wanandroid.module.main.fragment.openapis.OpenAPISViewModel;
 import com.xujiaji.wanandroid.module.main.fragment.post_tree.PostTreeViewModel;
 import com.xujiaji.wanandroid.module.main.fragment.posts.MainBlogPostsViewModel;
@@ -50,4 +51,5 @@ public interface ViewModelSubComponent
     Lazy<OpenAPISViewModel> viewModelOpenAPIS();
     Lazy<PostTreeViewModel> viewModelPostTree();
     Lazy<WebNavViewModel> viewModelWebNav();
+    Lazy<FriendLinkViewModel> viewModelFriendLink();
 }

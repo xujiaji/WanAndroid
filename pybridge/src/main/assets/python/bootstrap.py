@@ -6,6 +6,7 @@
 
 import json
 import html_to_json
+import parser_links
 
 
 def router(args):
@@ -49,9 +50,13 @@ def mul(args):
 def parserAPISPage(args):
     return html_to_json.parserAPISPage(args['data'])
 
+def parserLinks(args):
+    return parser_links.parserFriendLinks(args['data'])
+
 routes = {
     'greet': greet,
     'add': add,
     'mul': mul,
-    'parserAPISPage': parserAPISPage
+    'parserAPISPage': parserAPISPage,
+    'parserLinks': parserLinks
 }

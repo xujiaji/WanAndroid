@@ -30,16 +30,14 @@ public class PyManager {
         return instance;
     }
 
-    public String parserOPENAPISHtml(String data) {
-
-
+    private String handle(String data, String funName) {
         // Start the Python interpreter
         PyBridge.start(pythonPath);
 
         // Call a Python function
         try {
             JSONObject json = new JSONObject();
-            json.put("function", "parserAPISPage");
+            json.put("function", funName);
             json.put("data", data);
 
             JSONObject result = PyBridge.call(json);
@@ -55,5 +53,13 @@ public class PyManager {
             // Stop the interpreter
             PyBridge.stop();
         }
+    }
+
+    public String parserOPENAPISHtml(String data) {
+        return handle(data, "parserAPISPage");
+    }
+
+    public String parserFriendLinks(String data) {
+        return handle(data, "parserLinks");
     }
 }

@@ -99,4 +99,10 @@ public interface API {
      */
     @GET("project/tree/json")
     Call<Result<List<TreeBean>>> getProjectTree();
+
+    /**
+     * 获取友链html页面
+     */
+    @GET("ulink")
+    Call<String> getFriendLinks();
 }

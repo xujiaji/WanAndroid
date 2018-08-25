@@ -9,6 +9,7 @@ import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.widget.Toolbar;
 import android.view.Gravity;
+import android.view.Menu;
 import android.view.View;
 import android.widget.TextView;
 
@@ -124,6 +125,12 @@ public class MainActivity extends BaseActivity<ActivityMainBinding, MQViewModel>
         App.Login.event().observe(this, this::changeAccount);
     }
 
+    @Override public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.search_menu, menu);
+        return super.onCreateOptionsMenu(menu);
+    }
+
+
     @Override
     public void onBinding(ActivityMainBinding binding) {
         super.onBinding(binding);
@@ -177,6 +184,7 @@ public class MainActivity extends BaseActivity<ActivityMainBinding, MQViewModel>
             case R.id.navigation_home:
                 if (binding.navigation.getMenu().size() != 3) { //当前不为首页时，注意首页底部导航数量不为3时，必须修改这个值
                     binding.fab.setVisibility(View.VISIBLE);
+                    binding.includeBar.toolbar.getMenu().findItem(R.id.search).setVisible(true);
                     showFrag(mBlogModel);
                     BottomNavigationHelper.showHome(binding.navigation);
                 }
@@ -185,6 +193,7 @@ public class MainActivity extends BaseActivity<ActivityMainBinding, MQViewModel>
 
         BottomNavigationHelper.onlyShow(binding.navigation, id);
         binding.fab.setVisibility(View.GONE);
+        binding.includeBar.toolbar.getMenu().findItem(R.id.search).setVisible(false);
         switch (id) {
             case R.id.navigation_open_apis:
                 showFrag(mOpenAPIModel);
