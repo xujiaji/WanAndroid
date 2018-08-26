@@ -77,8 +77,11 @@
                         <option name="values">
                           <map>
                             <entry key="assetSourceType" value="FILE" />
-                            <entry key="outputName" value="ic_link" />
-                            <entry key="sourceFile" value="C:\Users\jiaji\Downloads\link.svg" />
+                            <entry key="height" value="612" />
+                            <entry key="outputName" value="ic_cloud_off" />
+                            <entry key="overrideSize" value="true" />
+                            <entry key="sourceFile" value="C:\Users\jiaji\Downloads\cloud-off.svg" />
+                            <entry key="width" value="612" />
                           </map>
                         </option>
                       </PersistentState>

@@ -34,7 +34,7 @@ public class MainProjectsFragment extends BaseFragment<LayoutRefreshBinding, Mai
     public void onObserveViewModel(MainProjectsViewModel viewModel) {
         super.onObserveViewModel(viewModel);
         binding.setRefreshViewModel(viewModel);
-        viewModel.getObservableProjects().observe(this, RefreshLoadHelper.listener(this, mAdapter, binding.refresh, viewModel));
+        viewModel.getObservableProjects().observe(this, RefreshLoadHelper.listener(this, binding.list, mAdapter, binding.refresh, viewModel));
         viewModel.mClickEvent.observe(this, blogPostBean -> ReadActivity.launch(this, blogPostBean));
     }
 

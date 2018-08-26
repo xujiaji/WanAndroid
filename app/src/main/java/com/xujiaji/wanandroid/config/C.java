@@ -16,5 +16,16 @@ public class C {
      * NULL 数据
      */
     public static final int ERROR_NULL_DATA = -201;
+
+    /**
+     * 请检查网络
+     */
+    public static final int ERROR_CHECK_LOCAL_NETWORK = -202;
+
+    /**
+     * 连接超时
+     */
+    public static final int ERROR_CONNECT_OUT_TIME = -203;
+
 }
 

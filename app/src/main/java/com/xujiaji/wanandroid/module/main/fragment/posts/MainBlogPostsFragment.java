@@ -65,7 +65,7 @@ public class MainBlogPostsFragment extends BaseFragment<LayoutRefreshBinding, Ma
 
         });
 
-        viewModel.getObservableBlogPosts().observe(this, RefreshLoadHelper.listener(this, mAdapter, binding.refresh, viewModel));
+        viewModel.getObservableBlogPosts().observe(this, RefreshLoadHelper.listener(this, binding.list, mAdapter, binding.refresh, viewModel));
         viewModel.mClickEvent.observe(this, blogPostBean -> ReadActivity.launch(this, blogPostBean));
     }
 

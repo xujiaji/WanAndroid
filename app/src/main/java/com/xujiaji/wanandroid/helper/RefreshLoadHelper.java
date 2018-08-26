@@ -8,11 +8,12 @@ import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.widget.RecyclerView;
 
 import com.xujiaji.mvvmquick.base.MQQuickAdapter;
-import com.xujiaji.wanandroid.R;
 import com.xujiaji.wanandroid.RefreshLoadViewModel;
+import com.xujiaji.wanandroid.config.C;
 import com.xujiaji.wanandroid.model.RefreshLoadModel;
 import com.xujiaji.wanandroid.repository.bean.PageBean;
 import com.xujiaji.wanandroid.repository.bean.Result;
+import com.xujiaji.wanandroid.repository.remote.Net;
 
 /**
  * author: xujiaji
@@ -22,11 +23,11 @@ import com.xujiaji.wanandroid.repository.bean.Result;
 public class RefreshLoadHelper {
     public static void init(MQQuickAdapter adapter, RecyclerView list) {
         adapter.bindToRecyclerView(list, true);
-        adapter.setEmptyView(R.layout.no_item_archived, list);
+        EmptyViewHelper.initEmpty(list);
     }
 
 
-    public static  <T> Observer<RefreshLoadModel<MutableLiveData<Result<PageBean<T>>>>> listener(LifecycleOwner owner, MQQuickAdapter adapter, SwipeRefreshLayout refresh, RefreshLoadViewModel<T> viewModel) {
+    public static  <T> Observer<RefreshLoadModel<MutableLiveData<Result<PageBean<T>>>>> listener(LifecycleOwner owner, RecyclerView recyclerView, MQQuickAdapter adapter, SwipeRefreshLayout refresh, RefreshLoadViewModel<T> viewModel) {
         return new Observer<RefreshLoadModel<MutableLiveData<Result<PageBean<T>>>>>() {
             @Override
             public void onChanged(@Nullable RefreshLoadModel<MutableLiveData<Result<PageBean<T>>>> mutableLiveDataRefreshLoadModel) {
@@ -43,6 +44,7 @@ public class RefreshLoadHelper {
                     public void onChanged(@Nullable Result<PageBean<T>> pageBeanResult) {
                         refresh.setEnabled(true);
                         refresh.setRefreshing(false);
+
                         if (pageBeanResult == null && adapter.isLoading()) {
                             adapter.loadMoreFail();
                         } else {
@@ -50,7 +52,11 @@ public class RefreshLoadHelper {
                             adapter.loadMoreComplete();
                         }
 
-                        if (pageBeanResult == null) return;
+                        if (pageBeanResult == null) {
+                            EmptyViewHelper.setErrEmpty(recyclerView, null);
+                            return;
+                        }
+
                         if (mutableLiveDataRefreshLoadModel.isRefresh) {
                             viewModel.getList().clear();
                         } else {

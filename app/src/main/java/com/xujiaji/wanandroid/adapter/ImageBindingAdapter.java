@@ -45,10 +45,19 @@ public class ImageBindingAdapter {
                 .load(url)
                 .into(imageView);
     }
-//
-//    @BindingAdapter("app:url")
-//    public static void setAvatarImage(AvatarLayout avatarLayout, String url) {
-//
-//    }
+
+    @BindingAdapter("bind:itemUrlNoOptions")
+    public static void setImage2(ImageView imageView, String url) {
+        if (TextUtils.isEmpty(url)) {
+            imageView.setVisibility(View.INVISIBLE);
+            return;
+        } else {
+            imageView.setVisibility(View.VISIBLE);
+        }
+
+        Glide.with(imageView)
+                .load(url)
+                .into(imageView);
+    }
 }
 

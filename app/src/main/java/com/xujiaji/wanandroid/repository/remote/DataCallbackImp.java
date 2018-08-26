@@ -1,7 +1,10 @@
 package com.xujiaji.wanandroid.repository.remote;
 
 import android.support.v4.widget.SwipeRefreshLayout;
+import android.support.v7.widget.RecyclerView;
 
+import com.xujiaji.mvvmquick.util.LogUtil;
+import com.xujiaji.wanandroid.helper.EmptyViewHelper;
 import com.xujiaji.wanandroid.helper.ToastHelper;
 
 import java.lang.ref.WeakReference;
@@ -22,8 +25,8 @@ public abstract class DataCallbackImp<T> implements DataCallback<T> {
         this.isToastErr = isToastErr;
     }
 
-    public
-    DataCallbackImp(SwipeRefreshLayout refreshLayout) {
+
+    public DataCallbackImp(SwipeRefreshLayout refreshLayout) {
         this.refreshLayout = new WeakReference<>(refreshLayout);
     }
 
@@ -38,6 +41,15 @@ public abstract class DataCallbackImp<T> implements DataCallback<T> {
     public void fail(int code, String msg) {
         if (isToastErr && msg != null) {
             ToastHelper.error(msg);
+        }
+
+        if (refreshLayout != null && refreshLayout.get() != null) {
+            for (int i = 0; i < refreshLayout.get().getChildCount(); i++) {
+                if (!(refreshLayout.get().getChildAt(i) instanceof RecyclerView)) continue;
+                RecyclerView recyclerView = (RecyclerView) refreshLayout.get().getChildAt(i);
+                EmptyViewHelper.setErrEmpty(recyclerView, msg);
+                return;
+            }
         }
     }
 }

@@ -42,7 +42,7 @@ public class NetLiveEvent<T> extends MutableLiveData<MutableLiveData<Result<T>>>
                             return;
                         }
 
-                        if (tResult.getErrorCode() == Net.OK) {
+                        if (tResult.getErrorCode() == Net.ZERO) {
                             if (tResult.getData() == null && !dataNullable) {
                                 callback.fail(C.ERROR_NULL_DATA, null);
                             } else {

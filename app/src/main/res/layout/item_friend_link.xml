@@ -26,7 +26,7 @@
         <ImageView
             android:layout_width="match_parent"
             android:layout_height="0dp"
-            bind:itemUrl="@{friendLinkBean.thumb}"
+            bind:itemUrlNoOptions="@{friendLinkBean.thumb}"
             android:scaleType="centerCrop"
             app:layout_constraintDimensionRatio="338:118"/>
 

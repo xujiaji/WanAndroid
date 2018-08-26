@@ -6,6 +6,7 @@ import com.xujiaji.mvvmquick.di.ActivityScoped;
 import com.xujiaji.wanandroid.R;
 import com.xujiaji.wanandroid.base.BaseFragment;
 import com.xujiaji.wanandroid.databinding.LayoutRefreshBinding;
+import com.xujiaji.wanandroid.helper.EmptyViewHelper;
 import com.xujiaji.wanandroid.module.main.fragment.openapis.OpenAPISAdapter;
 import com.xujiaji.wanandroid.module.read.ReadActivity;
 import com.xujiaji.wanandroid.repository.bean.ThreeAPIBean;
@@ -42,7 +43,7 @@ public class WebNavFragment extends BaseFragment<LayoutRefreshBinding, WebNavVie
         binding.setRefreshViewModel(viewModel);
         mAdapter = new OpenAPISAdapter(viewModel);
         mAdapter.bindToRecyclerView(binding.list);
-        mAdapter.setEmptyView(R.layout.no_item_archived, binding.list);
+        EmptyViewHelper.initEmpty(binding.list);
 
         viewModel.getObservableWebNavs().observeData(this, new DataCallbackImp<List<WebNavBean>>(binding.refresh) {
             @Override

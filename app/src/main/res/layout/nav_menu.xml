@@ -16,6 +16,7 @@
         app:itemTextColor="@color/search_tab_highlighter">
 
         <LinearLayout
+            android:id="@+id/navDown"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="100dp"

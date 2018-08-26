@@ -2,9 +2,9 @@ package com.xujiaji.wanandroid.module.main.fragment.openapis;
 
 import com.chad.library.adapter.base.entity.MultiItemEntity;
 import com.xujiaji.mvvmquick.di.ActivityScoped;
-import com.xujiaji.wanandroid.R;
 import com.xujiaji.wanandroid.base.BaseFragment;
 import com.xujiaji.wanandroid.databinding.LayoutRefreshBinding;
+import com.xujiaji.wanandroid.helper.EmptyViewHelper;
 import com.xujiaji.wanandroid.module.read.ReadActivity;
 import com.xujiaji.wanandroid.repository.bean.ThreeAPIBean;
 import com.xujiaji.wanandroid.repository.remote.DataCallbackImp;
@@ -33,7 +33,7 @@ public class OpenAPISFragment extends BaseFragment<LayoutRefreshBinding, OpenAPI
         binding.setRefreshViewModel(viewModel);
         mAdapter = new OpenAPISAdapter(viewModel);
         mAdapter.bindToRecyclerView(binding.list);
-        mAdapter.setEmptyView(R.layout.no_item_archived, binding.list);
+        EmptyViewHelper.initEmpty(binding.list);
 
         viewModel.getObservableThreeAPIS().observeData(this, new DataCallbackImp<List<ThreeAPIBean>>(binding.refresh) {
             @Override

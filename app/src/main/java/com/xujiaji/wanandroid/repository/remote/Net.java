@@ -39,7 +39,7 @@ public class Net {
     /**
      * request result ok
      */
-    public static final int OK = 0;
+    public static final int ZERO = 0;
 
     public static final String SAVE_USER_LOGIN_KEY = "user/login";
     public static final String SAVE_USER_REGISTER_KEY = "user/register";

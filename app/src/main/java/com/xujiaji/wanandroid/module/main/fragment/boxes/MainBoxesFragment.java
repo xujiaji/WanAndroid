@@ -9,6 +9,7 @@ import com.xujiaji.wanandroid.BuildConfig;
 import com.xujiaji.wanandroid.R;
 import com.xujiaji.wanandroid.base.BaseFragment;
 import com.xujiaji.wanandroid.databinding.LayoutRefreshBinding;
+import com.xujiaji.wanandroid.helper.EmptyViewHelper;
 import com.xujiaji.wanandroid.helper.PrefHelper;
 import com.xujiaji.wanandroid.module.read.ReadActivity;
 import com.xujiaji.wanandroid.repository.bean.BoxBean;
@@ -36,7 +37,7 @@ public class MainBoxesFragment extends BaseFragment<LayoutRefreshBinding, MainBo
     public void onBinding(LayoutRefreshBinding binding) {
         super.onBinding(binding);
         mAdapter.bindToRecyclerView(binding.list);
-        mAdapter.setEmptyView(R.layout.no_item_archived, binding.list);
+        EmptyViewHelper.initEmpty(binding.list);
         final View addOwnProjectView;
         mAdapter.addFooterView(addOwnProjectView = LayoutInflater.from(getActivity()).inflate(R.layout.layout_add_own_project, null));
         mAdapter.openLoadAnimation();

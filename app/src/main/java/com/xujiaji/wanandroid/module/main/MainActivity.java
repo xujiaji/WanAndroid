@@ -134,6 +134,7 @@ public class MainActivity extends BaseActivity<ActivityMainBinding, MQViewModel>
     @Override
     public void onBinding(ActivityMainBinding binding) {
         super.onBinding(binding);
+        ToolbarHelper.initPaddingTopDiffBar(binding.navMenu.extrasNav);
         ToolbarHelper.initFullBar(binding.includeBar.toolbar, this);
         initDrawer(binding.drawer, binding.includeBar.toolbar);
         binding.navigation.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener);
