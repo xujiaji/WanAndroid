@@ -22,6 +22,7 @@ import com.xujiaji.wanandroid.module.main.fragment.friend_link.FriendLinkViewMod
 import com.xujiaji.wanandroid.module.main.fragment.openapis.OpenAPISViewModel;
 import com.xujiaji.wanandroid.module.main.fragment.post_tree.PostTreeViewModel;
 import com.xujiaji.wanandroid.module.main.fragment.posts.MainBlogPostsViewModel;
+import com.xujiaji.wanandroid.module.main.fragment.project_category.ProjectCategoryViewModel;
 import com.xujiaji.wanandroid.module.main.fragment.projects.MainProjectsViewModel;
 import com.xujiaji.wanandroid.module.main.fragment.web_nav.WebNavViewModel;
 import com.xujiaji.wanandroid.module.read.ReadViewModel;
@@ -52,4 +53,5 @@ public interface ViewModelSubComponent
     Lazy<PostTreeViewModel> viewModelPostTree();
     Lazy<WebNavViewModel> viewModelWebNav();
     Lazy<FriendLinkViewModel> viewModelFriendLink();
+    Lazy<ProjectCategoryViewModel> viewModelProjectCategory();
 }

@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+        <variable
+            name="callback"
+            type="com.xujiaji.mvvmquick.callback.GeneralClickCallback"/>
+
+        <variable
+            name="projectTree"
+            type="com.xujiaji.wanandroid.repository.bean.TreeBean"/>
+
+    </data>
+
+    <android.support.constraint.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="80dp"
+        android:background="@drawable/item_bg_line"
+        android:foreground="?attr/selectableItemBackground"
+        android:onClick="@{() ->  callback.onClick(projectTree)}">
+
+        <TextView
+            android:id="@+id/title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@{projectTree.name}"
+            android:textAppearance="@style/TextAppearance.AppCompat.Subhead"
+            android:textColor="@color/textPrimary"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"/>
+
+    </android.support.constraint.ConstraintLayout>
+</layout>
