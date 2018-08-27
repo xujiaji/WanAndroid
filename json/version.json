@@ -6,7 +6,7 @@
     "version_code":1,
     "update_info":"更新信息",
     "file_size":"5M",
-    "constraint":0,
+    "constraint":false,
     "apk_url":"https://github.com/xujiaji/HappyBubble/releases/download/v1.1.4-demoApk/app-debug.apk"
   }
 }
