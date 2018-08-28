@@ -33,6 +33,7 @@
         <activity android:name=".module.read.ReadActivity" />
         <activity android:name=".module.login.LoginActivity" />
         <activity android:name=".module.set.SettingsActivity" />
+        <activity android:name=".module.like.LikeActivity" />
 
         <service android:name="com.qihoo360.replugin.sdk.log.LogService" />
         <service android:name="com.liulishuo.filedownloader.services.FileDownloadService$SharedMainProcessService" />

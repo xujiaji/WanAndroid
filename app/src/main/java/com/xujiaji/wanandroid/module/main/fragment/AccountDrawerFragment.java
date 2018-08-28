@@ -12,6 +12,7 @@ import com.xujiaji.wanandroid.base.BaseFragment;
 import com.xujiaji.wanandroid.databinding.DrawerFragmentAccountBinding;
 import com.xujiaji.wanandroid.helper.PrefHelper;
 import com.xujiaji.wanandroid.helper.ToastHelper;
+import com.xujiaji.wanandroid.module.like.LikeActivity;
 import com.xujiaji.wanandroid.module.login.LoginActivity;
 import com.xujiaji.wanandroid.module.main.MainActivity;
 import com.xujiaji.wanandroid.repository.bean.UserBean;
@@ -54,6 +55,9 @@ public class AccountDrawerFragment extends BaseFragment<DrawerFragmentAccountBin
                 break;
             case R.id.login:
                 LoginActivity.launch(getActivity());
+                break;
+            case R.id.heart:
+                LikeActivity.launch(getActivity());
                 break;
             default:
                 ToastHelper.info("敬请期待！");

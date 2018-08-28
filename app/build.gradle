@@ -25,6 +25,7 @@ android {
         buildConfigField "String", "BASE_URL", "$baseUrl"
         buildConfigField "String", "PLUGINS_URL", "$pluginsUrl"
         buildConfigField "String", "ADD_OWN_PLUGIN", "$addOwnPlugin"
+        buildConfigField "String", "UPDATE_VERSION_URL", "$versionUrl"
     }
     buildTypes {
         release {

@@ -96,7 +96,7 @@
             android:id="@+id/tag1"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@{String.format(@string/chapter, blogPost.chapterName)}"
+            android:text="@{String.format((TextUtils.isEmpty(blogPost.chapterName) || TextUtils.isEmpty(blogPost.superChapterName) ? @string/chapter_one_or_none : @string/chapter), blogPost.chapterName)}"
             android:textColor="@color/textSecondary"
             android:textSize="@dimen/secondary_size"
             android:layout_marginEnd="@dimen/layout_margin"

@@ -20,6 +20,7 @@ import android.arch.lifecycle.ViewModel;
 import android.arch.lifecycle.ViewModelProvider;
 
 import com.xujiaji.mvvmquick.viewmodel.ProjectViewModelFactory;
+import com.xujiaji.wanandroid.module.like.LikeViewModel;
 import com.xujiaji.wanandroid.module.login.LoginViewModel;
 import com.xujiaji.wanandroid.module.main.fragment.boxes.MainBoxesViewModel;
 import com.xujiaji.wanandroid.module.main.fragment.friend_link.FriendLinkViewModel;
@@ -67,6 +68,7 @@ public abstract class AppModule {
         creators.put(WebNavViewModel.class, vmsc::viewModelWebNav);
         creators.put(FriendLinkViewModel.class, vmsc::viewModelFriendLink);
         creators.put(ProjectCategoryViewModel.class, vmsc::viewModelProjectCategory);
+        creators.put(LikeViewModel.class, vmsc::viewModelLikeViewModel);
         return creators;
     }
 

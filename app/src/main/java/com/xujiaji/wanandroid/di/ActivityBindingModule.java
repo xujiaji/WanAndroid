@@ -18,6 +18,7 @@ package com.xujiaji.wanandroid.di;
 
 
 import com.xujiaji.mvvmquick.di.ActivityScoped;
+import com.xujiaji.wanandroid.module.like.LikeActivity;
 import com.xujiaji.wanandroid.module.login.LoginActivity;
 import com.xujiaji.wanandroid.module.login.LoginModule;
 import com.xujiaji.wanandroid.module.main.MainActivity;
@@ -52,4 +53,8 @@ public abstract class ActivityBindingModule
     @ActivityScoped
     @ContributesAndroidInjector
     abstract SettingsActivity contributeSettingsActivity();
+
+    @ActivityScoped
+    @ContributesAndroidInjector
+    abstract LikeActivity contributeLikeActivity();
 }

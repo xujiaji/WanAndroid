@@ -57,12 +57,12 @@ public class RefreshLoadHelper {
                             return;
                         }
 
+                        if (pageBeanResult.getData().isOver()) {
+                            adapter.setLoaded();
+                        }
+
                         if (mutableLiveDataRefreshLoadModel.isRefresh) {
                             viewModel.getList().clear();
-                        } else {
-                            if (pageBeanResult.getData().isOver()) {
-                                adapter.setLoaded();
-                            }
                         }
                         viewModel.getList().addAll(pageBeanResult.getData().getDatas());
                     }

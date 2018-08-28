@@ -32,6 +32,7 @@ task clean(type: Delete) {
 ext{
     baseUrl          = '"http://www.wanandroid.com/"'
     pluginsUrl       = '"https://raw.githubusercontent.com/xujiaji/WanAndroid/master/json/plugin_list.json"'
+    versionUrl       = '"https://raw.githubusercontent.com/xujiaji/WanAndroid/master/json/version.json"'
     addOwnPlugin     = '"https://github.com/xujiaji/WanAndroid/issues/1"'
 
     compileSdk       = 27

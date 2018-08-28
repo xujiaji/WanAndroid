@@ -71,6 +71,12 @@ public interface API {
     Call<Result<String>> postUncollect(@Path("id") int id);
 
     /**
+     * 收藏
+     */
+    @GET("lg/collect/list/{num}/json")
+    Call<Result<PageBean<BlogPostBean>>> getCollects(@Path("num") int num);
+
+    /**
      * 公开的API
      */
     @GET("openapis")

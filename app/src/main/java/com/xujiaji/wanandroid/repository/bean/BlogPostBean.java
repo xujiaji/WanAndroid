@@ -60,6 +60,8 @@ public class BlogPostBean implements Parcelable {
     private String niceDate;
     @SerializedName("origin")
     private String origin;
+    @SerializedName("originId")
+    private int originId;
     @SerializedName("projectLink")
     private String projectLink;
     @SerializedName("publishTime")
@@ -184,6 +186,14 @@ public class BlogPostBean implements Parcelable {
 
     public void setNiceDate(String niceDate) {
         this.niceDate = niceDate;
+    }
+
+    public int getOriginId() {
+        return originId;
+    }
+
+    public void setOriginId(int originId) {
+        this.originId = originId;
     }
 
     public String getOrigin() {
@@ -356,6 +366,7 @@ public class BlogPostBean implements Parcelable {
         dest.writeString(this.link);
         dest.writeString(this.niceDate);
         dest.writeString(this.origin);
+        dest.writeInt(this.originId);
         dest.writeString(this.projectLink);
         dest.writeLong(this.publishTime);
         dest.writeInt(this.superChapterId);
@@ -383,6 +394,7 @@ public class BlogPostBean implements Parcelable {
         this.link = in.readString();
         this.niceDate = in.readString();
         this.origin = in.readString();
+        this.originId = in.readInt();
         this.projectLink = in.readString();
         this.publishTime = in.readLong();
         this.superChapterId = in.readInt();

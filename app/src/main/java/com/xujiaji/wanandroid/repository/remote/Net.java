@@ -124,6 +124,10 @@ public class Net {
         return handle(mApi.postUncollect(id));
     }
 
+    public MutableLiveData<Result<PageBean<BlogPostBean>>> getCollects(int num) {
+        return handle(mApi.getCollects(num));
+    }
+
     public MutableLiveData<Result<List<ThreeAPIBean>>> getThreeAPIBean() {
         return handle(mApi.getOpenAPIS(),
                 data -> PyManager.getInstance(App.getInstance()).parserOPENAPISHtml(data),

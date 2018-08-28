@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <android.support.design.widget.CoordinatorLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <include
+            android:id="@+id/includeBar"
+            layout="@layout/appbar" />
+
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            app:layout_behavior="@string/appbar_scrolling_view_behavior" >
+            <include
+                android:id="@+id/layoutRefresh"
+                layout="@layout/layout_refresh" />
+        </FrameLayout>
+
+        <android.support.design.widget.FloatingActionButton
+            android:id="@+id/fab"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom|end"
+            android:layout_margin="@dimen/fab_margin"
+            android:clickable="true"
+            app:fabSize="normal"
+            android:focusable="true"
+            app:rippleColor="@color/colorPrimaryDark"
+            app:srcCompat="@drawable/ic_add"
+            app:layout_behavior="com.xujiaji.wanandroid.behavior.FABScrollBehavior"/>
+
+    </android.support.design.widget.CoordinatorLayout>
+</layout>

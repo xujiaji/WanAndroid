@@ -1,5 +1,6 @@
 package com.xujiaji.wanandroid.module.read;
 
+import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
@@ -50,6 +51,12 @@ public class ReadActivity extends BaseActivity<ActivityReadBinding, ReadViewMode
         Intent intent = new Intent(fragment.getContext(), ReadActivity.class);
         intent.putExtra(BlogPostBean.class.getSimpleName(), postBean);
         fragment.startActivityForResult(intent, ACTIVITY_REQUEST_CODE);
+    }
+
+    public static void launch(Activity activity, BlogPostBean postBean) {
+        Intent intent = new Intent(activity, ReadActivity.class);
+        intent.putExtra(BlogPostBean.class.getSimpleName(), postBean);
+        activity.startActivityForResult(intent, ACTIVITY_REQUEST_CODE);
     }
 
     @Override
@@ -168,7 +175,8 @@ public class ReadActivity extends BaseActivity<ActivityReadBinding, ReadViewMode
         onBackPressed();
         if (mPostBean == null) return;
         if (mPostBean.isCollect()) {
-            viewModel.postObservableUncollect(mPostBean.getId()).observeData(this, true, new DataCallbackImp<String>() {
+            // mPostBean.getOriginId() == 0   如果是收藏页面进来的就有origin id
+            viewModel.postObservableUncollect(mPostBean.getOriginId() == 0 ? mPostBean.getId() : mPostBean.getOriginId()).observeData(this, true, new DataCallbackImp<String>() {
                 @Override
                 public void success(String bean) {
                     mPostBean.setCollect(false);
@@ -177,7 +185,7 @@ public class ReadActivity extends BaseActivity<ActivityReadBinding, ReadViewMode
                 }
             });
         } else {
-            viewModel.postObservableCollect(mPostBean.getId()).observeData(this, true, new DataCallbackImp<String>() {
+            viewModel.postObservableCollect(mPostBean.getOriginId() == 0 ? mPostBean.getId() : mPostBean.getOriginId()).observeData(this, true, new DataCallbackImp<String>() {
                 @Override
                 public void success(String bean) {
                     mPostBean.setCollect(true);
