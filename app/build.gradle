@@ -88,4 +88,7 @@ dependencies {
     implementation "com.google.android:flexbox:$flexbox"
 
     implementation 'com.qianwen:update-app:3.5.2'
+
+    implementation 'com.umeng.sdk:common:1.5.3'
+    implementation 'com.umeng.sdk:analytics:7.5.3'
 }

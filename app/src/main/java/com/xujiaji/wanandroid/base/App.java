@@ -12,6 +12,8 @@ import com.qihoo360.replugin.sdk.HostEventCallbacks;
 import com.qihoo360.replugin.sdk.PluginConfig;
 import com.qihoo360.replugin.sdk.PluginManager;
 import com.squareup.leakcanary.LeakCanary;
+import com.umeng.analytics.MobclickAgent;
+import com.umeng.commonsdk.UMConfigure;
 import com.xujiaji.mvvmquick.base.MQApp;
 import com.xujiaji.mvvmquick.lifecycle.SingleLiveEvent;
 import com.xujiaji.wanandroid.BuildConfig;
@@ -44,9 +46,17 @@ public class App extends MQApp {
         initRePlugin();
         initLeakCanary();
         Login.isOK = PrefHelper.isExist(Net.SAVE_USER_LOGIN_KEY);
+        initUM();
         Toasty.Config.getInstance()
                 .setInfoColor(ContextCompat.getColor(this, R.color.colorAccent))
                 .apply();
+    }
+
+    private void initUM() {
+        UMConfigure.init(this, "5b856739b27b0a10be000064", null, UMConfigure.DEVICE_TYPE_PHONE, null);
+        UMConfigure.setLogEnabled(BuildConfig.DEBUG);
+        MobclickAgent.setScenarioType(this, MobclickAgent.EScenarioType.E_UM_NORMAL);
+
     }
 
     private void initLeakCanary() {
