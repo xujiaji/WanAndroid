@@ -66,7 +66,7 @@
                                 <PersistentState>
                                   <option name="values">
                                     <map>
-                                      <entry key="url" value="jar:file:/D:/Program%20Files/Android/Android%20Studio/plugins/android/lib/android.jar!/images/material_design_icons/content/ic_add_black_24dp.xml" />
+                                      <entry key="url" value="jar:file:/D:/Program%20Files/Android/Android%20Studio/plugins/android/lib/android.jar!/images/material_design_icons/hardware/ic_keyboard_arrow_right_black_24dp.xml" />
                                     </map>
                                   </option>
                                 </PersistentState>
@@ -76,12 +76,9 @@
                         </option>
                         <option name="values">
                           <map>
-                            <entry key="assetSourceType" value="FILE" />
-                            <entry key="height" value="612" />
-                            <entry key="outputName" value="ic_cloud_off" />
+                            <entry key="outputName" value="ic_keyboard_arrow_right_black_24dp" />
                             <entry key="overrideSize" value="true" />
                             <entry key="sourceFile" value="C:\Users\jiaji\Downloads\cloud-off.svg" />
-                            <entry key="width" value="612" />
                           </map>
                         </option>
                       </PersistentState>

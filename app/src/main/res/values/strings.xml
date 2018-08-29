@@ -71,5 +71,20 @@
     <string name="plugin_clean">插件清理</string>
     <string name="search">搜索</string>
     <string name="collect_post">收藏的文章</string>
+    <string name="about_text">
+        　　该项目作为个人总结性的项目，随着个人成长后期会不断更新。\n\n
+        　　项目希望做到界面简洁大方，代码简洁易用。项目肯定有冗余的代码和BUG。\n
+        　　· 有什么建议或BUG，提出Issues\n
+        　　· 如果能帮忙改一下优化一下，Fork项目\n
+        　　· 觉得不错，给个★小星星哦！(〃\'▽\'〃) \n\n
+        　　项目主要是以学习为目的，有些比较夸张的不要介意！比如说加入的Python，只是用来解析网页数据。。。\n
+        　　加入了Kotlin环境，但是目前没有用 \n\n
+        　　项目主要框架结构：\n
+        　　MVVM + Dagger2 + DataBinding + Lifecycle + OkHttp + Retrofit2 \n
+
+        \n\n 开源地址：\n https://github.com/xujiaji/WanAndroid
+
+        \n\n WanAndroid API：\n http://www.wanandroid.com
+    </string>
 
 </resources>

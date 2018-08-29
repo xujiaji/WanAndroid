@@ -10,6 +10,7 @@ import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.widget.Toolbar;
 import android.view.Gravity;
 import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.TextView;
 
@@ -26,6 +27,7 @@ import com.xujiaji.wanandroid.helper.PrefHelper;
 import com.xujiaji.wanandroid.helper.ToastHelper;
 import com.xujiaji.wanandroid.helper.ToolbarHelper;
 import com.xujiaji.wanandroid.model.FragmentModel;
+import com.xujiaji.wanandroid.module.about.AboutActivity;
 import com.xujiaji.wanandroid.module.login.LoginActivity;
 import com.xujiaji.wanandroid.module.set.SettingsActivity;
 import com.xujiaji.wanandroid.repository.bean.UserBean;
@@ -125,11 +127,20 @@ public class MainActivity extends BaseActivity<ActivityMainBinding, MQViewModel>
         App.Login.event().observe(this, this::changeAccount);
     }
 
-    @Override public boolean onCreateOptionsMenu(Menu menu) {
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
         getMenuInflater().inflate(R.menu.search_menu, menu);
         return super.onCreateOptionsMenu(menu);
     }
 
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        if (item.getItemId() == R.id.search) {
+            ToastHelper.info("敬请期待！");
+            return true;
+        }
+        return super.onOptionsItemSelected(item);
+    }
 
     @Override
     public void onBinding(ActivityMainBinding binding) {
@@ -180,7 +191,7 @@ public class MainActivity extends BaseActivity<ActivityMainBinding, MQViewModel>
                 SettingsActivity.launch(this);
                 return;
             case R.id.navigation_about:
-                ToastHelper.info("关于");
+                AboutActivity.launch(this);
                 return;
             case R.id.navigation_home:
                 if (binding.navigation.getMenu().size() != 3) { //当前不为首页时，注意首页底部导航数量不为3时，必须修改这个值
