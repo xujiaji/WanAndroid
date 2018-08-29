@@ -34,7 +34,7 @@ public class WebNavFragment extends BaseFragment<LayoutRefreshBinding, WebNavVie
     @Override
     public void onBinding(LayoutRefreshBinding binding) {
         super.onBinding(binding);
-
+        binding.setNoLine(true);
     }
 
     @Override

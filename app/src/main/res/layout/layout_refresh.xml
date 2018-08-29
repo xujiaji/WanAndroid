@@ -6,6 +6,10 @@
     <data>
 
         <variable
+            name="noLine"
+            type="boolean"/>
+
+        <variable
             name="refreshViewModel"
             type="com.xujiaji.wanandroid.base.BaseRefreshViewModel" />
     </data>
@@ -24,6 +28,7 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             bind:items="@{refreshViewModel.items}"
+            bind:hideLine="@{noLine}"
             app:layoutManager="android.support.v7.widget.LinearLayoutManager" />
 
     </android.support.v4.widget.SwipeRefreshLayout>

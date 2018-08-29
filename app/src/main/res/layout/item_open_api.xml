@@ -18,7 +18,6 @@
         android:layout_width="match_parent"
         android:layout_height="48dp"
         android:onClick="@{() -> callback.onClick(linkBean)}"
-        android:background="@drawable/item_bg_line"
         android:foreground="?attr/selectableItemBackground">
 
         <TextView

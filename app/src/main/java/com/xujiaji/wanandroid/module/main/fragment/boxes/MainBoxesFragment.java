@@ -36,6 +36,7 @@ public class MainBoxesFragment extends BaseFragment<LayoutRefreshBinding, MainBo
     @Override
     public void onBinding(LayoutRefreshBinding binding) {
         super.onBinding(binding);
+        binding.setNoLine(true);
         mAdapter.bindToRecyclerView(binding.list);
         EmptyViewHelper.initEmpty(binding.list);
         final View addOwnProjectView;

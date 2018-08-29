@@ -17,12 +17,16 @@
 package com.xujiaji.mvvmquick.binding.adapter;
 
 import android.databinding.BindingAdapter;
+import android.support.v4.content.ContextCompat;
+import android.support.v7.widget.DividerItemDecoration;
 import android.support.v7.widget.RecyclerView;
 
 import com.chad.library.adapter.base.BaseQuickAdapter;
 import com.chad.library.adapter.base.BaseViewHolder;
+import com.xujiaji.mvvmquick.R;
 
 import java.util.List;
+import java.util.Objects;
 
 /**
  * author: xujiaji
@@ -36,6 +40,19 @@ public class ListItemsBindingAdapter {
         if (!(adapter instanceof BaseQuickAdapter)) return;
         BaseQuickAdapter<T, V> ad = (BaseQuickAdapter<T, V>) adapter;
         ad.setNewData(items);
+    }
+
+    @BindingAdapter("bind:hideLine")
+    public static void showLine(RecyclerView recyclerView, boolean hideLine) {
+        if (hideLine) {
+            if (recyclerView.getItemDecorationCount() > 0) {
+                recyclerView.removeItemDecorationAt(0);
+            }
+        } else {
+            DividerItemDecoration itemDecoration = new DividerItemDecoration(recyclerView.getContext(), DividerItemDecoration.VERTICAL);
+            itemDecoration.setDrawable(Objects.requireNonNull(ContextCompat.getDrawable(recyclerView.getContext(), R.drawable.shape_line)));
+            recyclerView.addItemDecoration(itemDecoration);
+        }
     }
 }
 

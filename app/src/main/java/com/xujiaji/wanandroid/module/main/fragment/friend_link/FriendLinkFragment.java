@@ -30,6 +30,12 @@ public class FriendLinkFragment extends BaseFragment<LayoutRefreshBinding, Frien
     public FriendLinkFragment() {}
 
     @Override
+    public void onBinding(LayoutRefreshBinding binding) {
+        super.onBinding(binding);
+        binding.setNoLine(true);
+    }
+
+    @Override
     public void onObserveViewModel(FriendLinkViewModel viewModel) {
         super.onObserveViewModel(viewModel);
         binding.setRefreshViewModel(viewModel);

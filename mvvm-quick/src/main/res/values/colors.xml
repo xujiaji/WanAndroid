@@ -16,7 +16,7 @@
   -->
 
 <resources>
-
+    <color name="dividerColor">#e9e9e9</color>
     <color name="overlay_dark_10">#1A000000</color>
     <color name="overlay_dark_20">#33000000</color>
     <color name="overlay_dark_30">#4D000000</color>

@@ -16,7 +16,6 @@
     <android.support.constraint.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="80dp"
-        android:background="@drawable/item_bg_line"
         android:foreground="?attr/selectableItemBackground"
         android:onClick="@{() ->  callback.onClick(projectTree)}">
 
