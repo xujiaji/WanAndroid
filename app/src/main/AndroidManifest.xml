@@ -23,18 +23,20 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme.NoActionBar">
-        <activity android:name=".module.main.MainActivity">
+        <activity android:name=".module.splash.SplashActivity" android:theme="@style/AppTheme.Splash">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity android:name=".module.main.MainActivity" />
         <activity android:name=".module.read.ReadActivity" />
         <activity android:name=".module.login.LoginActivity" />
         <activity android:name=".module.set.SettingsActivity" />
         <activity android:name=".module.like.LikeActivity" />
         <activity android:name=".module.about.AboutActivity" />
+
 
         <service android:name="com.qihoo360.replugin.sdk.log.LogService" />
         <service android:name="com.liulishuo.filedownloader.services.FileDownloadService$SharedMainProcessService" />
