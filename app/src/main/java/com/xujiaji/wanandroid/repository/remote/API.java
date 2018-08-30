@@ -3,6 +3,7 @@ package com.xujiaji.wanandroid.repository.remote;
 import com.xujiaji.wanandroid.repository.bean.BannerBean;
 import com.xujiaji.wanandroid.repository.bean.BlogPostBean;
 import com.xujiaji.wanandroid.repository.bean.BoxBean;
+import com.xujiaji.wanandroid.repository.bean.LicenseBean;
 import com.xujiaji.wanandroid.repository.bean.PageBean;
 import com.xujiaji.wanandroid.repository.bean.Result;
 import com.xujiaji.wanandroid.repository.bean.TreeBean;
@@ -111,4 +112,11 @@ public interface API {
      */
     @GET("ulink")
     Call<String> getFriendLinks();
+
+    /**
+     *  获取项目中使用的开源库信息
+     */
+    @GET
+    Call<Result<List<LicenseBean>>> getLicenses(@Url String url);
+
 }

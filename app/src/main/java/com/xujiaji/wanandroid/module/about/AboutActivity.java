@@ -8,6 +8,7 @@ import com.xujiaji.mvvmquick.base.NoneViewModel;
 import com.xujiaji.wanandroid.base.BaseActivity;
 import com.xujiaji.wanandroid.databinding.ActivityAboutBinding;
 import com.xujiaji.wanandroid.helper.ToolbarHelper;
+import com.xujiaji.wanandroid.module.license.LicenseActivity;
 
 /**
  * author: xujiaji
@@ -31,6 +32,7 @@ public class AboutActivity extends BaseActivity<ActivityAboutBinding, NoneViewMo
         super.onBinding(binding);
         ToolbarHelper.initMarginTopDiffBar(binding.btnBack);
         binding.btnBack.setOnClickListener(v -> finish());
+        binding.btnLookLibraries.setOnClickListener(v -> LicenseActivity.launch(AboutActivity.this));
     }
 
 }

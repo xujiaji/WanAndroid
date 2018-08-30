@@ -53,6 +53,14 @@ public class ReadActivity extends BaseActivity<ActivityReadBinding, ReadViewMode
         fragment.startActivityForResult(intent, ACTIVITY_REQUEST_CODE);
     }
 
+    public static void launch(Activity activity, String title, String link) {
+        BlogPostBean blogPostBean = new BlogPostBean();
+        blogPostBean.setTitle(title);
+        blogPostBean.setLink(link);
+        launch(activity, blogPostBean);
+    }
+
+
     public static void launch(Activity activity, BlogPostBean postBean) {
         Intent intent = new Intent(activity, ReadActivity.class);
         intent.putExtra(BlogPostBean.class.getSimpleName(), postBean);

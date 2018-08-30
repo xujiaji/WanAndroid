@@ -59,5 +59,14 @@ public class ImageBindingAdapter {
                 .load(url)
                 .into(imageView);
     }
+
+    @BindingAdapter("bind:itemHeadUrl")
+    public static void setImage3(ImageView imageView, String url) {
+        Glide.with(imageView.getContext())
+                .applyDefaultRequestOptions(PicConfig.headOptions)
+                .load(url)
+                .into(imageView);
+
+    }
 }
 

@@ -22,9 +22,10 @@ android {
 
         vectorDrawables.useSupportLibrary = true
 
-        buildConfigField "String", "BASE_URL", "$baseUrl"
-        buildConfigField "String", "PLUGINS_URL", "$pluginsUrl"
-        buildConfigField "String", "ADD_OWN_PLUGIN", "$addOwnPlugin"
+        buildConfigField "String",       "LICENSES_URL", "$licensesUrl"
+        buildConfigField "String",           "BASE_URL", "$baseUrl"
+        buildConfigField "String",        "PLUGINS_URL", "$pluginsUrl"
+        buildConfigField "String",     "ADD_OWN_PLUGIN", "$addOwnPlugin"
         buildConfigField "String", "UPDATE_VERSION_URL", "$versionUrl"
     }
     buildTypes {
@@ -87,8 +88,9 @@ dependencies {
 
     implementation "com.google.android:flexbox:$flexbox"
 
-    implementation 'com.qianwen:update-app:3.5.2'
+    implementation "com.qianwen:update-app:$updateApp"
 
-    implementation 'com.umeng.sdk:common:1.5.3'
-    implementation 'com.umeng.sdk:analytics:7.5.3'
+    // 友盟统计
+    implementation "com.umeng.sdk:common:$umengCommon"
+    implementation "com.umeng.sdk:analytics:$umengAnalytics"
 }

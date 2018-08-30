@@ -49,9 +49,10 @@
                 android:textColor="@color/textSecondary"/>
 
             <Button
+                android:id="@+id/btnLookLibraries"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="项目中使用的 Library"
+                android:text="@string/project_use_libraries"
                 style="@style/Base.Widget.AppCompat.ActionButton.CloseMode"
                 android:textStyle="bold"
                 android:drawableEnd="@drawable/ic_arrow_right"

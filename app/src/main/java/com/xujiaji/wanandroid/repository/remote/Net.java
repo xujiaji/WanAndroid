@@ -13,6 +13,7 @@ import com.xujiaji.wanandroid.repository.bean.BannerBean;
 import com.xujiaji.wanandroid.repository.bean.BlogPostBean;
 import com.xujiaji.wanandroid.repository.bean.BoxBean;
 import com.xujiaji.wanandroid.repository.bean.FriendLinkBean;
+import com.xujiaji.wanandroid.repository.bean.LicenseBean;
 import com.xujiaji.wanandroid.repository.bean.PageBean;
 import com.xujiaji.wanandroid.repository.bean.Result;
 import com.xujiaji.wanandroid.repository.bean.ThreeAPIBean;
@@ -154,5 +155,9 @@ public class Net {
         return handle(mApi.getFriendLinks(),
                 data -> PyManager.getInstance(App.getInstance()).parserFriendLinks(data),
                 new TypeToken<List<FriendLinkBean>>(){}.getType());
+    }
+
+    public MutableLiveData<Result<List<LicenseBean>>> getLicenses() {
+        return handle(mApi.getLicenses(BuildConfig.LICENSES_URL));
     }
 }

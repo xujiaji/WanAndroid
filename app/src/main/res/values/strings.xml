@@ -79,12 +79,14 @@
         　　· 觉得不错，给个★小星星哦！(〃\'▽\'〃) \n\n
         　　项目主要是以学习为目的，有些比较夸张的不要介意！比如说加入的Python，只是用来解析网页数据。。。\n
         　　加入了Kotlin环境，但是目前没有用 \n\n
-        　　项目主要框架结构：\n
+        项目主要框架结构：\n
         　　MVVM + Dagger2 + DataBinding + Lifecycle + OkHttp + Retrofit2 \n
 
         \n\n 开源地址：\n https://github.com/xujiaji/WanAndroid
 
         \n\n WanAndroid API：\n http://www.wanandroid.com
     </string>
+    <string name="opean_source_libraries">开源Libraries</string>
+    <string name="project_use_libraries">项目中使用的 Library</string>
 
 </resources>

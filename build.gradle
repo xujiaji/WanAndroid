@@ -33,6 +33,7 @@ ext{
     baseUrl          = '"http://www.wanandroid.com/"'
     pluginsUrl       = '"https://raw.githubusercontent.com/xujiaji/WanAndroid/master/json/plugin_list.json"'
     versionUrl       = '"https://raw.githubusercontent.com/xujiaji/WanAndroid/master/json/version.json"'
+    licensesUrl      = '"https://raw.githubusercontent.com/xujiaji/WanAndroid/master/json/licenses.json"'
     addOwnPlugin     = '"https://github.com/xujiaji/WanAndroid/issues/1"'
 
     compileSdk       = 27
@@ -57,4 +58,7 @@ ext{
     filedownloader   = '1.6.9'
     leakcanary       = '1.6.1'
     flexbox          = '1.0.0'
+    updateApp        = '3.5.2'
+    umengCommon      = '1.5.3'
+    umengAnalytics   = '7.5.3'
 }

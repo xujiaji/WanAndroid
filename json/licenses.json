@@ -30,7 +30,7 @@
       "thumb":"https://avatars0.githubusercontent.com/u/16447251?s=400&v=4",
       "name":"MVVMQuick",
       "author":"xujiaji",
-      "desc":"Quickly start projects with MVVMQuick!旨在快速以MVVM开始开发项目，其内集成了dagger2、okhttp3、retrofit、BaseRecyclerViewAdapterHelper、lifecycle等常用的框架和一些工具。",
+      "desc":"🚀Quickly start projects with MVVMQuick!旨在快速以MVVM开始开发项目，其内集成了dagger2、okhttp3、retrofit、BaseRecyclerViewAdapterHelper、lifecycle等常用的框架和一些工具。",
       "link":"https://github.com/xujiaji/MVVMQuick",
       "license":"Apache-2.0"
     },
@@ -120,6 +120,14 @@
       "author":"google",
       "desc":"Flexbox for Android",
       "link":"https://github.com/google/flexbox-layout",
+      "license":"Apache-2.0"
+    },
+    {
+      "thumb":"https://avatars1.githubusercontent.com/u/10682312?s=400&v=4",
+      "name":"AppUpdate",
+      "author":"WVector",
+      "desc":"🚀 Android 版本更新 🚀 a library for android version update 🚀",
+      "link":"https://github.com/WVector/AppUpdate",
       "license":"Apache-2.0"
     }
   ]
