@@ -15,7 +15,6 @@ import android.view.View;
 import android.widget.TextView;
 
 import com.google.gson.Gson;
-import com.xujiaji.mvvmquick.base.MQViewModel;
 import com.xujiaji.mvvmquick.util.ActivityUtils;
 import com.xujiaji.wanandroid.R;
 import com.xujiaji.wanandroid.adapter.FragmentsPagerAdapter;
@@ -33,11 +32,12 @@ import com.xujiaji.wanandroid.module.set.SettingsActivity;
 import com.xujiaji.wanandroid.repository.bean.UserBean;
 
 import java.util.List;
+import java.util.Objects;
 
 import javax.inject.Inject;
 import javax.inject.Named;
 
-public class MainActivity extends BaseActivity<ActivityMainBinding, MQViewModel> {
+public class MainActivity extends BaseActivity<ActivityMainBinding, MainViewModel> {
 
     @Inject
     FragmentsPagerAdapter mDrawerPagerAdapter;
@@ -223,6 +223,15 @@ public class MainActivity extends BaseActivity<ActivityMainBinding, MQViewModel>
                 showFrag(mFriendLinkModel);
                 break;
         }
+    }
+
+    @Override
+    public void onObserveViewModel(MainViewModel viewModel) {
+        super.onObserveViewModel(viewModel);
+        viewModel.getObservableVersionData().observe(this, versionBeanResult -> {
+            if (versionBeanResult == null) return;
+            viewModel.versionCheck(MainActivity.this, versionBeanResult.getData());
+        });
     }
 
     @Override

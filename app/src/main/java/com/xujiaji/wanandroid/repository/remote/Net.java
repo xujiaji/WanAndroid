@@ -19,6 +19,7 @@ import com.xujiaji.wanandroid.repository.bean.Result;
 import com.xujiaji.wanandroid.repository.bean.ThreeAPIBean;
 import com.xujiaji.wanandroid.repository.bean.TreeBean;
 import com.xujiaji.wanandroid.repository.bean.UserBean;
+import com.xujiaji.wanandroid.repository.bean.VersionBean;
 import com.xujiaji.wanandroid.repository.bean.WebNavBean;
 
 import java.lang.reflect.Type;
@@ -159,5 +160,9 @@ public class Net {
 
     public MutableLiveData<Result<List<LicenseBean>>> getLicenses() {
         return handle(mApi.getLicenses(BuildConfig.LICENSES_URL));
+    }
+
+    public MutableLiveData<Result<VersionBean>> getUpdateVersion() {
+        return handle(mApi.getUpdateVersion(BuildConfig.UPDATE_VERSION_URL));
     }
 }

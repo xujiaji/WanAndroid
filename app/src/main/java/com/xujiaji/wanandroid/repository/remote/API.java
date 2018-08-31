@@ -8,6 +8,7 @@ import com.xujiaji.wanandroid.repository.bean.PageBean;
 import com.xujiaji.wanandroid.repository.bean.Result;
 import com.xujiaji.wanandroid.repository.bean.TreeBean;
 import com.xujiaji.wanandroid.repository.bean.UserBean;
+import com.xujiaji.wanandroid.repository.bean.VersionBean;
 import com.xujiaji.wanandroid.repository.bean.WebNavBean;
 
 import java.util.List;
@@ -118,5 +119,11 @@ public interface API {
      */
     @GET
     Call<Result<List<LicenseBean>>> getLicenses(@Url String url);
+
+    /**
+     * 获取更新版本信息
+     */
+    @GET
+    Call<Result<VersionBean>> getUpdateVersion(@Url String url);
 
 }

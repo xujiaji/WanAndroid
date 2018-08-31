@@ -23,6 +23,7 @@ import com.xujiaji.mvvmquick.viewmodel.ProjectViewModelFactory;
 import com.xujiaji.wanandroid.module.license.LicenseViewModel;
 import com.xujiaji.wanandroid.module.like.LikeViewModel;
 import com.xujiaji.wanandroid.module.login.LoginViewModel;
+import com.xujiaji.wanandroid.module.main.MainViewModel;
 import com.xujiaji.wanandroid.module.main.fragment.boxes.MainBoxesViewModel;
 import com.xujiaji.wanandroid.module.main.fragment.friend_link.FriendLinkViewModel;
 import com.xujiaji.wanandroid.module.main.fragment.openapis.OpenAPISViewModel;
@@ -57,6 +58,9 @@ public abstract class AppModule {
     static Map<Class<?>, Callable<Lazy<? extends ViewModel>>> providesViewModel(ViewModelSubComponent.Builder viewModelSubComponent) {
         ViewModelSubComponent vmsc = viewModelSubComponent.build();
         Map<Class<?>, Callable<Lazy<? extends ViewModel>>> creators = new HashMap<>();
+
+        creators.put(MainViewModel.class, vmsc::viewModelMain);
+
         creators.put(MainBlogPostsViewModel.class, vmsc::viewModelMainBlogPosts);
         creators.put(MainProjectsViewModel.class, vmsc::viewModelMainProjects);
         creators.put(MainBoxesViewModel.class, vmsc::viewModelMainBoxes);
