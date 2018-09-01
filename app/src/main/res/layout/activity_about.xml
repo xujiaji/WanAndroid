@@ -1,7 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:bind="http://schemas.android.com/tools">
+
+    <data>
+        <import type="com.xujiaji.wanandroid.BuildConfig"/>
+    </data>
 
     <android.support.v4.widget.NestedScrollView
         android:layout_width="match_parent"
@@ -68,6 +71,26 @@
                 android:layout_gravity="center_horizontal"
                 android:layout_margin="32dp"
                 android:text="@string/about_text"/>
+
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="12sp"
+                android:textStyle="bold"
+                android:textColor="@color/textPrimary"
+                android:layout_marginBottom="8dp"
+                android:layout_marginStart="32dp"
+                android:text="@string/give_friend_download"/>
+
+            <ImageView
+                android:layout_gravity="center_horizontal"
+                android:layout_width="200dp"
+                android:layout_height="200dp"
+                android:scaleType="fitXY"
+                android:src="@mipmap/placeholder_item_pic"
+                android:layout_marginBottom="32dp"
+                bind:itemUrl="@{BuildConfig.DOWNLOAD_QR_URL}"/>
         </LinearLayout>
 
 

@@ -67,8 +67,8 @@
     <string name="en_big_project_category">PROJECT CATEGORY</string>
     <string name="en_big_friend_link">FRIEND LINK</string>
     <string name="settings">SETTINGS</string>
-    <string name="pic_cache">图片缓存</string>
-    <string name="plugin_clean">插件清理</string>
+    <string name="pic_cache">图片缓存：</string>
+    <string name="plugin_clean">插件清理：%s 个</string>
     <string name="search">搜索</string>
     <string name="collect_post">收藏的文章</string>
     <string name="about_text">
@@ -88,5 +88,6 @@
     </string>
     <string name="opean_source_libraries">开源Libraries</string>
     <string name="project_use_libraries">项目中使用的 Library</string>
+    <string name="give_friend_download"><![CDATA[分享给身边的好友扫描下载 >]]></string>
 
 </resources>

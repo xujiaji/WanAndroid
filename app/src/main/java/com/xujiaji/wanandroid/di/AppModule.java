@@ -33,6 +33,7 @@ import com.xujiaji.wanandroid.module.main.fragment.project_category.ProjectCateg
 import com.xujiaji.wanandroid.module.main.fragment.projects.MainProjectsViewModel;
 import com.xujiaji.wanandroid.module.main.fragment.web_nav.WebNavViewModel;
 import com.xujiaji.wanandroid.module.read.ReadViewModel;
+import com.xujiaji.wanandroid.module.set.SettingsViewModel;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -75,6 +76,7 @@ public abstract class AppModule {
         creators.put(ProjectCategoryViewModel.class, vmsc::viewModelProjectCategory);
         creators.put(LikeViewModel.class, vmsc::viewModelLike);
         creators.put(LicenseViewModel.class, vmsc::viewModelLicense);
+        creators.put(SettingsViewModel.class, vmsc::viewModelSettings);
         return creators;
     }
 

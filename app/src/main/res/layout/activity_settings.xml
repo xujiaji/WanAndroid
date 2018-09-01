@@ -2,6 +2,13 @@
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
+    <data>
+        <variable
+            name="settingsViewModel"
+            type="com.xujiaji.wanandroid.module.set.SettingsViewModel" />
+
+    </data>
+
     <android.support.v4.widget.NestedScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -52,6 +59,7 @@
                 android:clickable="true"
                 android:gravity="center_vertical"
                 android:minHeight="70dp"
+                android:onClick="@{settingsViewModel::cleanCache}"
                 android:orientation="horizontal"
                 android:paddingLeft="@dimen/spacing_large"
                 android:paddingRight="@dimen/spacing_large"
@@ -62,7 +70,7 @@
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:fontFamily="sans-serif-light"
-                    android:text="@string/pic_cache"
+                    android:text="@{@string/pic_cache + settingsViewModel.cacheSize}"
                     android:textAppearance="@style/TextAppearance.AppCompat.Medium"
                     android:textColor="@color/grey_80" />
 
@@ -89,6 +97,7 @@
                 android:clickable="true"
                 android:gravity="center_vertical"
                 android:minHeight="70dp"
+                android:onClick="@{settingsViewModel::cleanPlugin}"
                 android:orientation="horizontal"
                 android:paddingLeft="@dimen/spacing_large"
                 android:paddingRight="@dimen/spacing_large"
@@ -99,7 +108,7 @@
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:fontFamily="sans-serif-light"
-                    android:text="@string/plugin_clean"
+                    android:text="@{String.format(@string/plugin_clean, settingsViewModel.pluginNum)}"
                     android:textAppearance="@style/TextAppearance.AppCompat.Medium"
                     android:textColor="@color/grey_80" />
 

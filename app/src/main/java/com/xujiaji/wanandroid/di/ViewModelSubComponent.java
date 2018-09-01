@@ -29,6 +29,7 @@ import com.xujiaji.wanandroid.module.main.fragment.project_category.ProjectCateg
 import com.xujiaji.wanandroid.module.main.fragment.projects.MainProjectsViewModel;
 import com.xujiaji.wanandroid.module.main.fragment.web_nav.WebNavViewModel;
 import com.xujiaji.wanandroid.module.read.ReadViewModel;
+import com.xujiaji.wanandroid.module.set.SettingsViewModel;
 
 import dagger.Lazy;
 import dagger.Subcomponent;
@@ -60,4 +61,5 @@ public interface ViewModelSubComponent
     Lazy<ProjectCategoryViewModel> viewModelProjectCategory();
     Lazy<LikeViewModel> viewModelLike();
     Lazy<LicenseViewModel> viewModelLicense();
+    Lazy<SettingsViewModel> viewModelSettings();
 }

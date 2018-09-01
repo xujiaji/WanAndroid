@@ -1,1 +1,1 @@
-include ':app', ":mvvm-quick", ":banner", ":pybridge"
+include ':app', ":banner", ":pybridge"

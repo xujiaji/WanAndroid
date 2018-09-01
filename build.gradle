@@ -21,6 +21,9 @@ allprojects {
         google()
         jcenter()
         maven { url "https://jitpack.io" }
+        maven {
+            url  "https://dl.bintray.com/xujiaji/maven"
+        }
     }
 }
 
@@ -31,6 +34,7 @@ task clean(type: Delete) {
 
 ext{
     baseUrl          = '"http://www.wanandroid.com/"'
+    downloadQRUrl    = '"https://raw.githubusercontent.com/xujiaji/xujiaji.github.io/pictures/wanandroid/download_qr.png"'
     pluginsUrl       = '"https://raw.githubusercontent.com/xujiaji/WanAndroid/master/json/plugin_list.json"'
     versionUrl       = '"https://raw.githubusercontent.com/xujiaji/WanAndroid/master/json/version.json"'
     licensesUrl      = '"https://raw.githubusercontent.com/xujiaji/WanAndroid/master/json/licenses.json"'
@@ -47,7 +51,7 @@ ext{
     constraintLayout = '1.1.2'
     dagger           = '2.11'
     glide            = '4.7.1'
-    adapterHelper    = '2.9.40'
+    adapterHelper    = '2.9.41'
     constraintLayout = '1.1.2'
     roundProgressBar = '1.0.1'
     statusbarutil    = '1.5.1'
@@ -61,4 +65,6 @@ ext{
     updateApp        = '3.5.2'
     umengCommon      = '1.5.3'
     umengAnalytics   = '7.5.3'
+    mvvmQuick        = '0.0.2'
+    stream           = '1.1.9'
 }
