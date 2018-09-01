@@ -1,6 +1,9 @@
 [![Version](https://img.shields.io/badge/version-1.0-green.svg)]() [![License: GPL v3](https://img.shields.io/badge/License-GPL%20v3-blue.svg)](https://www.gnu.org/licenses/gpl-3.0)
 
+My New Library [MVVMQuick](https://github.com/xujiaji/MVVMQuick),🚀Quickly start projects with MVVMQuick!
+
 # WanAndroid
+
 
 ## Screenshots
 ||||
@@ -11,7 +14,7 @@
 |![](https://raw.githubusercontent.com/xujiaji/xujiaji.github.io/pictures/wanandroid/screen/j.png)|![](https://raw.githubusercontent.com/xujiaji/xujiaji.github.io/pictures/wanandroid/screen/k.png)|![](https://raw.githubusercontent.com/xujiaji/xujiaji.github.io/pictures/wanandroid/screen/l.png)|
 |![](https://raw.githubusercontent.com/xujiaji/xujiaji.github.io/pictures/wanandroid/screen/m.png)|![](https://raw.githubusercontent.com/xujiaji/xujiaji.github.io/pictures/wanandroid/screen/n.png)|![](https://raw.githubusercontent.com/xujiaji/xujiaji.github.io/pictures/wanandroid/screen/o.png)|
 |![](https://raw.githubusercontent.com/xujiaji/xujiaji.github.io/pictures/wanandroid/screen/p.png)|![](https://raw.githubusercontent.com/xujiaji/xujiaji.github.io/pictures/wanandroid/screen/q.png)|![](https://raw.githubusercontent.com/xujiaji/xujiaji.github.io/pictures/wanandroid/screen/r.png)|
-|![](https://raw.githubusercontent.com/xujiaji/xujiaji.github.io/pictures/wanandroid/screen/s.png)|||
+|![](https://raw.githubusercontent.com/xujiaji/xujiaji.github.io/pictures/wanandroid/screen/s.png)|![](https://raw.githubusercontent.com/xujiaji/xujiaji.github.io/pictures/wanandroid/screen/z.gif)||
 
 
 ## License
