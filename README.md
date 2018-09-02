@@ -1,6 +1,6 @@
 [![Version](https://img.shields.io/badge/version-1.0-green.svg)]() [![License: GPL v3](https://img.shields.io/badge/License-GPL%20v3-blue.svg)](https://www.gnu.org/licenses/gpl-3.0)
 
-> 目前功能还未完善，最近很忙啊！晚上2点早上8点的那种，这是时间夹缝挤出来的作品啊！更新功能加上了的，会慢慢完善的，感谢大家使用和宝贵建议。 Over！
+> 目前功能还未完善，最近很忙啊！晚上2点早上8点间睡觉觉的那种，这是时间夹缝挤出来的作品啊！更新功能加上了的，会慢慢完善的，感谢大家使用和宝贵建议。 Over！
 
 # WanAndroid
 1️⃣  所用API：[WanAndroid](http://www.wanandroid.com/)感谢鸿洋大佬才能有这个APP。没有提供的API地方通过Python进行网页解析成json数据，[或写在Github上的JSON数据](https://github.com/xujiaji/WanAndroid/tree/master/json)。
