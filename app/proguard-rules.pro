@@ -19,36 +19,6 @@
 # If you keep the line number information, uncomment this to
 # hide the original source file name.
 #-renamesourcefileattribute SourceFile
--keep class com.just.agentweb.** {
-    *;
-}
--dontwarn com.just.agentweb.**
-# banner 的混淆代码
--keep class com.youth.banner.** {
-    *;
- }
-
--keep class com.qihoo360.replugin.sdk.**{*;}
--keep class com.liulishuo.filedownloader.**{*;}
-
--keep class com.chad.library.adapter.** {
-*;
-}
--keep public class * extends com.chad.library.adapter.base.BaseQuickAdapter
--keep public class * extends com.chad.library.adapter.base.BaseViewHolder
--keepclassmembers  class **$** extends com.chad.library.adapter.base.BaseViewHolder {
-     <init>(...);
-}
-
--keep class com.umeng.** {*;}
--keepclassmembers class * {
-   public <init> (org.json.JSONObject);
-}
--keepclassmembers enum * {
-    public static **[] values();
-    public static ** valueOf(java.lang.String);
-}
-
 # copyright zhonghanwen
 #-------------------------------------------基本不用动区域--------------------------------------------
 #---------------------------------基本指令区----------------------------------
@@ -60,6 +30,7 @@
 -keepattributes Signature
 -keepattributes SourceFile,LineNumberTable
 #----------------------------------------------------------------------------
+
 
 #---------------------------------默认保留区---------------------------------
 #继承activity,application,service,broadcastReceiver,contentprovider....不进行混淆
@@ -125,6 +96,33 @@
 }
 
 #----------------------------------------------------------------------------
+
+-ignorewarnings
+
+-keep class * {
+    public private *;
+}
+
+-keep class com.just.agentweb.** {
+    *;
+}
+-dontwarn com.just.agentweb.**
+# banner 的混淆代码
+-keep class com.youth.banner.** {
+    *;
+ }
+
+-keep class com.qihoo360.replugin.sdk.**{*;}
+-keep class com.liulishuo.filedownloader.**{*;}
+
+-keep class com.chad.library.adapter.** {
+*;
+}
+-keep public class * extends com.chad.library.adapter.base.BaseQuickAdapter
+-keep public class * extends com.chad.library.adapter.base.BaseViewHolder
+-keepclassmembers  class **$** extends com.chad.library.adapter.base.BaseViewHolder {
+     <init>(...);
+}
 
 #---------------------------------webview------------------------------------
 -keepclassmembers class fqcn.of.javascript.interface.for.Webview {

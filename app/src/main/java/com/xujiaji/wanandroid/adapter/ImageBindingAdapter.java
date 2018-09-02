@@ -31,7 +31,7 @@ import com.xujiaji.wanandroid.config.PicConfig;
  */
 public class ImageBindingAdapter {
 
-    @BindingAdapter("bind:itemUrl")
+    @BindingAdapter("itemUrl")
     public static void setImage(ImageView imageView, String url) {
         if (TextUtils.isEmpty(url)) {
             imageView.setVisibility(View.GONE);
@@ -46,7 +46,7 @@ public class ImageBindingAdapter {
                 .into(imageView);
     }
 
-    @BindingAdapter("bind:itemUrlNoOptions")
+    @BindingAdapter("itemUrlNoOptions")
     public static void setImage2(ImageView imageView, String url) {
         if (TextUtils.isEmpty(url)) {
             imageView.setVisibility(View.INVISIBLE);
@@ -60,7 +60,7 @@ public class ImageBindingAdapter {
                 .into(imageView);
     }
 
-    @BindingAdapter("bind:itemHeadUrl")
+    @BindingAdapter("itemHeadUrl")
     public static void setImage3(ImageView imageView, String url) {
         Glide.with(imageView.getContext())
                 .applyDefaultRequestOptions(PicConfig.headOptions)

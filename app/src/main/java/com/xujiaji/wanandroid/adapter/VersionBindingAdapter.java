@@ -13,7 +13,7 @@ import com.xujiaji.wanandroid.base.App;
  */
 public class VersionBindingAdapter {
 
-    @BindingAdapter("bind:displayVersion")
+    @BindingAdapter("displayVersion")
     public static void displayVersion(TextView textView, boolean display) {
         if (!display) return;
         textView.setText(String.format("Version %s", VersionUtil.getVersionName(App.getInstance())));

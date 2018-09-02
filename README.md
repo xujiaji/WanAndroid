@@ -1,5 +1,7 @@
 [![Version](https://img.shields.io/badge/version-1.0-green.svg)]() [![License: GPL v3](https://img.shields.io/badge/License-GPL%20v3-blue.svg)](https://www.gnu.org/licenses/gpl-3.0)
 
+> 目前功能还未完善，最近很忙啊！晚上2点早上8点的那种，这是时间夹缝挤出来的作品啊！更新功能加上了的，会慢慢完善的，感谢大家使用和宝贵建议。 Over！
+
 # WanAndroid
 1️⃣  所用API：[WanAndroid](http://www.wanandroid.com/)感谢鸿洋大佬才能有这个APP。没有提供的API地方通过Python进行网页解析成json数据，[或写在Github上的JSON数据](https://github.com/xujiaji/WanAndroid/tree/master/json)。
 
@@ -14,6 +16,13 @@
 6️⃣  MVVM框架详情 [MVVMQuick](https://github.com/xujiaji/MVVMQuick),🚀Quickly start projects with MVVMQuick
 
 7️⃣  首页宝箱部分是通过360插件框架[RePlugin](https://github.com/Qihoo360/RePlugin)实现，目前可动态添加插件。希望加上自己的工具或Demo的朋友[可在此留下信息](https://github.com/xujiaji/WanAndroid/issues/1)
+
+## Download Apk
+[Download Link](https://github.com/xujiaji/WanAndroid/releases/download/v1.0/wanandroid.apk)
+
+OR
+
+![](https://raw.githubusercontent.com/xujiaji/xujiaji.github.io/pictures/wanandroid/download_qr.png)
 
 ## Screenshots
 ||||

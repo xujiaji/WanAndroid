@@ -22,7 +22,7 @@ import com.xujiaji.wanandroid.repository.bean.TreeBean;
  */
 public class FlexboxBindingAdapter {
 
-    @BindingAdapter(value = {"bind:fullFlexData", "bind:postTreeViewModel"})
+    @BindingAdapter(value = {"fullFlexData", "postTreeViewModel"})
     public static void fullFlexData(FlexboxLayout layout, TreeBean treeBean, PostTreeViewModel viewModel) {
         layout.removeAllViews();
         if (treeBean.getChildren() == null || treeBean.getChildren().size() == 0) return;
