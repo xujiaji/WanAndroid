@@ -3,6 +3,7 @@ package com.xujiaji.wanandroid.module.read;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
+import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.design.widget.AppBarLayout;
 import android.support.design.widget.CoordinatorLayout;
@@ -92,8 +93,7 @@ public class ReadActivity extends BaseActivity<ActivityReadBinding, ReadViewMode
     }
 
     @Override
-    public void onBinding(ActivityReadBinding binding) {
-        super.onBinding(binding);
+    public void onBinding(@NonNull ActivityReadBinding binding) {
         binding.includeBar.toolbar.setTitle(mPostBean.getTitle());
         ToolbarHelper.initFullBar(binding.includeBar.toolbar, this);
         FabPopLayoutHelper.initPopLayout(binding.fab, binding.backDrop, binding.layoutBrowse, binding.layoutLike, binding.layoutCopy);

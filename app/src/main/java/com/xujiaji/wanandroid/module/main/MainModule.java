@@ -16,6 +16,7 @@
 
 package com.xujiaji.wanandroid.module.main;
 
+import android.os.Bundle;
 import android.view.ViewGroup;
 
 import com.annimon.stream.Stream;
@@ -43,6 +44,7 @@ import java.util.List;
 
 import javax.inject.Named;
 
+import dagger.BindsOptionalOf;
 import dagger.Module;
 import dagger.Provides;
 import dagger.android.ContributesAndroidInjector;
@@ -71,6 +73,9 @@ public abstract class MainModule {
     @Provides
     public static FragmentModel provideBlogModel(MainActivity context,
                                                     MainBlogPostsFragment blogPostsFragment) {
+        Bundle bundle = new Bundle();
+        bundle.putInt(MainBlogPostsFragment.TYPE, MainBlogPostsFragment.TYPE_MAIN);
+        blogPostsFragment.setArguments(bundle);
         return new FragmentModel(context.getString(R.string.app_name), blogPostsFragment);
     }
 
@@ -189,6 +194,9 @@ public abstract class MainModule {
     @FragmentScoped
     @ContributesAndroidInjector
     abstract FriendLinkFragment contributeFriendLinkFragment();
+
+    @BindsOptionalOf
+    abstract Banner optionalBanner();
 
     @Provides
     static Banner provideBanner(MainActivity activity) {

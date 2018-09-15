@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:bind="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <import type="com.xujiaji.wanandroid.BuildConfig"/>
+
+        <variable
+            name="treeBean"
+            type="com.xujiaji.wanandroid.repository.bean.TreeBean" />
+
+        <variable
+            name="categoryDetailViewModel"
+            type="com.xujiaji.wanandroid.module.category_detail.CategoryDetailViewModel" />
+    </data>
+
+    <android.support.design.widget.CoordinatorLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <android.support.design.widget.AppBarLayout
+            android:id="@+id/appbar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/white">
+
+            <android.support.design.widget.CollapsingToolbarLayout
+                android:id="@+id/collapsing"
+                android:layout_width="match_parent"
+                android:layout_height="190dp"
+                android:fitsSystemWindows="true"
+                app:collapsedTitleGravity="center"
+                app:collapsedTitleTextAppearance="@style/collapsing_title_style_collapsed"
+                app:contentScrim="@color/white"
+                app:expandedTitleGravity="left|bottom"
+                app:expandedTitleMarginBottom="72dp"
+                app:expandedTitleMarginStart="92dp"
+                app:expandedTitleTextAppearance="@style/collapsing_title_style_expanded"
+                app:layout_scrollFlags="scroll|exitUntilCollapsed">
+
+                <ImageView
+                    android:id="@+id/blur"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:scaleType="centerCrop"
+                    bind:blurImage="@{String.format(BuildConfig.CATEGORY_THUMB, treeBean.id)}"/>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="@drawable/gradient_bottom_2_top" />
+
+                <cn.gavinliu.android.lib.shapedimageview.ShapedImageView
+                    android:id="@+id/imgHead"
+                    android:layout_width="60dp"
+                    android:layout_height="60dp"
+                    android:layout_gravity="bottom"
+                    android:layout_marginBottom="32dp"
+                    android:layout_marginLeft="16dp"
+                    android:layout_marginStart="16dp"
+                    android:fitsSystemWindows="true"
+                    android:scaleType="centerCrop"
+                    android:src="@mipmap/placeholder_item_pic"
+                    app:round_radius="8dp"
+                    app:shape_mode="round_rect"
+                    bind:itemUrl="@{String.format(BuildConfig.CATEGORY_THUMB, treeBean.id)}"/>
+
+
+                <TextView
+                    android:id="@+id/num"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="bottom"
+                    android:layout_marginBottom="40dp"
+                    android:layout_marginLeft="92dp"
+                    android:layout_marginStart="92dp"
+                    android:text="@{String.format(@string/format_have_sum_category, treeBean.children.size)}"
+                    android:textColor="@color/white"
+                    android:textSize="12sp" />
+
+
+                <android.support.v7.widget.Toolbar
+                    android:id="@+id/toolbar"
+                    android:layout_width="match_parent"
+                    android:layout_height="?attr/actionBarSize"
+                    android:paddingEnd="?attr/actionBarSize"
+                    android:paddingStart="0dp"
+                    app:contentInsetEnd="?attr/actionBarSize"
+                    app:contentInsetLeft="0dp"
+                    app:contentInsetStart="0dp"
+                    app:layout_collapseMode="pin"
+                    app:title="@{treeBean.name}"
+                    app:popupTheme="@style/ThemeOverlay.AppCompat.Light"
+                    app:titleTextColor="@color/textPrimary">
+
+                    <ImageView
+                        android:id="@+id/btnBack"
+                        android:layout_width="?attr/actionBarSize"
+                        android:layout_height="?attr/actionBarSize"
+                        android:background="@drawable/ripple_theme"
+                        android:scaleType="center"
+                        android:src="@drawable/ic_back" />
+
+                </android.support.v7.widget.Toolbar>
+
+            </android.support.design.widget.CollapsingToolbarLayout>
+
+            <android.support.design.widget.TabLayout
+                android:id="@+id/tabLayout"
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                app:tabGravity="center"
+                app:tabIndicatorColor="@color/colorAccent"
+                app:tabIndicatorHeight="2dp"
+                app:tabMode="scrollable"
+                app:tabSelectedTextColor="@color/colorPrimary"
+                app:tabTextColor="@color/textPrimary" />
+        </android.support.design.widget.AppBarLayout>
+
+        <android.support.v4.view.ViewPager
+            android:id="@+id/viewPager"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            app:layout_behavior="@string/appbar_scrolling_view_behavior">
+
+        </android.support.v4.view.ViewPager>
+
+    </android.support.design.widget.CoordinatorLayout>
+</layout>

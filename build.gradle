@@ -35,6 +35,7 @@ ext{
     pluginsUrl       = '"https://raw.githubusercontent.com/xujiaji/WanAndroid/master/json/plugin_list.json"'
     versionUrl       = '"https://raw.githubusercontent.com/xujiaji/WanAndroid/master/json/version.json"'
     licensesUrl      = '"https://raw.githubusercontent.com/xujiaji/WanAndroid/master/json/licenses.json"'
+    categoryThumb    = '"https://raw.githubusercontent.com/xujiaji/xujiaji.github.io/pictures/wanandroid/category_thumb/%s.jpg"'
     addOwnPlugin     = '"https://github.com/xujiaji/WanAndroid/issues/1"'
 
     compileSdk       = 27
@@ -62,6 +63,7 @@ ext{
     updateApp        = '3.5.2'
     umengCommon      = '1.5.3'
     umengAnalytics   = '7.5.3'
-    mvvmQuick        = '0.0.2'
+    mvvmQuick        = '0.0.3'
     stream           = '1.1.9'
+    blurry           = '2.1.1'
 }

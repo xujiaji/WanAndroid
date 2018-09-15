@@ -2,6 +2,7 @@ package com.xujiaji.wanandroid.module.main;
 
 import android.os.Bundle;
 import android.support.annotation.IdRes;
+import android.support.annotation.NonNull;
 import android.support.design.widget.BottomNavigationView;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
@@ -143,8 +144,7 @@ public class MainActivity extends BaseActivity<ActivityMainBinding, MainViewMode
     }
 
     @Override
-    public void onBinding(ActivityMainBinding binding) {
-        super.onBinding(binding);
+    public void onBinding(@NonNull ActivityMainBinding binding) {
         ToolbarHelper.initPaddingTopDiffBar(binding.navMenu.extrasNav);
         ToolbarHelper.initFullBar(binding.includeBar.toolbar, this);
         initDrawer(binding.drawer, binding.includeBar.toolbar);

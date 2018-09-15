@@ -3,6 +3,7 @@ package com.xujiaji.wanandroid.module.set;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
+import android.support.annotation.NonNull;
 
 import com.qihoo360.replugin.RePlugin;
 import com.xujiaji.mvvmquick.base.NoneViewModel;
@@ -29,14 +30,13 @@ public class SettingsActivity extends BaseActivity<ActivitySettingsBinding, Sett
     }
 
     @Override
-    public void onBinding(ActivitySettingsBinding binding) {
-        super.onBinding(binding);
+    public void onBinding(@NonNull ActivitySettingsBinding binding) {
         ToolbarHelper.initMarginTopDiffBar(binding.btnBack);
         binding.btnBack.setOnClickListener(v -> finish());
     }
 
     @Override
-    public void onObserveViewModel(SettingsViewModel viewModel) {
+    public void onObserveViewModel(@NonNull SettingsViewModel viewModel) {
         super.onObserveViewModel(viewModel);
         binding.setSettingsViewModel(viewModel);
         viewModel.cacheSize.set(FileUtil.getCacheSizeStr(this));

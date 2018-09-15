@@ -29,7 +29,6 @@ import javax.inject.Inject;
 import javax.inject.Singleton;
 
 import retrofit2.Call;
-import retrofit2.converter.gson.GsonConverterFactory;
 
 /**
  * author: xujiaji
@@ -164,5 +163,9 @@ public class Net {
 
     public MutableLiveData<Result<VersionBean>> getUpdateVersion() {
         return handle(mApi.getUpdateVersion(BuildConfig.UPDATE_VERSION_URL));
+    }
+
+    public MutableLiveData<Result<PageBean<BlogPostBean>>> getPostTreeDetailList(int page, int id) {
+        return handle(mApi.getPostTreeDetailList(page, id));
     }
 }

@@ -1,5 +1,7 @@
 package com.xujiaji.wanandroid.module.main.fragment.web_nav;
 
+import android.support.annotation.NonNull;
+
 import com.chad.library.adapter.base.entity.MultiItemEntity;
 import com.xujiaji.mvvmquick.base.NoneViewModel;
 import com.xujiaji.mvvmquick.di.ActivityScoped;
@@ -32,13 +34,12 @@ public class WebNavFragment extends BaseFragment<LayoutRefreshBinding, WebNavVie
     public WebNavFragment() {}
 
     @Override
-    public void onBinding(LayoutRefreshBinding binding) {
-        super.onBinding(binding);
+    public void onBinding(@NonNull LayoutRefreshBinding binding) {
         binding.setNoLine(true);
     }
 
     @Override
-    public void onObserveViewModel(WebNavViewModel viewModel) {
+    public void onObserveViewModel(@NonNull WebNavViewModel viewModel) {
         super.onObserveViewModel(viewModel);
         binding.setRefreshViewModel(viewModel);
         mAdapter = new OpenAPISAdapter(viewModel);

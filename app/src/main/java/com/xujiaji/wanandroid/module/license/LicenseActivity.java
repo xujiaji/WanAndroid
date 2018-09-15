@@ -3,6 +3,7 @@ package com.xujiaji.wanandroid.module.license;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
+import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 
 import com.xujiaji.wanandroid.R;
@@ -46,8 +47,7 @@ public class LicenseActivity extends BaseActivity<ActivityLicenseBinding, Licens
     }
 
     @Override
-    public void onBinding(ActivityLicenseBinding binding) {
-        super.onBinding(binding);
+    public void onBinding(@NonNull ActivityLicenseBinding binding) {
         mAdapter.bindToRecyclerView(binding.layoutRefresh.list);
         EmptyViewHelper.initEmpty(binding.layoutRefresh.list);
         binding.includeBar.toolbar.setTitle(R.string.opean_source_libraries);
@@ -55,7 +55,7 @@ public class LicenseActivity extends BaseActivity<ActivityLicenseBinding, Licens
     }
 
     @Override
-    public void onObserveViewModel(LicenseViewModel viewModel) {
+    public void onObserveViewModel(@NonNull LicenseViewModel viewModel) {
         super.onObserveViewModel(viewModel);
         binding.layoutRefresh.setRefreshViewModel(viewModel);
         viewModel.mClickEvent.observe(this, licenseBean -> ReadActivity.launch(LicenseActivity.this, licenseBean.getName(), licenseBean.getLink()));

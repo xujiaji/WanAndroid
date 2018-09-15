@@ -1,5 +1,6 @@
 package com.xujiaji.wanandroid.module.main.fragment.friend_link;
 
+import android.support.annotation.NonNull;
 import android.support.v7.widget.GridLayoutManager;
 import android.text.TextUtils;
 
@@ -30,13 +31,12 @@ public class FriendLinkFragment extends BaseFragment<LayoutRefreshBinding, Frien
     public FriendLinkFragment() {}
 
     @Override
-    public void onBinding(LayoutRefreshBinding binding) {
-        super.onBinding(binding);
+    public void onBinding(@NonNull LayoutRefreshBinding binding) {
         binding.setNoLine(true);
     }
 
     @Override
-    public void onObserveViewModel(FriendLinkViewModel viewModel) {
+    public void onObserveViewModel(@NonNull FriendLinkViewModel viewModel) {
         super.onObserveViewModel(viewModel);
         binding.setRefreshViewModel(viewModel);
         binding.list.setLayoutManager(new GridLayoutManager(getActivity(), 2));

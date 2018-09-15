@@ -1,6 +1,7 @@
 package com.xujiaji.wanandroid.module.main.fragment.project_category;
 
 import android.arch.lifecycle.Observer;
+import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 
 import com.xujiaji.mvvmquick.di.ActivityScoped;
@@ -30,13 +31,13 @@ public class ProjectCategoryFragment extends BaseFragment<LayoutRefreshBinding, 
     public ProjectCategoryFragment() {}
 
     @Override
-    public void onBinding(LayoutRefreshBinding binding) {
+    public void onBinding(@NonNull LayoutRefreshBinding binding) {
         mAdapter.bindToRecyclerView(binding.list);
         EmptyViewHelper.initEmpty(binding.list);
     }
 
     @Override
-    public void onObserveViewModel(ProjectCategoryViewModel viewModel) {
+    public void onObserveViewModel(@NonNull ProjectCategoryViewModel viewModel) {
         binding.setRefreshViewModel(viewModel);
         viewModel.getObservableProjectTree().observeData(this, new DataCallbackImp<List<TreeBean>>(binding.refresh) {
             @Override

@@ -16,6 +16,7 @@
 
 package com.xujiaji.wanandroid.di;
 
+import com.xujiaji.wanandroid.module.category_detail.CategoryDetailViewModel;
 import com.xujiaji.wanandroid.module.license.LicenseViewModel;
 import com.xujiaji.wanandroid.module.like.LikeViewModel;
 import com.xujiaji.wanandroid.module.login.LoginViewModel;
@@ -62,4 +63,5 @@ public interface ViewModelSubComponent
     Lazy<LikeViewModel> viewModelLike();
     Lazy<LicenseViewModel> viewModelLicense();
     Lazy<SettingsViewModel> viewModelSettings();
+    Lazy<CategoryDetailViewModel> viewModelCategoryDetail();
 }

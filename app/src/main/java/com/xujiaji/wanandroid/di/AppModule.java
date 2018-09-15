@@ -20,6 +20,7 @@ import android.arch.lifecycle.ViewModel;
 import android.arch.lifecycle.ViewModelProvider;
 
 import com.xujiaji.mvvmquick.viewmodel.ProjectViewModelFactory;
+import com.xujiaji.wanandroid.module.category_detail.CategoryDetailViewModel;
 import com.xujiaji.wanandroid.module.license.LicenseViewModel;
 import com.xujiaji.wanandroid.module.like.LikeViewModel;
 import com.xujiaji.wanandroid.module.login.LoginViewModel;
@@ -77,6 +78,7 @@ public abstract class AppModule {
         creators.put(LikeViewModel.class, vmsc::viewModelLike);
         creators.put(LicenseViewModel.class, vmsc::viewModelLicense);
         creators.put(SettingsViewModel.class, vmsc::viewModelSettings);
+        creators.put(CategoryDetailViewModel.class, vmsc::viewModelCategoryDetail);
         return creators;
     }
 

@@ -17,12 +17,19 @@
 package com.xujiaji.wanandroid.adapter;
 
 import android.databinding.BindingAdapter;
+import android.graphics.Bitmap;
+import android.support.annotation.NonNull;
+import android.support.annotation.Nullable;
 import android.text.TextUtils;
 import android.view.View;
 import android.widget.ImageView;
 
 import com.bumptech.glide.Glide;
+import com.bumptech.glide.request.target.SimpleTarget;
+import com.bumptech.glide.request.transition.Transition;
 import com.xujiaji.wanandroid.config.PicConfig;
+
+import jp.wasabeef.blurry.Blurry;
 
 /**
  * author: xujiaji
@@ -66,6 +73,21 @@ public class ImageBindingAdapter {
                 .applyDefaultRequestOptions(PicConfig.headOptions)
                 .load(url)
                 .into(imageView);
+
+    }
+
+    @BindingAdapter("blurImage")
+    public static void setBlurImage(ImageView imageView, String url) {
+        Glide.with(imageView.getContext())
+                .applyDefaultRequestOptions(PicConfig.itemOptions)
+                .asBitmap()
+                .load(url)
+                .into(new SimpleTarget<Bitmap>() {
+                    @Override
+                    public void onResourceReady(@NonNull Bitmap resource, @Nullable Transition<? super Bitmap> transition) {
+                        Blurry.with(imageView.getContext()).from(resource).into(imageView);
+                    }
+                });
 
     }
 }

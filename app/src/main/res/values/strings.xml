@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">WanAndroid</string>
+    <string name="app_name">Wan</string>
     <string name="blog_post">博文</string>
     <string name="project">项目</string>
     <string name="box">宝箱</string>
@@ -89,5 +89,6 @@
     <string name="opean_source_libraries">开源Libraries</string>
     <string name="project_use_libraries">项目中使用的 Library</string>
     <string name="give_friend_download"><![CDATA[分享给身边的好友扫描下载 >]]></string>
+    <string name="format_have_sum_category">%s个子分类</string>
 
 </resources>

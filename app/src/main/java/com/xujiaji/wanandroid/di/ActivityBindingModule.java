@@ -19,12 +19,15 @@ package com.xujiaji.wanandroid.di;
 
 import com.xujiaji.mvvmquick.di.ActivityScoped;
 import com.xujiaji.wanandroid.module.about.AboutActivity;
+import com.xujiaji.wanandroid.module.category_detail.CategoryDetailActivity;
+import com.xujiaji.wanandroid.module.category_detail.CategoryDetailModule;
 import com.xujiaji.wanandroid.module.license.LicenseActivity;
 import com.xujiaji.wanandroid.module.like.LikeActivity;
 import com.xujiaji.wanandroid.module.login.LoginActivity;
 import com.xujiaji.wanandroid.module.login.LoginModule;
 import com.xujiaji.wanandroid.module.main.MainActivity;
 import com.xujiaji.wanandroid.module.main.MainModule;
+import com.xujiaji.wanandroid.module.main.fragment.posts.MainBlogPostsFragment;
 import com.xujiaji.wanandroid.module.read.ReadActivity;
 import com.xujiaji.wanandroid.module.read.ReadModule;
 import com.xujiaji.wanandroid.module.set.SettingsActivity;
@@ -67,4 +70,9 @@ public abstract class ActivityBindingModule
     @ActivityScoped
     @ContributesAndroidInjector
     abstract LicenseActivity contributeLicenseActivity();
+
+    @ActivityScoped
+    @ContributesAndroidInjector(modules = CategoryDetailModule.class)
+    abstract CategoryDetailActivity contributeCategoryDetailActivity();
+
 }

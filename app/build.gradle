@@ -11,8 +11,8 @@ android {
         applicationId "com.xujiaji.wanandroid"
         minSdkVersion rootProject.minSdk
         targetSdkVersion rootProject.targetSdk
-        versionCode 1
-        versionName "1.0"
+        versionCode 2
+        versionName "1.0.1"
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
 //        externalNativeBuild {
 //            cmake {
@@ -28,6 +28,7 @@ android {
         buildConfigField "String",        "PLUGINS_URL", "$pluginsUrl"
         buildConfigField "String",     "ADD_OWN_PLUGIN", "$addOwnPlugin"
         buildConfigField "String", "UPDATE_VERSION_URL", "$versionUrl"
+        buildConfigField "String",     "CATEGORY_THUMB", "$categoryThumb"
     }
     buildTypes {
         release {
@@ -122,4 +123,6 @@ dependencies {
     // 友盟统计
     implementation "com.umeng.sdk:common:$umengCommon"
     implementation "com.umeng.sdk:analytics:$umengAnalytics"
+
+    implementation "jp.wasabeef:blurry:$blurry"
 }

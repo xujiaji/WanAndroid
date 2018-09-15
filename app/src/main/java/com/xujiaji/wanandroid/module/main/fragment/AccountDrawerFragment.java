@@ -1,5 +1,6 @@
 package com.xujiaji.wanandroid.module.main.fragment;
 
+import android.support.annotation.NonNull;
 import android.view.View;
 
 import com.annimon.stream.Stream;
@@ -35,8 +36,7 @@ public class AccountDrawerFragment extends BaseFragment<DrawerFragmentAccountBin
     }
 
     @Override
-    public void onBinding(DrawerFragmentAccountBinding binding) {
-        super.onBinding(binding);
+    public void onBinding(@NonNull DrawerFragmentAccountBinding binding) {
 
         Stream.of(binding.collect, binding.heart, binding.share, binding.logout, binding.login)
                 .forEach(frameLayout -> frameLayout.setOnClickListener(AccountDrawerFragment.this));

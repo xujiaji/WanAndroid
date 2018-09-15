@@ -24,7 +24,6 @@ public class MainBlogPostsAdapter extends MQQuickAdapter<BlogPostBean, ItemBlogP
 
     private final MainBlogPostsViewModel mViewModel;
 
-    @Inject
     public MainBlogPostsAdapter(MainBlogPostsViewModel viewModel) {
         super(R.layout.item_blog_post);
         this.mViewModel = viewModel;

@@ -39,7 +39,7 @@ public class FlexboxBindingAdapter {
                 textView.setForeground(ContextCompat.getDrawable(context, R.drawable.ripple_theme_small));
             }
             textView.setText(tree.getName());
-            textView.setOnClickListener(v -> viewModel.mTagClickEvent.setValue(tree));
+            textView.setOnClickListener(v -> viewModel.mTagClickEvent.setValue(treeBean.setCheckedChild(tree)));
             layout.addView(textView);
         }
     }

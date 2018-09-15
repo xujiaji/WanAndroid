@@ -29,8 +29,7 @@ public class MenuDrawerFragment extends BaseFragment<DrawerFragmentMenuBinding, 
     public MenuDrawerFragment() {}
 
     @Override
-    public void onBinding(DrawerFragmentMenuBinding binding) {
-        super.onBinding(binding);
+    public void onBinding(@NonNull DrawerFragmentMenuBinding binding) {
         binding.mainNav.setNavigationItemSelectedListener(this);
     }
 

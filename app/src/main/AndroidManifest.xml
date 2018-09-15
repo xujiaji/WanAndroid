@@ -37,6 +37,7 @@
         <activity android:name=".module.like.LikeActivity" />
         <activity android:name=".module.about.AboutActivity" />
         <activity android:name=".module.license.LicenseActivity" />
+        <activity android:name=".module.category_detail.CategoryDetailActivity" />
 
 
         <service android:name="com.qihoo360.replugin.sdk.log.LogService" />

@@ -19,6 +19,7 @@ import retrofit2.http.FormUrlEncoded;
 import retrofit2.http.GET;
 import retrofit2.http.POST;
 import retrofit2.http.Path;
+import retrofit2.http.Query;
 import retrofit2.http.Url;
 
 /**
@@ -125,5 +126,11 @@ public interface API {
      */
     @GET
     Call<Result<VersionBean>> getUpdateVersion(@Url String url);
+
+    /**
+     * 获取知识体系详情列表
+     */
+    @GET("article/list/{num}/json")
+    Call<Result<PageBean<BlogPostBean>>> getPostTreeDetailList(@Path("num") int page, @Query("cid") int id);
 
 }

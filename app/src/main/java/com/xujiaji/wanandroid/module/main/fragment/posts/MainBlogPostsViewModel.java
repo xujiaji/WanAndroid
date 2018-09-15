@@ -25,15 +25,25 @@ import javax.inject.Singleton;
  * created on: 2018/8/5 23:35
  * description:
  */
-@Singleton
+
 public class MainBlogPostsViewModel extends BaseRefreshViewModel<BlogPostBean> implements RefreshLoadViewModel<BlogPostBean>{
 
+    private int mType;
+    private int mId;
     private final NetLiveEvent<List<BannerBean>> mBannerData = new NetLiveEvent<>();
     private final SingleLiveEvent<RefreshLoadModel<MutableLiveData<Result<PageBean<BlogPostBean>>>>> mBlogPostsLiveData = new SingleLiveEvent<>();
 
     @Inject
     public MainBlogPostsViewModel(@NonNull Application application) {
         super(application);
+    }
+
+    public void setType(int type) {
+        mType = type;
+    }
+
+    public void setId(int id) {
+        mId = id;
     }
 
     public NetLiveEvent<List<BannerBean>> getObservableBanners() {
@@ -46,15 +56,29 @@ public class MainBlogPostsViewModel extends BaseRefreshViewModel<BlogPostBean> i
         return mBlogPostsLiveData;
     }
 
+    public SingleLiveEvent<RefreshLoadModel<MutableLiveData<Result<PageBean<BlogPostBean>>>>> getObservablePostTreeDetailList(int id) {
+        mBlogPostsLiveData.setValue(new RefreshLoadModel<>(net.get().getPostTreeDetailList(UPDATE_INDEX, id), true));
+        return mBlogPostsLiveData;
+    }
+
     @Override
     public void onListRefresh() {
-        mBannerData.setValue(net.get().getBanners());
-        mBlogPostsLiveData.setValue(new RefreshLoadModel<>(net.get().getBlogPosts(UPDATE_INDEX), true));
+        if (mType == MainBlogPostsFragment.TYPE_MAIN) {
+            mBannerData.setValue(net.get().getBanners());
+            mBlogPostsLiveData.setValue(new RefreshLoadModel<>(net.get().getBlogPosts(UPDATE_INDEX), true));
+        } else if (mType == MainBlogPostsFragment.TYPE_CATEGORY) {
+            mBlogPostsLiveData.setValue(new RefreshLoadModel<>(net.get().getPostTreeDetailList(UPDATE_INDEX, mId), true));
+        }
+
     }
 
     @Override
     public void onListLoad(int offset) {
-        mBlogPostsLiveData.postValue(new RefreshLoadModel<>(net.get().getBlogPosts(offset), false));
+        if (mType == MainBlogPostsFragment.TYPE_MAIN) {
+            mBlogPostsLiveData.postValue(new RefreshLoadModel<>(net.get().getBlogPosts(offset), false));
+        } else if (mType == MainBlogPostsFragment.TYPE_CATEGORY) {
+            mBlogPostsLiveData.setValue(new RefreshLoadModel<>(net.get().getPostTreeDetailList(offset, mId), false));
+        }
     }
 
     @Override

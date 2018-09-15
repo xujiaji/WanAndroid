@@ -3,6 +3,7 @@ package com.xujiaji.wanandroid.module.about;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
+import android.support.annotation.NonNull;
 
 import com.xujiaji.mvvmquick.base.NoneViewModel;
 import com.xujiaji.wanandroid.base.BaseActivity;
@@ -28,8 +29,7 @@ public class AboutActivity extends BaseActivity<ActivityAboutBinding, NoneViewMo
     }
 
     @Override
-    public void onBinding(ActivityAboutBinding binding) {
-        super.onBinding(binding);
+    public void onBinding(@NonNull ActivityAboutBinding binding) {
         ToolbarHelper.initMarginTopDiffBar(binding.btnBack);
         binding.btnBack.setOnClickListener(v -> finish());
         binding.btnLookLibraries.setOnClickListener(v -> LicenseActivity.launch(AboutActivity.this));

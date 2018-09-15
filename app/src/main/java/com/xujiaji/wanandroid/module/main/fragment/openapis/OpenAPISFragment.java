@@ -1,5 +1,7 @@
 package com.xujiaji.wanandroid.module.main.fragment.openapis;
 
+import android.support.annotation.NonNull;
+
 import com.chad.library.adapter.base.entity.MultiItemEntity;
 import com.xujiaji.mvvmquick.di.ActivityScoped;
 import com.xujiaji.wanandroid.base.BaseFragment;
@@ -28,7 +30,12 @@ public class OpenAPISFragment extends BaseFragment<LayoutRefreshBinding, OpenAPI
     public OpenAPISFragment() {}
 
     @Override
-    public void onObserveViewModel(OpenAPISViewModel viewModel) {
+    public void onBinding(@NonNull LayoutRefreshBinding binding) {
+
+    }
+
+    @Override
+    public void onObserveViewModel(@NonNull OpenAPISViewModel viewModel) {
         super.onObserveViewModel(viewModel);
         binding.setRefreshViewModel(viewModel);
         mAdapter = new OpenAPISAdapter(viewModel);

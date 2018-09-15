@@ -1,5 +1,6 @@
 package com.xujiaji.wanandroid.module.main.fragment.boxes;
 
+import android.support.annotation.NonNull;
 import android.view.LayoutInflater;
 import android.view.View;
 
@@ -34,8 +35,7 @@ public class MainBoxesFragment extends BaseFragment<LayoutRefreshBinding, MainBo
     public MainBoxesFragment() {}
 
     @Override
-    public void onBinding(LayoutRefreshBinding binding) {
-        super.onBinding(binding);
+    public void onBinding(@NonNull LayoutRefreshBinding binding) {
         binding.setNoLine(true);
         mAdapter.bindToRecyclerView(binding.list);
         EmptyViewHelper.initEmpty(binding.list);
@@ -46,7 +46,7 @@ public class MainBoxesFragment extends BaseFragment<LayoutRefreshBinding, MainBo
     }
 
     @Override
-    public void onObserveViewModel(MainBoxesViewModel viewModel) {
+    public void onObserveViewModel(@NonNull MainBoxesViewModel viewModel) {
         super.onObserveViewModel(viewModel);
         binding.setRefreshViewModel(viewModel);
 

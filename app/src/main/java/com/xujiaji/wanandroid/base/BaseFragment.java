@@ -1,6 +1,7 @@
 package com.xujiaji.wanandroid.base;
 
 import android.databinding.ViewDataBinding;
+import android.support.annotation.NonNull;
 
 import com.umeng.analytics.MobclickAgent;
 import com.xujiaji.mvvmquick.base.MQFragment;
@@ -11,7 +12,7 @@ import com.xujiaji.mvvmquick.base.MQViewModel;
  * created on: 2018/8/5 21:07
  * description:
  */
-public class BaseFragment<B extends ViewDataBinding, VM extends MQViewModel> extends MQFragment<B, VM> {
+public abstract class BaseFragment<B extends ViewDataBinding, VM extends MQViewModel> extends MQFragment<B, VM> {
 
     @Override
     public void onResume() {
