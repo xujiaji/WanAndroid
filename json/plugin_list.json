@@ -3,6 +3,15 @@
   "errorMsg": "",
   "data": [
     {
+      "thumb": "https://raw.githubusercontent.com/xujiaji/xujiaji.github.io/pictures/wanandroid/plugin-thumb/stepview.png",
+      "name": "自定义签到的步骤View",
+      "description": "以七天为周天，执行当天签到需要一个动画效果；签到前灰色，签到后变为绿色；每天加的分数不一定，第三天和第七天加的比较多，分数签到完成为橙色，有up标签。",
+      "pkg": "com.sorgs.stepview",
+      "start_class": "com.sorgs.stepview.ui.activity.MainActivity",
+      "version_code": 1,
+      "url": "https://github.com/sorgs/StepView"
+    },
+    {
       "thumb": "https://raw.githubusercontent.com/xujiaji/xujiaji.github.io/pictures/wanandroid/plugin-thumb/happy-bubble.png",
       "name": "HappyBubble",
       "description": "BubbleLayout随意变化的气泡布局，BubbleDialog根据点击View的位置定位它的位置，BubbleDialog可定制方向等！",
