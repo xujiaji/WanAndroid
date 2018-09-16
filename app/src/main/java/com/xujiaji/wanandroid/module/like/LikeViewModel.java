@@ -34,6 +34,7 @@ public class LikeViewModel extends BaseRefreshViewModel<BlogPostBean> implements
 
     @Override
     public void onListRefresh() {
+        super.onListRefresh();
         mCollectsLiveData.setValue(new RefreshLoadModel<>(net.get().getCollects(UPDATE_INDEX), true));
     }
 

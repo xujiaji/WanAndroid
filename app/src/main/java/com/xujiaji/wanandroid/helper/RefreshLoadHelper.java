@@ -49,7 +49,7 @@ public class RefreshLoadHelper {
                             adapter.loadMoreFail();
                         } else {
                             adapter.setEnableLoadMore(true);
-                            adapter.loadMoreComplete();
+                            adapter.setLoaded(false);
                         }
 
                         if (pageBeanResult == null) {
@@ -58,7 +58,7 @@ public class RefreshLoadHelper {
                         }
 
                         if (pageBeanResult.getData().isOver()) {
-                            adapter.setLoaded();
+                            adapter.setLoaded(true);
                         }
 
                         if (mutableLiveDataRefreshLoadModel.isRefresh) {

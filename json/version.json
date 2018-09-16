@@ -2,11 +2,11 @@
   "errorCode":0,
   "errorMsg":"",
   "data":{
-    "version_name":"1.0.1",
+    "version_name":"1.0.2",
     "version_code":2,
     "update_info":"1.添加体系详情界面；\n2.修复一些小bug；\n3.更新MVVMQuick框架",
-    "file_size":"8.4M",
+    "file_size":"8.8M",
     "constraint":false,
-    "apk_url":"https://github.com/xujiaji/WanAndroid/releases/download/v1.0.1/app-release.apk"
+    "apk_url":"https://github.com/xujiaji/WanAndroid/releases/download/v1.0.2/app-release.apk"
   }
 }

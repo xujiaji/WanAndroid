@@ -38,6 +38,7 @@ public class MainProjectsViewModel extends BaseRefreshViewModel<BlogPostBean> im
 
     @Override
     public void onListRefresh() {
+        super.onListRefresh();
         projectsLiveData.setValue(new RefreshLoadModel<>(net.get().getProjects(UPDATE_INDEX), true));
     }
 

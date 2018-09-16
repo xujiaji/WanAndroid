@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 
+import com.google.common.base.Optional;
 import com.xujiaji.mvvmquick.di.ActivityScoped;
 import com.xujiaji.wanandroid.base.BaseFragment;
 import com.xujiaji.wanandroid.databinding.LayoutRefreshBinding;
@@ -16,11 +17,8 @@ import com.xujiaji.wanandroid.repository.remote.DataCallbackImp;
 import com.youth.banner.Banner;
 
 import java.util.List;
-import java.util.Optional;
 
 import javax.inject.Inject;
-
-import dagger.Lazy;
 
 /**
  * author: xujiaji

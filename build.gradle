@@ -63,7 +63,7 @@ ext{
     updateApp        = '3.5.2'
     umengCommon      = '1.5.3'
     umengAnalytics   = '7.5.3'
-    mvvmQuick        = '0.0.3'
+    mvvmQuick        = '0.0.5'
     stream           = '1.1.9'
     blurry           = '2.1.1'
 }

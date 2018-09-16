@@ -63,6 +63,7 @@ public class MainBlogPostsViewModel extends BaseRefreshViewModel<BlogPostBean> i
 
     @Override
     public void onListRefresh() {
+        super.onListRefresh();
         if (mType == MainBlogPostsFragment.TYPE_MAIN) {
             mBannerData.setValue(net.get().getBanners());
             mBlogPostsLiveData.setValue(new RefreshLoadModel<>(net.get().getBlogPosts(UPDATE_INDEX), true));

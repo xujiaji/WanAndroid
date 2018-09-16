@@ -1,4 +1,4 @@
-[![Version](https://img.shields.io/badge/version-1.0.1-green.svg)]() [![License: GPL v3](https://img.shields.io/badge/License-GPL%20v3-blue.svg)](https://www.gnu.org/licenses/gpl-3.0)
+[![Version](https://img.shields.io/badge/version-1.0.2-green.svg)]() [![License: GPL v3](https://img.shields.io/badge/License-GPL%20v3-blue.svg)](https://www.gnu.org/licenses/gpl-3.0)
 
 > 目前功能还未完
 
@@ -25,6 +25,7 @@ OR
 ![](https://raw.githubusercontent.com/xujiaji/xujiaji.github.io/pictures/wanandroid/download_qr.png)
 
 ## Update
+- `1.0.2` [fix #2](https://github.com/xujiaji/WanAndroid/issues/2)
 - `1.0.1` 新增体系详情列表界面<br>
 ![](https://raw.githubusercontent.com/xujiaji/xujiaji.github.io/pictures/wanandroid/update/update_1_0_1.gif)
 
