@@ -3,7 +3,7 @@
   "errorMsg":"",
   "data":{
     "version_name":"1.0.2",
-    "version_code":2,
+    "version_code":3,
     "update_info":"1.添加体系详情界面；\n2.修复一些小bug；\n3.更新MVVMQuick框架",
     "file_size":"8.8M",
     "constraint":false,
