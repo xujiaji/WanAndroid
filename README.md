@@ -19,8 +19,9 @@
 
 ## Download Apk
 |github下载|fir.im下载|
-|-|-|
-|[Github Download Link](https://github.com/xujiaji/WanAndroid/releases/download/v1.0.2/app-release.apk)<br> ![](https://raw.githubusercontent.com/xujiaji/xujiaji.github.io/pictures/wanandroid/download_qr.png) | https://fir.im/Wan <br> ![](https://raw.githubusercontent.com/xujiaji/xujiaji.github.io/pictures/wanandroid/download_by_fir.png)|
+|:-:|:-:|
+|[Github Download Link](https://github.com/xujiaji/WanAndroid/releases/download/v1.0.2/app-release.apk)|https://fir.im/Wan |
+|![](https://raw.githubusercontent.com/xujiaji/xujiaji.github.io/pictures/wanandroid/download_qr.png) |![](https://raw.githubusercontent.com/xujiaji/xujiaji.github.io/pictures/wanandroid/download_by_fir.png)|
 
 ## Update
 - `1.0.2` [fix #2](https://github.com/xujiaji/WanAndroid/issues/2)
