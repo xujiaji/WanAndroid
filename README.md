@@ -18,11 +18,9 @@
 7️⃣  首页宝箱部分是通过360插件框架[RePlugin](https://github.com/Qihoo360/RePlugin)实现，目前可动态添加插件。希望加上自己的工具或Demo的朋友[可在此留下信息](https://github.com/xujiaji/WanAndroid/issues/1)
 
 ## Download Apk
-[Download Link](https://github.com/xujiaji/WanAndroid/releases/download/v1.0.2/app-release.apk)
-
-OR
-
-![](https://raw.githubusercontent.com/xujiaji/xujiaji.github.io/pictures/wanandroid/download_qr.png)
+|github下载|fir.im下载|
+|-|-|
+|[Github Download Link](https://github.com/xujiaji/WanAndroid/releases/download/v1.0.2/app-release.apk)<br> ![](https://raw.githubusercontent.com/xujiaji/xujiaji.github.io/pictures/wanandroid/download_qr.png) | https://fir.im/Wan <br> ![](https://raw.githubusercontent.com/xujiaji/xujiaji.github.io/pictures/wanandroid/download_by_fir.png)|
 
 ## Update
 - `1.0.2` [fix #2](https://github.com/xujiaji/WanAndroid/issues/2)
