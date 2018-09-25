@@ -32,6 +32,7 @@ public class MainBlogPostsAdapter extends MQQuickAdapter<BlogPostBean, ItemBlogP
     @Override
     protected void onBinding(ItemBlogPostBinding binding) {
         binding.setCallback((GeneralClickCallback<BlogPostBean>) mViewModel.mClickEvent::setValue);
+        binding.setTabCallback((GeneralClickCallback<Integer>) mViewModel.mClickTab::setValue);
     }
 
     @Override

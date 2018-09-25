@@ -30,6 +30,7 @@ public class MainBlogPostsViewModel extends BaseRefreshViewModel<BlogPostBean> i
 
     private int mType;
     private int mId;
+    public final SingleLiveEvent<Integer> mClickTab = new SingleLiveEvent<>();
     private final NetLiveEvent<List<BannerBean>> mBannerData = new NetLiveEvent<>();
     private final SingleLiveEvent<RefreshLoadModel<MutableLiveData<Result<PageBean<BlogPostBean>>>>> mBlogPostsLiveData = new SingleLiveEvent<>();
 

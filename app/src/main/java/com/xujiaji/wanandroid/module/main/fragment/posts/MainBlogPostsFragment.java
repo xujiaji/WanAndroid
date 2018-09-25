@@ -1,5 +1,6 @@
 package com.xujiaji.wanandroid.module.main.fragment.posts;
 
+import android.arch.lifecycle.Observer;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
@@ -11,14 +12,19 @@ import com.xujiaji.wanandroid.base.BaseFragment;
 import com.xujiaji.wanandroid.databinding.LayoutRefreshBinding;
 import com.xujiaji.wanandroid.helper.ActivityResultHelper;
 import com.xujiaji.wanandroid.helper.RefreshLoadHelper;
+import com.xujiaji.wanandroid.module.category_detail.CategoryDetailActivity;
 import com.xujiaji.wanandroid.module.read.ReadActivity;
 import com.xujiaji.wanandroid.repository.bean.BannerBean;
+import com.xujiaji.wanandroid.repository.bean.TreeBean;
+import com.xujiaji.wanandroid.repository.local.LocalData;
 import com.xujiaji.wanandroid.repository.remote.DataCallbackImp;
 import com.youth.banner.Banner;
 
 import java.util.List;
 
 import javax.inject.Inject;
+
+import dagger.Lazy;
 
 /**
  * author: xujiaji
@@ -45,6 +51,9 @@ public class MainBlogPostsFragment extends BaseFragment<LayoutRefreshBinding, Ma
 
     @Inject
     Optional<Banner> mBanner;
+
+    @Inject
+    Lazy<LocalData> mLocalData;
 
     private int mType;
     private int mId;
@@ -94,6 +103,12 @@ public class MainBlogPostsFragment extends BaseFragment<LayoutRefreshBinding, Ma
         viewModel.setType(mType);
         binding.setRefreshViewModel(viewModel);
         viewModel.mClickEvent.observe(this, blogPostBean -> ReadActivity.launch(this, blogPostBean));
+        viewModel.mClickTab.observe(this, integer -> {
+            if (integer == null) return;
+            TreeBean treeBean = mLocalData.get().getTreeBeans(integer);
+            if (treeBean == null) return;
+            CategoryDetailActivity.launch(getActivity(), treeBean);
+        });
     }
 
     @Override

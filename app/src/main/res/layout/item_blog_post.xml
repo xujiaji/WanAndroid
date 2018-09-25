@@ -17,6 +17,10 @@
             name="callback"
             type="com.xujiaji.mvvmquick.callback.GeneralClickCallback"/>
 
+        <variable
+            name="tabCallback"
+            type="com.xujiaji.mvvmquick.callback.GeneralClickCallback"/>
+
     </data>
 
     <android.support.constraint.ConstraintLayout
@@ -101,7 +105,8 @@
             android:layout_marginEnd="@dimen/layout_margin"
             app:layout_constraintBottom_toBottomOf="@+id/avatarLayout"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="@+id/avatarLayout" />
+            app:layout_constraintTop_toTopOf="@+id/avatarLayout"
+            android:onClick="@{() ->  tabCallback.onClick(blogPost.chapterId)}" />
 
         <TextView
             android:id="@+id/tag2"
@@ -112,7 +117,8 @@
             android:textSize="@dimen/secondary_size"
             app:layout_constraintBottom_toBottomOf="@+id/tag1"
             app:layout_constraintEnd_toStartOf="@+id/tag1"
-            app:layout_constraintTop_toTopOf="@+id/tag1" />
+            app:layout_constraintTop_toTopOf="@+id/tag1"
+            android:onClick="@{() ->  tabCallback.onClick(blogPost.superChapterId)}" />
 
 
         <TextView
