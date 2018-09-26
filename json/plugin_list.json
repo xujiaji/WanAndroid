@@ -3,12 +3,12 @@
   "errorMsg": "",
   "data": [
     {
-      "thumb": "https://raw.githubusercontent.com/xujiaji/xujiaji.github.io/pictures/wanandroid/plugin-thumb/happy-bubble.png",
+      "thumb": "https://raw.githubusercontent.com/xujiaji/xujiaji.github.io/pictures/wanandroid/plugin-thumb/RippleCheckBox.png",
       "name": "RippleCheckBox",
       "description": "简洁，舒服，波纹动画，勾选动画，高度可控的波纹CheckBox",
       "pkg": "com.xujiaji.ripplecheckbox",
       "start_class": "com.xujiaji.ripplecheckbox.MainActivity",
-      "version_code": 1,
+      "version_code": 2,
       "url": "https://github.com/xujiaji/RippleCheckBox"
     },
     {
