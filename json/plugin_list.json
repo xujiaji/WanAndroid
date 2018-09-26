@@ -3,6 +3,15 @@
   "errorMsg": "",
   "data": [
     {
+      "thumb": "https://raw.githubusercontent.com/xujiaji/xujiaji.github.io/pictures/wanandroid/plugin-thumb/happy-bubble.png",
+      "name": "RippleCheckBox",
+      "description": "简洁，舒服，波纹动画，勾选动画，高度可控的波纹CheckBox",
+      "pkg": "com.xujiaji.ripplecheckbox",
+      "start_class": "com.xujiaji.ripplecheckbox.MainActivity",
+      "version_code": 1,
+      "url": "https://github.com/xujiaji/RippleCheckBox"
+    },
+    {
       "thumb": "https://raw.githubusercontent.com/xujiaji/xujiaji.github.io/pictures/wanandroid/plugin-thumb/stepview.png",
       "name": "自定义签到的步骤View",
       "description": "以七天为周天，执行当天签到需要一个动画效果；签到前灰色，签到后变为绿色；每天加的分数不一定，第三天和第七天加的比较多，分数签到完成为橙色，有up标签。",
