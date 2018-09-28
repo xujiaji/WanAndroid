@@ -26,19 +26,46 @@
 ## Update
 - `1.0.2` [fix #2](https://github.com/xujiaji/WanAndroid/issues/2)
 - `1.0.1` 新增体系详情列表界面<br>
-![](https://raw.githubusercontent.com/xujiaji/xujiaji.github.io/pictures/wanandroid/update/update_1_0_1.gif)
+<img style="margin-left:0px;" src="https://raw.githubusercontent.com/xujiaji/xujiaji.github.io/pictures/wanandroid/update/update_1_0_1.gif" width="24%" >
 
 ## Screenshots
-||||
-|-|-|-|
-|![](https://raw.githubusercontent.com/xujiaji/xujiaji.github.io/pictures/wanandroid/screen/a.png)|![](https://raw.githubusercontent.com/xujiaji/xujiaji.github.io/pictures/wanandroid/screen/b.png)|![](https://raw.githubusercontent.com/xujiaji/xujiaji.github.io/pictures/wanandroid/screen/c.png)|
-|![](https://raw.githubusercontent.com/xujiaji/xujiaji.github.io/pictures/wanandroid/screen/d.png)|![](https://raw.githubusercontent.com/xujiaji/xujiaji.github.io/pictures/wanandroid/screen/e.png)|![](https://raw.githubusercontent.com/xujiaji/xujiaji.github.io/pictures/wanandroid/screen/f.png)|
-|![](https://raw.githubusercontent.com/xujiaji/xujiaji.github.io/pictures/wanandroid/screen/g.png)|![](https://raw.githubusercontent.com/xujiaji/xujiaji.github.io/pictures/wanandroid/screen/h.png)|![](https://raw.githubusercontent.com/xujiaji/xujiaji.github.io/pictures/wanandroid/screen/i.png)|
-|![](https://raw.githubusercontent.com/xujiaji/xujiaji.github.io/pictures/wanandroid/screen/j.png)|![](https://raw.githubusercontent.com/xujiaji/xujiaji.github.io/pictures/wanandroid/screen/k.png)|![](https://raw.githubusercontent.com/xujiaji/xujiaji.github.io/pictures/wanandroid/screen/l.png)|
-|![](https://raw.githubusercontent.com/xujiaji/xujiaji.github.io/pictures/wanandroid/screen/m.png)|![](https://raw.githubusercontent.com/xujiaji/xujiaji.github.io/pictures/wanandroid/screen/n.png)|![](https://raw.githubusercontent.com/xujiaji/xujiaji.github.io/pictures/wanandroid/screen/o.png)|
-|![](https://raw.githubusercontent.com/xujiaji/xujiaji.github.io/pictures/wanandroid/screen/p.png)|![](https://raw.githubusercontent.com/xujiaji/xujiaji.github.io/pictures/wanandroid/screen/q.png)|![](https://raw.githubusercontent.com/xujiaji/xujiaji.github.io/pictures/wanandroid/screen/r.png)|
-|![](https://raw.githubusercontent.com/xujiaji/xujiaji.github.io/pictures/wanandroid/screen/s.png)|![](https://raw.githubusercontent.com/xujiaji/xujiaji.github.io/pictures/wanandroid/screen/z.gif)||
+<div >
+<img  src="https://raw.githubusercontent.com/xujiaji/xujiaji.github.io/pictures/wanandroid/screen/a.jpg" width="24%" height="auto">
+<img style="margin-left:0px;" src="https://raw.githubusercontent.com/xujiaji/xujiaji.github.io/pictures/wanandroid/screen/b.jpg" width="24%" >
+<img style="margin-left:0px;" src="https://raw.githubusercontent.com/xujiaji/xujiaji.github.io/pictures/wanandroid/screen/c.jpg" width="24%" >
+<img  src="https://raw.githubusercontent.com/xujiaji/xujiaji.github.io/pictures/wanandroid/screen/d.jpg" width="24%" height="auto">
+</div>
 
+<div >
+
+<img style="margin-left:0px;" src="https://raw.githubusercontent.com/xujiaji/xujiaji.github.io/pictures/wanandroid/screen/e.jpg" width="24%" >
+<img style="margin-left:0px;" src="https://raw.githubusercontent.com/xujiaji/xujiaji.github.io/pictures/wanandroid/screen/f.jpg" width="24%" >
+<img style="margin-left:0px;" src="https://raw.githubusercontent.com/xujiaji/xujiaji.github.io/pictures/wanandroid/screen/g.jpg" width="24%" >
+<img style="margin-left:0px;" src="https://raw.githubusercontent.com/xujiaji/xujiaji.github.io/pictures/wanandroid/screen/h.jpg" width="24%" >
+</div>
+
+<div >
+<img style="margin-left:0px;" src="https://raw.githubusercontent.com/xujiaji/xujiaji.github.io/pictures/wanandroid/screen/i.jpg" width="24%" >
+<img style="margin-left:0px;" src="https://raw.githubusercontent.com/xujiaji/xujiaji.github.io/pictures/wanandroid/screen/j.jpg" width="24%" >
+<img style="margin-left:0px;" src="https://raw.githubusercontent.com/xujiaji/xujiaji.github.io/pictures/wanandroid/screen/k.jpg" width="24%" >
+<img style="margin-left:0px;" src="https://raw.githubusercontent.com/xujiaji/xujiaji.github.io/pictures/wanandroid/screen/l.jpg" width="24%" >
+</div>
+
+<div>
+<img style="margin-left:0px;" src="https://raw.githubusercontent.com/xujiaji/xujiaji.github.io/pictures/wanandroid/screen/t.jpg" width="24%" >
+<img style="margin-left:0px;" src="https://raw.githubusercontent.com/xujiaji/xujiaji.github.io/pictures/wanandroid/screen/m.jpg" width="24%" >
+<img style="margin-left:0px;" src="https://raw.githubusercontent.com/xujiaji/xujiaji.github.io/pictures/wanandroid/screen/n.jpg" width="24%" >
+<img style="margin-left:0px;" src="https://raw.githubusercontent.com/xujiaji/xujiaji.github.io/pictures/wanandroid/screen/o.jpg" width="24%" >
+</div>
+
+<div>
+<img style="margin-left:0px;" src="https://raw.githubusercontent.com/xujiaji/xujiaji.github.io/pictures/wanandroid/screen/p.jpg" width="24%" >
+<img style="margin-left:0px;" src="https://raw.githubusercontent.com/xujiaji/xujiaji.github.io/pictures/wanandroid/screen/q.jpg" width="24%" >
+<img style="margin-left:0px;" src="https://raw.githubusercontent.com/xujiaji/xujiaji.github.io/pictures/wanandroid/screen/r.jpg" width="24%" >
+<img style="margin-left:0px;" src="https://raw.githubusercontent.com/xujiaji/xujiaji.github.io/pictures/wanandroid/screen/s.jpg" width="24%" >
+</div>
+
+<img style="margin-left:0px;" src="https://raw.githubusercontent.com/xujiaji/xujiaji.github.io/pictures/wanandroid/screen/z.gif" width="24%" >
 
 ## License
 > Copyright (C) 2018 Xu Jiaji  
