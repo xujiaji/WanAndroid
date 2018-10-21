@@ -4,6 +4,9 @@ apply plugin: 'kotlin-android'
 
 apply plugin: 'kotlin-android-extensions'
 
+Properties props = new Properties()
+props.load(project.rootProject.file('local.properties').newDataInputStream())
+
 android {
 
     compileSdkVersion rootProject.compileSdk
@@ -11,8 +14,8 @@ android {
         applicationId "com.xujiaji.wanandroid"
         minSdkVersion rootProject.minSdk
         targetSdkVersion rootProject.targetSdk
-        versionCode 3
-        versionName "1.0.2"
+        versionCode 4
+        versionName "1.0.3"
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
 //        externalNativeBuild {
 //            cmake {
@@ -30,13 +33,28 @@ android {
         buildConfigField "String", "UPDATE_VERSION_URL", "$versionUrl"
         buildConfigField "String",     "CATEGORY_THUMB", "$categoryThumb"
     }
+
+    signingConfigs {
+        release {
+            storeFile file(props['KEYSTORE_PATH'])
+            storePassword props['KEYSTORE_PASSWORD']
+            keyAlias props['KEY_ALIAS']
+            keyPassword props['KEY_PASSWORD']
+        }
+    }
+
     buildTypes {
         release {
             minifyEnabled true
             zipAlignEnabled true
             // 移除无用的resource文件
             shrinkResources true
+            signingConfig signingConfigs.release
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+
+        debug {
+            signingConfig signingConfigs.release
         }
     }
 

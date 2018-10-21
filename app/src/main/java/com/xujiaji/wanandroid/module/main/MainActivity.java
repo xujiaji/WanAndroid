@@ -1,5 +1,7 @@
 package com.xujiaji.wanandroid.module.main;
 
+import android.content.Intent;
+import android.content.pm.PackageManager;
 import android.os.Bundle;
 import android.support.annotation.IdRes;
 import android.support.annotation.NonNull;
@@ -16,6 +18,7 @@ import android.view.View;
 import android.widget.TextView;
 
 import com.google.gson.Gson;
+import com.qihoo360.replugin.RePlugin;
 import com.xujiaji.mvvmquick.util.ActivityUtils;
 import com.xujiaji.wanandroid.R;
 import com.xujiaji.wanandroid.adapter.FragmentsPagerAdapter;
@@ -31,9 +34,9 @@ import com.xujiaji.wanandroid.module.about.AboutActivity;
 import com.xujiaji.wanandroid.module.login.LoginActivity;
 import com.xujiaji.wanandroid.module.set.SettingsActivity;
 import com.xujiaji.wanandroid.repository.bean.UserBean;
+import com.xujiaji.wanandroid.util.ApkUtil;
 
 import java.util.List;
-import java.util.Objects;
 
 import javax.inject.Inject;
 import javax.inject.Named;
@@ -153,11 +156,30 @@ public class MainActivity extends BaseActivity<ActivityMainBinding, MainViewMode
         binding.navMenu.drawerTabLayout.setupWithViewPager(binding.navMenu.drawerViewPager);
         binding.fab.setOnClickListener(v -> {
             if (App.Login.isOK()) {
-                ToastHelper.info("敬请期待！");
+                launchTodo();
             } else {
                 LoginActivity.launch(MainActivity.this);
             }
         });
+    }
+
+    /**
+     * launch todoapp
+     */
+    private void launchTodo() {
+        if (ApkUtil.isInstalled(this, "com.xujiaji.todo")) {
+            Intent intent = getPackageManager().getLaunchIntentForPackage("com.xujiaji.todo");
+            startActivity(intent);
+        } else {
+            int tip_todo_sum = PrefHelper.getInt("tip_todo_sum");
+            if (tip_todo_sum < 2) {
+                ToastHelper.info("可进入设置，单独安装 Todo Apk");
+                PrefHelper.set("tip_todo_sum", tip_todo_sum + 1);
+            }
+            RePlugin.startActivity(this,
+                    RePlugin.createIntent("com.xujiaji.todo",
+                            "com.xujiaji.todo.module.main.MainActivity"));
+        }
     }
 
     private void changeAccount(UserBean userBean) {

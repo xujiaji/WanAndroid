@@ -6,11 +6,14 @@ import android.os.Bundle;
 import android.support.annotation.NonNull;
 
 import com.qihoo360.replugin.RePlugin;
+import com.qihoo360.replugin.model.PluginInfo;
 import com.xujiaji.mvvmquick.base.NoneViewModel;
 import com.xujiaji.wanandroid.base.BaseActivity;
 import com.xujiaji.wanandroid.databinding.ActivitySettingsBinding;
 import com.xujiaji.wanandroid.helper.ToolbarHelper;
 import com.xujiaji.wanandroid.util.FileUtil;
+
+import java.util.List;
 
 /**
  * author: xujiaji
@@ -40,6 +43,10 @@ public class SettingsActivity extends BaseActivity<ActivitySettingsBinding, Sett
         super.onObserveViewModel(viewModel);
         binding.setSettingsViewModel(viewModel);
         viewModel.cacheSize.set(FileUtil.getCacheSizeStr(this));
-        viewModel.pluginNum.set(RePlugin.getPluginInfoList().size());
+        int pluginNum = 0;
+        for (PluginInfo pluginInfo : RePlugin.getPluginInfoList()) {
+            pluginNum += pluginInfo.isUsed() ? 1 : 0;
+        }
+        viewModel.pluginNum.set(pluginNum);
     }
 }

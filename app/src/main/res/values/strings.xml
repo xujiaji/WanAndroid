@@ -91,5 +91,6 @@
     <string name="give_friend_download"><![CDATA[分享给身边的好友扫描下载 >]]></string>
     <string name="format_have_sum_category">%s个子分类</string>
     <string name="start_init_tree_data">正在初始化体系数据，请稍后...</string>
+    <string name="download_todo_apk">下载安装Todo Apk（建议）</string>
 
 </resources>

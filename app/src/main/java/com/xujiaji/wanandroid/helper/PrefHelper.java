@@ -1,9 +1,12 @@
 package com.xujiaji.wanandroid.helper;
 
+import android.content.Context;
 import android.content.SharedPreferences;
+import android.content.pm.PackageManager;
 import android.preference.PreferenceManager;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
+
 
 import com.xujiaji.wanandroid.base.App;
 
@@ -17,6 +20,28 @@ public class PrefHelper {
      * 用户信息key
      */
     public static final String USER_INFO = "user_info";
+
+    private static Context mHostContext;
+    private static boolean isFailCreateHostContext;
+
+    /**
+     * 获取玩安卓客户端Context
+     */
+    private static Context getShareUserContext() {
+        if (mHostContext == null) {
+            if (isFailCreateHostContext) return null;
+            synchronized (PrefHelper.class) {
+                try {
+                    mHostContext = App.getInstance().createPackageContext("com.xujiaji.todo",
+                            Context.CONTEXT_INCLUDE_CODE | Context.CONTEXT_IGNORE_SECURITY);
+                } catch (PackageManager.NameNotFoundException e) {
+                    e.printStackTrace();
+                    isFailCreateHostContext = true;
+                }
+            }
+        }
+        return mHostContext;
+    }
 
     /**
      * @param key   ( the Key to used to retrieve this data later  )
@@ -52,7 +77,13 @@ public class PrefHelper {
 
     @Nullable
     public static String getString(@NonNull String key) {
-        return PreferenceManager.getDefaultSharedPreferences(App.getInstance()).getString(key, null);
+        String value = PreferenceManager.getDefaultSharedPreferences(App.getInstance()).getString(key, null);
+        if (value == null) {
+            if (getShareUserContext() == null) return null;
+            return PreferenceManager.getDefaultSharedPreferences(getShareUserContext()).getString(key, null);
+        } else {
+            return value;
+        }
     }
 
     public static boolean getBoolean(@NonNull String key) {
@@ -78,7 +109,8 @@ public class PrefHelper {
     }
 
     public static boolean isExist(@NonNull String key) {
-        return PreferenceManager.getDefaultSharedPreferences(App.getInstance()).contains(key);
+        boolean value = PreferenceManager.getDefaultSharedPreferences(App.getInstance()).contains(key);
+        return value || getShareUserContext() != null && PreferenceManager.getDefaultSharedPreferences(getShareUserContext()).contains(key);
     }
 
     public static void clearPrefs() {

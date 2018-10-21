@@ -9,9 +9,12 @@ import android.view.View;
 
 import com.qihoo360.replugin.RePlugin;
 import com.qihoo360.replugin.model.PluginInfo;
+import com.xujiaji.wanandroid.base.App;
 import com.xujiaji.wanandroid.base.BaseViewModel;
 import com.xujiaji.wanandroid.helper.ToastHelper;
+import com.xujiaji.wanandroid.util.ApkUtil;
 import com.xujiaji.wanandroid.util.FileUtil;
+import com.xujiaji.wanandroid.util.NetUtil;
 
 import javax.inject.Inject;
 import javax.inject.Singleton;
@@ -55,5 +58,13 @@ public class SettingsViewModel extends BaseViewModel {
         }
         pluginNum.set(0);
         ToastHelper.success("已清除，重启生效");
+    }
+
+    public boolean isUnInstallTodoApk() {
+        return !ApkUtil.isInstalled(App.getInstance(), "com.xujiaji.todo");
+    }
+
+    public void installTodoApk(View view) {
+        NetUtil.systemBrowserOpen(view.getContext(), "https://github.com/xujiaji/Todo");
     }
 }
