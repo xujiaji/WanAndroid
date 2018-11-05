@@ -30,6 +30,7 @@
       "url": "https://github.com/xujiaji/HappyBubble"
     },
     {
+      "thumb": "https://raw.githubusercontent.com/xujiaji/xujiaji.github.io/pictures/wanandroid/plugin-thumb/SolarProgresView.gif",
       "name":"SolarProgresView",
       "description":"类似于太阳花形状的自定义进度条，主要根据光线传感器展示光线强度",
       "pkg":"com.mqt.solarprogressview",
