@@ -28,6 +28,14 @@
       "start_class": "com.xujiaji.happybubbletest.MainActivity",
       "version_code": 2,
       "url": "https://github.com/xujiaji/HappyBubble"
+    },
+    {
+      "name":"SolarProgresView",
+      "description":"类似于太阳花形状的自定义进度条，主要根据光线传感器展示光线强度",
+      "pkg":"com.mqt.solarprogressview",
+      "start_class":"com.mqt.solarprogressview.SampleActy",
+      "version_code":1,
+      "url":"https://github.com/miqt/SolarProgressView"
     }
   ]
 }
