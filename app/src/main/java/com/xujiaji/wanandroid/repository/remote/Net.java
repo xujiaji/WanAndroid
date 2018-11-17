@@ -42,6 +42,11 @@ public class Net {
      */
     public static final int ZERO = 0;
 
+    /**
+     * 未登录
+     */
+    public static final int NOT_LOGIN = -1001;
+
     public static final String SAVE_USER_LOGIN_KEY = "user/login";
     public static final String SAVE_USER_REGISTER_KEY = "user/register";
     public static final String SET_COOKIE_KEY = "set-cookie";

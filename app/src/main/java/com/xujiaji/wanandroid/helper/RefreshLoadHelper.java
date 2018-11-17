@@ -8,7 +8,9 @@ import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.widget.RecyclerView;
 
 import com.xujiaji.mvvmquick.base.MQQuickAdapter;
+import com.xujiaji.wanandroid.R;
 import com.xujiaji.wanandroid.RefreshLoadViewModel;
+import com.xujiaji.wanandroid.base.App;
 import com.xujiaji.wanandroid.config.C;
 import com.xujiaji.wanandroid.model.RefreshLoadModel;
 import com.xujiaji.wanandroid.repository.bean.PageBean;
@@ -52,8 +54,12 @@ public class RefreshLoadHelper {
                             adapter.setLoaded(false);
                         }
 
-                        if (pageBeanResult == null) {
-                            EmptyViewHelper.setErrEmpty(recyclerView, null);
+                        if (pageBeanResult == null || pageBeanResult.getErrorCode() != Net.ZERO) {
+                            EmptyViewHelper.setErrEmpty(recyclerView, pageBeanResult != null ? pageBeanResult.getErrorMsg() : null);
+                            if (pageBeanResult != null && pageBeanResult.getErrorCode() == Net.NOT_LOGIN) {
+                                ToastHelper.error(App.getInstance().getString(R.string.not_login));
+                                App.Login.out();
+                            }
                             return;
                         }
 

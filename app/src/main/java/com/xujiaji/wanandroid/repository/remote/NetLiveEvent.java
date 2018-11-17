@@ -6,7 +6,11 @@ import android.arch.lifecycle.Observer;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 
+import com.xujiaji.wanandroid.R;
+import com.xujiaji.wanandroid.base.App;
 import com.xujiaji.wanandroid.config.C;
+import com.xujiaji.wanandroid.helper.PrefHelper;
+import com.xujiaji.wanandroid.helper.ToastHelper;
 import com.xujiaji.wanandroid.repository.bean.Result;
 
 public class NetLiveEvent<T> extends MutableLiveData<MutableLiveData<Result<T>>> {
@@ -49,6 +53,10 @@ public class NetLiveEvent<T> extends MutableLiveData<MutableLiveData<Result<T>>>
                                 callback.success(tResult.getData());
                             }
                         } else {
+                            if (tResult.getErrorCode() == Net.NOT_LOGIN) {
+                                ToastHelper.error(App.getInstance().getString(R.string.not_login));
+                                App.Login.out();
+                            }
                             callback.fail(tResult.getErrorCode(), tResult.getErrorMsg());
                         }
                     }

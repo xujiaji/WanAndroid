@@ -9,6 +9,7 @@ import android.support.annotation.Nullable;
 
 
 import com.xujiaji.wanandroid.base.App;
+import com.xujiaji.wanandroid.repository.remote.Net;
 
 import java.util.Map;
 
@@ -105,6 +106,15 @@ public class PrefHelper {
     }
 
     public static void clearKey(@NonNull String key) {
+        if (Net.SAVE_USER_LOGIN_KEY.equals(key) || PrefHelper.USER_INFO.equals(key)) {
+            String value = PreferenceManager.getDefaultSharedPreferences(App.getInstance()).getString(key, null);
+            if (value == null) {
+                if (getShareUserContext() == null) return;
+                value = PreferenceManager.getDefaultSharedPreferences(getShareUserContext()).getString(key, null);
+                if (value == null) return;
+                PreferenceManager.getDefaultSharedPreferences(getShareUserContext()).edit().remove(key).apply();
+            }
+        }
         PreferenceManager.getDefaultSharedPreferences(App.getInstance()).edit().remove(key).apply();
     }
 
