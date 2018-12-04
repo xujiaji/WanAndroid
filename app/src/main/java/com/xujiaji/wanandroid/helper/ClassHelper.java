@@ -18,12 +18,12 @@ public class ClassHelper {
     public static TextPaint getCollapsingTitlePaint(CollapsingToolbarLayout collapsing) {
         try {
             Class clazz = Class.forName("android.support.design.widget.CollapsingToolbarLayout");
-            Field fieldTextHelper = clazz.getDeclaredField("mCollapsingTextHelper");
+            Field fieldTextHelper = clazz.getDeclaredField("collapsingTextHelper");
             fieldTextHelper.setAccessible(true);
             Object obj = fieldTextHelper.get(collapsing);
 
             Class clazzHelper = Class.forName("android.support.design.widget.CollapsingTextHelper");
-            Field fieldTextPaint = clazzHelper.getDeclaredField("mTextPaint");
+            Field fieldTextPaint = clazzHelper.getDeclaredField("textPaint");
             fieldTextPaint.setAccessible(true);
             return (TextPaint) fieldTextPaint.get(obj);
         } catch (ClassNotFoundException | NoSuchFieldException | IllegalAccessException e) {
