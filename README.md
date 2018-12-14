@@ -18,10 +18,15 @@
 7️⃣  首页宝箱部分是通过360插件框架[RePlugin](https://github.com/Qihoo360/RePlugin)实现，目前可动态添加插件。希望加上自己的工具或Demo的朋友[可在此留下信息](https://github.com/xujiaji/WanAndroid/issues/1)
 
 ## Download Apk
-|github下载|fir.im下载|
-|:-:|:-:|
-|[Github Download Link](https://github.com/xujiaji/WanAndroid/releases/download/v1.0.3/app-release.apk)|https://fir.im/Wan |
-|![](https://raw.githubusercontent.com/xujiaji/xujiaji.github.io/pictures/wanandroid/download_qr.png) |![](https://raw.githubusercontent.com/xujiaji/xujiaji.github.io/pictures/wanandroid/download_by_fir.png)|
+[<img src="https://raw.githubusercontent.com/xujiaji/xujiaji.github.io/pictures/github/coolapk_download.png"
+      alt="coolapk下载"
+      height="80">](https://www.coolapk.com/apk/com.xujiaji.wanandroid) 
+[<img src="https://raw.githubusercontent.com/xujiaji/xujiaji.github.io/pictures/github/github_download.png"
+      alt="github下载"
+      height="80">](https://github.com/xujiaji/WanAndroid/releases) 
+[<img src="https://raw.githubusercontent.com/xujiaji/xujiaji.github.io/pictures/github/fir_download.png"
+      alt="fir下载"
+      height="80">](https://fir.im/Wan) 
 
 ## Update
 - `1.0.3` add todo, home category tag click event
