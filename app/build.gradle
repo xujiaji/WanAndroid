@@ -14,8 +14,8 @@ android {
         applicationId "com.xujiaji.wanandroid"
         minSdkVersion rootProject.minSdk
         targetSdkVersion rootProject.targetSdk
-        versionCode 4
-        versionName "1.0.3"
+        versionCode 5
+        versionName "1.0.4"
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
 //        externalNativeBuild {
 //            cmake {
@@ -143,4 +143,6 @@ dependencies {
     implementation "com.umeng.sdk:analytics:$umengAnalytics"
 
     implementation "jp.wasabeef:blurry:$blurry"
+
+    implementation "com.scwang.wave:MultiWaveHeader:$multiWaveHeader"
 }

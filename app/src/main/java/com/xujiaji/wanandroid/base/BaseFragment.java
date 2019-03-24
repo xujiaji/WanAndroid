@@ -17,12 +17,12 @@ public abstract class BaseFragment<B extends ViewDataBinding, VM extends MQViewM
     @Override
     public void onResume() {
         super.onResume();
-        MobclickAgent.onPageStart(this.getClass().getSimpleName());
+//        MobclickAgent.onPageStart(this.getClass().getSimpleName());
     }
 
     @Override
     public void onPause() {
         super.onPause();
-        MobclickAgent.onPageEnd(this.getClass().getSimpleName());
+//        MobclickAgent.onPageEnd(this.getClass().getSimpleName());
     }
 }

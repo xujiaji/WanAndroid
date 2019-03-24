@@ -30,7 +30,7 @@ task clean(type: Delete) {
 
 
 ext{
-    baseUrl          = '"http://www.wanandroid.com/"'
+    baseUrl          = '"https://www.wanandroid.com/"'
     downloadQRUrl    = '"https://raw.githubusercontent.com/xujiaji/xujiaji.github.io/pictures/wanandroid/download_qr.png"'
     pluginsUrl       = '"https://raw.githubusercontent.com/xujiaji/WanAndroid/master/json/plugin_list.json"'
     versionUrl       = '"https://raw.githubusercontent.com/xujiaji/WanAndroid/master/json/version.json"'
@@ -66,4 +66,5 @@ ext{
     mvvmQuick        = '0.0.5'
     stream           = '1.1.9'
     blurry           = '2.1.1'
+    multiWaveHeader  = '1.0.0-alpha-1'
 }

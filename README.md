@@ -1,4 +1,4 @@
-[![Version](https://img.shields.io/badge/version-1.0.3-green.svg)]() [![License: GPL v3](https://img.shields.io/badge/License-GPL%20v3-blue.svg)](https://www.gnu.org/licenses/gpl-3.0)
+[![Version](https://img.shields.io/badge/version-1.0.4-green.svg)]() [![License: GPL v3](https://img.shields.io/badge/License-GPL%20v3-blue.svg)](https://www.gnu.org/licenses/gpl-3.0)
 
 > 目前功能还未完
 
@@ -20,10 +20,11 @@
 ## Download Apk
 |github下载|fir.im下载|
 |:-:|:-:|
-|[Github Download Link](https://github.com/xujiaji/WanAndroid/releases/download/v1.0.3/app-release.apk)|https://fir.im/Wan |
+|[Github Download Link](https://github.com/xujiaji/WanAndroid/releases/download/v1.0.4/app-release.apk)|https://fir.im/Wan |
 |![](https://raw.githubusercontent.com/xujiaji/xujiaji.github.io/pictures/wanandroid/download_qr.png) |![](https://raw.githubusercontent.com/xujiaji/xujiaji.github.io/pictures/wanandroid/download_by_fir.png)|
 
 ## Update
+- `1.0.4` http change to https, add home left menu style<br><img style="margin-left:0px;" src="https://raw.githubusercontent.com/xujiaji/xujiaji.github.io/pictures/wanandroid/update/20190324190400.png" width="24%" >
 - `1.0.3` add todo, home category tag click event
 - `1.0.2` [fix #2](https://github.com/xujiaji/WanAndroid/issues/2)
 - `1.0.1` 新增体系详情列表界面<br>

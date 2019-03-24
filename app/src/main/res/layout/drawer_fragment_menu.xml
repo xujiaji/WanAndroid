@@ -9,6 +9,7 @@
         android:clickable="true"
         android:fitsSystemWindows="true"
         android:focusable="true"
+        android:background="@color/transparent"
         app:itemBackground="@color/transparent"
         app:itemIconTint="@color/search_tab_highlighter"
         app:itemTextColor="@color/search_tab_highlighter"

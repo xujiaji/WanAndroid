@@ -8,12 +8,26 @@
         android:layout_height="match_parent"
         android:layout_gravity="start"
         android:clickable="true"
-        android:fitsSystemWindows="true"
         android:focusable="true"
         app:headerLayout="@layout/drawer_header"
-        app:itemBackground="@color/transparent"
+        app:itemBackground="@color/colorPrimaryLight"
         app:itemIconTint="@color/search_tab_highlighter"
         app:itemTextColor="@color/search_tab_highlighter">
+
+        <com.scwang.wave.MultiWaveHeader
+            android:id="@+id/waveHeader"
+            android:layout_width="match_parent"
+            android:layout_height="30dp"
+            android:layout_gravity="bottom"
+            app:layout_constraintTop_toTopOf="parent"
+            app:mwhCloseColor="@color/colorAccent"
+            app:mwhColorAlpha="0.3"
+            app:mwhProgress="1"
+            app:mwhStartColor="@color/colorPrimaryLight"
+            app:mwhVelocity="3"
+            app:mwhWaveHeight="20dp"
+            android:scaleY="-1"
+            app:mwhWaves="MultiWave" />
 
         <LinearLayout
             android:id="@+id/navDown"

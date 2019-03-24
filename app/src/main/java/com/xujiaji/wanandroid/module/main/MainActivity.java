@@ -5,7 +5,9 @@ import android.content.pm.PackageManager;
 import android.os.Bundle;
 import android.support.annotation.IdRes;
 import android.support.annotation.NonNull;
+import android.support.constraint.ConstraintLayout;
 import android.support.design.widget.BottomNavigationView;
+import android.support.design.widget.NavigationView;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v4.widget.DrawerLayout;
@@ -15,11 +17,13 @@ import android.view.Gravity;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.TextView;
 
 import com.google.gson.Gson;
 import com.qihoo360.replugin.RePlugin;
 import com.xujiaji.mvvmquick.util.ActivityUtils;
+import com.xujiaji.mvvmquick.util.ScreenUtils;
 import com.xujiaji.wanandroid.R;
 import com.xujiaji.wanandroid.adapter.FragmentsPagerAdapter;
 import com.xujiaji.wanandroid.base.App;
@@ -148,7 +152,18 @@ public class MainActivity extends BaseActivity<ActivityMainBinding, MainViewMode
 
     @Override
     public void onBinding(@NonNull ActivityMainBinding binding) {
-        ToolbarHelper.initPaddingTopDiffBar(binding.navMenu.extrasNav);
+//        ToolbarHelper.initPaddingTopDiffBar(binding.navMenu.extrasNav);
+        ConstraintLayout layout = binding.navMenu.extrasNav.getHeaderView(0).findViewById(R.id.navAccHolder);
+        layout.post(() -> {
+            int topHeight = ScreenUtils.getStatusHeight(MainActivity.this) + ScreenUtils.dipTopx(MainActivity.this, 100);
+            ViewGroup.LayoutParams params1 = layout.getLayoutParams();
+            params1.height = topHeight;
+            layout.setLayoutParams(params1);
+
+            NavigationView.LayoutParams params2 = (NavigationView.LayoutParams) binding.navMenu.navDown.getLayoutParams();
+            params2.topMargin = topHeight;
+            binding.navMenu.navDown.setLayoutParams(params2);
+        });
         ToolbarHelper.initFullBar(binding.includeBar.toolbar, this);
         initDrawer(binding.drawer, binding.includeBar.toolbar);
         binding.navigation.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener);

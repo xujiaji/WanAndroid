@@ -129,6 +129,14 @@
       "desc":"🚀 Android 版本更新 🚀 a library for android version update 🚀",
       "link":"https://github.com/WVector/AppUpdate",
       "license":"Apache-2.0"
+    },
+    {
+      "thumb":"https://avatars2.githubusercontent.com/u/11567071?s=460&v=4",
+      "name":"MultiWaveHeader",
+      "author":"scwang90",
+      "desc":"Android 炫酷的多重水波纹 MultiWaveHeader Wave",
+      "link":"https://github.com/scwang90/MultiWaveHeader",
+      "license":"Apache-2.0"
     }
   ]
 }
