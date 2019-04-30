@@ -169,13 +169,13 @@ public class MainActivity extends BaseActivity<ActivityMainBinding, MainViewMode
         binding.navigation.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener);
         binding.navMenu.drawerViewPager.setAdapter(mDrawerPagerAdapter);
         binding.navMenu.drawerTabLayout.setupWithViewPager(binding.navMenu.drawerViewPager);
-        binding.fab.setOnClickListener(v -> {
-            if (App.Login.isOK()) {
-                launchTodo();
-            } else {
-                LoginActivity.launch(MainActivity.this);
-            }
-        });
+//        binding.fab.setOnClickListener(v -> {
+//            if (App.Login.isOK()) {
+//                launchTodo();
+//            } else {
+//                LoginActivity.launch(MainActivity.this);
+//            }
+//        });
     }
 
     /**
@@ -232,7 +232,7 @@ public class MainActivity extends BaseActivity<ActivityMainBinding, MainViewMode
                 return;
             case R.id.navigation_home:
                 if (binding.navigation.getMenu().size() != 3) { //当前不为首页时，注意首页底部导航数量不为3时，必须修改这个值
-                    binding.fab.setVisibility(View.VISIBLE);
+//                    binding.fab.setVisibility(View.VISIBLE);
                     binding.includeBar.toolbar.getMenu().findItem(R.id.search).setVisible(true);
                     showFrag(mBlogModel);
                     BottomNavigationHelper.showHome(binding.navigation);
@@ -241,7 +241,7 @@ public class MainActivity extends BaseActivity<ActivityMainBinding, MainViewMode
         }
 
         BottomNavigationHelper.onlyShow(binding.navigation, id);
-        binding.fab.setVisibility(View.GONE);
+//        binding.fab.setVisibility(View.GONE);
         binding.includeBar.toolbar.getMenu().findItem(R.id.search).setVisible(false);
         switch (id) {
             case R.id.navigation_open_apis:

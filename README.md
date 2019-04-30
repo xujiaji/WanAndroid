@@ -1,4 +1,4 @@
-[![Version](https://img.shields.io/badge/version-1.0.4-green.svg)]() [![License: GPL v3](https://img.shields.io/badge/License-GPL%20v3-blue.svg)](https://www.gnu.org/licenses/gpl-3.0)
+[![Version](https://img.shields.io/badge/version-1.0.5-green.svg)]() [![License: GPL v3](https://img.shields.io/badge/License-GPL%20v3-blue.svg)](https://www.gnu.org/licenses/gpl-3.0)
 
 > 目前功能还未完
 
@@ -30,6 +30,7 @@
       height="80">](https://fir.im/Wan)
 
 ## Update
+- `1.0.5` remove todo feature
 - `1.0.4` http change to https, add home left menu style<br><img style="margin-left:0px;" src="https://raw.githubusercontent.com/xujiaji/xujiaji.github.io/pictures/wanandroid/update/20190324190400.png" width="24%" >
 - `1.0.3` add todo, home category tag click event
 - `1.0.2` [fix #2](https://github.com/xujiaji/WanAndroid/issues/2)

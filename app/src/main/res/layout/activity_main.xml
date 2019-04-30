@@ -33,22 +33,22 @@
                 app:layout_behavior="com.xujiaji.wanandroid.behavior.BottomNavigationBehavior"
                 app:menu="@menu/navigation" />
 
-            <android.support.design.widget.FloatingActionButton
-                android:id="@+id/fab"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="top"
-                android:layout_margin="@dimen/layout_margin"
-                android:src="@drawable/ic_todo_list"
-                android:tint="@color/white"
-                app:fabSize="normal"
-                android:clickable="true"
-                android:focusable="true"
-                app:rippleColor="@color/colorPrimaryDark"
-                app:useCompatPadding="true"
-                app:layout_anchor="@id/navigation"
-                app:layout_anchorGravity="top|end"
-                app:layout_behavior="com.xujiaji.wanandroid.behavior.BottomNavigationFABBehavior"/>
+            <!--<android.support.design.widget.FloatingActionButton-->
+                <!--android:id="@+id/fab"-->
+                <!--android:layout_width="wrap_content"-->
+                <!--android:layout_height="wrap_content"-->
+                <!--android:layout_gravity="top"-->
+                <!--android:layout_margin="@dimen/layout_margin"-->
+                <!--android:src="@drawable/ic_todo_list"-->
+                <!--android:tint="@color/white"-->
+                <!--app:fabSize="normal"-->
+                <!--android:clickable="true"-->
+                <!--android:focusable="true"-->
+                <!--app:rippleColor="@color/colorPrimaryDark"-->
+                <!--app:useCompatPadding="true"-->
+                <!--app:layout_anchor="@id/navigation"-->
+                <!--app:layout_anchorGravity="top|end"-->
+                <!--app:layout_behavior="com.xujiaji.wanandroid.behavior.BottomNavigationFABBehavior"/>-->
         </android.support.design.widget.CoordinatorLayout>
 
         <include
